@@ -1,4 +1,4 @@
-# Tarek Ibrahim Salama — blog
+# Tarek Ibrahim Salama
 
 Personal site and blog: security research, DFIR & malware analysis, and CTF
 writeups. Built with [Astro](https://astro.build), searched with
