@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../utils';
+---
+
+<Base title="Not found" description="That page doesn't exist.">
+  <div class="wrap">
+    <div class="page-head">
+      <p class="eyebrow">404</p>
+      <h1>Nothing at this address.</h1>
+      <p class="blurb">
+        The page was moved, renamed, or never existed. The blog is probably what
+        you want.
+      </p>
+    </div>
+    <p><a class="out" href={url('posts/')}>Go to the blog &rarr;</a></p>
+  </div>
+</Base>

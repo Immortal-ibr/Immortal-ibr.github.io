@@ -1,0 +1,11 @@
+---
+// Home is the hero and nothing else. The inline post list that used to sit
+// below it created the awkward seam halfway down the page — now the front
+// door leads straight into /posts/ rather than half-revealing it.
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<Base solidNav={false}>
+  <Hero slot="hero" />
+</Base>

@@ -1,0 +1,21 @@
+---
+import Base from '../../layouts/Base.astro';
+import Filters from '../../components/Filters.astro';
+import PostList from '../../components/PostList.astro';
+import { getPosts, pinnedFirst } from '../../utils';
+
+const posts = await getPosts();
+// The featured (big) slot: a pinned post wins; otherwise the newest takes it.
+const ordered = pinnedFirst(posts);
+---
+
+<Base title="Blog" description="Research notes, CTF writeups, labs and tools.">
+  <div class="wrap">
+    <div class="page-head">
+      <p class="eyebrow">{posts.length} {posts.length === 1 ? 'post' : 'posts'}</p>
+      <h1>Blog</h1>
+    </div>
+    <Filters />
+    {posts.length === 0 ? <p>No posts yet — check back soon.</p> : <PostList posts={ordered} />}
+  </div>
+</Base>

@@ -1,0 +1,235 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { getPosts, url, isoDate, slugify, readingTime } from '../../utils';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post, i) => ({
+    params: { slug: post.id },
+    props: { post, newer: posts[i - 1] ?? null, older: posts[i + 1] ?? null },
+  }));
+}
+
+const { post, newer, older } = Astro.props;
+const { Content, headings } = await render(post);
+const d = post.data;
+const mins = readingTime(post.body ?? '');
+
+// A rail is only worth the space when there's real structure to navigate.
+const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
+const showToc = toc.length >= 3;
+
+// Live repo stats, fetched at build time so they refresh on every deploy and
+// cost the visitor nothing. A failed request just drops the block.
+let repo: { stars: number; forks: number; issues: number; language: string; license: string } | null = null;
+if (d.repoUrl?.startsWith('https://github.com/')) {
+  const slug = d.repoUrl.replace('https://github.com/', '').replace(/\/+$/, '');
+  try {
+    const res = await fetch(`https://api.github.com/repos/${slug}`, {
+      headers: { Accept: 'application/vnd.github+json', 'User-Agent': 'tarek-blog-build' },
+    });
+    if (res.ok) {
+      const j = await res.json();
+      repo = {
+        stars: j.stargazers_count ?? 0,
+        forks: j.forks_count ?? 0,
+        issues: j.open_issues_count ?? 0,
+        language: j.language ?? '—',
+        license: j.license?.spdx_id ?? '—',
+      };
+    } else {
+      console.warn(`[repo-stats] ${slug} -> HTTP ${res.status}, skipping stats block`);
+    }
+  } catch (e) {
+    console.warn(`[repo-stats] ${slug} -> ${e}, skipping stats block`);
+  }
+}
+
+// Same post always gets the same pose; neighbouring posts almost never share
+// one, so moving through the blog visibly shifts where L is sitting.
+const pose = [...post.id].reduce((a, c) => (a * 31 + c.charCodeAt(0)) % 5, 7);
+
+const ctas = [
+  d.repoUrl && { href: d.repoUrl, label: 'View on GitHub' },
+  d.challengeUrl && { href: d.challengeUrl, label: 'Try the challenge' },
+  d.externalUrl && { href: d.externalUrl, label: d.externalLabel },
+].filter(Boolean) as { href: string; label: string }[];
+---
+
+<Base title={d.title} description={d.description} image={d.image} article={true} ambient="still" pose={pose}>
+  <div class:list={["doc-shell", { "has-toc": showToc }]}>
+  <div class="doc-panel">
+  <article class="article">
+    <header>
+      <p class="meta">
+        <time datetime={d.published.toISOString()}>{isoDate(d.published)}</time>
+        {d.category && (
+          <>
+            <span class="sep" aria-hidden="true">·</span>
+            <a href={url(`category/${slugify(d.category)}/`)}><b>{d.category}</b></a>
+          </>
+        )}
+        <span class="sep" aria-hidden="true">·</span>
+        <span>{mins} min read</span>
+        {d.updated && (
+          <>
+            <span class="sep" aria-hidden="true">·</span>
+            <span>updated {isoDate(d.updated)}</span>
+          </>
+        )}
+      </p>
+      <h1>{d.title}</h1>
+      {d.description && <p class="lead">{d.description}</p>}
+
+      {d.contributors.length > 0 && (
+        <p class="byline">
+          <span class="byline-label">With</span>
+          {d.contributors.map((c, i) => (
+            <>
+              {i > 0 && (
+                <span class="byline-join" aria-hidden="true">
+                  {i === d.contributors.length - 1 ? ' and ' : ', '}
+                </span>
+              )}
+              {c.url ? (
+                <a href={c.url} target="_blank" rel="noopener noreferrer">{c.name}</a>
+              ) : (
+                <span>{c.name}</span>
+              )}
+            </>
+          ))}
+        </p>
+      )}
+
+      {d.image && (
+        <div class="cover"><img src={url(d.image)} alt="" /></div>
+      )}
+
+      {ctas.length > 0 && (
+        <div class="cta-box liquid-glass">
+          {(d.event || d.difficulty) && (
+            <p class="info">
+              {d.event}{d.event && d.difficulty ? ' · ' : ''}{d.difficulty}
+            </p>
+          )}
+          {ctas.map((c) => (
+            <a class="pill liquid-glass" href={c.href} target="_blank" rel="noopener noreferrer">
+              {c.label} &rarr;
+            </a>
+          ))}
+        </div>
+      )}
+      {repo && (
+        <div class="repo-stats">
+          <div class="repo-stat"><span class="n">{repo.stars.toLocaleString()}</span><span class="k">Stars</span></div>
+          <div class="repo-stat"><span class="n">{repo.forks.toLocaleString()}</span><span class="k">Forks</span></div>
+          <div class="repo-stat"><span class="n">{repo.issues.toLocaleString()}</span><span class="k">Open issues</span></div>
+          <div class="repo-stat"><span class="n">{repo.language}</span><span class="k">Language</span></div>
+          <div class="repo-stat"><span class="n">{repo.license}</span><span class="k">License</span></div>
+        </div>
+      )}
+    </header>
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    {d.tags.length > 0 && (
+      <footer class="tags">
+        <span class="label">Tagged</span>
+        {d.tags.map((t) => <a href={url(`tag/${slugify(t)}/`)}>#{t}</a>)}
+      </footer>
+    )}
+
+    {(newer || older) && (
+      <nav class="pager" aria-label="More posts">
+        {older ? (
+          <a href={url(`posts/${older.id}/`)}>
+            <span class="k">&larr; Older</span>
+            <span class="t">{older.data.title}</span>
+          </a>
+        ) : <span />}
+        {newer && (
+          <a class="next" href={url(`posts/${newer.id}/`)}>
+            <span class="k">Newer &rarr;</span>
+            <span class="t">{newer.data.title}</span>
+          </a>
+        )}
+      </nav>
+    )}
+  </article>
+  </div>
+
+  {showToc && (
+    <aside class="toc" aria-label="Table of contents">
+      <p class="toc-title">Contents</p>
+      <ol>
+        {toc.map((h) => (
+          <li class={`lvl-${h.depth}`}><a href={`#${h.slug}`}>{h.text}</a></li>
+        ))}
+      </ol>
+    </aside>
+  )}
+  </div>
+
+  <script>
+    // Highlight the section being read. Driven by scroll position rather than
+    // an intersection band: a band only lights up while a heading happens to
+    // be inside it, so the rail went blank whenever you were mid-section.
+    //
+    // Heading ids here can start with a digit ("1-create-a-markdown-file") —
+    // valid HTML, but an INVALID CSS selector, so querySelector('#1-…') throws.
+    // getElementById has no such restriction.
+    function initToc() {
+      const links = [...document.querySelectorAll<HTMLAnchorElement>('.toc a')];
+      if (!links.length) return;
+
+      const entries = links
+        .map((a) => {
+          const id = decodeURIComponent((a.getAttribute('href') || '').slice(1));
+          const el = id ? document.getElementById(id) : null;
+          return el ? { a, el } : null;
+        })
+        .filter(Boolean) as { a: HTMLAnchorElement; el: HTMLElement }[];
+      if (!entries.length) return;
+
+      let queued = false;
+      const update = () => {
+        queued = false;
+        const line = 140; // a little below the top edge
+        let current = entries[0];
+        for (const e of entries) {
+          if (e.el.getBoundingClientRect().top <= line) current = e;
+          else break;
+        }
+        // near the bottom the last section wins, even if its heading is above
+        if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 8) {
+          current = entries[entries.length - 1];
+        }
+        for (const e of entries) e.a.classList.toggle('is-current', e === current);
+      };
+
+      // Throttled without depending on requestAnimationFrame alone: in a
+      // throttled or non-compositing tab rAF can be starved indefinitely, which
+      // would freeze the rail on whichever entry was current at load.
+      const onScroll = () => {
+        if (queued) return;
+        queued = true;
+        if (typeof requestAnimationFrame === 'function') {
+          requestAnimationFrame(update);
+          setTimeout(() => { if (queued) update(); }, 120);
+        } else {
+          setTimeout(update, 60);
+        }
+      };
+
+      window.removeEventListener('scroll', onScroll);
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      update();
+    }
+
+    document.addEventListener('astro:page-load', initToc);
+  </script>
+</Base>

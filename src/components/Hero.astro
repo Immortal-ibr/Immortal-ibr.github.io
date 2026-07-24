@@ -1,0 +1,30 @@
+---
+// The clip now lives in Base.astro as the site-wide background, so the hero
+// just sits on top of it. Only the scan sweep stays local to the hero.
+import { WORDMARK, HERO_HEADLINE, HERO_HEADLINE_MUTED, HERO_SUB, HERO_QUOTE, NAV_LINKS } from '../consts';
+import { url } from '../utils';
+---
+
+<section class="stage">
+  <div class="scan" aria-hidden="true"></div>
+
+  <nav class="nav" aria-label="Primary">
+    <a class="logo" href={url('')}>{WORDMARK}</a>
+    <div class="navlinks">
+      {NAV_LINKS.map((l) => <a href={url(l.href)}>{l.label}</a>)}
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h1 class="fade-rise">{HERO_HEADLINE}{HERO_HEADLINE_MUTED && <> <em>{HERO_HEADLINE_MUTED}</em></>}</h1>
+    <p class="sub fade-rise-1">{HERO_SUB}</p>
+    {HERO_QUOTE && <p class="hero-quote fade-rise-2">{HERO_QUOTE}</p>}
+  </div>
+
+  {/* The way in. Home has nothing below it, so this leads to the blog rather
+      than to a section further down the same page. */}
+  <a class="enter fade-rise-2" href={url('posts/')}>
+    <span class="enter-label">Enter the blog</span>
+    <span class="enter-arrow" aria-hidden="true"></span>
+  </a>
+</section>

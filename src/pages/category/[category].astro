@@ -1,0 +1,28 @@
+---
+import Base from '../../layouts/Base.astro';
+import Filters from '../../components/Filters.astro';
+import PostList from '../../components/PostList.astro';
+import { getPosts, pinnedFirst, slugify } from '../../utils';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  const names = [...new Set(posts.map((p) => (p.data.category ?? '').trim()).filter(Boolean))];
+  return names.map((name) => ({
+    params: { category: slugify(name) },
+    props: { name, posts: pinnedFirst(posts.filter((p) => (p.data.category ?? '').trim() === name)) },
+  }));
+}
+
+const { name, posts } = Astro.props;
+---
+
+<Base title={name} description={`Posts in the ${name} category.`}>
+  <div class="wrap">
+    <div class="page-head">
+      <p class="eyebrow">{posts.length} {posts.length === 1 ? 'post' : 'posts'}</p>
+      <h1>{name}</h1>
+    </div>
+    <Filters active={name} />
+    <PostList posts={posts} />
+  </div>
+</Base>

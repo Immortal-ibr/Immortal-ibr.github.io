@@ -1,0 +1,23 @@
+{
+  "name": "tarek-blog",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build && pagefind --site dist",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.14",
+    "@astrojs/sitemap": "^3.6.0",
+    "@fontsource/ibm-plex-mono": "^5.0.0",
+    "@fontsource/inter": "^5.0.0",
+    "@fontsource/space-grotesk": "^5.0.0",
+    "astro": "5.13.10",
+    "pagefind": "^1.4.0",
+    "sharp": "^0.34.5"
+  }
+}

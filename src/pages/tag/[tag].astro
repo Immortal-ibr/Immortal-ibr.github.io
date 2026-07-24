@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostList from '../../components/PostList.astro';
+import { getPosts, pinnedFirst, slugify } from '../../utils';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  const byTag = new Map<string, { label: string; posts: typeof posts }>();
+  for (const post of posts) {
+    for (const raw of post.data.tags ?? []) {
+      const label = raw.trim();
+      if (!label) continue;
+      const key = slugify(label);
+      if (!byTag.has(key)) byTag.set(key, { label, posts: [] });
+      byTag.get(key)!.posts.push(post);
+    }
+  }
+  return [...byTag.entries()].map(([tag, v]) => ({
+    params: { tag },
+    props: { label: v.label, posts: pinnedFirst(v.posts) },
+  }));
+}
+
+const { label, posts } = Astro.props;
+---
+
+<Base title={`#${label}`} description={`Posts tagged ${label}.`}>
+  <div class="wrap">
+    <div class="page-head">
+      <p class="eyebrow">Tag · {posts.length} {posts.length === 1 ? 'post' : 'posts'}</p>
+      <h1>#{label}</h1>
+    </div>
+    <PostList posts={posts} />
+  </div>
+</Base>

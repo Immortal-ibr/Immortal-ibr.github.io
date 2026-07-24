@@ -1,0 +1,477 @@
+/* ============================================================
+   Tarek Ibrahim Salama — blog
+   Layout: marquee hero (home) + card grid (blog).
+   Theme: dark indigo ground, dual accent (cyan #56beeb + rose),
+   glass sticky nav.
+   Motion on the browsing surfaces, stillness inside an article.
+   ============================================================ */
+
+:root{
+  --read-wide:54rem;
+  --toc:16rem;
+  /* Ground is near-neutral, not saturated. A big flat field of fully-saturated
+     blue is what made the writing section read as "a blank blue page" — the
+     blue now lives in the accent and the surfaces, not the whole canvas. */
+  /* Paper is a dark near-black tilted cool-indigo (hue 265), not neutral, and
+     kept as dark as the hero clip wants. The blue lives in the accent + the
+     surfaces, never the whole field. */
+  --ground:oklch(13% .015 265);      /* page */
+  --surface:oklch(16.5% .018 265);   /* raised card */
+  --surface-2:oklch(20% .02 265);    /* card hover */
+  --edge:oklch(28% .02 265);         /* hairline */
+  --edge-lit:oklch(36% .025 265);    /* hairline, hover */
+
+  --foreground:0 0% 100%;
+  --muted-foreground:225 12% 72%;    /* nudged toward the cool paper */
+  /* Dual accent: the cyan is Tarek's own (the L clip); the rose is the second
+     voice grafted from the reference, used small — tags, not the whole UI. */
+  --accent:#56beeb;
+  --accent-soft:rgba(86,190,235,.14);
+  --accent-2:oklch(76% .15 350);     /* rose — the sparing second accent */
+  --accent-2-soft:oklch(76% .15 350 / .14);
+
+  --font-display:'Space Grotesk',system-ui,sans-serif;
+  --font-body:'Inter',system-ui,-apple-system,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;
+
+  --measure:60rem;
+  --read:40rem;
+  --nav-h:4.5rem;
+  --r-card:16px;
+  --r-media:12px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{overflow-x:clip}
+html{scroll-behavior:smooth;background:var(--ground)}
+body{
+  margin:0;background:transparent;color:hsl(var(--foreground));
+  font-family:var(--font-body);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  display:flex;flex-direction:column;min-height:100vh;
+}
+a{color:inherit}
+img{max-width:100%;height:auto}
+:focus-visible{outline:2px solid hsl(var(--foreground));outline-offset:3px;border-radius:2px}
+::selection{background:rgba(190,235,255,.22)}
+.wrap{max-width:var(--measure);margin-inline:auto;padding:0 1.5rem;width:100%}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:1rem;top:1rem;z-index:100;background:var(--surface);padding:.6rem 1rem}
+
+/* ---------- site-wide ambient background ----------
+   The hero clip, fixed behind every page. Content never sits directly on
+   moving video: cards and the reading panel are opaque, and the scrim holds
+   the clip well back so type stays legible. */
+.site-bg{
+  position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;
+  background:var(--ground);
+}
+.site-bg-video{
+  position:absolute;inset:-4%;width:108%;height:108%;
+  object-fit:cover;object-position:center right;
+}
+/* Reading pages: the full manga frame, full-bleed behind everything. The
+   framing shifts per post (object-position + scale) so L sits somewhere
+   different each time, without a cutout edge anywhere. */
+.site-bg-still{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:72% 50%;opacity:.72;transform:scale(1.02);
+}
+.site-bg[data-pose="1"] .site-bg-still{object-position:34% 46%;transform:scale(1.1)}
+.site-bg[data-pose="2"] .site-bg-still{object-position:88% 58%;transform:scale(1.06)}
+.site-bg[data-pose="3"] .site-bg-still{object-position:18% 62%;transform:scale(1.14)}
+.site-bg[data-pose="4"] .site-bg-still{object-position:60% 34%;transform:scale(1.08)}
+
+/* Denser at the bottom of the viewport, where body copy usually sits. */
+.site-bg-scrim{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,rgba(13,17,26,.58) 0%,rgba(13,17,26,.78) 46%,rgba(13,17,26,.9) 100%),
+    linear-gradient(90deg,rgba(13,17,26,.55) 0%,rgba(13,17,26,.2) 55%,transparent 100%);
+}
+/* On a still page the frosted panel does the readability work, so the scrim
+   backs off and lets L actually show. */
+.site-bg:has(.site-bg-still) .site-bg-scrim{
+  background:
+    linear-gradient(180deg,rgba(13,17,26,.62) 0%,rgba(13,17,26,.7) 50%,rgba(13,17,26,.8) 100%);
+}
+
+/* ---------- liquid glass ---------- */
+.liquid-glass{
+  background:rgba(255,255,255,.01);background-blend-mode:luminosity;
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  border:none;box-shadow:inset 0 1px 1px rgba(255,255,255,.1);
+  position:relative;overflow:hidden;
+}
+.liquid-glass::before{
+  content:'';position:absolute;inset:0;border-radius:inherit;padding:1.4px;
+  background:linear-gradient(180deg,rgba(255,255,255,.45) 0%,rgba(255,255,255,.15) 20%,
+    rgba(255,255,255,0) 40%,rgba(255,255,255,0) 60%,rgba(255,255,255,.15) 80%,rgba(255,255,255,.45) 100%);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
+}
+
+@keyframes fade-rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.fade-rise{animation:fade-rise .8s ease-out both}
+.fade-rise-1{animation:fade-rise .8s ease-out .2s both}
+.fade-rise-2{animation:fade-rise .8s ease-out .4s both}
+
+/* ---------- nav ---------- */
+/* Glass masthead: sticks to the top on scroll, blurring the clip behind it.
+   Full-bleed glass, content centred via the padding-max() trick so no inner
+   wrapper is needed. Grafted from the reference's fixed-glass nav. */
+.nav{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;min-height:5rem;padding:1.35rem max(1.5rem,calc((100% - 76rem)/2));width:100%;
+  background:color-mix(in oklch,var(--surface) 72%,transparent);
+  -webkit-backdrop-filter:blur(26px) saturate(1.4);backdrop-filter:blur(26px) saturate(1.4);
+  border-bottom:1px solid var(--edge-lit)}
+.nav.solid{border-bottom:1px solid var(--edge)}
+.logo{font-family:var(--font-display);font-weight:600;font-size:1.35rem;letter-spacing:-.03em;
+  text-decoration:none;line-height:1;white-space:nowrap}
+.navlinks{display:none;gap:2rem;font-size:.98rem}
+@media(min-width:768px){.navlinks{display:flex}}
+.navlinks a{color:hsl(var(--muted-foreground));text-decoration:none;transition:color .2s}
+.navlinks a:hover,.navlinks a[aria-current='page']{color:hsl(var(--foreground))}
+.pill{display:inline-flex;align-items:center;gap:.5rem;border-radius:9999px;padding:.6rem 1.4rem;
+  font-size:.875rem;color:hsl(var(--foreground));text-decoration:none;transition:transform .2s;white-space:nowrap}
+.pill:hover{transform:scale(1.03)}
+
+/* ---------- hero ---------- */
+.stage{position:relative;min-height:100svh;display:flex;flex-direction:column;overflow:hidden}
+
+.scan{position:absolute;left:0;right:0;height:220px;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,transparent,rgba(190,235,255,.055) 45%,rgba(190,235,255,.075) 55%,transparent);
+  animation:scan 9s linear infinite}
+@keyframes scan{0%{transform:translateY(-240px);opacity:0}10%{opacity:1}88%{opacity:1}100%{transform:translateY(105vh);opacity:0}}
+
+.hero{position:relative;z-index:10;flex:1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;padding:2.5rem 1.5rem 4rem}
+.hero h1{font-family:var(--font-display);font-style:normal;font-weight:700;
+  font-size:clamp(2.4rem,7.6vw,5.2rem);line-height:.98;letter-spacing:-.035em;
+  max-width:80rem;margin:0;overflow-wrap:anywhere;min-width:0}
+.hero h1 em{font-style:normal;color:hsl(var(--muted-foreground))}
+/* The wordmark is the handle, the H1 is the full name — no duplication, so
+   it shows on home too. Mono suits a handle better than the display face. */
+.logo{font-family:var(--font-mono);font-weight:600;font-size:1.2rem;letter-spacing:.01em}
+.hero .sub{color:hsl(var(--muted-foreground));font-size:1rem;max-width:42rem;margin:2rem 0 0;line-height:1.7}
+@media(min-width:640px){.hero .sub{font-size:1.125rem}}
+/* A quiet signature line under the bio — carries the rose accent. */
+.hero-quote{margin:1.5rem 0 0;font-family:var(--font-body);font-style:italic;
+  font-size:clamp(1.2rem,2.8vw,1.7rem);letter-spacing:.01em;color:var(--accent);
+  text-shadow:0 1px 14px rgba(0,0,0,.55)}
+.hero .cta{margin-top:2.5rem;padding:1.05rem 3rem;font-size:1rem}
+
+/* ---------- hero: the way in ---------- */
+.enter{position:absolute;left:50%;bottom:2.5rem;transform:translateX(-50%);z-index:10;
+  display:inline-flex;flex-direction:column;align-items:center;gap:.75rem;
+  text-decoration:none;color:hsl(var(--muted-foreground));
+  transition:color .25s ease}
+.enter:hover{color:hsl(var(--foreground))}
+.enter-label{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.24em;
+  text-transform:uppercase;white-space:nowrap}
+.enter-arrow{width:1px;height:2.75rem;background:linear-gradient(180deg,
+  transparent,color-mix(in srgb,var(--accent) 70%,transparent));position:relative;overflow:hidden}
+.enter-arrow::after{content:"";position:absolute;left:0;right:0;height:.9rem;
+  background:var(--accent);animation:enter-run 2.4s cubic-bezier(.4,0,.2,1) infinite}
+@keyframes enter-run{0%{top:-1rem;opacity:0}25%{opacity:1}100%{top:2.75rem;opacity:0}}
+.enter:hover .enter-arrow::after{animation-duration:1.2s}
+
+/* ---------- page heads ---------- */
+main{flex:1 0 auto;width:100%}
+.page-head{padding:3rem 0 1.5rem}
+.eyebrow{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
+  color:hsl(var(--muted-foreground));margin:0 0 1rem}
+.page-head h1{font-family:var(--font-display);font-style:normal;font-weight:600;
+  font-size:clamp(1.9rem,5vw,2.8rem);line-height:1.06;letter-spacing:-.03em;margin:0;overflow-wrap:anywhere}
+.page-head .blurb{color:hsl(var(--muted-foreground));margin:.9rem 0 0;max-width:44ch}
+
+/* ---------- category filter row ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;padding:.5rem 0 2rem}
+.chip{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  color:hsl(var(--muted-foreground));text-decoration:none;border:1px solid rgba(255,255,255,.13);
+  padding:.36rem .72rem;border-radius:9999px;transition:color .18s,border-color .18s,background .18s}
+.chip:hover{color:hsl(var(--foreground));border-color:rgba(255,255,255,.32)}
+.chip[aria-current='page']{color:hsl(var(--foreground));border-color:rgba(190,235,255,.55);background:rgba(190,235,255,.09)}
+.chip i{font-style:normal;opacity:.55;margin-left:.3rem}
+
+/* ---------- post grid — cards, not bare rows ---------- */
+.list{
+  list-style:none;margin:0;padding:0;
+  display:grid;gap:1.15rem;
+  grid-template-columns:repeat(auto-fill,minmax(min(20rem,100%),1fr));
+}
+.list li{
+  position:relative;display:flex;flex-direction:column;min-width:0;
+  background:var(--surface);
+  border:1px solid var(--edge);
+  border-radius:var(--r-card);
+  overflow:hidden;
+  transition:background .2s ease,border-color .2s ease,transform .2s ease;
+}
+.list li:hover{background:var(--surface-2);border-color:var(--edge-lit);transform:translateY(-2px)}
+/* first card leads the grid on wide screens */
+.list li:first-child{grid-column:1 / -1}
+@media(min-width:900px){
+  .list li:first-child{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:stretch}
+  .list li:first-child .card-media{height:100%;aspect-ratio:auto;order:2}
+  .list li:first-child .card-body{padding:2rem}
+  .list li:first-child h2{font-size:1.9rem}
+}
+.js .list li{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease,background .2s ease,border-color .2s ease}
+.js .list li.in{opacity:1;transform:none}
+.js .list li.in:hover{transform:translateY(-2px)}
+
+.card-media{
+  position:relative;aspect-ratio:16/9;overflow:hidden;min-width:0;
+  border-bottom:1px solid var(--edge);background:var(--ground);
+}
+.card-media img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .5s cubic-bezier(.22,.61,.36,1)}
+.list li:hover .card-media img{transform:scale(1.03)}
+.card-kind{
+  position:absolute;left:.75rem;top:.75rem;z-index:2;
+  font-family:var(--font-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;
+  color:hsl(var(--foreground));background:rgba(10,14,18,.72);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  border:1px solid var(--edge-lit);border-radius:999px;padding:.24rem .6rem;text-decoration:none;
+}
+.card-kind:hover{color:var(--accent);border-color:var(--accent)}
+/* Featured-post marker, top-right of the big card — only on a real pin. */
+.card-pin{position:absolute;right:.75rem;top:.75rem;z-index:2;display:inline-flex;align-items:center;gap:.34rem;
+  font-family:var(--font-mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent-2);background:rgba(10,14,18,.72);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  border:1px solid var(--accent-2);border-radius:999px;padding:.24rem .58rem}
+.card-body{padding:1.15rem 1.25rem 1.35rem;display:flex;flex-direction:column;flex:1;min-width:0}
+.meta{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.06em;
+  color:hsl(var(--muted-foreground));display:flex;flex-wrap:wrap;gap:.3rem .5rem;
+  align-items:baseline;margin:0 0 .55rem}
+.meta .sep{opacity:.35}
+.list h2{font-family:var(--font-display);font-style:normal;font-weight:600;font-size:1.3rem;
+  line-height:1.22;letter-spacing:-.02em;margin:0 0 .4rem;overflow-wrap:anywhere}
+.list h2 a{text-decoration:none;transition:color .18s}
+.list li:hover h2 a{color:var(--accent)}
+.list p{margin:0;color:hsl(var(--muted-foreground));font-size:.94rem;line-height:1.6}
+.card-foot{margin-top:auto;padding-top:.9rem}
+.out{display:inline-block;margin-top:.7rem;font-family:var(--font-mono);font-size:.7rem;
+  letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:rgba(190,235,255,.9);
+  border-bottom:1px solid rgba(190,235,255,.35);padding-bottom:.1rem;transition:border-color .18s}
+.out:hover{border-bottom-color:rgba(190,235,255,.9)}
+
+/* ---------- article ---------- */
+/* Opaque panel — an article is never read directly off the clip. */
+/* Frosted, not opaque: L is visible through the column, and the blur keeps
+   body copy readable over him. No hard border — the panel dissolves at its
+   edge instead of stamping a rectangle over the background. */
+.doc-panel{background:color-mix(in srgb,var(--surface) 82%,transparent);
+  -webkit-backdrop-filter:blur(18px) saturate(115%);backdrop-filter:blur(18px) saturate(115%);
+  border:none;border-radius:var(--r-card);
+  box-shadow:0 0 0 1px rgba(255,255,255,.045), 0 24px 60px -30px rgba(0,0,0,.8);
+  max-width:calc(var(--read-wide) + 5rem);margin:2.5rem auto 0}
+/* With a TOC the panel widens to hold both columns. */
+.doc-shell{display:grid;gap:2rem;align-items:start;
+  grid-template-columns:minmax(0,1fr);
+  max-width:calc(var(--read-wide) + var(--toc) + 10rem);margin:2.5rem auto 0;padding:0 1.5rem}
+@media(min-width:1100px){.doc-shell.has-toc{grid-template-columns:minmax(0,1fr) var(--toc)}}
+.doc-shell .doc-panel{margin:0;max-width:none}
+.article{max-width:var(--read-wide);margin-inline:auto;padding:2.75rem 2.5rem 2rem}
+.article header{margin-bottom:2rem}
+.article h1{font-family:var(--font-display);font-style:normal;font-weight:700;
+  font-size:clamp(2rem,5.5vw,3rem);line-height:1.05;letter-spacing:-.02em;margin:.8rem 0 0;overflow-wrap:anywhere}
+.article .lead{font-size:1.18rem;color:hsl(var(--muted-foreground));margin:1rem 0 0;max-width:38ch;line-height:1.55}
+/* Credit line for co-authors / collaborators (the `contributors` field). */
+.article .byline{display:flex;flex-wrap:wrap;align-items:center;gap:.35rem;margin:1.1rem 0 0;
+  font-size:.92rem;color:hsl(var(--muted-foreground))}
+.article .byline-label{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.18em;
+  text-transform:uppercase;color:hsl(var(--muted-foreground));opacity:.7;margin-right:.15rem}
+.article .byline a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-soft);
+  transition:border-color .18s ease}
+.article .byline a:hover{border-bottom-color:var(--accent)}
+.article .byline-join{color:hsl(var(--muted-foreground))}
+.cover{margin:2rem 0 0;border:1px solid rgba(255,255,255,.09);border-radius:10px;overflow:hidden}
+.cover img{width:100%;display:block}
+.cta-box{margin:2rem 0 0;padding:1.25rem 1.4rem;border-radius:12px;display:flex;flex-wrap:wrap;
+  gap:.75rem;align-items:center}
+.cta-box .info{font-family:var(--font-mono);font-size:.72rem;color:hsl(var(--muted-foreground));width:100%;margin:0 0 .2rem}
+.prose{font-size:1.09rem;line-height:1.8;color:rgba(255,255,255,.88)}
+.prose>:first-child{margin-top:0}
+.prose h2,.prose h3{font-family:var(--font-display);font-style:normal;font-weight:600;
+  color:hsl(var(--foreground));letter-spacing:-.012em;line-height:1.2}
+.prose h2{font-size:1.85rem;margin:2.4rem 0 .7rem}
+.prose h3{font-size:1.4rem;margin:2rem 0 .5rem}
+/* Anchor jumps from the TOC land the heading below the glass nav, not under it. */
+.prose h2,.prose h3{scroll-margin-top:6rem}
+.prose p,.prose ul,.prose ol{margin:0 0 1.2rem}
+.prose ul,.prose ol{padding-left:1.3rem}
+.prose li{margin:.35rem 0}
+.prose a{color:rgba(190,235,255,.95);text-decoration:underline;text-underline-offset:2px;
+  text-decoration-color:rgba(190,235,255,.4)}
+.prose a:hover{text-decoration-color:rgba(190,235,255,.95)}
+.prose img{border-radius:8px}
+.prose hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:2.5rem 0}
+.prose table{width:100%;border-collapse:collapse;margin:0 0 1.4rem;font-size:.95rem;display:block;overflow-x:auto}
+.prose th,.prose td{text-align:left;padding:.55rem .7rem;border-bottom:1px solid rgba(255,255,255,.1)}
+.prose th{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+  color:hsl(var(--muted-foreground));font-weight:500}
+blockquote{margin:1.7rem 0;padding-left:1.2rem;border-left:2px solid rgba(190,235,255,.5);
+  color:hsl(var(--muted-foreground));font-family:var(--font-display);font-size:1.2rem;line-height:1.5}
+code{font-family:var(--font-mono);font-size:.88em}
+:not(pre)>code{background:rgba(0,0,0,.32);padding:.14em .42em;border-radius:4px}
+pre{background:oklch(13% .02 265)!important;border:1px solid var(--edge);border-radius:10px;
+  padding:2.75rem 1.15rem 1rem;overflow-x:auto;font-size:.85rem;line-height:1.6;margin:0 0 1.3rem;position:relative}
+pre code{background:none;padding:0}
+/* Language header, like Notion's /code block and 0xstrawhat's writeups: the
+   fence language (Shiki writes it to data-language) shown as a label bar. */
+pre[data-language]::before{
+  content:attr(data-language);position:absolute;inset:0 0 auto 0;height:2.1rem;
+  display:flex;align-items:center;padding:0 .95rem;
+  font-family:var(--font-mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;
+  color:hsl(var(--muted-foreground));background:rgba(0,0,0,.32);
+  border-bottom:1px solid var(--edge);border-radius:10px 10px 0 0}
+pre[data-language="plaintext"]::before,pre[data-language="text"]::before{content:"text"}
+.copy-btn{position:absolute;top:.42rem;right:.55rem;padding:.22rem .6rem;z-index:2;font-family:var(--font-mono);
+  font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:hsl(var(--muted-foreground));
+  background:rgba(13,17,26,.9);border:1px solid rgba(255,255,255,.15);border-radius:6px;cursor:pointer;
+  opacity:0;transition:opacity .15s,color .15s,border-color .15s}
+pre:hover .copy-btn,.copy-btn:focus-visible{opacity:1}
+.copy-btn:hover{color:hsl(var(--foreground));border-color:rgba(190,235,255,.6)}
+
+.tags{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .85rem;margin-top:2.5rem;
+  padding-top:1.4rem;border-top:1px solid rgba(255,255,255,.08);font-family:var(--font-mono);font-size:.72rem}
+.tags .label{text-transform:uppercase;letter-spacing:.14em;color:hsl(var(--muted-foreground))}
+.tags a{color:var(--accent-2);text-decoration:none}
+.tags a:hover{color:hsl(var(--foreground));background:var(--accent-2-soft)}
+
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.5rem;padding-top:2rem;
+  border-top:1px solid rgba(255,255,255,.08)}
+.pager a{display:flex;flex-direction:column;gap:.3rem;padding:1rem 1.15rem;border-radius:10px;
+  border:1px solid rgba(255,255,255,.1);text-decoration:none;transition:border-color .2s}
+.pager a:hover{border-color:rgba(190,235,255,.55)}
+.pager .k{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
+  color:hsl(var(--muted-foreground))}
+.pager .t{font-family:var(--font-display);font-size:1.02rem;line-height:1.25}
+.pager .next{grid-column:2;text-align:right}
+
+/* ---------- footer ---------- */
+footer.site{flex-shrink:0;border-top:1px solid rgba(255,255,255,.08);margin-top:4rem;padding:2.2rem 0 3rem;
+  font-family:var(--font-mono);font-size:.71rem;color:hsl(var(--muted-foreground))}
+footer.site .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;justify-content:space-between}
+footer.site a{text-decoration:none}
+footer.site a:hover{color:hsl(var(--foreground))}
+
+@media(max-width:640px){
+  .nav{padding:1rem 1.25rem}
+  .hero{padding:2.5rem 1.25rem 4.5rem}
+  .pager{grid-template-columns:1fr}
+  .pager .next{grid-column:1;text-align:left}
+  .copy-btn{opacity:1}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+  .l{transform:none!important}
+  .l-lines .lyr{opacity:.34}
+  .site-bg-video{transform:none!important}
+  .scan{display:none}
+  .js .list li{opacity:1;transform:none}
+}
+
+/* ---------- about ---------- */
+.about{padding:2.25rem 2rem 2.5rem}
+.about-head{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;
+  padding-bottom:1.5rem;border-bottom:1px solid var(--edge)}
+.about-portrait{border-radius:50%;border:1px solid var(--edge-lit);flex:none;
+  width:132px;height:132px;object-fit:cover}
+.about-id{min-width:0}
+.about-id h1{font-family:var(--font-display);font-weight:700;font-size:clamp(1.7rem,4.5vw,2.4rem);
+  letter-spacing:-.035em;line-height:1.05;margin:0 0 .35rem;overflow-wrap:anywhere}
+.about-role{margin:0 0 .7rem;color:hsl(var(--muted-foreground));font-size:.98rem}
+/* ---------- tags ---------- */
+/* Tag row on a card: topics at a glance, capped at four so the card keeps its
+   shape. Rose, matching the tag colour used inside a post. */
+.card-tags{display:flex;flex-wrap:wrap;gap:.3rem .5rem;margin:.7rem 0 0}
+.card-tags a{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.04em;
+  color:var(--accent-2);text-decoration:none;opacity:.85;
+  transition:opacity .18s ease,color .18s ease}
+.card-tags a:hover{opacity:1;color:hsl(var(--foreground))}
+
+/* The /tags/ index. */
+.tag-cloud{list-style:none;display:flex;flex-wrap:wrap;gap:.6rem;padding:0;margin:0 0 3rem}
+.tag-cloud a{display:inline-flex;align-items:center;gap:.5rem;
+  padding:.5rem .85rem;border:1px solid var(--edge);border-radius:999px;
+  background:var(--surface);text-decoration:none;
+  font-family:var(--font-mono);font-size:.78rem;color:hsl(var(--foreground));
+  transition:border-color .18s ease,background .18s ease,color .18s ease}
+.tag-cloud a:hover{border-color:var(--accent);color:var(--accent);background:var(--surface-2)}
+.tag-cloud i{font-style:normal;font-size:.68rem;color:hsl(var(--muted-foreground));
+  background:var(--surface-2);border-radius:999px;padding:.1rem .4rem;min-width:1.4em;text-align:center}
+
+/* Platform links as icons — shared by the footer and the About header. */
+.social{display:inline-flex;align-items:center;gap:.4rem;flex-wrap:wrap}
+.social a{display:inline-flex;align-items:center;justify-content:center;width:2.1rem;height:2.1rem;
+  border-radius:9px;color:hsl(var(--muted-foreground));border:1px solid transparent;
+  transition:color var(--dur-fast,.18s) ease,background var(--dur-fast,.18s) ease,border-color var(--dur-fast,.18s) ease}
+.social a:hover{color:hsl(var(--foreground));background:var(--surface-2);border-color:var(--edge-lit)}
+.social svg{display:block}
+.about-links.social{margin:.35rem 0 0}
+.about-body{padding-top:1.5rem;font-size:1.02rem}
+.about-body p:last-child{margin-bottom:0}
+
+.about-grid{display:grid;gap:1.5rem 2.5rem;grid-template-columns:repeat(auto-fit,minmax(min(16rem,100%),1fr));
+  margin-top:2rem;padding-top:1.75rem;border-top:1px solid var(--edge)}
+.about-col h2{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
+  color:hsl(var(--muted-foreground));font-weight:500;margin:0 0 .85rem}
+.about-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.75rem}
+.about-list li{display:flex;flex-direction:column;gap:.15rem;min-width:0}
+.about-list a{font-family:var(--font-display);font-weight:600;font-size:1.02rem;
+  letter-spacing:-.015em;color:hsl(var(--foreground));text-decoration:none;
+  transition:color .18s ease;overflow-wrap:anywhere}
+.about-list a:hover{color:var(--accent)}
+.about-list span{color:hsl(var(--muted-foreground));font-size:.88rem;line-height:1.5}
+.about-list.plain span{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.02em}
+.about-certs{margin:1rem 0 0;font-family:var(--font-mono);font-size:.72rem;
+  color:hsl(var(--muted-foreground));line-height:1.6}
+
+@media(max-width:560px){
+  .about{padding:1.75rem 1.25rem 2rem}
+  .about-portrait{width:96px;height:96px}
+}
+
+/* ---------- table of contents rail ---------- */
+/* Clears the 5rem glass nav — otherwise the rail slides up under it on scroll. */
+.toc{position:sticky;top:6rem;max-height:calc(100svh - 7.5rem);overflow-y:auto;
+  display:none;font-size:.86rem;padding:.25rem 0}
+@media(min-width:1100px){.has-toc .toc{display:block}}
+.toc-title{font-family:var(--font-mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;
+  color:hsl(var(--muted-foreground));margin:0 0 .85rem;padding-left:.85rem}
+.toc ol{list-style:none;margin:0;padding:0;border-left:1px solid var(--edge)}
+.toc li{margin:0}
+.toc a{display:block;padding:.32rem 0 .32rem .85rem;margin-left:-1px;
+  border-left:1px solid transparent;color:hsl(var(--muted-foreground));
+  text-decoration:none;line-height:1.4;transition:color .18s ease,border-color .18s ease}
+.toc a:hover{color:hsl(var(--foreground))}
+.toc a.is-current{color:var(--accent);border-left-color:var(--accent)}
+.toc .lvl-3 a{padding-left:1.6rem;font-size:.82rem}
+
+/* ---------- repo stats (Tools posts) ---------- */
+.repo-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(6rem,1fr));gap:1px;
+  margin:1.5rem 0 0;background:var(--edge);border:1px solid var(--edge);
+  border-radius:var(--r-media);overflow:hidden}
+.repo-stat{background:var(--surface);padding:.8rem .9rem;min-width:0}
+.repo-stat .n{display:block;font-family:var(--font-display);font-weight:700;font-size:1.35rem;
+  letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums}
+.repo-stat .k{display:block;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;
+  text-transform:uppercase;color:hsl(var(--muted-foreground));margin-top:.2rem}
+.repo-meta{margin:.75rem 0 0;font-family:var(--font-mono);font-size:.72rem;
+  color:hsl(var(--muted-foreground));line-height:1.6}
+
+/* ---------- page transitions ---------- */
+@view-transition { navigation: auto; }
+::view-transition-old(root){animation:vt-out .18s cubic-bezier(.4,0,1,1) both}
+::view-transition-new(root){animation:vt-in .32s cubic-bezier(0,0,.2,1) both}
+@keyframes vt-out{to{opacity:0;transform:translateY(-6px)}}
+@keyframes vt-in{from{opacity:0;transform:translateY(8px)}}
+@media(prefers-reduced-motion:reduce){
+  ::view-transition-old(root),::view-transition-new(root){animation:none}
+}

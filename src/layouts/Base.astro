@@ -1,0 +1,196 @@
+---
+import '@fontsource/space-grotesk/500.css';
+import '@fontsource/space-grotesk/600.css';
+import '@fontsource/space-grotesk/700.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/400-italic.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import '../styles/global.css';
+import { SITE_TITLE, SITE_DESCRIPTION, AUTHOR, WORDMARK, NAV_LINKS, SOCIAL_LINKS } from '../consts';
+import { ClientRouter } from 'astro:transitions';
+import { url } from '../utils';
+import SocialIcon from '../components/SocialIcon.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  article?: boolean;
+  solidNav?: boolean;
+  /** 'video' everywhere by default; posts pass 'still' so nothing moves
+      behind body copy. */
+  ambient?: 'video' | 'still';
+  /** Which resting position L takes on a still page. 0–4. */
+  pose?: number;
+}
+
+const {
+  title,
+  description = SITE_DESCRIPTION,
+  image = '',
+  article = false,
+  solidNav = true,
+  ambient = 'video',
+  pose = 0,
+} = Astro.props;
+
+const pageTitle = title ? `${title} · ${SITE_TITLE}` : `${SITE_TITLE} — ${SITE_DESCRIPTION}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+
+// Per-post image wins when it resolves to a public URL; otherwise the site card.
+let social = new URL(url('/og-image.jpg'), Astro.site).href;
+if (image.startsWith('http')) social = image;
+else if (image.startsWith('/')) social = new URL(url(image), Astro.site).href;
+
+const here = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '' ? here === url('') : here.startsWith(url(href));
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>document.documentElement.classList.add('js')</script>
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={AUTHOR} />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0f1318" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" href={url('/favicon.png')} />
+    <link rel="apple-touch-icon" href={url('/favicon.png')} />
+    <link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href={new URL(url('/rss.xml'), Astro.site)} />
+
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={social} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={social} />
+    <ClientRouter />
+  </head>
+  <body>
+    {/* Site-wide ambient background: the hero clip, fixed behind every page.
+        A scrim keeps it well under the content, and cards / the reading panel
+        are opaque so nothing is ever read directly off moving video. */}
+    <div class="site-bg" aria-hidden="true" data-pose={pose}>
+      {
+        ambient === 'video' ? (
+          <video
+            class="site-bg-video"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="metadata"
+            poster={url('/hero/hero-poster.webp')}
+          >
+            <source src={url('/hero/hero.mp4')} type="video/mp4" />
+          </video>
+        ) : (
+          /* Reading pages get a still, full-bleed. Nothing moves behind body
+             copy; the framing shifts per post so L sits differently. */
+          <img class="site-bg-still" src={url('/hero/hero-poster.webp')} alt="" decoding="async" />
+        )
+      }
+      <div class="site-bg-scrim"></div>
+    </div>
+
+    <a class="skip" href="#main">Skip to content</a>
+
+    <slot name="hero">
+      <nav class:list={['nav', { solid: solidNav }]} aria-label="Primary">
+        <a class="logo" href={url('')}>{WORDMARK}</a>
+        <div class="navlinks">
+          {NAV_LINKS.map((l) => (
+            <a href={url(l.href)} aria-current={isActive(l.href) ? 'page' : undefined}>{l.label}</a>
+          ))}
+        </div>
+      </nav>
+    </slot>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <span>© {year} {AUTHOR}</span>
+        <span class="social">
+          {SOCIAL_LINKS.map((s) => (
+            <a href={s.href} rel="me noopener noreferrer" target="_blank" aria-label={s.label} title={s.label}>
+              <SocialIcon name={s.label} />
+            </a>
+          ))}
+          <a href={url('/rss.xml')} aria-label="RSS" title="RSS"><SocialIcon name="RSS" /></a>
+        </span>
+      </div>
+    </footer>
+
+    <script>
+      // ClientRouter swaps the DOM on navigation, so anything that touches it
+      // must re-run per page. astro:page-load fires on first load and after
+      // every transition.
+      function initPage() {
+        const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+
+        // Ambient clip: hold the poster when motion is reduced, and stop
+        // decoding while the tab is hidden — it's on screen the whole time.
+        const bg = document.querySelector('.site-bg-video') as HTMLVideoElement | null;
+        const syncVideo = () => {
+          if (!bg) return;
+          if (reduce.matches || document.hidden) bg.pause();
+          else bg.play().catch(() => {});
+        };
+        syncVideo();
+        document.removeEventListener('visibilitychange', syncVideo);
+        document.addEventListener('visibilitychange', syncVideo);
+
+        // Reveal post cards as they scroll in.
+        const rows = document.querySelectorAll('.list li');
+        if (reduce.matches || !('IntersectionObserver' in window)) {
+          rows.forEach((r) => r.classList.add('in'));
+        } else {
+          const io = new IntersectionObserver((entries) => {
+            entries.forEach((e, i) => {
+              if (!e.isIntersecting) return;
+              (e.target as HTMLElement).style.transitionDelay = `${i * 55}ms`;
+              e.target.classList.add('in');
+              io.unobserve(e.target);
+            });
+          }, { rootMargin: '0px 0px -8% 0px' });
+          rows.forEach((r) => io.observe(r));
+        }
+
+        // Copy button on code blocks.
+        document.querySelectorAll('article pre').forEach((pre) => {
+          if (pre.querySelector('.copy-btn')) return;
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'copy-btn';
+          b.textContent = 'Copy';
+          b.setAttribute('aria-label', 'Copy code to clipboard');
+          b.addEventListener('click', async () => {
+            const text = (pre.querySelector('code') ?? pre).textContent ?? '';
+            try { await navigator.clipboard.writeText(text); b.textContent = 'Copied'; }
+            catch { b.textContent = 'Failed'; }
+            setTimeout(() => (b.textContent = 'Copy'), 1600);
+          });
+          pre.appendChild(b);
+        });
+      }
+
+      document.addEventListener('astro:page-load', initPage);
+    </script>
+  </body>
+</html>

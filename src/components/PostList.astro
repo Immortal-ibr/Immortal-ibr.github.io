@@ -1,0 +1,81 @@
+---
+import type { Post } from '../utils';
+import { url, isoDate, slugify } from '../utils';
+
+interface Props {
+  posts: Post[];
+}
+const { posts } = Astro.props;
+
+function ctaFor(d: Post['data']) {
+  if (d.repoUrl) return { href: d.repoUrl, label: 'View on GitHub' };
+  if (d.challengeUrl) return { href: d.challengeUrl, label: 'Try the challenge' };
+  if (d.externalUrl) return { href: d.externalUrl, label: d.externalLabel };
+  return null;
+}
+
+// Every card needs something to show. A post's own `image` wins; otherwise it
+// falls back to generated art for its category, so no card is ever empty.
+function coverFor(d: Post['data']) {
+  if (d.image) return d.image;
+  const cat = (d.category ?? 'Journal').trim() || 'Journal';
+  return `/covers/cat-${slugify(cat)}.webp`;
+}
+---
+
+<ul class="list">
+  {posts.map((post, i) => {
+    const cta = ctaFor(post.data);
+    const cover = coverFor(post.data);
+    const cat = (post.data.category ?? '').trim();
+    // The badge only shows on the featured card, and only when it's there by a
+    // real pin — not when it's just the newest post filling the slot.
+    const featuredPin = i === 0 && post.data.pinned;
+    return (
+      <li>
+        <div class="card-media">
+          {featuredPin && (
+            <span class="card-pin" aria-label="Pinned post">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M14.35 2.35a1 1 0 00-1.7.7v.24L8.9 7H5a1 1 0 00-.7 1.7L8 12.4 3 19v2h2l6.6-5 3.7 3.7A1 1 0 0017 19v-3.9l3.7-3.75h.25a1 1 0 00.7-1.7z"/></svg>
+              Pinned
+            </span>
+          )}
+          {cat && (
+            <a class="card-kind" href={url(`category/${slugify(cat)}/`)}>{cat}</a>
+          )}
+          <a href={url(`posts/${post.id}/`)} aria-label={post.data.title}>
+            <img src={url(cover)} alt="" loading="lazy" width="800" height="450" />
+          </a>
+        </div>
+
+        <div class="card-body">
+          <p class="meta">
+            <time datetime={post.data.published.toISOString()}>{isoDate(post.data.published)}</time>
+            {post.data.draft && (
+              <>
+                <span class="sep" aria-hidden="true">·</span>
+                <span>draft</span>
+              </>
+            )}
+          </p>
+          <h2><a href={url(`posts/${post.id}/`)}>{post.data.title}</a></h2>
+          {post.data.description && <p>{post.data.description}</p>}
+          {post.data.tags?.length > 0 && (
+            <p class="card-tags">
+              {post.data.tags.slice(0, 4).map((t) => (
+                <a href={url(`tag/${slugify(t)}/`)}>#{t}</a>
+              ))}
+            </p>
+          )}
+          {cta && (
+            <div class="card-foot">
+              <a class="out" href={cta.href} target="_blank" rel="noopener noreferrer">
+                {cta.label} &rarr;
+              </a>
+            </div>
+          )}
+        </div>
+      </li>
+    );
+  })}
+</ul>

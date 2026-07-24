@@ -1,0 +1,39 @@
+# build output
+dist/
+
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+Thumbs.db
+
+.vercel
+
+# we use npm, so package-lock.json IS committed (other lockfiles are not)
+bun.lockb
+yarn.lock
+pnpm-lock.yaml
+
+# ide
+.idea
+*.iml
+
+# original un-cropped photo (has the AI watermark) — keep it local only
+src/assets/images/Smart_profile.jpg
+
+# design mockups (local only)
+design-previews/

@@ -1,0 +1,89 @@
+---
+import { getEntry, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import portrait from '../assets/images/portrait.jpg';
+import { SOCIAL_LINKS } from '../consts';
+import SocialIcon from '../components/SocialIcon.astro';
+
+const about = await getEntry('spec', 'about');
+if (!about) throw new Error('src/content/spec/about.md not found');
+const { Content } = await render(about);
+
+// Kept short on purpose — the three repos worth clicking, nothing else.
+const PROJECTS = [
+  {
+    name: 'MemNixFS',
+    href: 'https://github.com/MemNixFS/MemNixFS',
+    note: 'Mount a Linux memory dump as a filesystem. C++17, 190★',
+  },
+  {
+    name: 'ChainRecon',
+    href: 'https://github.com/Immortal-ibr/ChainRecon',
+    note: 'Work out what an IoT device is actually doing on the network',
+  },
+  {
+    name: 'PhishGuard',
+    href: 'https://github.com/Immortal-ibr/PhishGuard',
+    note: 'Machine-learning phishing detection from URL features',
+  },
+];
+
+const STACK = [
+  'C · C++ · Python · Bash',
+  'Volatility · Autopsy · Plaso · FTK Imager',
+  'Ghidra · IDA · x64dbg · Frida',
+  'Circom · snarkjs',
+];
+---
+
+<Base title="About" description="Tarek Ibrahim Salama — cybersecurity researcher working in DFIR, malware analysis and applied cryptography.">
+  <div class="doc-panel about">
+    <header class="about-head">
+      <Image
+        class="about-portrait"
+        src={portrait}
+        alt="Tarek Ibrahim Salama"
+        width={132}
+        height={132}
+        loading="eager"
+      />
+      <div class="about-id">
+        <h1>Tarek Ibrahim Salama</h1>
+        <p class="about-role">Cybersecurity researcher · DFIR &amp; malware analysis</p>
+        <p class="about-links social">
+          {SOCIAL_LINKS.map((s) => (
+            <a href={s.href} rel="me noopener noreferrer" target="_blank" aria-label={s.label} title={s.label}>
+              <SocialIcon name={s.label} />
+            </a>
+          ))}
+        </p>
+      </div>
+    </header>
+
+    <div class="prose about-body">
+      <Content />
+    </div>
+
+    <section class="about-grid">
+      <div class="about-col">
+        <h2>Built</h2>
+        <ul class="about-list">
+          {PROJECTS.map((p) => (
+            <li>
+              <a href={p.href} target="_blank" rel="noopener noreferrer">{p.name}</a>
+              <span>{p.note}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="about-col">
+        <h2>Works with</h2>
+        <ul class="about-list plain">
+          {STACK.map((row) => <li><span>{row}</span></li>)}
+        </ul>
+        <p class="about-certs">EC-Council Certified Incident Handler · CompTIA Security+</p>
+      </div>
+    </section>
+  </div>
+</Base>
