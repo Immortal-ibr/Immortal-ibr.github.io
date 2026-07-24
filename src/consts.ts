@@ -15,9 +15,9 @@ export const HERO_QUOTE = 'Why so serious?';
 
 export const NAV_LINKS = [
   { href: '', label: 'Home' },
-  { href: 'posts/', label: 'Blog' },
-  { href: 'category/research/', label: 'Research' },
-  { href: 'category/tools/', label: 'Tools' },
+  { href: 'blog/', label: 'Blog' },
+  { href: 'research/', label: 'Research' },
+  { href: 'tools/', label: 'Tools' },
   { href: 'about/', label: 'About' },
 ];
 

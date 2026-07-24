@@ -1,0 +1,46 @@
+---
+// Top-level pages for the categories promoted into the nav — /research/,
+// /tools/. Driven by SECTION_CATEGORIES so adding a section is a one-line
+// change in consts.ts, not a new file.
+//
+// Astro resolves static routes ahead of dynamic ones, so /blog/, /about/ and
+// /tags/ keep their own files; getStaticPaths below only ever emits the
+// section slugs, so nothing else can fall through to here.
+import Base from '../../layouts/Base.astro';
+import PostList from '../../components/PostList.astro';
+import { SECTION_CATEGORIES, AUTHOR } from '../../consts';
+import { getPosts, pinnedFirst, slugify } from '../../utils';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return SECTION_CATEGORIES.map((name) => ({
+    params: { section: slugify(name) },
+    props: {
+      name,
+      posts: pinnedFirst(
+        posts.filter((p) => (p.data.category ?? '').trim() === name)
+      ),
+    },
+  }));
+}
+
+const { name, posts } = Astro.props;
+---
+
+<Base
+  title={name}
+  description={`${name} posts by ${AUTHOR}.`}
+  navHref={`${slugify(name)}/`}
+>
+  <div class="wrap">
+    <div class="page-head">
+      <p class="eyebrow">{posts.length} {posts.length === 1 ? 'post' : 'posts'}</p>
+      <h1>{name}</h1>
+    </div>
+    {posts.length === 0 ? (
+      <p>Nothing here yet — check back soon.</p>
+    ) : (
+      <PostList posts={posts} />
+    )}
+  </div>
+</Base>

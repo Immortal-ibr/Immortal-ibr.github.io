@@ -35,11 +35,30 @@ src/
     posts/         blog posts (markdown)
     spec/          standalone page copy (About)
   layouts/Base.astro
-  pages/           routes — index, posts, tags, categories, about, 404, RSS
+  pages/           routes — see below
   styles/global.css
   consts.ts        site title, nav links, social links, category order
   content.config.ts  frontmatter schema for posts
 ```
+
+## Routes
+
+| URL | Source | Notes |
+| --- | --- | --- |
+| `/` | `pages/index.astro` | hero only |
+| `/blog/` | `pages/blog/index.astro` | posts *not* in a section category |
+| `/research/`, `/tools/` | `pages/[section]/index.astro` | generated from `SECTION_CATEGORIES` |
+| `/posts/<slug>/` | `pages/posts/[...slug].astro` | every post, whatever its category |
+| `/category/<name>/` | `pages/category/[category].astro` | non-section categories only |
+| `/tags/`, `/tag/<name>/` | `pages/tags/`, `pages/tag/` | not in the nav |
+| `/about/`, `/404`, `/rss.xml` | | |
+
+Two things are deliberate here. Posts all live under `/posts/<slug>/` regardless
+of category, so a post keeps one canonical URL even if you recategorise it —
+which is why the nav can't work out the active section from the path, and pages
+pass `navHref` to `Base.astro` instead. And a category is generated at exactly
+one URL: promote it in `SECTION_CATEGORIES` and it moves from `/category/x/` to
+`/x/`, never both. Old URLs redirect via `astro.config.mjs`.
 
 ## Writing a post
 

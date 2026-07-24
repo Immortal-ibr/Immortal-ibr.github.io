@@ -6,7 +6,11 @@ import { getPosts, pinnedFirst, slugify, isSectionCategory } from '../../utils';
 
 export async function getStaticPaths() {
   const posts = await getPosts();
-  const names = [...new Set(posts.map((p) => (p.data.category ?? '').trim()).filter(Boolean))];
+  // Section categories live at their own top-level path (/research/), so they
+  // are deliberately not generated here — two URLs for one listing would be
+  // duplicate content. astro.config.mjs redirects the old /category/ URLs.
+  const names = [...new Set(posts.map((p) => (p.data.category ?? '').trim()).filter(Boolean))]
+    .filter((name) => !isSectionCategory(name));
   return names.map((name) => ({
     params: { category: slugify(name) },
     props: { name, posts: pinnedFirst(posts.filter((p) => (p.data.category ?? '').trim() === name)) },
@@ -14,19 +18,15 @@ export async function getStaticPaths() {
 }
 
 const { name, posts } = Astro.props;
-// Research and Tools stand on their own in the nav. The filter row only lists
-// blog categories, so on those pages it would show a row with nothing active
-// in it — drop it and let the nav carry the "you are here".
-const standalone = isSectionCategory(name);
 ---
 
-<Base title={name} description={`Posts in the ${name} category.`}>
+<Base title={name} description={`Posts in the ${name} category.`} navHref="blog/">
   <div class="wrap">
     <div class="page-head">
       <p class="eyebrow">{posts.length} {posts.length === 1 ? 'post' : 'posts'}</p>
       <h1>{name}</h1>
     </div>
-    {!standalone && <Filters active={name} />}
+    <Filters active={name} />
     <PostList posts={posts} />
   </div>
 </Base>

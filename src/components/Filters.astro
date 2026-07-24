@@ -22,7 +22,7 @@ const cats = [...counts.entries()].sort((a, b) => {
 ---
 
 <nav class="filters" aria-label="Filter by category">
-  <a class="chip" href={url('posts/')} aria-current={active ? undefined : 'page'}>
+  <a class="chip" href={url('blog/')} aria-current={active ? undefined : 'page'}>
     All <i>{posts.length}</i>
   </a>
   {cats.map(([name, count]) => (

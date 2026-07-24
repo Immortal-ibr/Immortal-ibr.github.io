@@ -65,6 +65,25 @@ export function blogPosts(posts: Post[]): Post[] {
 }
 
 /**
+ * Where a category's listing lives. Section categories get a top-level path of
+ * their own (/research/); the rest stay under /category/. Only one route is
+ * ever generated per category, so there's no duplicate content.
+ */
+export function categoryPath(name = ''): string {
+  const n = name.trim();
+  return isSectionCategory(n) ? `${slugify(n)}/` : `category/${slugify(n)}/`;
+}
+
+/**
+ * Which nav entry owns a post. Posts all live under /posts/<slug>/ whatever
+ * their category, so the nav can't work this out from the URL — it has to come
+ * from the post's own category, or every post would light up "Blog".
+ */
+export function navSectionFor(category = ''): string {
+  return isSectionCategory(category) ? categoryPath(category) : 'blog/';
+}
+
+/**
  * Whether a listing leads with the full-width featured card.
  *
  * A real pin always earns the big slot. Failing that it comes down to parity:

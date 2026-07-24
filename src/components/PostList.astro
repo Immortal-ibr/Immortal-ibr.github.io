@@ -1,6 +1,6 @@
 ---
 import type { Post } from '../utils';
-import { url, isoDate, slugify, shouldFeature } from '../utils';
+import { url, isoDate, slugify, shouldFeature, categoryPath } from '../utils';
 
 interface Props {
   posts: Post[];
@@ -44,7 +44,7 @@ function coverFor(d: Post['data']) {
             </span>
           )}
           {cat && (
-            <a class="card-kind" href={url(`category/${slugify(cat)}/`)}>{cat}</a>
+            <a class="card-kind" href={url(categoryPath(cat))}>{cat}</a>
           )}
           <a href={url(`posts/${post.id}/`)} aria-label={post.data.title}>
             <img src={url(cover)} alt="" loading="lazy" width="800" height="450" />

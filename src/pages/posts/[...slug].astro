@@ -1,7 +1,7 @@
 ---
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import { getPosts, url, isoDate, slugify, readingTime } from '../../utils';
+import { getPosts, url, isoDate, slugify, readingTime, categoryPath, navSectionFor } from '../../utils';
 
 export async function getStaticPaths() {
   const posts = await getPosts();
@@ -57,7 +57,15 @@ const ctas = [
 ].filter(Boolean) as { href: string; label: string }[];
 ---
 
-<Base title={d.title} description={d.description} image={d.image} article={true} ambient="still" pose={pose}>
+<Base
+  title={d.title}
+  description={d.description}
+  image={d.image}
+  article={true}
+  ambient="still"
+  pose={pose}
+  navHref={navSectionFor(d.category)}
+>
   <div class:list={["doc-shell", { "has-toc": showToc }]}>
   <div class="doc-panel">
   <article class="article">
@@ -67,7 +75,7 @@ const ctas = [
         {d.category && (
           <>
             <span class="sep" aria-hidden="true">·</span>
-            <a href={url(`category/${slugify(d.category)}/`)}><b>{d.category}</b></a>
+            <a href={url(categoryPath(d.category))}><b>{d.category}</b></a>
           </>
         )}
         <span class="sep" aria-hidden="true">·</span>

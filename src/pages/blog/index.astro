@@ -11,7 +11,7 @@ const posts = blogPosts(await getPosts());
 const ordered = pinnedFirst(posts);
 ---
 
-<Base title="Blog" description="Research notes, CTF writeups, labs and tools.">
+<Base title="Blog" description="CTF writeups, notes and journal entries." navHref="blog/">
   <div class="wrap">
     <div class="page-head">
       <p class="eyebrow">{posts.length} {posts.length === 1 ? 'post' : 'posts'}</p>

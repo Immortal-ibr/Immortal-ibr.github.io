@@ -24,6 +24,12 @@ interface Props {
   ambient?: 'video' | 'still';
   /** Which resting position L takes on a still page. 0–4. */
   pose?: number;
+  /**
+   * Which NAV_LINKS href owns this page. Every post is served from /posts/,
+   * whatever its category, so path matching alone would light up "Blog" on a
+   * Research post. Pages that know their section say so explicitly.
+   */
+  navHref?: string;
 }
 
 const {
@@ -34,6 +40,7 @@ const {
   solidNav = true,
   ambient = 'video',
   pose = 0,
+  navHref,
 } = Astro.props;
 
 const pageTitle = title ? `${title} · ${SITE_TITLE}` : `${SITE_TITLE} — ${SITE_DESCRIPTION}`;
@@ -45,8 +52,13 @@ if (image.startsWith('http')) social = image;
 else if (image.startsWith('/')) social = new URL(url(image), Astro.site).href;
 
 const here = Astro.url.pathname;
-const isActive = (href: string) =>
-  href === '' ? here === url('') : here.startsWith(url(href));
+// An explicit navHref wins outright — nothing else may light up. Otherwise fall
+// back to matching the path, which is enough for pages that sit directly on a
+// nav route (/about/, /tags/, home).
+const isActive = (href: string) => {
+  if (navHref !== undefined) return href === navHref;
+  return href === '' ? here === url('') : here.startsWith(url(href));
+};
 const year = new Date().getFullYear();
 ---
 
