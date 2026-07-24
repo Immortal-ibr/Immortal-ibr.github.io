@@ -1,13 +1,15 @@
 ---
 import { CATEGORY_ORDER } from '../consts';
-import { getPosts, countBy, url, slugify } from '../utils';
+import { getPosts, blogPosts, countBy, url, slugify } from '../utils';
 
 interface Props {
   active?: string;
 }
 const { active } = Astro.props;
 
-const posts = await getPosts();
+// Section categories (Research, Tools) are reached from the nav, not from here,
+// so they're excluded — which also keeps the "All" count honest.
+const posts = blogPosts(await getPosts());
 const counts = countBy(posts, 'category');
 const cats = [...counts.entries()].sort((a, b) => {
   const ia = CATEGORY_ORDER.indexOf(a[0]);

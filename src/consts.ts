@@ -16,9 +16,16 @@ export const HERO_QUOTE = 'Why so serious?';
 export const NAV_LINKS = [
   { href: '', label: 'Home' },
   { href: 'posts/', label: 'Blog' },
-  { href: 'tags/', label: 'Tags' },
+  { href: 'category/research/', label: 'Research' },
+  { href: 'category/tools/', label: 'Tools' },
   { href: 'about/', label: 'About' },
 ];
+
+// Categories promoted out of the blog into their own top-level nav section.
+// Their posts are kept out of the Blog index and out of its filter row, so a
+// post is only ever listed in one place. Keep these in sync with NAV_LINKS —
+// the names must match the `category` frontmatter exactly.
+export const SECTION_CATEGORIES = ['Research', 'Tools'];
 
 export const SOCIAL_LINKS = [
   { label: 'GitHub', href: 'https://github.com/Immortal-ibr' },

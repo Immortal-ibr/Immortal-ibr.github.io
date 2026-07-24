@@ -2,7 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Filters from '../../components/Filters.astro';
 import PostList from '../../components/PostList.astro';
-import { getPosts, pinnedFirst, slugify } from '../../utils';
+import { getPosts, pinnedFirst, slugify, isSectionCategory } from '../../utils';
 
 export async function getStaticPaths() {
   const posts = await getPosts();
@@ -14,6 +14,10 @@ export async function getStaticPaths() {
 }
 
 const { name, posts } = Astro.props;
+// Research and Tools stand on their own in the nav. The filter row only lists
+// blog categories, so on those pages it would show a row with nothing active
+// in it — drop it and let the nav carry the "you are here".
+const standalone = isSectionCategory(name);
 ---
 
 <Base title={name} description={`Posts in the ${name} category.`}>
@@ -22,7 +26,7 @@ const { name, posts } = Astro.props;
       <p class="eyebrow">{posts.length} {posts.length === 1 ? 'post' : 'posts'}</p>
       <h1>{name}</h1>
     </div>
-    <Filters active={name} />
+    {!standalone && <Filters active={name} />}
     <PostList posts={posts} />
   </div>
 </Base>

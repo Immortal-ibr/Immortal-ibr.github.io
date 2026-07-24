@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { SECTION_CATEGORIES } from './consts';
 
 /** Internal URL that respects the site's `base`. */
 export function url(path = ''): string {
@@ -47,6 +48,34 @@ export function pinnedFirst(posts: Post[]): Post[] {
   return [...posts].sort(
     (a, b) => Number(b.data.pinned ?? false) - Number(a.data.pinned ?? false)
   );
+}
+
+/** True when a category has its own nav section rather than living in Blog. */
+export function isSectionCategory(name = ''): boolean {
+  return SECTION_CATEGORIES.includes(name.trim());
+}
+
+/**
+ * What the Blog index and its filter row list: everything that hasn't been
+ * promoted to its own nav section. Research and Tools have their own pages, so
+ * repeating them here would list the same post in two places.
+ */
+export function blogPosts(posts: Post[]): Post[] {
+  return posts.filter((p) => !isSectionCategory(p.data.category ?? ''));
+}
+
+/**
+ * Whether a listing leads with the full-width featured card.
+ *
+ * A real pin always earns the big slot. Failing that it comes down to parity:
+ * the featured card swallows a whole row, so the cards behind it only pair up
+ * cleanly when the total is odd. On an even count the big card would strand a
+ * single card alone on the last row — so every card stays the same size and
+ * they sit two to a level instead.
+ */
+export function shouldFeature(posts: Post[]): boolean {
+  if (posts.some((p) => p.data.pinned)) return true;
+  return posts.length % 2 === 1;
 }
 
 /** Category name -> count, ordered by CATEGORY_ORDER then alphabetically. */

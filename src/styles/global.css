@@ -209,13 +209,16 @@ main{flex:1 0 auto;width:100%}
   transition:background .2s ease,border-color .2s ease,transform .2s ease;
 }
 .list li:hover{background:var(--surface-2);border-color:var(--edge-lit);transform:translateY(-2px)}
-/* first card leads the grid on wide screens */
-.list li:first-child{grid-column:1 / -1}
+/* First card leads the grid on wide screens — but only when the listing asks
+   for it. `.featured` is set in PostList: a pin earns the big slot, and failing
+   that only an odd post count does, since an even one would leave the last card
+   stranded on its own row. */
+.list.featured li:first-child{grid-column:1 / -1}
 @media(min-width:900px){
-  .list li:first-child{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:stretch}
-  .list li:first-child .card-media{height:100%;aspect-ratio:auto;order:2}
-  .list li:first-child .card-body{padding:2rem}
-  .list li:first-child h2{font-size:1.9rem}
+  .list.featured li:first-child{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:stretch}
+  .list.featured li:first-child .card-media{height:100%;aspect-ratio:auto;order:2}
+  .list.featured li:first-child .card-body{padding:2rem}
+  .list.featured li:first-child h2{font-size:1.9rem}
 }
 .js .list li{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease,background .2s ease,border-color .2s ease}
 .js .list li.in{opacity:1;transform:none}

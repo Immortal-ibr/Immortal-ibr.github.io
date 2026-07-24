@@ -2,10 +2,12 @@
 import Base from '../../layouts/Base.astro';
 import Filters from '../../components/Filters.astro';
 import PostList from '../../components/PostList.astro';
-import { getPosts, pinnedFirst } from '../../utils';
+import { getPosts, blogPosts, pinnedFirst } from '../../utils';
 
-const posts = await getPosts();
-// The featured (big) slot: a pinned post wins; otherwise the newest takes it.
+// Research and Tools have their own nav sections, so they're not repeated here.
+const posts = blogPosts(await getPosts());
+// The featured (big) slot: a pinned post wins; otherwise the newest takes it,
+// but only when the grid still comes out even behind it — see shouldFeature.
 const ordered = pinnedFirst(posts);
 ---
 

@@ -1,11 +1,14 @@
 ---
 import type { Post } from '../utils';
-import { url, isoDate, slugify } from '../utils';
+import { url, isoDate, slugify, shouldFeature } from '../utils';
 
 interface Props {
   posts: Post[];
 }
 const { posts } = Astro.props;
+
+// Drives the big leading card. Without it every card is the same size.
+const featured = shouldFeature(posts);
 
 function ctaFor(d: Post['data']) {
   if (d.repoUrl) return { href: d.repoUrl, label: 'View on GitHub' };
@@ -23,7 +26,7 @@ function coverFor(d: Post['data']) {
 }
 ---
 
-<ul class="list">
+<ul class:list={['list', { featured }]}>
   {posts.map((post, i) => {
     const cta = ctaFor(post.data);
     const cover = coverFor(post.data);
