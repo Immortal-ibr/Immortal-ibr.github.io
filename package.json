@@ -16,8 +16,8 @@
     "@fontsource/ibm-plex-mono": "^5.0.0",
     "@fontsource/inter": "^5.0.0",
     "@fontsource/space-grotesk": "^5.0.0",
-    "astro": "5.13.10",
+    "astro": "^7.1.6",
     "pagefind": "^1.4.0",
-    "sharp": "^0.34.5"
+    "sharp": "^0.35.3"
   }
 }

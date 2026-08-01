@@ -29,7 +29,7 @@ export const SECTION_CATEGORIES = ['Research', 'Tools'];
 
 export const SOCIAL_LINKS = [
   { label: 'GitHub', href: 'https://github.com/Immortal-ibr' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/tarek-ibrahim' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/tarek-ibr/' },
   { label: 'Medium', href: 'https://medium.com/@tarek.ibr007' },
   { label: 'Discord', href: 'https://discord.com/users/541465360080044032' },
   { label: 'Email', href: 'mailto:tarek.ibr007@gmail.com' },
