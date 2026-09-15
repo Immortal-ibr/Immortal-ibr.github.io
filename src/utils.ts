@@ -21,9 +21,46 @@ export function isoDate(date: Date): string {
   return date.toISOString().slice(0, 10);
 }
 
-/** Rough reading time from raw markdown, 200 wpm. */
+/** Remove fenced code while leaving inline code in the surrounding prose. */
+function stripFencedCode(markdown: string): string {
+  const prose: string[] = [];
+  let fenceCharacter: string | null = null;
+  let fenceLength = 0;
+
+  for (const line of markdown.split(/\r?\n/)) {
+    if (fenceCharacter === null) {
+      const opening = line.match(/^ {0,3}(`{3,}|~{3,})/);
+      const marker = opening?.[1];
+
+      if (marker) {
+        fenceCharacter = marker.charAt(0);
+        fenceLength = marker.length;
+      } else {
+        prose.push(line);
+      }
+
+      continue;
+    }
+
+    const closing = line.match(/^ {0,3}(`{3,}|~{3,})[ \t]*$/);
+    const marker = closing?.[1];
+
+    if (
+      marker &&
+      marker.charAt(0) === fenceCharacter &&
+      marker.length >= fenceLength
+    ) {
+      fenceCharacter = null;
+      fenceLength = 0;
+    }
+  }
+
+  return prose.join('\n');
+}
+
+/** Rough prose reading time from markdown, 200 wpm. */
 export function readingTime(body = ''): number {
-  const words = body.trim().split(/\s+/).filter(Boolean).length;
+  const words = stripFencedCode(body).trim().split(/\s+/).filter(Boolean).length;
   return Math.max(1, Math.round(words / 200));
 }
 

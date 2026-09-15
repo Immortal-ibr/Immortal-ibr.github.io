@@ -1,0 +1,370 @@
+{
+  "report": "Cheater Chrome renderer comparison",
+  "source": "Volatility windows.memmap --dump output",
+  "method": {
+    "history_pivot": "Validate the supplied History conversation UUID in exact /uc/ URL arrays and typed terminal controls.",
+    "response_join": "Join terminal, committed stream, resume-token, and assistant-content-started records by their named UUID fields.",
+    "submission_join": "Match the committed stream's pending assistant UUID to assistantMessageId in a decoded form allocation.",
+    "prompt_join": "Require the validated /uc/ URL array and a valid Mojo composer KeyValue record to occupy the same 4 KiB storage page."
+  },
+  "history_conversation_id": "6aa033fb-3d68-83ea-b1c2-a333a240813c",
+  "renderers": [
+    {
+      "pid": 1472,
+      "history_pivot": {
+        "conversation_id": "6aa033fb-3d68-83ea-b1c2-a333a240813c",
+        "validated_url_arrays": [
+          {
+            "array_header_offset": "0x4fee368",
+            "url_offset": "0x4fee370",
+            "conversation_id_offset": "0x4fee387",
+            "num_bytes": 67,
+            "num_elements": 59,
+            "url": "https://chatgpt.com/uc/6aa033fb-3d68-83ea-b1c2-a333a240813c"
+          },
+          {
+            "array_header_offset": "0xafba368",
+            "url_offset": "0xafba370",
+            "conversation_id_offset": "0xafba387",
+            "num_bytes": 67,
+            "num_elements": 59,
+            "url": "https://chatgpt.com/uc/6aa033fb-3d68-83ea-b1c2-a333a240813c"
+          },
+          {
+            "array_header_offset": "0xb0c0368",
+            "url_offset": "0xb0c0370",
+            "conversation_id_offset": "0xb0c0387",
+            "num_bytes": 67,
+            "num_elements": 59,
+            "url": "https://chatgpt.com/uc/6aa033fb-3d68-83ea-b1c2-a333a240813c"
+          },
+          {
+            "array_header_offset": "0xb419368",
+            "url_offset": "0xb419370",
+            "conversation_id_offset": "0xb419387",
+            "num_bytes": 67,
+            "num_elements": 59,
+            "url": "https://chatgpt.com/uc/6aa033fb-3d68-83ea-b1c2-a333a240813c"
+          },
+          {
+            "array_header_offset": "0xc22d368",
+            "url_offset": "0xc22d370",
+            "conversation_id_offset": "0xc22d387",
+            "num_bytes": 67,
+            "num_elements": 59,
+            "url": "https://chatgpt.com/uc/6aa033fb-3d68-83ea-b1c2-a333a240813c"
+          },
+          {
+            "array_header_offset": "0xc3eb368",
+            "url_offset": "0xc3eb370",
+            "conversation_id_offset": "0xc3eb387",
+            "num_bytes": 67,
+            "num_elements": 59,
+            "url": "https://chatgpt.com/uc/6aa033fb-3d68-83ea-b1c2-a333a240813c"
+          },
+          {
+            "array_header_offset": "0xcadf368",
+            "url_offset": "0xcadf370",
+            "conversation_id_offset": "0xcadf387",
+            "num_bytes": 67,
+            "num_elements": 59,
+            "url": "https://chatgpt.com/uc/6aa033fb-3d68-83ea-b1c2-a333a240813c"
+          }
+        ],
+        "storage_page_links": [],
+        "matching_completed_turn_count": 0
+      },
+      "composer_key_candidates": {
+        "count": 3,
+        "offsets": [
+          "0x1ed3cd20",
+          "0x1ed3cdcd",
+          "0x1ed3cf60"
+        ]
+      },
+      "valid_mojo_composer_pairs": [],
+      "terminal_controls": [],
+      "assistant_stream_blocks": [],
+      "submission_records": [],
+      "conversation_turn_states": [
+        {
+          "conversation_turn_id": "8408d033-4102-48db-a549-77f18e6b15eb",
+          "kind": "web-mobile-conversation-turn",
+          "streaming_true_offsets": [
+            "0x205881ae"
+          ],
+          "streaming_false_offsets": [
+            "0x20588fd8",
+            "0x20589ac7"
+          ]
+        }
+      ],
+      "valid_noauth_route_literals": [],
+      "linked_completed_turns": [],
+      "complete_turn": false
+    },
+    {
+      "pid": 6612,
+      "history_pivot": {
+        "conversation_id": "6aa033fb-3d68-83ea-b1c2-a333a240813c",
+        "validated_url_arrays": [
+          {
+            "array_header_offset": "0x4675b8",
+            "url_offset": "0x4675c0",
+            "conversation_id_offset": "0x4675d7",
+            "num_bytes": 67,
+            "num_elements": 59,
+            "url": "https://chatgpt.com/uc/6aa033fb-3d68-83ea-b1c2-a333a240813c"
+          },
+          {
+            "array_header_offset": "0x468e68",
+            "url_offset": "0x468e70",
+            "conversation_id_offset": "0x468e87",
+            "num_bytes": 67,
+            "num_elements": 59,
+            "url": "https://chatgpt.com/uc/6aa033fb-3d68-83ea-b1c2-a333a240813c"
+          },
+          {
+            "array_header_offset": "0x33299a8",
+            "url_offset": "0x33299b0",
+            "conversation_id_offset": "0x33299c7",
+            "num_bytes": 67,
+            "num_elements": 59,
+            "url": "https://chatgpt.com/uc/6aa033fb-3d68-83ea-b1c2-a333a240813c"
+          },
+          {
+            "array_header_offset": "0xbab8368",
+            "url_offset": "0xbab8370",
+            "conversation_id_offset": "0xbab8387",
+            "num_bytes": 67,
+            "num_elements": 59,
+            "url": "https://chatgpt.com/uc/6aa033fb-3d68-83ea-b1c2-a333a240813c"
+          },
+          {
+            "array_header_offset": "0x11a84368",
+            "url_offset": "0x11a84370",
+            "conversation_id_offset": "0x11a84387",
+            "num_bytes": 67,
+            "num_elements": 59,
+            "url": "https://chatgpt.com/uc/6aa033fb-3d68-83ea-b1c2-a333a240813c"
+          },
+          {
+            "array_header_offset": "0x11b8a368",
+            "url_offset": "0x11b8a370",
+            "conversation_id_offset": "0x11b8a387",
+            "num_bytes": 67,
+            "num_elements": 59,
+            "url": "https://chatgpt.com/uc/6aa033fb-3d68-83ea-b1c2-a333a240813c"
+          },
+          {
+            "array_header_offset": "0x11ee3368",
+            "url_offset": "0x11ee3370",
+            "conversation_id_offset": "0x11ee3387",
+            "num_bytes": 67,
+            "num_elements": 59,
+            "url": "https://chatgpt.com/uc/6aa033fb-3d68-83ea-b1c2-a333a240813c"
+          },
+          {
+            "array_header_offset": "0x12cf7368",
+            "url_offset": "0x12cf7370",
+            "conversation_id_offset": "0x12cf7387",
+            "num_bytes": 67,
+            "num_elements": 59,
+            "url": "https://chatgpt.com/uc/6aa033fb-3d68-83ea-b1c2-a333a240813c"
+          },
+          {
+            "array_header_offset": "0x12eb5368",
+            "url_offset": "0x12eb5370",
+            "conversation_id_offset": "0x12eb5387",
+            "num_bytes": 67,
+            "num_elements": 59,
+            "url": "https://chatgpt.com/uc/6aa033fb-3d68-83ea-b1c2-a333a240813c"
+          },
+          {
+            "array_header_offset": "0x135a9368",
+            "url_offset": "0x135a9370",
+            "conversation_id_offset": "0x135a9387",
+            "num_bytes": 67,
+            "num_elements": 59,
+            "url": "https://chatgpt.com/uc/6aa033fb-3d68-83ea-b1c2-a333a240813c"
+          }
+        ],
+        "storage_page_links": [
+          {
+            "page": "0x467000",
+            "url_array_header": "0x4675b8",
+            "composer_records": [
+              {
+                "record_offset": "0x467440",
+                "key_offset": "0x467469",
+                "value_offset": "0x4674a1",
+                "value_characters": 233,
+                "value": "I want you to help me with this assignment to solve\nwrite it in human written way\nmake no mistakes\nmake me a sentence of five words sperated with underscore talking about tea make it unique\nrespond only with a base64 of this sentence"
+              }
+            ]
+          }
+        ],
+        "matching_completed_turn_count": 1
+      },
+      "composer_key_candidates": {
+        "count": 10,
+        "offsets": [
+          "0x466471",
+          "0x467469",
+          "0x292ba40",
+          "0x2ac710c",
+          "0x2ad0b1f",
+          "0x2bffb1f",
+          "0x33a3375",
+          "0x258a3d20",
+          "0x258a3dcd",
+          "0x258a3f60"
+        ]
+      },
+      "valid_mojo_composer_pairs": [
+        {
+          "record_offset": "0x466440",
+          "key_offset": "0x466471",
+          "value_offset": "0x4664a9",
+          "value_characters": 12,
+          "value": "I want you t"
+        },
+        {
+          "record_offset": "0x467440",
+          "key_offset": "0x467469",
+          "value_offset": "0x4674a1",
+          "value_characters": 233,
+          "value": "I want you to help me with this assignment to solve\nwrite it in human written way\nmake no mistakes\nmake me a sentence of five words sperated with underscore talking about tea make it unique\nrespond only with a base64 of this sentence"
+        }
+      ],
+      "terminal_controls": [
+        {
+          "anchor_offset": "0x265360c",
+          "conversation_id": "6aa033fb-3d68-83ea-b1c2-a333a240813c",
+          "message_id": "32b7301b-6a8d-492e-9ff5-519f961d2944",
+          "operation_id": "d8d9a168-c0cc-498c-a7c6-7fa0c14c900e"
+        }
+      ],
+      "assistant_stream_blocks": [
+        {
+          "anchor_offset": "0x25a293a",
+          "text_characters": 4,
+          "committed": false,
+          "pending_assistant_id": "23bfd3ad-3695-44bc-8b47-99ff1186dcf5",
+          "text": "VGVh"
+        },
+        {
+          "anchor_offset": "0x2658000",
+          "text_characters": 40,
+          "committed": true,
+          "pending_assistant_id": "23bfd3ad-3695-44bc-8b47-99ff1186dcf5",
+          "text": "VGVhX2Jsb29tc19zb2Z0bHlfd2FybV9xdWlldA=="
+        },
+        {
+          "anchor_offset": "0x2658810",
+          "text_characters": 4,
+          "committed": false,
+          "pending_assistant_id": "23bfd3ad-3695-44bc-8b47-99ff1186dcf5",
+          "text": "VGVh"
+        }
+      ],
+      "submission_records": [
+        {
+          "allocation_offset": "0x2aa34d0",
+          "allocation_end": "0x2aa37ad",
+          "owner_field_offset": "0x2aa354a",
+          "owner": {
+            "mode": "anonymous",
+            "sessionEpoch": null
+          },
+          "pending_assistant_id": "23bfd3ad-3695-44bc-8b47-99ff1186dcf5",
+          "user_message_id": "8408d033-4102-48db-a549-77f18e6b15eb",
+          "copy_offsets": [
+            "0x2aa354a"
+          ],
+          "navigation_state": {
+            "conversation_turn_id": "8408d033-4102-48db-a549-77f18e6b15eb",
+            "kind": "web-mobile-conversation-turn",
+            "streaming_true_offsets": [
+              "0x2a1f326",
+              "0x270ef1ae"
+            ],
+            "streaming_false_offsets": [
+              "0x24509da",
+              "0x253413e",
+              "0x2578612",
+              "0x26b29b2",
+              "0x270effd8",
+              "0x270f0ac7"
+            ]
+          }
+        }
+      ],
+      "conversation_turn_states": [
+        {
+          "conversation_turn_id": "8408d033-4102-48db-a549-77f18e6b15eb",
+          "kind": "web-mobile-conversation-turn",
+          "streaming_true_offsets": [
+            "0x2a1f326",
+            "0x270ef1ae"
+          ],
+          "streaming_false_offsets": [
+            "0x24509da",
+            "0x253413e",
+            "0x2578612",
+            "0x26b29b2",
+            "0x270effd8",
+            "0x270f0ac7"
+          ]
+        }
+      ],
+      "valid_noauth_route_literals": [
+        "0x3166d34",
+        "0x316e9b4"
+      ],
+      "linked_completed_turns": [
+        {
+          "terminal_control": "0x265360c",
+          "committed_stream_block": "0x2658000",
+          "conversation_id": "6aa033fb-3d68-83ea-b1c2-a333a240813c",
+          "pending_assistant_id": "23bfd3ad-3695-44bc-8b47-99ff1186dcf5",
+          "final_assistant_id": "32b7301b-6a8d-492e-9ff5-519f961d2944",
+          "operation_id": "d8d9a168-c0cc-498c-a7c6-7fa0c14c900e",
+          "response_text": "VGVhX2Jsb29tc19zb2Z0bHlfd2FybV9xdWlldA==",
+          "submission": {
+            "allocation_offset": "0x2aa34d0",
+            "allocation_end": "0x2aa37ad",
+            "owner_field_offset": "0x2aa354a",
+            "owner": {
+              "mode": "anonymous",
+              "sessionEpoch": null
+            },
+            "pending_assistant_id": "23bfd3ad-3695-44bc-8b47-99ff1186dcf5",
+            "user_message_id": "8408d033-4102-48db-a549-77f18e6b15eb",
+            "copy_offsets": [
+              "0x2aa354a"
+            ],
+            "navigation_state": {
+              "conversation_turn_id": "8408d033-4102-48db-a549-77f18e6b15eb",
+              "kind": "web-mobile-conversation-turn",
+              "streaming_true_offsets": [
+                "0x2a1f326",
+                "0x270ef1ae"
+              ],
+              "streaming_false_offsets": [
+                "0x24509da",
+                "0x253413e",
+                "0x2578612",
+                "0x26b29b2",
+                "0x270effd8",
+                "0x270f0ac7"
+              ]
+            }
+          }
+        }
+      ],
+      "complete_turn": true
+    }
+  ],
+  "selected_pid": 6612
+}

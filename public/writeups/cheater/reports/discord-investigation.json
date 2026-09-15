@@ -1,0 +1,266 @@
+{
+  "report": "Cheater Discord renderer reconstruction",
+  "source": {
+    "file": "pid.4080.dmp",
+    "size_bytes": 961970176
+  },
+  "method": {
+    "gateway": "complete ETF terms beginning with VERSION_MAGIC + MAP_EXT",
+    "selected_channel": "complete little-endian length-prefixed JSON records",
+    "drafts": "complete DraftStore JSON states",
+    "deduplication": "identical decoded Gateway events and identical draft revisions"
+  },
+  "gateway": {
+    "validated_dispatch_count": 28,
+    "event_type_counts": {
+      "CHANNEL_CREATE": 1,
+      "MESSAGE_ACK": 2,
+      "MESSAGE_CREATE": 5,
+      "MESSAGE_REACTION_ADD": 1,
+      "NOTIFICATION_CENTER_ITEM_CREATE": 1,
+      "PRESENCE_UPDATE": 1,
+      "RELATIONSHIP_ADD": 2,
+      "RESUMED": 1,
+      "SESSIONS_REPLACE": 11,
+      "TYPING_START": 2,
+      "USER_UPDATE": 1
+    },
+    "dm_channel": {
+      "event_offset": "0x65a5168",
+      "id": "1546915046091923606",
+      "type": 1,
+      "recipients": [
+        {
+          "id": 541465360080044032,
+          "username": "tarek_ibr",
+          "global_name": "Immortal_ibr"
+        }
+      ]
+    },
+    "messages": [
+      {
+        "event_offset": "0x65a59c7",
+        "id": "1546915091000328343",
+        "channel_id": "1546915046091923606",
+        "timestamp": "2026-09-08T16:08:17.987000+00:00",
+        "snowflake_timestamp": "2026-09-08T16:08:17.987Z",
+        "snowflake_delta_ms": 0,
+        "author": {
+          "id": 1546836880941777006,
+          "username": "immortal_xxxx",
+          "global_name": "Mrx"
+        },
+        "content": "hey"
+      },
+      {
+        "event_offset": "0x65a5c87",
+        "id": "1546915101821370449",
+        "channel_id": "1546915046091923606",
+        "timestamp": "2026-09-08T16:08:20.567000+00:00",
+        "snowflake_timestamp": "2026-09-08T16:08:20.567Z",
+        "snowflake_delta_ms": 0,
+        "author": {
+          "id": 541465360080044032,
+          "username": "tarek_ibr",
+          "global_name": "Immortal_ibr"
+        },
+        "content": "hey"
+      },
+      {
+        "event_offset": "0x65a614a",
+        "id": "1546915339453857823",
+        "channel_id": "1546915046091923606",
+        "timestamp": "2026-09-08T16:09:17.223000+00:00",
+        "snowflake_timestamp": "2026-09-08T16:09:17.223Z",
+        "snowflake_delta_ms": 0,
+        "author": {
+          "id": 1546836880941777006,
+          "username": "immortal_xxxx",
+          "global_name": "Mrx"
+        },
+        "content": "did you finish the ECE 54700 hw 1"
+      },
+      {
+        "event_offset": "0x65a6428",
+        "id": "1546915499655303199",
+        "channel_id": "1546915046091923606",
+        "timestamp": "2026-09-08T16:09:55.418000+00:00",
+        "snowflake_timestamp": "2026-09-08T16:09:55.418Z",
+        "snowflake_delta_ms": 0,
+        "author": {
+          "id": 1546836880941777006,
+          "username": "immortal_xxxx",
+          "global_name": "Mrx"
+        },
+        "content": "the deadline is approaching and I can't do it"
+      },
+      {
+        "event_offset": "0x65a6823",
+        "id": "1546915590935945417",
+        "channel_id": "1546915046091923606",
+        "timestamp": "2026-09-08T16:10:17.181000+00:00",
+        "snowflake_timestamp": "2026-09-08T16:10:17.181Z",
+        "snowflake_delta_ms": 0,
+        "author": {
+          "id": 541465360080044032,
+          "username": "tarek_ibr",
+          "global_name": "Immortal_ibr"
+        },
+        "content": "bro I didn't even start doing it"
+      }
+    ]
+  },
+  "client_state": {
+    "selected_channel_records": [
+      {
+        "record_offset": "0xa9aa814",
+        "json_offset": "0xa9aa81c",
+        "length": 153,
+        "string_flag": 1,
+        "value": {
+          "selectedChannelId": "1546915046091923606",
+          "selectedChannelIds": {
+            "null": "1546915046091923606"
+          },
+          "mostRecentSelectedTextChannelIds": {},
+          "knownThreadIds": []
+        }
+      }
+    ],
+    "draft_revisions": [
+      {
+        "record_offset": "0x33ce542c",
+        "user_id": "1546836880941777006",
+        "channel_id": "1546915046091923606",
+        "timestamp": "2026-09-08T16:08:29.828Z",
+        "timestamp_ms": 1788883709828,
+        "draft": "just wanted t"
+      },
+      {
+        "record_offset": "0x33ce55cf",
+        "user_id": "1546836880941777006",
+        "channel_id": "1546915046091923606",
+        "timestamp": "2026-09-08T16:08:31.209Z",
+        "timestamp_ms": 1788883711209,
+        "draft": "just wanted to ask "
+      },
+      {
+        "record_offset": "0x33ce56bd",
+        "user_id": "1546836880941777006",
+        "channel_id": "1546915046091923606",
+        "timestamp": "2026-09-08T16:08:40.788Z",
+        "timestamp_ms": 1788883720788,
+        "draft": "did you finish "
+      },
+      {
+        "record_offset": "0x33ce57a7",
+        "user_id": "1546836880941777006",
+        "channel_id": "1546915046091923606",
+        "timestamp": "2026-09-08T16:08:51.446Z",
+        "timestamp_ms": 1788883731446,
+        "draft": "did you finish the assignment "
+      },
+      {
+        "record_offset": "0x33ce58a0",
+        "user_id": "1546836880941777006",
+        "channel_id": "1546915046091923606",
+        "timestamp": "2026-09-08T16:08:56.050Z",
+        "timestamp_ms": 1788883736050,
+        "draft": "did you finish the e"
+      },
+      {
+        "record_offset": "0x33ce5a43",
+        "user_id": "1546836880941777006",
+        "channel_id": "1546915046091923606",
+        "timestamp": "2026-09-08T16:09:03.308Z",
+        "timestamp_ms": 1788883743308,
+        "draft": "did you finish the ECE 54700: Intro to Computer Communication Networks hw 1 solution"
+      },
+      {
+        "record_offset": "0x33ce5c2d",
+        "user_id": "1546836880941777006",
+        "channel_id": "1546915046091923606",
+        "timestamp": "2026-09-08T16:09:08.469Z",
+        "timestamp_ms": 1788883748469,
+        "draft": "did you finish the ECE 54700 hw 1 solution"
+      },
+      {
+        "record_offset": "0x33ce5d32",
+        "user_id": "1546836880941777006",
+        "channel_id": "1546915046091923606",
+        "timestamp": "2026-09-08T16:09:18.808Z",
+        "timestamp_ms": 1788883758808,
+        "draft": "the d"
+      },
+      {
+        "record_offset": "0x33ce5e11",
+        "user_id": "1546836880941777006",
+        "channel_id": "1546915046091923606",
+        "timestamp": "2026-09-08T16:09:23.733Z",
+        "timestamp_ms": 1788883763733,
+        "draft": "the deadline is approa"
+      },
+      {
+        "record_offset": "0x33ce5f02",
+        "user_id": "1546836880941777006",
+        "channel_id": "1546915046091923606",
+        "timestamp": "2026-09-08T16:09:24.496Z",
+        "timestamp_ms": 1788883764496,
+        "draft": "the deadline is approaching"
+      },
+      {
+        "record_offset": "0x33ce5ff8",
+        "user_id": "1546836880941777006",
+        "channel_id": "1546915046091923606",
+        "timestamp": "2026-09-08T16:09:42.196Z",
+        "timestamp_ms": 1788883782196,
+        "draft": "the deadline is approaching and I"
+      },
+      {
+        "record_offset": "0x33ce61af",
+        "user_id": "1546836880941777006",
+        "channel_id": "1546915046091923606",
+        "timestamp": "2026-09-08T16:09:49.159Z",
+        "timestamp_ms": 1788883789159,
+        "draft": "the deadline is approaching and I can'"
+      },
+      {
+        "record_offset": "0x33ce62b0",
+        "user_id": "1546836880941777006",
+        "channel_id": "1546915046091923606",
+        "timestamp": "2026-09-08T16:09:51.029Z",
+        "timestamp_ms": 1788883791029,
+        "draft": "the deadline is approaching and I can't do it"
+      }
+    ]
+  },
+  "correlation": {
+    "channel_id": "1546915046091923606",
+    "local_user_id": "1546836880941777006",
+    "recipient_ids": [
+      "541465360080044032"
+    ],
+    "message_count": 5,
+    "all_messages_match_channel": true,
+    "all_snowflake_checks_zero_delta": true,
+    "draft_to_sent": [
+      {
+        "message_id": "1546915339453857823",
+        "final_draft": "did you finish the ECE 54700 hw 1 solution",
+        "sent_content": "did you finish the ECE 54700 hw 1",
+        "removed_words": [
+          "solution"
+        ],
+        "draft_to_send_ms": 8754
+      },
+      {
+        "message_id": "1546915499655303199",
+        "final_draft": "the deadline is approaching and I can't do it",
+        "sent_content": "the deadline is approaching and I can't do it",
+        "removed_words": [],
+        "draft_to_send_ms": 4389
+      }
+    ]
+  }
+}
+
