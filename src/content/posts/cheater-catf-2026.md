@@ -4,7 +4,7 @@ published: 2026-09-12
 description: "A full reconstruction of an anonymous ChatGPT chat from a Windows memory image: this is a writeup for my DFIR challenge in CAT CTF"
 tags: [DFIR, Memory Forensics, Browser Forensics, Windows, Volatility, Discord, ChatGPT]
 category: CTF Author
-image: /covers/post-cheater.png
+image: /covers/post-cheater.jpg
 event: CATF 2026
 challengeUrl: https://mega.nz/file/O0hHjAQD#NGzldU4A7xJUrnIYiX948dkUKXp0mm7XEvwGkkKsqZs
 draft: false
