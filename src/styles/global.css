@@ -211,7 +211,7 @@ img{max-width:100%;height:auto}
 .hero .cta{margin-top:2.5rem;padding:1.05rem 3rem;font-size:1rem}
 
 /* ---------- hero: the way in ---------- */
-.enter{position:absolute;left:50%;bottom:2.5rem;transform:translateX(-50%);z-index:10;
+.enter{position:absolute;left:0;right:0;bottom:2.5rem;width:max-content;margin-inline:auto;z-index:10;
   display:inline-flex;flex-direction:column;align-items:center;gap:.75rem;
   text-decoration:none;color:hsl(var(--muted-foreground));
   transition:color .25s ease}
