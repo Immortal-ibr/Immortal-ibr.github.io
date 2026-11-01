@@ -7,6 +7,7 @@
    ============================================================ */
 
 :root{
+  color-scheme:dark;
   --read-wide:54rem;
   --toc:16rem;
   /* Ground is near-neutral, not saturated. A big flat field of fully-saturated
@@ -39,6 +40,21 @@
   --nav-h:4.5rem;
   --r-card:16px;
   --r-media:12px;
+}
+
+:root[data-theme="light"]{
+  color-scheme:light;
+  --ground:oklch(97% .007 265);
+  --surface:oklch(99.5% .003 265);
+  --surface-2:oklch(94.5% .01 265);
+  --edge:oklch(84% .015 265);
+  --edge-lit:oklch(70% .025 265);
+  --foreground:220 22% 16%;
+  --muted-foreground:220 12% 36%;
+  --accent:#086b90;
+  --accent-soft:rgba(8,107,144,.18);
+  --accent-2:oklch(47% .15 350);
+  --accent-2-soft:oklch(47% .15 350 / .1);
 }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -129,9 +145,42 @@ img{max-width:100%;height:auto}
 .logo{font-family:var(--font-display);font-weight:600;font-size:1.35rem;letter-spacing:-.03em;
   text-decoration:none;line-height:1;white-space:nowrap}
 .navlinks{display:none;gap:2rem;font-size:.98rem}
-@media(min-width:768px){.navlinks{display:flex}}
+@media(min-width:768px){.navlinks{display:flex}.mobile-nav{display:none}}
 .navlinks a{color:hsl(var(--muted-foreground));text-decoration:none;transition:color .2s}
 .navlinks a:hover,.navlinks a[aria-current='page']{color:hsl(var(--foreground))}
+.mobile-nav{flex:none}
+.mobile-nav summary{display:grid;place-items:center;list-style:none;width:2.4rem;min-height:2.35rem;
+  border:1px solid var(--edge-lit);border-radius:999px;background:var(--surface);
+  color:hsl(var(--foreground));cursor:pointer}
+.mobile-nav summary::-webkit-details-marker{display:none}
+.mobile-nav summary:hover,.mobile-nav[open] summary{border-color:var(--accent);color:var(--accent)}
+.mobile-nav summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.mobile-nav-panel{position:absolute;left:0;right:0;top:100%;display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem;padding:1rem 1.25rem 1.25rem;
+  background:var(--surface);border-bottom:1px solid var(--edge);
+  box-shadow:0 18px 32px -24px rgba(0,0,0,.5)}
+.mobile-nav-panel a{display:grid;place-items:center;min-height:2.75rem;padding:.55rem .7rem;
+  border:1px solid var(--edge);border-radius:.6rem;text-decoration:none;
+  font-family:var(--font-mono);font-size:.72rem;letter-spacing:.04em;white-space:nowrap}
+.mobile-nav-panel a:hover,.mobile-nav-panel a[aria-current='page']{
+  border-color:var(--accent);color:var(--accent)}
+@media(max-width:767px){
+  .nav{gap:.5rem}
+  .nav .logo{margin-right:auto}
+  .mobile-nav summary,.theme-toggle{width:2.75rem;min-height:2.75rem}
+}
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;flex:none;
+  min-height:2.35rem;padding:.42rem .75rem;border:1px solid var(--edge-lit);border-radius:999px;
+  background:var(--surface);color:hsl(var(--foreground));cursor:pointer;white-space:nowrap;
+  font-family:var(--font-mono);font-size:.68rem;letter-spacing:.04em;
+  transition:background .18s,border-color .18s,color .18s,transform .18s}
+.theme-toggle:hover{background:var(--surface-2);border-color:var(--accent);color:var(--accent)}
+.theme-toggle:active{transform:translateY(1px)}
+.theme-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.theme-icon{display:block;width:1rem;height:1rem;flex:none}
+.theme-icon-moon,:root[data-theme="light"] .theme-icon-sun{display:none}
+:root[data-theme="light"] .theme-icon-moon{display:block}
+@media(max-width:900px){.theme-toggle-label{display:none}.theme-toggle{width:2.75rem;padding:.42rem}}
 .pill{display:inline-flex;align-items:center;gap:.5rem;border-radius:9999px;padding:.6rem 1.4rem;
   font-size:.875rem;color:hsl(var(--foreground));text-decoration:none;transition:transform .2s;white-space:nowrap}
 .pill:hover{transform:scale(1.03)}
@@ -365,6 +414,9 @@ footer.site a:hover{color:hsl(var(--foreground))}
 @media(max-width:640px){
   .nav{padding:1rem 1.25rem}
   .hero{padding:2.5rem 1.25rem 4.5rem}
+  .doc-shell{margin-top:1rem;padding-inline:1rem}
+  .article{padding:1.6rem 1.25rem 1.75rem}
+  .article h1{font-size:clamp(1.9rem,5.5vw,2.2rem)}
   .pager{grid-template-columns:1fr}
   .pager .next{grid-column:1;text-align:left}
   .copy-btn{opacity:1}
@@ -468,6 +520,50 @@ footer.site a:hover{color:hsl(var(--foreground))}
   text-transform:uppercase;color:hsl(var(--muted-foreground));margin-top:.2rem}
 .repo-meta{margin:.75rem 0 0;font-family:var(--font-mono);font-size:.72rem;
   color:hsl(var(--muted-foreground));line-height:1.6}
+
+/* Light reading surface. The existing illustrations and cover images keep their
+   own colors; only the surrounding UI and article text change theme. */
+:root[data-theme="light"] ::selection{background:rgba(8,107,144,.2)}
+:root[data-theme="light"] .site-bg-video{opacity:.24;filter:grayscale(1)}
+:root[data-theme="light"] .site-bg-still{opacity:.1;filter:grayscale(1)}
+:root[data-theme="light"] .site-bg-scrim,
+:root[data-theme="light"] .site-bg:has(.site-bg-still) .site-bg-scrim{
+  background:rgba(247,248,250,.38)}
+:root[data-theme="light"] .scan{display:none}
+:root[data-theme="light"] .hero-quote{text-shadow:none}
+:root[data-theme="light"] .liquid-glass{
+  background:color-mix(in srgb,var(--surface) 90%,transparent);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 0 0 1px var(--edge)}
+:root[data-theme="light"] .liquid-glass::before{display:none}
+:root[data-theme="light"] .chip{border-color:var(--edge)}
+:root[data-theme="light"] .chip:hover{border-color:var(--edge-lit)}
+:root[data-theme="light"] .chip[aria-current='page']{
+  border-color:var(--accent);background:var(--accent-soft)}
+:root[data-theme="light"] .card-kind{color:#fff}
+:root[data-theme="light"] .card-pin{color:#f6b7ce}
+:root[data-theme="light"] .card-tags a{opacity:1}
+:root[data-theme="light"] .out{color:var(--accent);border-bottom-color:var(--accent-soft)}
+:root[data-theme="light"] .out:hover{border-bottom-color:var(--accent)}
+:root[data-theme="light"] .doc-panel{
+  background:color-mix(in srgb,var(--surface) 94%,transparent);
+  box-shadow:0 0 0 1px var(--edge),0 20px 50px -36px rgba(27,43,62,.24)}
+:root[data-theme="light"] .cover{border-color:var(--edge)}
+:root[data-theme="light"] .prose{color:hsl(var(--foreground))}
+:root[data-theme="light"] .prose a{color:var(--accent);text-decoration-color:var(--accent-soft)}
+:root[data-theme="light"] .prose a:hover{text-decoration-color:var(--accent)}
+:root[data-theme="light"] .prose hr,
+:root[data-theme="light"] .prose th,
+:root[data-theme="light"] .prose td{border-color:var(--edge)}
+:root[data-theme="light"] blockquote{border-left-color:var(--accent)}
+:root[data-theme="light"] :not(pre)>code{background:var(--surface-2)}
+:root[data-theme="light"] pre[data-language]::before{color:#b8c2ce}
+:root[data-theme="light"] .copy-btn{color:#d8e1ea}
+:root[data-theme="light"] .copy-btn:hover{color:#fff}
+:root[data-theme="light"] .tags,
+:root[data-theme="light"] .pager,
+:root[data-theme="light"] footer.site{border-color:var(--edge)}
+:root[data-theme="light"] .pager a{border-color:var(--edge)}
+:root[data-theme="light"] .pager a:hover{border-color:var(--accent)}
 
 /* ---------- page transitions ---------- */
 @view-transition { navigation: auto; }

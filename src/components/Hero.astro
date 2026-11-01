@@ -3,6 +3,8 @@
 // just sits on top of it. Only the scan sweep stays local to the hero.
 import { WORDMARK, HERO_HEADLINE, HERO_HEADLINE_MUTED, HERO_SUB, HERO_QUOTE, NAV_LINKS } from '../consts';
 import { url } from '../utils';
+import ThemeToggle from './ThemeToggle.astro';
+import MobileNav from './MobileNav.astro';
 ---
 
 <section class="stage">
@@ -13,6 +15,8 @@ import { url } from '../utils';
     <div class="navlinks">
       {NAV_LINKS.map((l) => <a href={url(l.href)}>{l.label}</a>)}
     </div>
+    <MobileNav activeHref="" />
+    <ThemeToggle />
   </nav>
 
   <div class="hero">

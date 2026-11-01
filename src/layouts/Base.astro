@@ -12,6 +12,8 @@ import { SITE_TITLE, SITE_DESCRIPTION, AUTHOR, WORDMARK, NAV_LINKS, SOCIAL_LINKS
 import { ClientRouter } from 'astro:transitions';
 import { url } from '../utils';
 import SocialIcon from '../components/SocialIcon.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import MobileNav from '../components/MobileNav.astro';
 
 interface Props {
   title?: string;
@@ -19,8 +21,7 @@ interface Props {
   image?: string;
   article?: boolean;
   solidNav?: boolean;
-  /** 'video' everywhere by default; posts pass 'still' so nothing moves
-      behind body copy. */
+  /** Posts use a still backdrop in both themes. */
   ambient?: 'video' | 'still';
   /** Which resting position L takes on a still page. 0–4. */
   pose?: number;
@@ -59,20 +60,29 @@ const isActive = (href: string) => {
   if (navHref !== undefined) return href === navHref;
   return href === '' ? here === url('') : here.startsWith(url(href));
 };
+const activeNavHref = NAV_LINKS.find((link) => isActive(link.href))?.href;
 const year = new Date().getFullYear();
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script is:inline>document.documentElement.classList.add('js')</script>
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <meta name="author" content={AUTHOR} />
-    <meta name="color-scheme" content="dark" />
+    <meta name="color-scheme" content="dark light" />
     <meta name="theme-color" content="#0f1318" />
+    <script is:inline>
+      document.documentElement.classList.add('js');
+      try {
+        if (localStorage.getItem('site-theme') === 'light') {
+          document.documentElement.dataset.theme = 'light';
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f8fa');
+        }
+      } catch {}
+    </script>
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/png" href={url('/favicon.png')} />
     <link rel="apple-touch-icon" href={url('/favicon.png')} />
@@ -96,25 +106,21 @@ const year = new Date().getFullYear();
         A scrim keeps it well under the content, and cards / the reading panel
         are opaque so nothing is ever read directly off moving video. */}
     <div class="site-bg" aria-hidden="true" data-pose={pose}>
-      {
-        ambient === 'video' ? (
-          <video
-            class="site-bg-video"
-            autoplay
-            loop
-            muted
-            playsinline
-            preload="metadata"
-            poster={url('/hero/hero-poster.webp')}
-          >
-            <source src={url('/hero/hero.mp4')} type="video/mp4" />
-          </video>
-        ) : (
-          /* Reading pages get a still, full-bleed. Nothing moves behind body
-             copy; the framing shifts per post so L sits differently. */
-          <img class="site-bg-still" src={url('/hero/hero-poster.webp')} alt="" decoding="async" />
-        )
-      }
+      {ambient === 'video' ? (
+        <video
+          class="site-bg-video"
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="metadata"
+          poster={url('/hero/hero-poster.webp')}
+        >
+          <source src={url('/hero/hero.mp4')} type="video/mp4" />
+        </video>
+      ) : (
+        <img class="site-bg-still" src={url('/hero/hero-poster.webp')} alt="" decoding="async" />
+      )}
       <div class="site-bg-scrim"></div>
     </div>
 
@@ -128,6 +134,8 @@ const year = new Date().getFullYear();
             <a href={url(l.href)} aria-current={isActive(l.href) ? 'page' : undefined}>{l.label}</a>
           ))}
         </div>
+        <MobileNav activeHref={activeNavHref} />
+        <ThemeToggle />
       </nav>
     </slot>
 
@@ -153,11 +161,29 @@ const year = new Date().getFullYear();
       // ClientRouter swaps the DOM on navigation, so anything that touches it
       // must re-run per page. astro:page-load fires on first load and after
       // every transition.
+      document.addEventListener('astro:before-swap', (event) => {
+        event.newDocument.documentElement.dataset.theme = document.documentElement.dataset.theme || 'dark';
+        event.newDocument.documentElement.classList.add('js');
+        event.newDocument.querySelector('meta[name="theme-color"]')?.setAttribute(
+          'content', document.documentElement.dataset.theme === 'light' ? '#f7f8fa' : '#0f1318'
+        );
+      });
+
+      let removeVideoSync: (() => void) | undefined;
       function initPage() {
         const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+        const toggle = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+        const syncToggle = () => {
+          if (!toggle) return;
+          const label = document.documentElement.dataset.theme === 'light' ? 'Dark mode' : 'Light mode';
+          toggle.setAttribute('aria-label', `Switch to ${label.toLowerCase()}`);
+          toggle.title = `Switch to ${label.toLowerCase()}`;
+          const text = toggle.querySelector('[data-theme-label]');
+          if (text) text.textContent = label;
+        };
+        syncToggle();
 
-        // Ambient clip: hold the poster when motion is reduced, and stop
-        // decoding while the tab is hidden — it's on screen the whole time.
+        // Ambient clip: pause when motion is reduced or the tab is hidden.
         const bg = document.querySelector('.site-bg-video') as HTMLVideoElement | null;
         const syncVideo = () => {
           if (!bg) return;
@@ -165,8 +191,20 @@ const year = new Date().getFullYear();
           else bg.play().catch(() => {});
         };
         syncVideo();
-        document.removeEventListener('visibilitychange', syncVideo);
+        removeVideoSync?.();
         document.addEventListener('visibilitychange', syncVideo);
+        removeVideoSync = () => document.removeEventListener('visibilitychange', syncVideo);
+
+        toggle?.addEventListener('click', () => {
+          const theme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+          document.documentElement.dataset.theme = theme;
+          document.querySelector('meta[name="theme-color"]')?.setAttribute(
+            'content', theme === 'light' ? '#f7f8fa' : '#0f1318'
+          );
+          try { localStorage.setItem('site-theme', theme); } catch {}
+          syncToggle();
+          syncVideo();
+        });
 
         // Reveal post cards as they scroll in.
         const rows = document.querySelectorAll('.list li');
