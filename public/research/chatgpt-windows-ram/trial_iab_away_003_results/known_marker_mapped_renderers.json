@@ -1,0 +1,134 @@
+{
+  "trial_id": "trial_iab_away_003",
+  "method": "ground-truth-assisted per-row exact ASCII scan of active renderer user-space mappings",
+  "ground_truth_supplied": true,
+  "limitations": "Not blind reconstruction; strings split across rows can be missed; a mapped page is not exclusive process ownership; no bounded turn or IDs are joined.",
+  "processes": [
+    {
+      "pid": 7608,
+      "user_space_rows_scanned": 17448,
+      "known_value_hit_counts": {
+        "prompt": 0,
+        "response": 0,
+        "conversation_id": 0,
+        "user_message_id": 0,
+        "assistant_message_id": 0
+      },
+      "physical_4k_pages_with_hit": {
+        "prompt": 0,
+        "response": 0,
+        "conversation_id": 0,
+        "user_message_id": 0,
+        "assistant_message_id": 0
+      }
+    },
+    {
+      "pid": 9052,
+      "user_space_rows_scanned": 23468,
+      "known_value_hit_counts": {
+        "prompt": 0,
+        "response": 0,
+        "conversation_id": 3,
+        "user_message_id": 0,
+        "assistant_message_id": 0
+      },
+      "physical_4k_pages_with_hit": {
+        "prompt": 0,
+        "response": 0,
+        "conversation_id": 2,
+        "user_message_id": 0,
+        "assistant_message_id": 0
+      }
+    },
+    {
+      "pid": 9880,
+      "user_space_rows_scanned": 172521,
+      "known_value_hit_counts": {
+        "prompt": 0,
+        "response": 0,
+        "conversation_id": 31,
+        "user_message_id": 0,
+        "assistant_message_id": 0
+      },
+      "physical_4k_pages_with_hit": {
+        "prompt": 0,
+        "response": 0,
+        "conversation_id": 20,
+        "user_message_id": 0,
+        "assistant_message_id": 0
+      }
+    },
+    {
+      "pid": 11300,
+      "user_space_rows_scanned": 67034,
+      "known_value_hit_counts": {
+        "prompt": 0,
+        "response": 0,
+        "conversation_id": 0,
+        "user_message_id": 0,
+        "assistant_message_id": 0
+      },
+      "physical_4k_pages_with_hit": {
+        "prompt": 0,
+        "response": 0,
+        "conversation_id": 0,
+        "user_message_id": 0,
+        "assistant_message_id": 0
+      }
+    },
+    {
+      "pid": 11740,
+      "user_space_rows_scanned": 13987,
+      "known_value_hit_counts": {
+        "prompt": 0,
+        "response": 0,
+        "conversation_id": 0,
+        "user_message_id": 0,
+        "assistant_message_id": 0
+      },
+      "physical_4k_pages_with_hit": {
+        "prompt": 0,
+        "response": 0,
+        "conversation_id": 0,
+        "user_message_id": 0,
+        "assistant_message_id": 0
+      }
+    },
+    {
+      "pid": 11856,
+      "user_space_rows_scanned": 58902,
+      "known_value_hit_counts": {
+        "prompt": 0,
+        "response": 0,
+        "conversation_id": 12,
+        "user_message_id": 0,
+        "assistant_message_id": 0
+      },
+      "physical_4k_pages_with_hit": {
+        "prompt": 0,
+        "response": 0,
+        "conversation_id": 10,
+        "user_message_id": 0,
+        "assistant_message_id": 0
+      }
+    },
+    {
+      "pid": 13196,
+      "user_space_rows_scanned": 7207,
+      "known_value_hit_counts": {
+        "prompt": 0,
+        "response": 0,
+        "conversation_id": 0,
+        "user_message_id": 0,
+        "assistant_message_id": 0
+      },
+      "physical_4k_pages_with_hit": {
+        "prompt": 0,
+        "response": 0,
+        "conversation_id": 0,
+        "user_message_id": 0,
+        "assistant_message_id": 0
+      }
+    }
+  ]
+}

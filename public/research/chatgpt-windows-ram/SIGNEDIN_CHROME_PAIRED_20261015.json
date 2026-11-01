@@ -1,0 +1,114 @@
+{
+  "study": "Signed-in Chrome: two visible-page control captures and a fresh visible-to-about:blank pair",
+  "environment": {
+    "guest": "Windows 10 Pro build 19045 Research VM",
+    "memory_acquisition": "WinPmem direct gzip stream of sparse-padded raw memory",
+    "winpmem_sha256": "86691BB4AF2C17DD9EC4834C04A99AD51E04F780A07D1B05BC382A5D1892E0C4",
+    "raw_logical_bytes_per_image": 7147094016,
+    "analysis": "Volatility 3 2.28.2 from Kali WSL; windows.pslist, windows.cmdline, windows.memmap, and windows.psscan",
+    "selection": "Every active chrome.exe --type=renderer selected from image-derived pslist and cmdline; Chrome NetworkService selected by its exact utility subtype",
+    "ground_truth_supplied_to_parsers": false,
+    "full_images_and_unfiltered_records": "private"
+  },
+  "frozen_scanner_sha256": {
+    "select_browser_renderers.py": "D560C156BC4DC053A759BBA8D543BF081AD4C68B71B114BEB090EEABE02E4547",
+    "chrome_state_records.py": "699066609C86267B8F8302D64749D56BA993C6BB985B11A90551E9617384F052",
+    "bounded_json.py": "8F0D7E2E2A23577DD8FCC096B2F4516CDF592489D00C4341C932EEE2E6450032",
+    "browser_json_envelopes.py": "23B6952126DFF2149650BAD2DD26E306D1FDF8F223EA2FEE653F86E91592F7B2",
+    "sse_event_records.py": "727767911AC19137431AF5233001AAD427EEF1B932CFBF1DF625D808BD6511D4"
+  },
+  "screenshots": {
+    "control_page_before_sha256": "BF7046CB312391A24037DD40AA1EEF78819CFCA5A0BD84E1E7E3359C3BC28788",
+    "control_page_between_sha256": "43066C0D7396C1ED0C94574DF57444CC17C64FC5FB6805F4900562CA0573ACEA",
+    "control_page_after_sha256": "E3A756F2372D792463BAEF090A7372C308E6471A541D7E681CCE09F4E306E089",
+    "navigation_visible_full_sha256": "661ED887C415DC44F357FF60E4B1C4B96DC2622B9A36A6FCA1ED21014E9771B1",
+    "navigation_visible_captured_utc": "2026-10-15T18:39:47.7492831Z",
+    "navigation_blank_full_sha256": "804B1975A2A68700F834CA0F470DA2A5B6D0C8563B8865642B24548A43CB2883",
+    "navigation_blank_captured_utc": "2026-10-15T18:42:19.3784005Z",
+    "navigation_blank_after_full_sha256": "2FE4462933BF327549AF1DA5F98A6E8363AB0D45723185F00513289E3674D70A",
+    "public_crop_rectangle_on_2263x1325_full_image": [350, 130, 2000, 700],
+    "public_visible_crop": "/research/chatgpt-windows-ram/screenshots/49-signedin-chrome-paired-visible-crop.png",
+    "public_visible_crop_sha256": "85A4B722D43BE995AAECCB1C3EA1D2E5BA9471CC4A44685D90EE15841E47E528",
+    "public_blank_crop": "/research/chatgpt-windows-ram/screenshots/50-signedin-chrome-paired-blank-crop.png",
+    "public_blank_crop_sha256": "34CED33776D1EBEC2E4B6B6DB5869B6669FC94D1BF0CDEC4CB15BE3D44D57AC7",
+    "privacy": "Only the two cropped VM screenshots are public; account details in the full-screen captures remain private."
+  },
+  "conversations": {
+    "no_navigation_control": "6ad118e2-196c-83e9-8d9e-94ae82b2ea74",
+    "navigation_pair": "6ad11dd5-4b40-83ea-89e2-06f9b78601b7"
+  },
+  "images": [
+    {
+      "trial_id": "chrome_control_visible_a_20261015",
+      "page": "paper-anchor answer visible",
+      "started_utc": "2026-10-15T18:19:09.1904715Z",
+      "ended_utc": "2026-10-15T18:19:40.4586845Z",
+      "archive_bytes": 1940433391,
+      "archive_sha256": "2F8EFACF50EE473653BEAEA4F6B697AEE7393E3AC8996047C5F98ECFCC337586",
+      "raw_sha256_from_host_full_decompression": "22CEB2DCE851E829A784789123EC4A1FC261346F8A66D46971AD094FAE667690",
+      "browser_parent_pid": 7832,
+      "active_renderer_pids": [3592, 4292, 5408, 5548],
+      "unique_bounded_message_events": 2,
+      "event_detail": "finished user envelope in two mapped copies; one in_progress assistant fragment",
+      "full_answer_physical_utf16le_hits_posthoc": 80,
+      "full_answer_active_renderer_utf16le_hits_posthoc": 72,
+      "complete_networkservice_sse_events": 0
+    },
+    {
+      "trial_id": "chrome_control_visible_b_20261015",
+      "page": "same paper-anchor answer still visible; no navigation",
+      "started_utc": "2026-10-15T18:20:09.2077346Z",
+      "ended_utc": "2026-10-15T18:20:42.2475404Z",
+      "archive_bytes": 4180003997,
+      "archive_sha256": "419D217FF519ED883B6BED3772190BA3D43482D0209E1C6CB56EE35A2F79CE73",
+      "raw_sha256_from_host_full_decompression": "3C0ACA0160DE222D12FFFC27D7DE9B690263B66B707FE9474810D326DDC62B2E",
+      "browser_parent_pid": 7832,
+      "active_renderer_pids": [3592, 4292, 5408, 5548],
+      "unique_bounded_message_events": 1,
+      "event_detail": "same finished user envelope in two mapped copies; no accepted assistant envelope",
+      "full_answer_physical_utf16le_hits_posthoc": 75,
+      "full_answer_active_renderer_utf16le_hits_posthoc": 72,
+      "complete_networkservice_sse_events": 0
+    },
+    {
+      "trial_id": "chrome_nav_visible_a_20261015",
+      "page": "fresh cardboard-rudder answer visible",
+      "started_utc": "2026-10-15T18:39:57.8399989Z",
+      "ended_utc": "2026-10-15T18:40:39.3906993Z",
+      "archive_bytes": 4430752819,
+      "archive_sha256": "0CC50B64B0F8CACF19A79E581EFD99110B53437526E482DE13D27930AC9658DD",
+      "raw_sha256_from_host_full_decompression": "49AFD912B35BB255FF4CB171306DEF7948CEE8B22C465B69C6D38AA59E4680C2",
+      "browser_parent_pid": 7832,
+      "active_renderer_pids": [3592, 4292, 5408, 5548],
+      "unique_bounded_message_events": 6,
+      "event_detail": "all six in PID 5548 and bearing the target conversation ID; four system events, one assistant model_editable_context event without answer text, one in_progress assistant text event containing only 'A'; no complete turn",
+      "full_answer_physical_utf8_hits_posthoc": 86,
+      "full_answer_active_renderer_utf8_hits_posthoc": 89,
+      "complete_networkservice_sse_events": 0
+    },
+    {
+      "trial_id": "chrome_nav_blank_b_20261015",
+      "page": "same Chrome tab on about:blank before and after capture",
+      "started_utc": "2026-10-15T18:42:29.6264759Z",
+      "ended_utc": "2026-10-15T18:43:13.3718150Z",
+      "archive_bytes": 4581218613,
+      "archive_sha256": "99EDDDE9C607E764B5BA24C41250A85BDC1128F78B601A9B371BB837A6DE19B8",
+      "raw_sha256_from_host_full_decompression": "8B94F639868EE7ADBB6B5BD3DEF22EF105659574919D471FF91302330BA925DD",
+      "browser_parent_pid": 7832,
+      "active_renderer_pids": [2656, 4292, 5408, 7792],
+      "unique_bounded_message_events": 0,
+      "full_answer_physical_utf8_hits_posthoc": 2,
+      "full_answer_active_renderer_utf8_hits_posthoc": 0,
+      "full_answer_browser_parent_utf8_hits_posthoc": 0,
+      "complete_networkservice_sse_events": 0
+    }
+  ],
+  "process_timeline": {
+    "record_bearing_renderer_before": 5548,
+    "record_bearing_renderer_after": "not in active pslist or raw-image psscan",
+    "new_renderer_2656_created_utc": "2026-10-15T18:41:55Z",
+    "new_renderer_7792_created_utc": "2026-10-15T18:41:59Z",
+    "psscan_blank_image_sha256": "D96ABD9E32C93FC197F68883A9353F8EE2E5EAB8EA0A57294CA4BD016800AB0B"
+  },
+  "interpretation_boundary": "The no-navigation control demonstrates that bounded fragments change without navigation. The navigation pair lost accepted active-renderer envelopes, but a complete answer had two unattributed physical hits afterward. The before image did not yield a complete joined turn, so neither image is counted as a successful prompt-answer reconstruction, and no erasure claim is made. Physical hit counts are not independent copies; mapped counts can alias pages."
+}

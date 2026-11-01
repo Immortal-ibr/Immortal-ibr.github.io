@@ -1,0 +1,35 @@
+{
+  "core_v1": {
+    "candidate_count": 0,
+    "accepted_record_types": [
+      "task_complete",
+      "agentMessage"
+    ],
+    "task_complete.turn_id": "01a0eb9a-5b8d-7161-9054-97832028d225",
+    "task_complete.last_agent_message": "At the fictional museum Copper River Hall, visitors admire the three-word exhibit name “Lanterns Beneath Winter” and learn that 615 + 278 = 893."
+  },
+  "model_input_v1": {
+    "candidate_count": 0,
+    "accepted_terminal_rpc_count": 0,
+    "metadata.turn_id": "01a0eb9a-5b8d-7161-9054-97832028d225",
+    "metadata.content_item_kinds": [
+      "user.text"
+    ],
+    "content[0].text": "For the synthetic label copper-river-385, write exactly one sentence about a fictional museum. Include the result of 615 + 278 and invent a three-word name that does not appear in this prompt. Do not use tools, commands, files, or web search."
+  },
+  "turn_ids_equal": true,
+  "is_full_five_field_reconstruction": false,
+  "presentation_only": "Post-score partial T/P/R comparison; both frozen candidate counts stay zero",
+  "sources": [
+    {
+      "presentation_only": "Fields selected from reviewed recovery.json, not an independent recovery or a new experiment",
+      "source_data": "cli_api_heldout_002_core/recovery.json",
+      "source_sha256": "5fffa80f82d771a67139edbe2fbc13a8d5fa85ec0fb7d39935d53fdbec444988"
+    },
+    {
+      "presentation_only": "Fields selected from reviewed recovery.json, not an independent recovery or a new experiment",
+      "source_data": "cli_api_heldout_002_model/recovery.json",
+      "source_sha256": "ca61798ec42a90ccc027a484e87640ef328b52da5b6a7c0dd653aed74add0b20"
+    }
+  ]
+}

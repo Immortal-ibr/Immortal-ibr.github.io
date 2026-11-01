@@ -1,0 +1,52 @@
+{
+  "trial_id": "signedin_chrome_nosubmit_20261014_001",
+  "classification": "ordinary signed-in Chrome no-new-submission control",
+  "client": "Google Chrome 155.0.8059.40, existing interactive user profile, no DevTools flag",
+  "state": "ChatGPT new-chat page loaded; no experimental prompt was submitted before or during acquisition. The account's older conversation history was not reset.",
+  "other_browser_present": "A signed-in Edge window was also open; analysis below is restricted to image-selected Chrome processes.",
+  "acquisition": {
+    "method": "WinPmem 1.0-rc2 direct gzip stream",
+    "started_utc": "2026-10-13T23:47:32.5713302Z",
+    "ended_utc": "2026-10-13T23:48:15.2433888Z",
+    "tool_sha256": "86691BB4AF2C17DD9EC4834C04A99AD51E04F780A07D1B05BC382A5D1892E0C4",
+    "archive_bytes": 3910953285,
+    "archive_sha256": "6DE70600E7729AA16E2595460D35D9C76D408090877C35272A78B2AC044E8FD0",
+    "raw_logical_bytes": 7147094016,
+    "raw_sha256": "E553CCE2231E13EDDAACF449B221BF7853B466EFA772F6D207C230B68A7BB2EE",
+    "verification": "The host copy matched the guest archive SHA-256 and decompressed to gzip EOF. The temporary sparse raw matched the decompressed SHA-256 and was removed after analysis; the verified archive is retained privately."
+  },
+  "image_derived_process_selection": {
+    "rule": "active chrome.exe in windows.pslist plus exact --type=renderer in windows.cmdline",
+    "renderer_pids": [5452, 5580, 5904, 6520, 8204],
+    "network_service_pid": 5340,
+    "active_chrome_processes": 10
+  },
+  "bounded_parser_results": {
+    "chrome_state_v1": "0 signatures and 0 complete records in all five active renderer user maps",
+    "stream_item": "0 signatures and 0 complete envelopes in the same five renderer user maps",
+    "sse_event": "0 complete events in the active Chrome NetworkService user map",
+    "flat_physical_chrome_state": "0 signatures and 0 complete records in the full hash-verified physical image; exploratory, without process attribution"
+  },
+  "retrospective_envelope_check_20261015": {
+    "why_added": "After the later visible-turn image produced one user-message envelope, apply the same unchanged structural scanner to the retained pre-submission control. This is a retrospective comparison, not a prospective method freeze.",
+    "parser_sha256": "23B6952126DFF2149650BAD2DD26E306D1FDF8F223EA2FEE653F86E91592F7B2",
+    "verified_raw_sha256": "E553CCE2231E13EDDAACF449B221BF7853B466EFA772F6D207C230B68A7BB2EE",
+    "complete_records_by_active_renderer_pid": {"5452": 0, "5580": 0, "5904": 0, "6520": 0, "8204": 0},
+    "ground_truth_supplied_to_parser": false,
+    "private_output_sha256_by_pid": {
+      "5452": "03F44DD035F9F64DA1352A9AA045643C512D78F2CAD44E74DE40B826AAF1FCFC",
+      "5580": "1B7302CB8E530783142F61F53A0D0B82345695B6B26838BC008EB2CE3D93E6C7",
+      "5904": "061101A26B4DC662A5714173764DB3A5C36EAA6E2058902311D4409E661CA2F2",
+      "6520": "D8CBEEDFE5D84EAEBC584425B23106B99C8ECD2C0A11137A43572F5019A32451",
+      "8204": "C88A17DE1C264C6E2FC18C53B0F0B9206CDA714CF227909EE5A211490E6A867B"
+    }
+  },
+  "independent_mapping_check": {
+    "tool": "MemProcFS 5.14.9",
+    "processes": 6,
+    "deterministic_samples_per_process": 32,
+    "matching_physical_translations_and_bytes": 192,
+    "attempted_samples": 192
+  },
+  "interpretation": "A no-new-submission control for this signed-in profile and the tested bounded grammars, including a later-added envelope check. Zero accepted records is not proof that the full image contains no older account data, that all formats were covered, or that a later completed turn would fail."
+}

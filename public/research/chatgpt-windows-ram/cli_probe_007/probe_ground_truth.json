@@ -1,0 +1,11 @@
+﻿{
+    "trial_id":  "cli_probe_007",
+    "kind":  "local-file behavior probe; no RAM capture",
+    "prompt":  "Synthetic native-Windows Codex CLI artifact probe 107ce6f1-c3ce-4e79-8c8c-5a93d16a1778. Reply with exactly: copper meadow. Do not use tools.",
+    "started_utc":  "2026-09-16T19:32:58.4148258Z",
+    "ended_utc":  "2026-09-16T19:33:12.5818473Z",
+    "cli_version":  "codex-cli 0.153.0",
+    "command":  "codex exec --json --skip-git-repo-check --sandbox read-only --cd \u003ctrialDir\u003e - \u003c private/synthetic_prompt.txt",
+    "exit_code":  0,
+    "transcript_private":  "C:\\Users\\Win10\\Desktop\\cheater_ram_research_2026-09-16\\cli_probe_007\\private\\codex_exec.jsonl"
+}

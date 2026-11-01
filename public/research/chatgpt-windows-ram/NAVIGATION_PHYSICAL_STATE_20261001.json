@@ -1,0 +1,89 @@
+{
+  "question": "After navigating a completed ChatGPT tab away, does the unchanged bounded state-object grammar recover the target turn anywhere in the verified physical image?",
+  "method": {
+    "ground_truth_values_supplied_to_scanner_or_joiner": false,
+    "scanner": "Unchanged chrome_state_records.scan over one synthetic identity mapping of the fully hash-verified physical image in host RAM",
+    "joiner": "Unchanged chrome_state_turns.reconstruct on the private bounded-record output",
+    "scanner_source_sha256": "699066609C86267B8F8302D64749D56BA993C6BB985B11A90551E9617384F052",
+    "physical_adapter_source_sha256": "2FFE6126BFDA750D84AA63AD242AF6C18D0E0DFF4ECBF07BAD52E16DC9DA9882",
+    "record_byte_cap": 1048576,
+    "raw_disk_expansion_written": false,
+    "process_attribution_from_identity_mapping": false,
+    "unfiltered_outputs_retained_private": true
+  },
+  "chrome_after_lighthouse_navigation": {
+    "trial_id": "chrome_anonymous_cdp_away_003",
+    "archive_sha256": "91D939277DDE330FBC8C2278B6C617EC4F891F248C1E2BAB87483DF66769B2C2",
+    "decompressed_sha256": "62A632705A3D411F1075D19BEEB5975A0143A072BCAB6A198C42E0C844AB6CB3",
+    "decompressed_bytes": 7147094016,
+    "archive_and_full_decompression_verified_before_scan": true,
+    "signature_hits": 5,
+    "invalid_json_or_encoding": 1,
+    "complete_record_occurrences": 4,
+    "unique_complete_records": 1,
+    "joined_candidate_turns": 1,
+    "complete_record_sha256": "F994B849D08F3B842DADC16DF426FD69082E9C0E35BE23A931A16D0EA90576F6",
+    "complete_record_encoding": "utf-8",
+    "complete_record_bytes": 699,
+    "post_scan_attribution": {
+      "record_sha256_matches_older_still_open_observatory_renderer_pid_3400": true,
+      "all_process_exact_offset_audit": {
+        "pslist_entries": 142,
+        "active_entries_with_user_rows": 139,
+        "user_mapping_rows_scanned": 691799,
+        "mapped_occurrences": [769705912, 6640204044],
+        "mapped_process": "active chrome.exe PID 3400, the older still-open observatory renderer",
+        "occurrences_without_any_enumerated_process_user_mapping": [802555832, 1988904888],
+        "private_output_sha256": "CB6145749910C9AEFF78B67E48B0862C0225BA723E2EE99AEED7C905319DF7DA"
+      },
+      "all_five_joined_fields_match_older_mapped_candidate": true,
+      "navigated_lighthouse_turn_recovered_by_this_grammar": false,
+      "other_two_physical_record_occurrences_process_owner_established": false
+    },
+    "private_record_output_sha256": "15D5205B4F86CD98C77E8E0BE395CC3CB7A4F745A98016B3604608701ACE94ED",
+    "private_join_output_sha256": "C6C4E9A83344B8BBC5958D09591618805DBC27514B194EECD490F8447FD8C2EE"
+  },
+  "edge_after_navigation": {
+    "trial_id": "edge_anonymous_cdp_away_004",
+    "archive_sha256": "536EF0A2B56F99E284405015DECE5018EE3104B897CB503376216E37515675C9",
+    "decompressed_sha256": "1DE75F7306FF80A7BE0D72697FEE1BD7E0374F781A6B733CF5165DA94653FECE",
+    "decompressed_bytes": 7147094016,
+    "archive_and_full_decompression_verified_before_scan": true,
+    "signature_hits": 0,
+    "complete_record_occurrences": 0,
+    "unique_complete_records": 0,
+    "joined_candidate_turns": 0,
+    "private_record_output_sha256": "59A3EC12EF1BC9F07202803593720AE9847644703CD160306B2B0CBB05F6EED3",
+    "private_join_output_sha256": "F4D4A6EB0779F570E8314CE303A89FAE56147D5834E91956B1A773F7A8ED93AE"
+  },
+  "separate_retrospective_sse_check": {
+    "relationship_to_captures": "The signed-in SSE grammar was frozen after these anonymous navigation images were acquired; this is a cross-format retrospective check, not a prospective test.",
+    "ground_truth_values_supplied": false,
+    "sse_event_scanner_sha256": "727767911AC19137431AF5233001AAD427EEF1B932CFBF1DF625D808BD6511D4",
+    "flat_physical_chrome": {
+      "data_prefix_hits": 6,
+      "invalid_encoding": 6,
+      "complete_events": 0,
+      "private_output_sha256": "7E6BDA40239BB49DDE38A5929A91DE8E1C79C411ACF743C2FE32298CE5EB08CA"
+    },
+    "flat_physical_edge": {
+      "data_prefix_hits": 57,
+      "invalid_encoding": 11,
+      "invalid_or_non_object_event": 43,
+      "truncated_or_cap_limited": 3,
+      "complete_events": 0,
+      "private_output_sha256": "D82977CC1836D3D6D2015B621A881FF922F8B5D8C11EEE707FB6BD4601AB8253"
+    },
+    "edge_network_service_user_mappings": {
+      "selection": "Unique active msedge.exe with exact network.mojom.NetworkService subtype in image-derived command lines",
+      "pid": 1552,
+      "resident_user_rows": 9268,
+      "sse_signature_hits": 0,
+      "complete_events": 0,
+      "separate_memprocfs_volatility_sample_matches": "64/64",
+      "private_output_sha256": "FF9F2EBD345581D587EFC81D8034F00DF7C991E7E9E02AE90C1E08A580F3A218"
+    },
+    "scope": "The physical pass cannot reassemble virtually adjacent but physically split events; only Edge NetworkService was checked in its process map here. Prefix counts are not messages."
+  },
+  "interpretation": "The full-image physical scan recovered only the older still-open Chrome chat, not the navigated Chrome target; it recovered no Edge state object. These are format-specific results, not evidence of erasure. A flat physical scan cannot join nonadjacent physical pages into a virtual record or assign process ownership without a separate mapping check."
+}

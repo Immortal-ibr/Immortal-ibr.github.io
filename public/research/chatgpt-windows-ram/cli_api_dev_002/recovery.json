@@ -1,0 +1,211 @@
+{
+  "method": "development: observed CLI core events, not public RPC packets",
+  "ground_truth_supplied": false,
+  "scope": "selected resident user-space mappings",
+  "record_byte_cap": 1048576,
+  "user_space_rows": 21344,
+  "skipped_kernel_rows": 115322,
+  "stats": {
+    "object_prefix_hits": 345,
+    "format_rejected_hits": 177,
+    "invalid_json_or_encoding_hits": 163,
+    "gap_or_end_truncated_hits": 5
+  },
+  "unique_complete_core_records": 3,
+  "records": [
+    {
+      "record_sha256": "088a18935a7ccbbded27ce27305cc3261d7e8c87ec3bbd4a57d678d5cbaa56dc",
+      "encoding": "utf-8",
+      "raw_byte_length": 320,
+      "payload": {
+        "type": "task_complete",
+        "turn_id": "01a0eb49-c790-7b43-b160-cc0585d91884",
+        "last_agent_message": "The fictional lighthouse called Silver Lantern Cove guarded the restless shore with a steadfast beam, while 174 + 289 = 463.",
+        "started_at": 1790653876,
+        "completed_at": 1790653885,
+        "duration_ms": 8999,
+        "time_to_first_token_ms": 8261
+      },
+      "source_virtual_addresses": [
+        1708488606626
+      ],
+      "source_spans": [
+        [
+          {
+            "virtual": 1708488606626,
+            "physical": 991339426,
+            "size": 320
+          }
+        ]
+      ]
+    },
+    {
+      "record_sha256": "edb5c4fb6df21d0a70cc857f46438db9eb806322f7e7be12dc1dafa4a0a679fa",
+      "encoding": "utf-8",
+      "raw_byte_length": 563,
+      "payload": {
+        "type": "item_completed",
+        "thread_id": "01a0eb49-5cea-7202-8e3b-ce46f46d0020",
+        "turn_id": "01a0eb49-c790-7b43-b160-cc0585d91884",
+        "item": {
+          "type": "UserMessage",
+          "id": "01a0eb49-db70-7b93-b8db-fbb30a08ac38",
+          "content": [
+            {
+              "type": "text",
+              "text": "For the synthetic label amber-orbit-672, write exactly one sentence about a fictional lighthouse. Include the result of 174 + 289 and invent a three-word name that does not appear in this prompt. Do not use tools, commands, files, or web search.",
+              "text_elements": []
+            }
+          ]
+        },
+        "started_at_ms": 1790653881203,
+        "completed_at_ms": 1790653881203
+      },
+      "source_virtual_addresses": [
+        1708500024593
+      ],
+      "source_spans": [
+        [
+          {
+            "virtual": 1708500024593,
+            "physical": 952339729,
+            "size": 563
+          }
+        ]
+      ]
+    },
+    {
+      "record_sha256": "5f42c8e4511e99c78e3e9c4eeb620a4d0ffae405c41eea4083895e0f3d534ffe",
+      "encoding": "utf-8",
+      "raw_byte_length": 297,
+      "payload": {
+        "type": "agentMessage",
+        "id": "msg_062eb4b0ebe3f33b016abb35bab53c87d1b874d407278576ae",
+        "text": "The fictional lighthouse called Silver Lantern Cove guarded the restless shore with a steadfast beam, while 174 + 289 = 463.",
+        "phase": "final_answer",
+        "memoryCitation": null,
+        "delivery": null,
+        "questions": null
+      },
+      "source_virtual_addresses": [
+        1708501733473,
+        1708514381076
+      ],
+      "source_spans": [
+        [
+          {
+            "virtual": 1708501733473,
+            "physical": 6486286433,
+            "size": 297
+          }
+        ],
+        [
+          {
+            "virtual": 1708514381076,
+            "physical": 1903791380,
+            "size": 297
+          }
+        ]
+      ]
+    }
+  ],
+  "join": {
+    "rule": "same process; exact turn ID; one thread binding, user variant and task-complete variant",
+    "candidate_count": 1,
+    "candidates": [
+      {
+        "thread_id": "01a0eb49-5cea-7202-8e3b-ce46f46d0020",
+        "turn_id": "01a0eb49-c790-7b43-b160-cc0585d91884",
+        "user_message_id": "01a0eb49-db70-7b93-b8db-fbb30a08ac38",
+        "prompt": "For the synthetic label amber-orbit-672, write exactly one sentence about a fictional lighthouse. Include the result of 174 + 289 and invent a three-word name that does not appear in this prompt. Do not use tools, commands, files, or web search.",
+        "response": "The fictional lighthouse called Silver Lantern Cove guarded the restless shore with a steadfast beam, while 174 + 289 = 463.",
+        "task_complete_times_raw": {
+          "started_at": 1790653876,
+          "completed_at": 1790653885,
+          "duration_ms": 8999
+        },
+        "user_support": [
+          {
+            "record_sha256": "edb5c4fb6df21d0a70cc857f46438db9eb806322f7e7be12dc1dafa4a0a679fa",
+            "encoding": "utf-8",
+            "raw_byte_length": 563,
+            "source_virtual_addresses": [
+              1708500024593
+            ],
+            "source_spans": [
+              [
+                {
+                  "virtual": 1708500024593,
+                  "physical": 952339729,
+                  "size": 563
+                }
+              ]
+            ]
+          }
+        ],
+        "completion_support": [
+          {
+            "record_sha256": "088a18935a7ccbbded27ce27305cc3261d7e8c87ec3bbd4a57d678d5cbaa56dc",
+            "encoding": "utf-8",
+            "raw_byte_length": 320,
+            "source_virtual_addresses": [
+              1708488606626
+            ],
+            "source_spans": [
+              [
+                {
+                  "virtual": 1708488606626,
+                  "physical": 991339426,
+                  "size": 320
+                }
+              ]
+            ]
+          }
+        ],
+        "text_matching_unbound_agent_objects": [
+          {
+            "agent_message_id": "msg_062eb4b0ebe3f33b016abb35bab53c87d1b874d407278576ae",
+            "association": "exact text only; not thread/turn bound",
+            "support": [
+              {
+                "record_sha256": "5f42c8e4511e99c78e3e9c4eeb620a4d0ffae405c41eea4083895e0f3d534ffe",
+                "encoding": "utf-8",
+                "raw_byte_length": 297,
+                "source_virtual_addresses": [
+                  1708501733473,
+                  1708514381076
+                ],
+                "source_spans": [
+                  [
+                    {
+                      "virtual": 1708501733473,
+                      "physical": 6486286433,
+                      "size": 297
+                    }
+                  ],
+                  [
+                    {
+                      "virtual": 1708514381076,
+                      "physical": 1903791380,
+                      "size": 297
+                    }
+                  ]
+                ]
+              }
+            ]
+          }
+        ],
+        "agent_id_independently_bound": false,
+        "completion_scope": "task_complete serialization; not a universal success/erasure claim"
+      }
+    ],
+    "incomplete_or_ambiguous": [],
+    "unbound_agent_object_count": 1,
+    "semantic_rejections": {}
+  },
+  "executed_method_sha256": {
+    "bounded_json.py": "8f0d7e2e2a23577dd8fcc096b2f4516cdf592489d00c4341c932eee2e6450032",
+    "cli_rpc_records.py": "81057e66cf47c62fc99fdee77b00db0eff9a2e0b3e1fdbc5f99d61aa4e22e0ee",
+    "cli_core_events.py": "59f6b95f84fcecebb6acc3d10ac6dd19111be732ac23b4eaf94f2c1f657d94b1"
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "purpose": "Paired signed-in Temporary Chat captures in Edge and Chrome",
+  "date": "2026-11-01",
+  "starting_state": "Both browser pairs began from the same saved signed-in Research VM snapshot. A separate regular ChatGPT tab remained open. The Temporary Chat tab alone was navigated to about:blank between each pair.",
+  "capture_format": "VMware compact .vmem saved-memory state, 6073352192 bytes per image",
+  "blind_method": {
+    "process_selection": "Volatility windows.pslist and windows.cmdline, then windows.memmap for every active renderer",
+    "state_and_stream_item": "method_vmware_snapshot_v1/scan_vmware_snapshot.py",
+    "bounded_envelopes": "method_signedin_envelopes_v1/scan_vmware_envelopes.py",
+    "network_service_sse": "method_signedin_sse_v1/scan_vmware_sse.py",
+    "ground_truth_values_supplied": false
+  },
+  "posthoc_method": {
+    "physical_exact_values": "method_vmware_snapshot_v1/count_known_physical.py",
+    "encodings": ["utf-8", "utf-16-le"],
+    "known_values_transcribed_after_blind_scans": true,
+    "physical_ranges_scanned_each_image": 5,
+    "guest_physical_bytes_read_each_image": 6072356864,
+    "failed_physical_reads_each_image": 0,
+    "count_warning": "Occurrences may be duplicates or aliases and are not independent application records. An exact zero does not establish erasure."
+  },
+  "texttail_signature_control": {
+    "question": "Does the textTail field seen in the earlier B10 investigator observation occur in screenshot-only Edge captures?",
+    "method": "method_vmware_snapshot_v1/count_known_physical.py over MemProcFS-reported guest-physical ranges",
+    "searched_literals": ["textTail", "\"textTail\":"],
+    "encodings": ["utf-8", "utf-16-le"],
+    "guest_physical_bytes_read_per_image": 6072356864,
+    "failed_reads_per_image": 0,
+    "B25_visible": {
+      "textTail_utf8": 0,
+      "textTail_utf16le": 0,
+      "quoted_field_utf8": 0,
+      "quoted_field_utf16le": 0,
+      "private_output_sha256": "AFF4CE6A0ECB1CB1B991C2CA65186604D905A003810BC4064A524A11842BCCE7"
+    },
+    "B26_blank": {
+      "textTail_utf8": 0,
+      "textTail_utf16le": 0,
+      "quoted_field_utf8": 0,
+      "quoted_field_utf16le": 0,
+      "private_output_sha256": "2346D6EF47A74D7E74D841CA9B345E60A6A0F0B3CA849E11B62F58B330B3006D"
+    },
+    "scope_warning": "These are signed-in Temporary Chat navigation captures, not a replication of the earlier anonymous Edge tab-close condition. A missing literal textTail does not rule out other answer formats."
+  },
+  "trials": [
+    {
+      "id": "B25",
+      "browser": "Edge",
+      "state": "Temporary Chat with completed answer visible",
+      "snapshot_private": "tempchat-edge-visible-20261101",
+      "vmem_sha256": "5E28EFFE62CC9B417C00F0DB1F5C366071C7B3EA68261F050239741EBC08DE88",
+      "original_screen_sha256": "99093DB25E1B6747B0E78607EDD0CDF6A5061A6EF0D09078D5D450A764AB6A26",
+      "published_screen": "screenshots/temp-chat-edge-visible.png",
+      "conversation_id_from_url": "6ae667fe-bc94-83e9-a872-a2a0c919db0d",
+      "browser_parent_pid": 8636,
+      "network_service_pid": 2392,
+      "storage_service_pid": 5684,
+      "active_renderer_pids": [6288, 9088, 9736],
+      "blind_complete_state_objects": 0,
+      "blind_complete_stream_items": 0,
+      "blind_complete_network_sse_events": 0,
+      "blind_complete_message_event_envelopes": 3,
+      "envelope_renderer_pid": 6288,
+      "envelope_roles": {"user": 1, "system": 2, "assistant": 0},
+      "user_record_contains_full_prompt_and_matching_conversation_id": true,
+      "posthoc_physical_occurrences": {
+        "conversation_id": {"utf8": 261, "utf16le": 31},
+        "full_prompt": {"utf8": 49, "utf16le": 88},
+        "answer_title": {"utf8": 0, "utf16le": 85},
+        "answer_sentence": {"utf8": 75, "utf16le": 4}
+      },
+      "process_dump_private": {
+        "pid": 6288,
+        "sha256": "00D84AAC2763DDEF362844D4EAC17B508355E73589887694C193492943592C25",
+        "user_envelope_dump_offset_hex": "0x7A8152C",
+        "user_envelope_virtual_hex": "0x19C0010052C",
+        "user_envelope_physical_hex": "0x6712252C"
+      },
+      "published_byte_figure": "screenshots/temp-chat-edge-user-envelope-bytes.png"
+    },
+    {
+      "id": "B26",
+      "browser": "Edge",
+      "state": "Same Temporary Chat tab navigated to about:blank",
+      "snapshot_private": "tempchat-edge-away-20261101",
+      "vmem_sha256": "1B9CEF71AEF43010691185E572D4EA6260D9366ECA4C139722EFF6B704BF5673",
+      "original_screen_sha256": "65978AB69304E0CE5041C68F8D4BCAA57EA884AB12ABE4A3FE56FCD72615197E",
+      "published_screen": "screenshots/temp-chat-edge-about-blank.png",
+      "browser_parent_pid": 8636,
+      "network_service_pid": 2392,
+      "storage_service_pid": 5684,
+      "active_renderer_pids": [9736, 7428],
+      "prior_user_record_renderer_in_active_pslist": false,
+      "blind_complete_state_objects": 0,
+      "blind_complete_stream_items": 0,
+      "blind_complete_network_sse_events": 0,
+      "blind_complete_message_event_envelopes": 0,
+      "posthoc_physical_occurrences": {
+        "conversation_id": {"utf8": 122, "utf16le": 53},
+        "full_prompt": {"utf8": 12, "utf16le": 71},
+        "answer_title": {"utf8": 0, "utf16le": 1},
+        "answer_sentence": {"utf8": 0, "utf16le": 0}
+      },
+      "posthoc_additional_answer_fragments": {
+        "precision, rigidity, and durability": {"utf8": 0, "utf16le": 0},
+        "real navigational instrument": {"utf8": 0, "utf16le": 0},
+        "A sextant works by measuring the angle between a celestial object": {"utf8": 0, "utf16le": 0}
+      }
+    },
+    {
+      "id": "B27",
+      "browser": "Chrome",
+      "state": "Unpersonalized Temporary Chat with completed answer visible",
+      "snapshot_private": "tempchat-chrome-visible-20261101",
+      "vmem_sha256": "03DEBB8BE646958336EE50625A49AA9B0FA35069CDE95582AD3D195E95117DB4",
+      "original_screen_sha256": "3429AC9660D36233E4102C1775E263A03541EB89B85C07C3F1FA70EAFA3BCFCD",
+      "published_screen": "screenshots/temp-chat-chrome-visible.png",
+      "conversation_id_from_url": "6ae66eef-ec3c-83ea-8a35-99908c2fbd6b",
+      "browser_parent_pid": 10128,
+      "network_service_pid": 928,
+      "storage_service_pid": 9508,
+      "active_renderer_pids": [2644, 6848, 6348, 10448, 4512],
+      "blind_complete_state_objects": 0,
+      "blind_complete_stream_items": 0,
+      "blind_complete_network_sse_events": 0,
+      "blind_complete_message_event_envelopes": 6,
+      "envelope_renderer_pid": 10448,
+      "envelope_roles": {"user": 1, "system": 5, "assistant": 0},
+      "user_record_contains_full_prompt_and_matching_conversation_id": true,
+      "posthoc_physical_occurrences": {
+        "conversation_id": {"utf8": 280, "utf16le": 13},
+        "full_prompt": {"utf8": 42, "utf16le": 33},
+        "answer_title": {"utf8": 79, "utf16le": 0},
+        "answer_sentence": {"utf8": 82, "utf16le": 0}
+      }
+    },
+    {
+      "id": "B28",
+      "browser": "Chrome",
+      "state": "Same Temporary Chat tab navigated to about:blank",
+      "snapshot_private": "tempchat-chrome-away-20261101",
+      "vmem_sha256": "71ED52C8C36DBDA482555E7864F16AE047B727EF377845B2235E08C812524F68",
+      "original_screen_sha256": "9685676AEFFB5A319D6CEC7D515057C61A761B8BBAB4BAFD2685E63EAB43CE3A",
+      "published_screen": "screenshots/temp-chat-chrome-about-blank.png",
+      "browser_parent_pid": 10128,
+      "network_service_pid": 928,
+      "storage_service_pid": 9508,
+      "active_renderer_pids": [2644, 6848, 6348, 4512, 11088, 5112],
+      "prior_user_record_renderer_in_active_pslist": false,
+      "blind_complete_state_objects": 0,
+      "blind_complete_stream_items": 0,
+      "blind_complete_network_sse_events": 0,
+      "blind_complete_message_event_envelopes": 0,
+      "posthoc_physical_occurrences": {
+        "conversation_id": {"utf8": 134, "utf16le": 49},
+        "full_prompt": {"utf8": 15, "utf16le": 19},
+        "answer_title": {"utf8": 44, "utf16le": 0},
+        "answer_sentence": {"utf8": 44, "utf16le": 0}
+      },
+      "posthoc_active_renderer_6348_answer_sentence_utf8_mapped_occurrences": 43,
+      "process_dump_private": {
+        "pid": 6348,
+        "sha256": "3B49C2439F7DBC45DBC428B95630C6EB2C286CEDC0BE58003EA2957AE1A6059A",
+        "answer_dump_offset_hex": "0x3A7130",
+        "answer_virtual_hex": "0x21301044130",
+        "answer_physical_hex": "0x21889130"
+      },
+      "published_byte_figure": "screenshots/temp-chat-chrome-away-process-bytes.png"
+    }
+  ],
+  "conclusion": "Blind bounded records linked each visible prompt to its Temporary Chat conversation ID but did not link an answer. After navigation those records were absent from active renderer maps. The exact Chrome answer still occurred in active renderer memory. The Edge full answer and three selected answer-only fragments had no exact hit in the tested encodings after navigation."
+}

@@ -1,0 +1,13 @@
+{
+  "frozen_at_utc": "2026-09-16T18:57:10Z",
+  "development_image": "trial_iab_two_chats_004/private/memory.raw",
+  "development_image_sha256": "8BE3FCA651B37248E0161C7ECD52790B049565E98016F478982AA6DB34D2B2EE",
+  "method_files": {
+    "trial_iab_visible_002/parse_stream_items.py": "3EF5F07D1860F197636D2A62FA0EA73E7067F7CAB52E76C387A3371A62E22476",
+    "method_v2/reconstruct_turns.py": "82D4A348D8A2FB558F0A3376D8FA31C955092ABF25B7140099E5FB3DD7A004A7"
+  },
+  "runner_file": "run_frozen_v2.py",
+  "runner_sha256": "61279694825FD079DA81E417526CDA0ED1E2CEFF7C39FEF998F9404763D2A58D",
+  "change_from_v1": "Join user role in either input_message or v.message events; unchanged bounded stream-item parser and unchanged assistant/patch/marker/completion ancestry requirements.",
+  "validation_status": "Developed on a two-chat image after v1 missed both user messages. v2 reconstructed both exact synthetic turns in that same image with no observed cross-join. No fresh held-out image has tested v2 yet; VM not reset."
+}

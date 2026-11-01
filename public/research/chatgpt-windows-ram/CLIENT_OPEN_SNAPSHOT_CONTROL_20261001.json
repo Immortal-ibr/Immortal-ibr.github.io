@@ -1,0 +1,45 @@
+{
+  "snapshot_name": "ram-baseline-before-tests-20260929",
+  "scope": "Pretest VMware saved-memory file with client processes open; no controlled synthetic ChatGPT turn had yet been submitted for this follow-up cohort",
+  "acquisition_type": "VMware powered-on snapshot .vmem, not WinPmem raw",
+  "vmem_bytes": 6073352192,
+  "vmem_sha256": "35DE658C84B2BE483228D56DC4DEC87211AC6BFD8FD16E3D2F3D560A6BFF2534",
+  "volatility_version": "2.28.0",
+  "image_system_time_utc": "2026-09-29T01:32:05Z",
+  "volatility_memory_layer": "VmwareLayer",
+  "process_selection": "All rows with the exact process name, null ExitTime in windows.pslist, and an exact --type=renderer argument in windows.cmdline; no PID age or known content selector",
+  "active_client_process_counts": {
+    "ChatGPT.exe": 12,
+    "chrome.exe": 11,
+    "msedge.exe": 14,
+    "codex.exe": 1
+  },
+  "selected_renderers": {
+    "ChatGPT.exe": [540, 1004, 4504, 7100, 8152],
+    "chrome.exe": [2912, 7128, 9020],
+    "msedge.exe": [5212, 8308]
+  },
+  "selected_renderer_count": 10,
+  "resident_user_mapping_rows_scanned": 332793,
+  "reader": "Volatility windows.memmap gives guest physical addresses; MemProcFS reads those addresses through VMware metadata. A flat seek into the .vmem file is not valid for all mappings.",
+  "highest_guest_physical_end_in_selected_maps": 7147094016,
+  "vmem_file_shorter_than_highest_guest_physical_address": true,
+  "grammars_applied_to_each_selected_renderer": [
+    "bounded stream-item JSON in UTF-8 and UTF-16LE",
+    "bounded backendConversationId/messages state JSON in UTF-8 and UTF-16LE"
+  ],
+  "stream_item_signature_hits": 0,
+  "stream_item_complete_records": 0,
+  "state_object_signature_hits": 0,
+  "state_object_complete_records": 0,
+  "memprocfs_deterministic_page_samples": {
+    "requested": 320,
+    "virtual_to_physical_and_bytes_matched": 308,
+    "virtual_translation_unavailable_but_physical_sample_readable": 12,
+    "translation_mismatches": 0
+  },
+  "memprocfs_physical_read_failures_during_full_scan": 0,
+  "ground_truth_values_supplied_to_parsers": false,
+  "raw_record_content_stored_in_public_result": false,
+  "interpretation": "Neither tested grammar found an accepted record in this pretest client-open state. This does not identify open tabs, verify account sign-in from RAM, or prove that no unrelated conversation data existed. It is a format-specific baseline, not a scored conversation trial."
+}

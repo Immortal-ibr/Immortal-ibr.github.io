@@ -1,0 +1,26 @@
+{
+  "role": "synthetic regression of the released frozen pilot stream-item parser; not a new RAM acquisition",
+  "parser": "trial_iab_visible_002/parse_stream_items.py",
+  "test_source": "scripts/ram-research/test_pilot_utf8_digest_boundary.py",
+  "test_command": "py -m unittest discover -s scripts/ram-research -p test_pilot_utf8_digest_boundary.py -v",
+  "cases": [
+    {
+      "encoded_item": "synthetic ascii",
+      "complete_record_utf8_bytes": 55,
+      "decoded_json_characters": 55,
+      "full_record_sha256": "0C0AC9D3693F7A22E88E18629A77857F024E2A94FFAB175A4376ED922CE57D2E",
+      "frozen_parser_record_sha256": "0C0AC9D3693F7A22E88E18629A77857F024E2A94FFAB175A4376ED922CE57D2E",
+      "payload_accepted": true
+    },
+    {
+      "encoded_item": "synthetic café",
+      "complete_record_utf8_bytes": 55,
+      "decoded_json_characters": 54,
+      "complete_record_utf8_hex": "7B2274797065223A2273747265616D2D6974656D222C22656E636F6465645F6974656D223A2273796E74686574696320636166C3A9227D",
+      "full_record_sha256": "2D510AE7844A6451584B1538CE675051065A148FBBA5E40FFCB70DF246C3BEDD",
+      "frozen_parser_record_sha256": "2E4FF6354DF1D58846DCF9B9924C55CC0EE6B1436F1DC9EFBA157E0685D46C23",
+      "payload_accepted": true
+    }
+  ],
+  "interpretation": "The JSON field values parse, but raw_decode returns character count. Slicing the original UTF-8 blob by that count omits one byte when a prior character used two bytes. This affects the pilot parser's record digest and potential deduplication, not the unchanged Chrome state-object parser. The scored pilot fixtures use ASCII source bytes."
+}

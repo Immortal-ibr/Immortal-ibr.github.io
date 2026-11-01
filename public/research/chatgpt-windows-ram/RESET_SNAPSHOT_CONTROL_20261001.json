@@ -1,0 +1,40 @@
+{
+  "snapshot_name": "ram-auth-profile-ready-20260930-v1",
+  "acquisition_type": "VMware powered-on saved-memory snapshot (.vmem with matching metadata), not WinPmem",
+  "vmem_bytes": 6073352192,
+  "vmem_sha256": "60D7298FE9FC43B8A422DD5BDA57DAB5284D0A174F4D1F0AB7CDBF5853AB8FA1",
+  "volatility_version": "2.28.0",
+  "windows_info": {
+    "is_64_bit": true,
+    "windows_build_family": "19041/19045",
+    "image_system_time_utc": "2026-09-30T02:41:52Z",
+    "memory_layer": "VmwareLayer"
+  },
+  "process_selection": "Active target names were checked in windows.pslist. Exited-process residue was checked separately in windows.psscan; scan rows are not treated as active processes.",
+  "pslist_total_entries": 146,
+  "active_target_processes": {
+    "chrome.exe": 0,
+    "msedge.exe": 0,
+    "ChatGPT.exe": 0,
+    "codex.exe": 0
+  },
+  "psscan_target_name_rows": {
+    "chrome.exe": 22,
+    "msedge.exe": 15,
+    "ChatGPT.exe": 8,
+    "codex.exe": 0
+  },
+  "psscan_target_name_rows_total": 45,
+  "psscan_unique_pid_and_create_time_pairs": 43,
+  "psscan_target_rows_without_exit_time": 0,
+  "later_edge_trial_marker_check": {
+    "method": "Post-hoc exact-byte scan of this hash-verified VMware .vmem file, using values recorded independently for the four later Edge trials; this is not the blind renderer parser",
+    "trials": ["visible_001", "unicode_002", "visible_003", "away_004"],
+    "fields_per_trial": ["conversation ID", "synthetic prompt marker", "user message ID", "assistant message ID"],
+    "encodings_per_field": ["UTF-8", "UTF-16LE"],
+    "exact_patterns_checked": 32,
+    "patterns_with_nonzero_hits": 0,
+    "scope": "Absence of these exact byte sequences in the saved snapshot file, not proof of physically clean RAM or erasure after the later trials"
+  },
+  "interpretation": "The snapshot is a repeatable, signed-in, client-stopped reset point. It is not evidence of a never-used browser or physically clean RAM. Later synthetic prompts were new relative to this reset point."
+}

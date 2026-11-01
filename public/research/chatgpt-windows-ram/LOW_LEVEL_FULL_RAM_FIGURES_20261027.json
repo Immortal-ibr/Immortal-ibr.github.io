@@ -1,0 +1,228 @@
+{
+  "purpose": "Provenance for the article's evidence figures. HxD and terminal screenshots were taken from complete hash-verified decompressed RAM images. The role table and SSE relationship figure were rendered from saved outputs.",
+  "source_images": {
+    "chrome_visible_screenonly_010": {
+      "raw_bytes": 7147094016,
+      "raw_sha256": "47077528F00555AC7A31D9922381E4ACAA939DECDC85E3433BF0F9F53D447890",
+      "renderer_pid": 1872,
+      "renderer_virtual_page": "0x618C02C0E000",
+      "raw_physical_page": "0x9BC9E000",
+      "record_displacement": "0x50C",
+      "record_bytes": 558,
+      "record_sha256": "6C5D1EBBAC3ABB825C97F227773EDBCE020BB37058CCC541C61D2E363D1F5C3C",
+      "encoding": "UTF-8"
+    },
+    "edge_anonymous_cdp_unicode_002": {
+      "raw_bytes": 7147094016,
+      "raw_sha256": "DDF69792981A01753B38E0E5F5C26A0AB86F47110D5523EC8FD87F6F27E4DAE3",
+      "renderer_pid": 9428,
+      "renderer_virtual_page": "0xF501295000",
+      "raw_physical_page": "0x57B40000",
+      "record_displacement": "0xA44",
+      "record_bytes": 1276,
+      "record_sha256": "5A7575973456499C9941D4C376879D18EE30A8BC8DA5256F5418A98E012F1A97",
+      "encoding": "UTF-16LE",
+      "public_record": "evidence/edge-unicode-002-state-record-utf16le.bin"
+    },
+    "chrome_multiturn_visible_006": {
+      "raw_bytes": 7147094016,
+      "raw_sha256": "3CB670A83BCE2066F0E30C5F530C8B948A96C132215F95C2FD86852111C29E53",
+      "renderer_pid": 6896,
+      "first_completed_state_bytes": 604,
+      "first_completed_state_sha256": "CF81B8F3186C6374C30E9FEFFC4D98E1254345C87563CBE94F42A8BCD889C36F",
+      "source_virtual_spans": [
+        {
+          "virtual": "0x27A01ECEE2C",
+          "bytes": 468,
+          "physical": "0x7D42E2C"
+        },
+        {
+          "virtual": "0x27A01ECF000",
+          "bytes": 136,
+          "physical": "0x173243000"
+        }
+      ],
+      "contiguous_physical_604_byte_read_sha256": "16EDF4A5B5866582DF222A0A0D4D430BCBE9CC64A4015BE5D21F014205C2DE9E",
+      "mapped_span_concat_hash_matches_parser": true,
+      "separate_contiguous_copy_physical": "0xB519E10C"
+    }
+  },
+  "hxd_source_screenshots": {
+    "chrome": {
+      "private_retained_filename": "67-chrome-record-full-memory-hxd-source.png",
+      "sha256": "B3282F518F65695A9CE6EF56655569AAA403CD832ED9D07F70BED50083FBDB7E",
+      "full_raw_image_open": true
+    },
+    "edge_start": {
+      "private_retained_filename": "64-edge-state-full-memory-hxd-source.png",
+      "sha256": "C83ACDBF285DBAA9BF8064BE4CBA6F6CA810D33CD1A2A015D89FE02C6D538E97",
+      "full_raw_image_open": true
+    },
+    "edge_unicode": {
+      "private_retained_filename": "65-edge-unicode-full-memory-hxd-source.png",
+      "sha256": "9388DFD74A3526B0FFFCFF995C45927273033FA01ADF276C1231BE0181543602",
+      "full_raw_image_open": true
+    },
+    "edge_id": {
+      "private_retained_filename": "66-edge-id-link-full-memory-hxd-source.png",
+      "sha256": "050A6F39239DDE70F2CA67FD17B6D8EBB00E2FCACEB817346FBAAECE8E80283D",
+      "full_raw_image_open": true
+    },
+    "chrome_multiturn_first": {
+      "private_retained_filename": "68-chrome-multiturn-first-full-memory-hxd-source.png",
+      "sha256": "A22345FD8AF13687E52F56C35DEB1D3E607B0B1D62D3294E819C3B8811D54FFF",
+      "full_raw_image_open": true
+    },
+    "chrome_multiturn_second": {
+      "private_retained_filename": "69-chrome-multiturn-second-full-memory-hxd-source.png",
+      "sha256": "A71C615120175197FB6302E38B1B96BDC97320886C9CE7FC7DB6965C2D33A1A6",
+      "full_raw_image_open": true
+    },
+    "chrome_multiturn_continuation": {
+      "private_retained_filename": "70-chrome-multiturn-continuation-full-memory-hxd-source.png",
+      "sha256": "3319B8F3331A94120B5192A798F48C9A1370540BE313B0E411ACDE97EAE36DDC",
+      "full_raw_image_open": true
+    }
+  },
+  "published_figures": [
+    {
+      "path": "screenshots/64-chrome-state-record-full-ram-annotated.png",
+      "sha256": "B3B1DAC300C1A0CBB566A38FA830C3A33492794316BA5B408D5A6867A7C10207",
+      "hxd_source": "67-chrome-record-full-memory-hxd-source.png",
+      "annotated_byte_ranges": [
+        "0x9BC9E504-0x9BC9E507: 2E 02 00 00",
+        "0x9BC9E50C: 7B"
+      ],
+      "transformation": "crop and enlarge actual HxD pixels; add thin byte outlines, boxed labels, and leader arrows; no byte glyphs changed"
+    },
+    {
+      "path": "screenshots/65-edge-unicode-bytes-full-ram-annotated.png",
+      "sha256": "792B0DEFA159D3934AD3D70006DEE21FCE964D4C03AA9587CE9B05947A5BF99A",
+      "annotated_byte_ranges": [
+        "0x57B40A44-0x57B40A47: 7B 00 22 00",
+        "0x57B40C18-0x57B40C1F: 45 06 31 06 35 06 2F 06",
+        "0x57B40C24-0x57B40C2B: 63 00 61 00 66 00 E9 00",
+        "0x57B40C38-0x57B40C3B: 3C D8 19 DF"
+      ],
+      "transformation": "crop and enlarge actual HxD pixels; add thin byte outlines, boxed labels, and leader arrows; no byte glyphs changed",
+      "hxd_sources": [
+        "64-edge-state-full-memory-hxd-source.png",
+        "65-edge-unicode-full-memory-hxd-source.png"
+      ]
+    },
+    {
+      "path": "screenshots/66-edge-assistant-parent-id-full-ram-annotated.png",
+      "sha256": "5635AFF92A17892BFA4A33D4053252087B7495ACB4C356631A38DD5A1C97D74F",
+      "hxd_source": "66-edge-id-link-full-memory-hxd-source.png",
+      "annotated_byte_ranges": [
+        "0x57B40E2E: first assistant ID UTF-16LE byte",
+        "0x57B40ECA: parentMessageId value UTF-16LE bytes"
+      ],
+      "transformation": "crop and enlarge actual HxD pixels; add thin byte outlines, boxed labels, and leader arrows; no byte glyphs changed"
+    },
+    {
+      "path": "screenshots/69-chrome-multiturn-page-boundary-full-ram.png",
+      "sha256": "049D36E93BC55318E883E4CBC13A3CCE79EBA36369C7C673DD9639E6942567B6",
+      "hxd_sources": [
+        "68-chrome-multiturn-first-full-memory-hxd-source.png",
+        "70-chrome-multiturn-continuation-full-memory-hxd-source.png"
+      ],
+      "annotated_byte_ranges": [
+        "0x7D42E28-0x7D42E2B: 5C 02 00 00 (604 little-endian)",
+        "0x7D42E2C: 7B (UTF-8 JSON opening)",
+        "0x7D42FF0-0x7D42FFF: final 16 bytes of first mapped span",
+        "0x173243000-0x17324300F: first 16 bytes of next mapped span"
+      ],
+      "transformation": "crop and enlarge actual HxD pixels; add thin byte outlines, boxed labels, and leader arrows; no byte glyphs changed"
+    },
+    {
+      "path": "screenshots/73-chrome-multiturn-second-state-full-ram.png",
+      "sha256": "A7B82DA5338417F6F6E8E807254624FDA60C3D909B981DA7F8899B4F6943F034",
+      "hxd_source": "69-chrome-multiturn-second-full-memory-hxd-source.png",
+      "annotated_byte_ranges": [
+        "0x9665750C-0x9665750F: 7B 00 22 00 (UTF-16LE JSON opening)",
+        "0x966575BC-0x966575C3: 46 00 6F 00 6C 00 6C 00 (Following begins)"
+      ],
+      "record_bytes": 1218,
+      "record_sha256": "80E93E50FAD4A3E0EC9CFD3DEBF9CFBBE4A57A6C9B4E1F8F3EE5116A507B3B7C",
+      "transformation": "crop and enlarge actual HxD pixels; add thin byte outlines, boxed labels, and leader arrows; no byte glyphs changed"
+    },
+    {
+      "path": "screenshots/74-chrome-state-fields-full-ram.png",
+      "sha256": "7D3521BDCB119D1C9361B71C45D7568484ACF1066B4A0E608FC96C1D2E56FE02",
+      "hxd_source": "67-chrome-record-full-memory-hxd-source.png",
+      "annotated_byte_ranges": [
+        "0x9BC9E564-0x9BC9E56F: start of user prompt in UTF-8",
+        "0x9BC9E5F8-0x9BC9E5FF: start of user message ID",
+        "0x9BC9E639-0x9BC9E63F: start of assistant content",
+        "0x9BC9E6B1-0x9BC9E6B7: start of assistant message ID",
+        "0x9BC9E6FF-0x9BC9E706: start of matching parentMessageId value"
+      ],
+      "record_bytes": 558,
+      "record_sha256": "6C5D1EBBAC3ABB825C97F227773EDBCE020BB37058CCC541C61D2E363D1F5C3C",
+      "transformation": "four crops from one full-image HxD screenshot; original pixels enlarged with thin byte outlines, boxed labels, and leader arrows; no byte glyphs changed"
+    }
+  ],
+  "notes": [
+    "The complete RAM images and source HxD and terminal screenshots remain private. Published figures show cropped evidence without application title bars, host paths, or mouse pointers.",
+    "The raw images were regenerated from retained gzip archives and their SHA-256 values matched acquisition ledgers before HxD was opened.",
+    "The B15 split-record hash was checked by concatenating the two exact windows.memmap spans. A direct flat-physical read from the first offset produced a different digest."
+  ],
+  "derived_figures": [
+    {
+      "path": "screenshots/70-edge-sse-join-evidence.png",
+      "sha256": "910D8F1A93E86756CEB0E286E20D35A5F81F2AC0095D1AE56FFCCE31107A3EA6",
+      "source_json_sha256": {
+        "EDGE_SIGNEDIN_VISIBLE_20261001.json": "025B73F0D513911D32C6587D8646DE3C918A16A5B26538C51BC22D418429A562"
+      },
+      "transformation": "render the ID and content dependencies recorded for the 15-event, 6161-byte saved NetworkService stream as a plain diagram"
+    }
+  ],
+  "terminal_source_screenshots": {
+    "b5_pslist": {
+      "private_retained_filename": "pslist-full-window.png",
+      "sha256": "BCD580869A9DECA1C5C13B95216540EB3A7B289AD96E36FC3CABD934C2D4AFE4",
+      "tool": "Volatility 3 2.8.0 in Kali WSL on the complete B5 WinPmem image"
+    },
+    "b5_cmdline": {
+      "private_retained_filename": "cmdline-full-window.png",
+      "sha256": "777B62468D62DE728D6B0845A4D502E652F42052E299781BA729058119CC4324",
+      "tool": "Volatility 3 2.8.0 in Kali WSL on the complete B5 WinPmem image"
+    },
+    "b5_memmap": {
+      "private_retained_filename": "memmap-full-window.png",
+      "sha256": "C230D1AC420B8C101025ED61B6EB54195C1793717B511CBF3CD6CD1E59E78372",
+      "tool": "Volatility 3 2.8.0 in Kali WSL on the complete B5 WinPmem image"
+    }
+  },
+  "terminal_figures": [
+    {
+      "path": "screenshots/71-b5-volatility-pslist.png",
+      "sha256": "0F539FABCCF28477004F39F7BFFEDD2356D58CBA9502082ECBA660AB12565501",
+      "source": "pslist-full-window.png",
+      "source_json_sha256": {
+        "pslist.json": "0ED7948CE578910C2C5E2D350EEDFD356EDEB0C9D0E0E0C71CC4580EE8E48FF4"
+      },
+      "transformation": "crop and enlarge actual terminal pixels; outline parent and child PID rows with boxed leader labels; no output glyphs changed"
+    },
+    {
+      "path": "screenshots/72-b5-volatility-renderer-cmdline.png",
+      "sha256": "EAEDC0110478E2F3089FDF43F2F80B4D03A0520F65392258E028E93AF25358FE",
+      "source": "cmdline-full-window.png",
+      "source_json_sha256": {
+        "cmdline.json": "8E10BF81057FB423E03B21E9F0DCCA85C1F5AF41F25050FC1F4E4FCBDA071E86"
+      },
+      "transformation": "crop and enlarge actual terminal pixels; outline --type=renderer with a boxed leader label; right side of command line cropped; no output glyphs changed"
+    },
+    {
+      "path": "screenshots/68-chrome-virtual-to-physical-evidence.png",
+      "sha256": "99FF1572E2656D3D0956FEAA823B532987C7EE489EAE5EFD37D658C9C844F072",
+      "source": "memmap-full-window.png",
+      "source_json_sha256": {
+        "renderer_1872_memmap.json": "24E703B507B042280201C7FC3F479D3972693186465E4FA9751368053627835D",
+        "renderer_1872_chrome_state_private.json": "9322C2CDB3C92D34C79C356BF38BA3D9331687A8C3172BF0276B397EB7CCBB75"
+      },
+      "transformation": "crop and enlarge actual terminal pixels; outline virtual and physical page values with boxed leader labels; row selected after parser source address was known; no output glyphs changed"
+    }
+  ]
+}

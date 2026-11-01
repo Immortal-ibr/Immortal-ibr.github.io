@@ -1,0 +1,32 @@
+{
+  "sealed_before_scoring_utc": "2026-09-29T04:33:06.557752+00:00",
+  "recovered_output_sha256": "0a253707f46e9c66281d6fc6e1618292f31c0fb0ef20833cc28b53ecbf32e405",
+  "raw_sha256": "4ee5604f16c2a9c21ad2ac7365a39fb3a910706da748794efb0b4d45924ab164",
+  "trial_id": "cli-api-dev-002-active",
+  "cohort": "instrumented native app-server stdio; development",
+  "native_pid": 9456,
+  "backend_present_before_acquisition": true,
+  "response_complete_observed_utc": "2026-09-29T03:51:25.165181+00:00",
+  "acquisition_started_utc": "2026-09-29T03:52:37.1213617+00:00",
+  "acquisition_ended_utc": "2026-09-29T03:53:06.4596714+00:00",
+  "response_to_acquisition_seconds": 71.95618,
+  "candidate_count": 1,
+  "candidate_scores": [
+    {
+      "exact_strong_field_matches": {
+        "thread_id": true,
+        "turn_id": true,
+        "user_message_id": true,
+        "prompt": true,
+        "response": true
+      },
+      "all_five_match": true,
+      "agent_id_independently_bound": false,
+      "observed_agent_id_among_unbound_text_matches": true,
+      "task_start_matches_api": true,
+      "task_end_matches_api": true
+    }
+  ],
+  "account_identity_claimed": false,
+  "scope": "five linked fields; standalone assistant ID is not independently thread/turn bound"
+}

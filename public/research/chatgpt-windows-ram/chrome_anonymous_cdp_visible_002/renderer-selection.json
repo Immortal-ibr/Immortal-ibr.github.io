@@ -1,0 +1,35 @@
+{
+  "process_name": "chrome.exe",
+  "selection_rule": "matching image name, null ExitTime in windows.pslist, and exact --type=renderer argument in windows.cmdline",
+  "selected_pids": [
+    672,
+    3400,
+    4324,
+    5076,
+    6652,
+    7032
+  ],
+  "active_browser_pids": [
+    672,
+    852,
+    988,
+    1564,
+    1944,
+    2920,
+    2960,
+    3200,
+    3392,
+    3400,
+    4120,
+    4324,
+    4476,
+    4568,
+    5076,
+    6600,
+    6652,
+    6812,
+    7032
+  ],
+  "active_pids_without_cmdline": [],
+  "exited_browser_pids": []
+}

@@ -1,0 +1,32 @@
+{
+  "sealed_before_scoring_utc": "2026-09-29T05:08:23.465316+00:00",
+  "recovered_output_sha256": "90e0e04b36e98fb4c17b217bf4784ed260f129d3810cd5457165838469cca09a",
+  "raw_sha256": "d31fe50f4ac1d6ee41eb86795513b1ddeeb04e057e18083c86246c46a3a5976b",
+  "trial_id": "cli-api-heldout-001-active",
+  "cohort": "instrumented native app-server stdio; development",
+  "method_scope": "tagged model input + terminal RPC, NOT core-v1's C/T/U/P/R test",
+  "native_pid": 4528,
+  "backend_present_before_acquisition": true,
+  "response_complete_observed_utc": "2026-09-29T04:38:00.300528+00:00",
+  "acquisition_started_utc": "2026-09-29T04:38:02.4642788+00:00",
+  "acquisition_ended_utc": "2026-09-29T04:38:31.5517605+00:00",
+  "response_to_acquisition_seconds": 2.16375,
+  "candidate_count": 1,
+  "candidate_scores": [
+    {
+      "exact_field_matches": {
+        "thread_id": true,
+        "turn_id": true,
+        "prompt": true,
+        "response": true,
+        "agent_message_id": true
+      },
+      "all_five_match": true,
+      "agent_id_independently_bound": true,
+      "api_user_item_id_recovered": false,
+      "model_input_id_equals_observed_api_user_item_id": false,
+      "model_input_id_independently_ground_truth_scored": false
+    }
+  ],
+  "account_identity_claimed": false
+}

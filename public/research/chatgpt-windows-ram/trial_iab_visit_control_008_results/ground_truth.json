@@ -1,0 +1,16 @@
+{
+  "trial_id": "trial_iab_visit_control_008",
+  "condition": "signed-in ChatGPT new-chat home visited without submitting a prompt; tab remained open during RAM capture",
+  "expected_new_turns": 0,
+  "chat_visit_start_utc": "2026-09-16T19:36:00.046Z",
+  "new_chat_ready_observed_utc": "2026-09-16T19:36:07.798Z",
+  "post_capture_no_submission_observed_utc": "2026-09-16T19:37:00.860Z",
+  "url_at_capture": "https://chatgpt.com/",
+  "new_chat_dom_message_count_before_capture": 0,
+  "new_chat_dom_message_count_after_capture": 0,
+  "composer_empty_before_and_after_capture": true,
+  "ground_truth_written_after_capture": true,
+  "ground_truth_outside_guest": false,
+  "clean_vm_reset": false,
+  "limitations": "The signed-in account and VM already had earlier synthetic conversations, so this is not a clean no-visit control."
+}

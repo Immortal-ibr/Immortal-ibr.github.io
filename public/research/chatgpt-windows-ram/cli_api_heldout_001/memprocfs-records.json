@@ -1,0 +1,114 @@
+{
+  "method": "same-image independent MemProcFS reads of every recovered record occurrence",
+  "pid": 4528,
+  "record_count": 2,
+  "occurrences": [
+    {
+      "virtual": 2741780037714,
+      "record_sha256": "a4f5150839e5dca5daa54f4eae366c42a4b1d7e9ee19f31c313e5642bfdfeec9",
+      "raw_byte_length": 345,
+      "translations": [
+        {
+          "virtual": 2741780037714,
+          "volatility_physical": 5892014162,
+          "memprocfs_physical": 5892014162,
+          "match": true
+        }
+      ],
+      "memprocfs_sha256": "a4f5150839e5dca5daa54f4eae366c42a4b1d7e9ee19f31c313e5642bfdfeec9",
+      "bytes_match": true
+    },
+    {
+      "virtual": 2741843729826,
+      "record_sha256": "a4f5150839e5dca5daa54f4eae366c42a4b1d7e9ee19f31c313e5642bfdfeec9",
+      "raw_byte_length": 345,
+      "translations": [
+        {
+          "virtual": 2741843729826,
+          "volatility_physical": 2347761058,
+          "memprocfs_physical": 2347761058,
+          "match": true
+        }
+      ],
+      "memprocfs_sha256": "a4f5150839e5dca5daa54f4eae366c42a4b1d7e9ee19f31c313e5642bfdfeec9",
+      "bytes_match": true
+    },
+    {
+      "virtual": 2741843736098,
+      "record_sha256": "a4f5150839e5dca5daa54f4eae366c42a4b1d7e9ee19f31c313e5642bfdfeec9",
+      "raw_byte_length": 345,
+      "translations": [
+        {
+          "virtual": 2741843736098,
+          "volatility_physical": 2186286626,
+          "memprocfs_physical": 2186286626,
+          "match": true
+        }
+      ],
+      "memprocfs_sha256": "a4f5150839e5dca5daa54f4eae366c42a4b1d7e9ee19f31c313e5642bfdfeec9",
+      "bytes_match": true
+    },
+    {
+      "virtual": 2741831060644,
+      "record_sha256": "f591ff3b1edf00a043d478257c9160821f9bf2a66536ad52d3bcf4d0549870ed",
+      "raw_byte_length": 322,
+      "translations": [
+        {
+          "virtual": 2741831060644,
+          "volatility_physical": 215956644,
+          "memprocfs_physical": 215956644,
+          "match": true
+        }
+      ],
+      "memprocfs_sha256": "f591ff3b1edf00a043d478257c9160821f9bf2a66536ad52d3bcf4d0549870ed",
+      "bytes_match": true
+    },
+    {
+      "virtual": 2741833853753,
+      "record_sha256": "f591ff3b1edf00a043d478257c9160821f9bf2a66536ad52d3bcf4d0549870ed",
+      "raw_byte_length": 322,
+      "translations": [
+        {
+          "virtual": 2741833853753,
+          "volatility_physical": 2384587577,
+          "memprocfs_physical": 2384587577,
+          "match": true
+        }
+      ],
+      "memprocfs_sha256": "f591ff3b1edf00a043d478257c9160821f9bf2a66536ad52d3bcf4d0549870ed",
+      "bytes_match": true
+    },
+    {
+      "virtual": 2741838131201,
+      "record_sha256": "f591ff3b1edf00a043d478257c9160821f9bf2a66536ad52d3bcf4d0549870ed",
+      "raw_byte_length": 322,
+      "translations": [
+        {
+          "virtual": 2741838131201,
+          "volatility_physical": 1773092865,
+          "memprocfs_physical": 1773092865,
+          "match": true
+        }
+      ],
+      "memprocfs_sha256": "f591ff3b1edf00a043d478257c9160821f9bf2a66536ad52d3bcf4d0549870ed",
+      "bytes_match": true
+    },
+    {
+      "virtual": 2741842336160,
+      "record_sha256": "f591ff3b1edf00a043d478257c9160821f9bf2a66536ad52d3bcf4d0549870ed",
+      "raw_byte_length": 322,
+      "translations": [
+        {
+          "virtual": 2741842336160,
+          "volatility_physical": 3165002144,
+          "memprocfs_physical": 3165002144,
+          "match": true
+        }
+      ],
+      "memprocfs_sha256": "f591ff3b1edf00a043d478257c9160821f9bf2a66536ad52d3bcf4d0549870ed",
+      "bytes_match": true
+    }
+  ],
+  "all_record_bytes_and_translations_match": true,
+  "exclusive_physical_page_ownership_claimed": false
+}

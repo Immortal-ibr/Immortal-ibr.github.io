@@ -1,0 +1,18 @@
+{
+  "trial_id": "chrome_anonymous_feasibility",
+  "role": "read-only access feasibility, not a ChatGPT conversation or RAM trial",
+  "utc_observation_window": "2026-09-17T03:47:29Z-2026-09-17T03:47:30Z",
+  "browser": "Google Chrome 152.0.7977.83, fresh isolated local profile, headless mode",
+  "url": "https://chatgpt.com",
+  "command_action": "Chrome --headless=new --no-first-run --no-default-browser-check --user-data-dir=<private profile> --virtual-time-budget=10000 --dump-dom https://chatgpt.com",
+  "chrome_exit_code": 0,
+  "dom_dump_bytes": 9943,
+  "dom_dump_sha256": "14C5EF05F56B83A9B9AE2723B4F8B88A3372C7E5690CDFF9F8E46F0F614F476C",
+  "observed_title": "Just a moment...",
+  "observed_gate": "Cloudflare managed challenge with Turnstile element",
+  "chat_ui_reached": false,
+  "prompt_submitted": false,
+  "ram_image_acquired": false,
+  "private_dom_and_profile_copied_to_public_results": false,
+  "limit": "This headless access check does not establish behavior of normal Chrome or whether anonymous ChatGPT use would work after the challenge; no challenge bypass was attempted."
+}

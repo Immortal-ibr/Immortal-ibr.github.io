@@ -1,0 +1,96 @@
+{
+  "trial_id": "trial_iab_two_chats_004",
+  "method_version": "v2 joiner developed on this image; v1 stream parser reused",
+  "status": "sequential same-VM exploratory test; not independent validation",
+  "image_sha256": "8BE3FCA651B37248E0161C7ECD52790B049565E98016F478982AA6DB34D2B2EE",
+  "v1_parser_sha256": "3EF5F07D1860F197636D2A62FA0EA73E7067F7CAB52E76C387A3371A62E22476",
+  "v2_joiner_sha256": "82D4A348D8A2FB558F0A3376D8FA31C955092ABF25B7140099E5FB3DD7A004A7",
+  "active_renderer_processes_scanned": 8,
+  "unique_candidate_turns": 2,
+  "chat_scores": [
+    {
+      "chat_label": "A",
+      "complete_exact_candidates": [
+        {
+          "pids": [
+            13364
+          ],
+          "turn_id": "bb22f704-6249-44f2-9b96-b97b26cb219e",
+          "field_exact_match": {
+            "conversation_id": true,
+            "prompt": true,
+            "response": true,
+            "user_message_id": true,
+            "assistant_message_id": true
+          },
+          "user_create_time_utc_from_ram": "2026-09-16T18:35:11.677000Z",
+          "assistant_create_time_utc_from_ram": "2026-09-16T18:35:32.977872Z",
+          "user_time_in_submit_window": true,
+          "assistant_start_before_completion_observed": true,
+          "ambiguous_user_ancestors": false,
+          "support": {
+            "user_input_record_sha256": "d28bf3ebc00253ccd489826026af171f710e6a92ae048f72bb0ec4b84ba57f85",
+            "assistant_start_record_sha256": "4121634e82322514f8c1cde29c062bc6bf7732346078cbcd9a887a382aec378e",
+            "response_patch_record_sha256": [
+              "7eacab9ccc37601bfb049ed42370b5329aa735970c5346198f6ee716ca968e07"
+            ],
+            "assistant_marker_record_sha256": [
+              "013a3001bd3f04518a113e35584127ec39966161f1c63cdea4e392073a518406",
+              "75113e68c78cee1c6bed1e7aaf5cad0f7b9c09a8938bd72517c414d446640fd8",
+              "b4003b460c9667d3d58fb03ec89e027a9bf2c0667a55b3b3e121789542030d17"
+            ],
+            "completion_record_sha256": [
+              "853ae299374c30be87d6bbce3d4e705babd5cf596464f9fea018c4d5eaf91c90"
+            ],
+            "user_stream_item_id": "123c7958-2d98-46b0-aa1a-12c120a36e27",
+            "assistant_stream_item_id": "9d46cea4-38e5-47af-a902-9e42115c785c"
+          }
+        }
+      ],
+      "same_conversation_partial_candidates": []
+    },
+    {
+      "chat_label": "B",
+      "complete_exact_candidates": [
+        {
+          "pids": [
+            13552
+          ],
+          "turn_id": "64d944c5-3af8-4f8b-ae37-b2275cd3428c",
+          "field_exact_match": {
+            "conversation_id": true,
+            "prompt": true,
+            "response": true,
+            "user_message_id": true,
+            "assistant_message_id": true
+          },
+          "user_create_time_utc_from_ram": "2026-09-16T18:36:19.130000Z",
+          "assistant_create_time_utc_from_ram": "2026-09-16T18:36:45.289660Z",
+          "user_time_in_submit_window": true,
+          "assistant_start_before_completion_observed": true,
+          "ambiguous_user_ancestors": false,
+          "support": {
+            "user_input_record_sha256": "f36745bb767289fc8523bb309f454a6d3732dee6aef8395bf0bc1ae524387394",
+            "assistant_start_record_sha256": "89fd91d76c500d58069fd3b809386eeab6f016680096eeba10b7a687ec2ae31e",
+            "response_patch_record_sha256": [
+              "5321f3bff0721d97ab1156d667b7282d70d31d3e3812ec7fb1dd3826023b02d0"
+            ],
+            "assistant_marker_record_sha256": [
+              "09b51462d9133221ea1647cd72f962c98732f9a6c44e2aec1c56c7a9c168689f",
+              "b5e53ffd26212633d71845cde5ba40110af470d1031a4ca53365d01d8d068d7c",
+              "e977a0dae6bcbb76381d4e1ea55e74e48ab424ed28fb3275cb3075d8c9f1f684"
+            ],
+            "completion_record_sha256": [
+              "58ecb2478a19e7768d3d6ca91b1390ed643b9fbce0c34616e035bb8500695754"
+            ],
+            "user_stream_item_id": "1f93980e-9523-439b-84df-1e6921d9ccdd",
+            "assistant_stream_item_id": "d88ac9bf-51de-4e11-b1b8-d27eb6bf7417"
+          }
+        }
+      ],
+      "same_conversation_partial_candidates": []
+    }
+  ],
+  "cross_joins": [],
+  "unmatched_candidate_count": 0
+}

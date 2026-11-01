@@ -12,16 +12,29 @@ import { SECTION_CATEGORIES, AUTHOR } from '../../consts';
 import { getPosts, pinnedFirst, slugify } from '../../utils';
 
 export async function getStaticPaths() {
+  // These posts share a publication date, so give their Research cards a stable
+  // reading order without changing the date order of other posts.
+  const ramSeriesOrder = new Map<string, number>([
+    ['chatgpt-windows-ram-case-study', 1],
+    ['chatgpt-browser-state-changes', 2],
+    ['codex-cli-windows-ram', 3],
+  ]);
   const posts = await getPosts();
-  return SECTION_CATEGORIES.map((name) => ({
-    params: { section: slugify(name) },
-    props: {
-      name,
-      posts: pinnedFirst(
-        posts.filter((p) => (p.data.category ?? '').trim() === name)
-      ),
-    },
-  }));
+  return SECTION_CATEGORIES.map((name) => {
+    const sectionPosts = posts.filter((p) => (p.data.category ?? '').trim() === name);
+    if (name === 'Research') {
+      sectionPosts.sort((a, b) => {
+        const dateOrder = b.data.published.valueOf() - a.data.published.valueOf();
+        if (dateOrder !== 0) return dateOrder;
+        return (ramSeriesOrder.get(a.id) ?? Number.MAX_SAFE_INTEGER)
+          - (ramSeriesOrder.get(b.id) ?? Number.MAX_SAFE_INTEGER);
+      });
+    }
+    return {
+      params: { section: slugify(name) },
+      props: { name, posts: pinnedFirst(sectionPosts) },
+    };
+  });
 }
 
 const { name, posts } = Astro.props;

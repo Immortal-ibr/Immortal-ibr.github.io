@@ -1,0 +1,16 @@
+{
+  "method": "bounded stream item parsing; parent-stream ancestry; user input, assistant start, response patch, marker, completion",
+  "ground_truth_supplied": false,
+  "groups": [
+    {
+      "conversation_id": "6aaae822-26bc-83e9-885a-3aa62ece49ee",
+      "turn_id": "a130f67c-eb72-48e7-8025-88b06d1bad33",
+      "complete_records": 20,
+      "user_inputs": 0,
+      "assistant_message_starts": 4,
+      "patch_records": 1,
+      "completion_events": 1
+    }
+  ],
+  "candidate_turns": []
+}

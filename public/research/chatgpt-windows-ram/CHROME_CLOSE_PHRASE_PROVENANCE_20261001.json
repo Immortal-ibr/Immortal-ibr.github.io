@@ -1,0 +1,28 @@
+{
+  "trial_id": "chrome-anonymous-cdp-close-004",
+  "question": "Which of the seven exact physical copies of an answer-only phrase can be attributed to the investigator's page-observation probe?",
+  "method": {
+    "ground_truth_supplied": true,
+    "known_value": "A synthetic phrase from the pre-close answer, absent from the submitted prompt; its bytes are not reproduced here",
+    "known_value_utf8_sha256": "4B2A623DE4E12C9936BD7817E214F34AC8C5C7967A253F48FEB70684ACF6F2C1",
+    "location_script_sha256": "5BB16DDB8A13BE620916718F4D24BEE946A98AB7100B8643FA902F13413E641E",
+    "archive_sha256": "86CA335B3D18199888EE5354A451939B9CADD60FC83095BB58C465E4739B9CD5",
+    "raw_sha256": "EE1C9A16BC1E3BD71EF35EF8B909219075564B2C262F00F77008CA490A9C4A56",
+    "raw_bytes": 7147094016,
+    "archive_and_full_decompression_verified": true,
+    "context_bytes_published": false,
+    "unfiltered_output_retained_private": true
+  },
+  "result": {
+    "utf8_physical_hits": 7,
+    "utf16le_physical_hits": 0,
+    "active_chrome_user_map_hits_from_prior_diagnostic": 0,
+    "hits_inside_strictly_parsed_probe_textTail_json": 2,
+    "those_hits_have_probe_url_user_assistant_textTail_shape": true,
+    "other_hits_not_attributed_by_this_check": 5,
+    "confirmed_probe_copy_physical_offsets": [1183937475, 2964820931]
+  },
+  "private_output_sha256": "0864A27D976FC538D6381FD9F64475C59F3766AFF599C0ACA276E6BCC4A35EE3",
+  "later_exact_offset_mapping": "CHROME_CLOSE_PHYSICAL_OWNER_20261001.json",
+  "interpretation": "At least two of seven physical phrase copies are the investigator's serialized page-observation textTail, so the count of seven must not be presented as seven browser remnants. The remaining five lack that proven JSON layout in the bounded context examined; a later mapping check places two of them in vmtoolsd.exe user space and leaves three without a process user mapping. None was mapped by an active Chrome process, and no bounded turn was recovered."
+}

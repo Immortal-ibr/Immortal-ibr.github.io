@@ -1,0 +1,10 @@
+{
+  "observer_scope": "opaque guest transport relay, not native backend attribution",
+  "stats": {
+    "object_prefix_hits": 4,
+    "format_rejected_hits": 4
+  },
+  "unique_complete_core_records": 1,
+  "linked_candidates": 0,
+  "unbound_agent_objects": 1
+}

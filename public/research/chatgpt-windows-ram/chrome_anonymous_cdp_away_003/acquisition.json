@@ -1,0 +1,12 @@
+{
+  "trial_id": "chrome_anonymous_cdp_away_003",
+  "acquisition_method": "WinPmem sparse raw",
+  "started_utc": "2026-09-30T07:36:47.4096856Z",
+  "ended_utc": "2026-09-30T07:36:50.8238475Z",
+  "elapsed_seconds": 3.4141619,
+  "exit_code": 0,
+  "windows_caption": "Microsoft Windows 10 Pro",
+  "windows_build": "19045",
+  "raw_logical_bytes": 7147094016,
+  "raw_sha256": "62A632705A3D411F1075D19BEEB5975A0143A072BCAB6A198C42E0C844AB6CB3"
+}

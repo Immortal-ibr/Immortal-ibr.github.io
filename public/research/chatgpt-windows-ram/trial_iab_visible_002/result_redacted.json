@@ -1,0 +1,45 @@
+{
+  "trial_id": "trial_iab_visible_002",
+  "status": "pilot development; not independent held-out validation",
+  "capture_image_sha256": "C91CF60D657A178BC51DAC63A4C8C37D4D12C6ABE4F817E241C657A9137DB765",
+  "method_hashes_sha256": {
+    "parse_stream_items.py": "3EF5F07D1860F197636D2A62FA0EA73E7067F7CAB52E76C387A3371A62E22476",
+    "reconstruct_turns.py": "B3C46C7820D018A6CB05D215F732CC1546960C4B8ABA485F405303506006721F"
+  },
+  "candidate_turn_count": 1,
+  "matches": [
+    {
+      "turn_id_derived_from_ram": "f9d9839f-261a-46ce-a44d-eb1b9f164fa5",
+      "field_exact_match": {
+        "conversation_id": true,
+        "prompt": true,
+        "response": true,
+        "user_message_id": true,
+        "assistant_message_id": true
+      },
+      "user_create_time_utc_from_ram": "2026-09-16T17:25:20.445000Z",
+      "assistant_create_time_utc_from_ram": "2026-09-16T17:25:21.491998Z",
+      "user_time_in_submit_window": true,
+      "assistant_start_time_before_completed_ui": true,
+      "support": {
+        "user_input_record_sha256": "ef20f3afe4a707da59693363754339bfebe26cf753ca34710906f842f7727442",
+        "assistant_start_record_sha256": "a00dfed89653235f67e7a3587746f6a808f2f8d20866a5badeee386b2e877ec9",
+        "response_patch_record_sha256": [
+          "93eee660d6a9647a68fa9df10cf17fd6a59e5c587ed2b1cf8c6daf5975d34858"
+        ],
+        "assistant_marker_record_sha256": [
+          "46629a48f188328556719126c7ac32c17a46f8080826337df492ea345828f3ca",
+          "7acf264d2798bba1ffba9b5981ec63a39c5851b4024823fa21b012a71e05beae",
+          "cec4910e774d587c5c6f5ca69a293ffacf8cc3fcc3a29b071d69c2d7ffde77ad"
+        ],
+        "completion_record_sha256": [
+          "2155986181d0899327c5a9d1f06d6d2a2d82ae34f3f34cd62f5e4eb88fe4b57b"
+        ],
+        "user_stream_item_id": "6c3c9cf8-8e32-439e-a883-7a678e7cc4d1",
+        "assistant_stream_item_id": "e58ac6ed-9821-4f89-bdd9-4013431c089c"
+      },
+      "complete_join_for_this_visible_trial": true
+    }
+  ],
+  "limitation": "The parser was developed on this image. Only the visible state was tested; there was no VM reset or independent control. Assistant create_time is a message-start time, not the completed-response time."
+}

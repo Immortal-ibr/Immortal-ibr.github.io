@@ -1,0 +1,11 @@
+{
+  "trial_id": "cli_tui_active_010",
+  "condition": "Codex CLI interactive TUI answer complete; process remained open during full physical RAM capture",
+  "prompt": "Synthetic memory trial bcf8408b-dab8-48f4-a89d-3af77217b11c. In one ASCII sentence, explain how a sonnet differs from a haiku. Do not use tools or repeat the identifier.",
+  "actual_response": "A sonnet typically has 14 lines with a set rhyme scheme, while a haiku has three lines traditionally arranged in a 5-7-5 syllable pattern.",
+  "marker": "bcf8408b-dab8-48f4-a89d-3af77217b11c",
+  "cli_pid_at_capture": 12820,
+  "capture_launcher_utc": "2026-09-17T03:02:09.0089661Z",
+  "source": "investigator PTY output; response observed before capture and may contaminate non-process physical RAM",
+  "clean_vm_reset": false
+}

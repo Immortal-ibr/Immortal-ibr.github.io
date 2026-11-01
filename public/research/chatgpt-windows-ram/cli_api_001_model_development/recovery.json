@@ -1,0 +1,168 @@
+{
+  "method": "observed tagged model input + terminal RPC; separate from core-v1",
+  "ground_truth_supplied": false,
+  "record_byte_cap": 1048576,
+  "scope": "selected resident user-space mappings; not a native object graph",
+  "user_space_rows": 21441,
+  "skipped_kernel_rows": 113949,
+  "stats": {
+    "object_prefix_hits": 913,
+    "format_rejected_hits": 555,
+    "invalid_json_or_encoding_hits": 349,
+    "gap_or_end_truncated_hits": 8,
+    "complete_rpc_occurrences": 1
+  },
+  "other_user_role_records_excluded": 1,
+  "unique_complete_records": 2,
+  "records": [
+    {
+      "record_sha256": "b72160db81583441c35f130db16177ecab1495d569511ab29a9ddb3fd4acbedd",
+      "encoding": "utf-8",
+      "raw_byte_length": 624,
+      "payload": {
+        "method": "turn/completed",
+        "params": {
+          "threadId": "01a0eb72-84d6-7861-82cd-6dc13d89137d",
+          "turn": {
+            "id": "01a0eb74-759b-7711-9962-91a21e213040",
+            "items": [
+              {
+                "type": "agentMessage",
+                "id": "msg_05275151cdbd3cc6016abb40a337d487d1bf40a184f0da9a11",
+                "text": "At the fictional observatory, Cedar watches the stars beside the brass telescope, where 389 + 527 = 916 and the night is called Silver Lantern Drift.",
+                "phase": "final_answer",
+                "memoryCitation": null,
+                "delivery": null,
+                "questions": null
+              }
+            ],
+            "itemsView": "summary",
+            "status": "completed",
+            "error": null,
+            "startedAt": 1790656673,
+            "completedAt": 1790656680,
+            "durationMs": 7069
+          }
+        },
+        "emittedAtMs": 1790656680264
+      },
+      "source_virtual_addresses": [
+        2741831060496
+      ],
+      "source_spans": [
+        [
+          {
+            "virtual": 2741831060496,
+            "physical": 215956496,
+            "size": 624
+          }
+        ]
+      ]
+    },
+    {
+      "record_sha256": "b794428e17150ce784efc0c7332663ec3ca4bf71654a1989ed21fd7198efece2",
+      "encoding": "utf-8",
+      "raw_byte_length": 535,
+      "payload": {
+        "type": "message",
+        "id": "msg_01a0eb74-7e7e-7192-9898-83a486676e21",
+        "role": "user",
+        "content": [
+          {
+            "type": "input_text",
+            "text": "For the synthetic label cedar-vector-914, write exactly one sentence about a fictional observatory. Include the result of 389 + 527 and invent a three-word name that does not appear in this prompt. Do not use tools, commands, files, or web search."
+          }
+        ],
+        "internal_chat_message_metadata_passthrough": {
+          "turn_id": "01a0eb74-759b-7711-9962-91a21e213040",
+          "create_time": 1790656675.4543948,
+          "content_item_kinds": [
+            "user.text"
+          ]
+        }
+      },
+      "source_virtual_addresses": [
+        2741821470665
+      ],
+      "source_spans": [
+        [
+          {
+            "virtual": 2741821470665,
+            "physical": 6137653193,
+            "size": 535
+          }
+        ]
+      ]
+    }
+  ],
+  "join": {
+    "rule": "same process; exact turn ID; one user.text input, final agent variant and thread binding",
+    "candidate_count": 1,
+    "candidates": [
+      {
+        "thread_id": "01a0eb72-84d6-7861-82cd-6dc13d89137d",
+        "turn_id": "01a0eb74-759b-7711-9962-91a21e213040",
+        "tagged_input_variants": 1,
+        "final_agent_variants": 1,
+        "thread_bindings_for_turn": 1,
+        "prompt": "For the synthetic label cedar-vector-914, write exactly one sentence about a fictional observatory. Include the result of 389 + 527 and invent a three-word name that does not appear in this prompt. Do not use tools, commands, files, or web search.",
+        "response": "At the fictional observatory, Cedar watches the stars beside the brass telescope, where 389 + 527 = 916 and the night is called Silver Lantern Drift.",
+        "model_input_message_id": "msg_01a0eb74-7e7e-7192-9898-83a486676e21",
+        "agent_message_id": "msg_05275151cdbd3cc6016abb40a337d487d1bf40a184f0da9a11",
+        "agent_id_independently_bound": true,
+        "api_user_item_id_recovered": false,
+        "input_support": [
+          {
+            "record_sha256": "b794428e17150ce784efc0c7332663ec3ca4bf71654a1989ed21fd7198efece2",
+            "encoding": "utf-8",
+            "raw_byte_length": 535,
+            "source_virtual_addresses": [
+              2741821470665
+            ],
+            "source_spans": [
+              [
+                {
+                  "virtual": 2741821470665,
+                  "physical": 6137653193,
+                  "size": 535
+                }
+              ]
+            ],
+            "model_input_create_time_raw": 1790656675.4543948
+          }
+        ],
+        "answer_support": [
+          {
+            "record_sha256": "b72160db81583441c35f130db16177ecab1495d569511ab29a9ddb3fd4acbedd",
+            "encoding": "utf-8",
+            "raw_byte_length": 624,
+            "source_virtual_addresses": [
+              2741831060496
+            ],
+            "source_spans": [
+              [
+                {
+                  "virtual": 2741831060496,
+                  "physical": 215956496,
+                  "size": 624
+                }
+              ]
+            ],
+            "turn_times_raw": {
+              "started_at": 1790656673,
+              "completed_at": 1790656680,
+              "duration_ms": 7069
+            }
+          }
+        ]
+      }
+    ],
+    "incomplete_or_ambiguous": [],
+    "semantic_rejections": {}
+  },
+  "executed_method_sha256": {
+    "bounded_json.py": "8f0d7e2e2a23577dd8fcc096b2f4516cdf592489d00c4341c932eee2e6450032",
+    "cli_rpc_records.py": "81057e66cf47c62fc99fdee77b00db0eff9a2e0b3e1fdbc5f99d61aa4e22e0ee",
+    "cli_model_turns.py": "74fddfa06300b6ac1ae20d413418b6daabc0039bd967638adcd2b5abaac9a930"
+  }
+}

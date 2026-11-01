@@ -1,0 +1,63 @@
+{
+  "scope": "Three already-retained Windows RAM images from the instrumented native Codex app-server cohort",
+  "discovery": "After both previously frozen methods returned zero candidates on the museum image, a separate complete response.create object was found in its native-process user mappings. Its client_metadata supplied thread_id and turn_id; its input contained one human user.text item for that turn. A task_complete object supplied the response under the same turn_id.",
+  "experimental_role": "Post-hoc development on museum, then hash-frozen before retrospective checks on lighthouse and observatory. These three images all predate the new method; the later fresh-turn check is reported separately in CLI_REQUEST_CORE_PROSPECTIVE_20261001.json.",
+  "frozen_method": "FROZEN_CLI_REQUEST_CORE_V1.json",
+  "ground_truth_supplied_to_parser": false,
+  "selection": "Image-derived native codex.exe PID and its resident user-space Volatility memmap; the relay PID was scanned separately in each image",
+  "join": "One complete response.create object with metadata thread/turn IDs and exactly one input item tagged user.text for that turn; one task_complete with the same turn ID; conflicting bindings or variants are not accepted",
+  "field_boundary": "The model-input message ID is recovered but was not independently scored. The API user-item ID and a turn-bound assistant-message ID are not recovered by this method.",
+  "trials": [
+    {
+      "case": "lighthouse",
+      "trial_id": "cli-api-dev-002-active",
+      "native_pid": 9456,
+      "raw_sha256": "4EE5604F16C2A9C21AD2AC7365A39FB3A910706DA748794EFB0B4D45924AB164",
+      "raw_sha256_reverified_now": true,
+      "unique_complete_records": 2,
+      "record_types": ["response.create", "task_complete"],
+      "record_occurrences": 2,
+      "candidate_turns": 1,
+      "host_observation_exact_matches": ["thread ID", "turn ID", "prompt", "response"],
+      "memprocfs_bytes_and_translations": "2/2 occurrences",
+      "relay_complete_records": 0,
+      "relay_candidates": 0,
+      "sealed_recovered_output_sha256": "1FD0CE3DE172A1F3427C276D0195A3E9AD848E138F563B150889C02EB51BDDBA"
+    },
+    {
+      "case": "observatory",
+      "trial_id": "cli-api-heldout-001-active",
+      "native_pid": 4528,
+      "raw_sha256": "D31FE50F4AC1D6EE41EB86795513B1DDEEB04E057E18083C86246C46A3A5976B",
+      "raw_sha256_reverified_now": true,
+      "unique_complete_records": 2,
+      "record_types": ["response.create", "task_complete"],
+      "record_occurrences": 4,
+      "candidate_turns": 1,
+      "host_observation_exact_matches": ["thread ID", "turn ID", "prompt", "response"],
+      "memprocfs_bytes_and_translations": "4/4 occurrences",
+      "relay_complete_records": 0,
+      "relay_candidates": 0,
+      "sealed_recovered_output_sha256": "F273F718B89782AA75F02F95EB72E7C47B547B52C03967F180942110E8C15FC3"
+    },
+    {
+      "case": "museum",
+      "trial_id": "cli-api-heldout-002b-active",
+      "native_pid": 9144,
+      "raw_sha256": "ABB1837710B3AC735F5CDB714A34D0B6553CF10027935938F4C1D9B86A722B6E",
+      "raw_sha256_reverified_now": true,
+      "unique_complete_records": 2,
+      "record_types": ["response.create", "task_complete"],
+      "record_occurrences": 2,
+      "candidate_turns": 1,
+      "host_observation_exact_matches": ["thread ID", "turn ID", "prompt", "response"],
+      "memprocfs_bytes_and_translations": "2/2 occurrences",
+      "relay_complete_records": 0,
+      "relay_candidates": 0,
+      "sealed_recovered_output_sha256": "DF5014E192707F9A4D9B551CB8D9C945545C0062463A23F9BB2A1DEA40D63966"
+    }
+  ],
+  "negative_result_preserved": "The museum core-v1 and model-input-v1 frozen scores remain zero. The new request/core join is a different post-hoc grammar and does not retroactively change those scores.",
+  "raw_ram_and_unfiltered_records_public": false,
+  "account_identity_claimed": false
+}

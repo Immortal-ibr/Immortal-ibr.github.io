@@ -1,0 +1,73 @@
+{
+  "trial_id": "chrome-multiturn-visible-006",
+  "condition": "Two completed synthetic turns in one anonymous Chrome conversation and one still-open tab",
+  "scope": "One baseline-reset, loopback DevTools-controlled browser capture; an exploratory multi-turn boundary test, not a recovery-rate estimate",
+  "page_control": {
+    "same_devtools_target_for_both_submissions": true,
+    "same_anonymous_conversation_url_before_and_after_second_turn": true,
+    "first_user_and_assistant_dom_ids_and_text_stable_after_second_turn": true,
+    "four_dom_message_ids_recorded_before_acquisition": true,
+    "both_finished_answers_observed_before_acquisition": true,
+    "four_ids_and_text_still_stable_after_acquisition": true,
+    "first_submitted_utc": "2026-10-01T09:42:19.0990131Z",
+    "second_submitted_utc": "2026-10-01T09:44:37.4268088Z"
+  },
+  "acquisition": {
+    "tool": "WinPmem 1.0-rc2, direct gzip stream",
+    "started_utc": "2026-10-01T09:46:03.7318396Z",
+    "ended_utc": "2026-10-01T09:47:21.3816096Z",
+    "guest_archive_bytes": 3460729297,
+    "archive_sha256": "DA678842081FA27FB473EB16D59969354BA5ACDA6AB494D83AF4FD2260EA43AE",
+    "host_copy_method": "VMware Tools guest-file copy; no firewall rule changed",
+    "host_copy_hash_matches_guest": true,
+    "full_gzip_stream_verified": true,
+    "raw_logical_bytes": 7147094016,
+    "raw_sha256": "3CB670A83BCE2066F0E30C5F530C8B948A96C132215F95C2FD86852111C29E53",
+    "volatility_windows_info_system_time_utc": "2026-10-01T09:46:04Z",
+    "private_archive_retained": true,
+    "derived_raw_currently_retained": false,
+    "derived_raw_regenerable_from_verified_archive": true
+  },
+  "blind_process_scoped_analysis": {
+    "ground_truth_supplied": false,
+    "frozen_method": "FROZEN_CHROME_STATE_V1.json; all three source SHA-256 values rechecked before parsing",
+    "process_selection": "active chrome.exe processes from image-derived windows.pslist, with exact --type=renderer in windows.cmdline",
+    "active_chrome_processes": 9,
+    "active_renderers": [4272, 6588, 6896],
+    "active_chrome_processes_without_command_line": 0,
+    "signature_hits_by_renderer": {"4272": 0, "6588": 0, "6896": 6},
+    "complete_occurrences_by_renderer": {"4272": 0, "6588": 0, "6896": 6},
+    "unique_complete_records_by_renderer": {"4272": 0, "6588": 0, "6896": 3},
+    "record_shapes_in_pid_6896": [
+      {"messages": 0, "userMessageCount": 1, "encoding": "utf-8", "occurrences": 2, "joined_turn": false},
+      {"messages": 2, "userMessageCount": 1, "encoding": "utf-8", "occurrences": 2, "joined_turn": true},
+      {"messages": 2, "userMessageCount": 2, "encoding": "utf-16-le", "occurrences": 2, "joined_turn": true}
+    ],
+    "parentMessageId_matches_last_assistant_id_in_both_joined_records": true,
+    "joined_candidates": 2,
+    "sealed_output_sha256_before_scoring": "2C98D68A04785BFD7C8690E3563281D8DF3CB5DDE1B72DA7F81849E63650CB34",
+    "sealed_before_scoring_utc": "2026-10-01T10:13:17Z"
+  },
+  "post_capture_score": {
+    "ground_truth_supplied_to_score_only": true,
+    "fields": ["conversation ID", "user message ID", "assistant message ID", "full prompt", "rendered response"],
+    "first_turn_exact_fields_matched": 5,
+    "second_turn_exact_fields_matched": 5,
+    "possible_fields_per_turn": 5,
+    "unexpected_cross_joined_pairs": 0,
+    "same_conversation_candidates": 2
+  },
+  "independent_read_check": {
+    "tool": "MemProcFS 5.14.9",
+    "record_occurrences_checked": 6,
+    "all_bytes_and_virtual_to_physical_translations_match": true,
+    "exclusive_page_ownership_claimed": false
+  },
+  "screenshots": [
+    {"path": "screenshots/31-chrome-multiturn-first-before-followup.png", "sha256": "699BAC927F7C2DD7F9EC1B6B953E6B784854EE1695641DE01C83F951ABA7EA22", "source": "Actual first completed page before the second submission"},
+    {"path": "screenshots/32-chrome-multiturn-second-visible.png", "sha256": "1F0BCCC18E025490A4A7935CF3326A3C4E51BD9D35FE0CEE2B607BCF4007ABE1", "source": "Actual second completed page before acquisition"},
+    {"path": "screenshots/33-chrome-multiturn-first-crop.png", "sha256": "8B13BDA5922B5F779C6BDBD17359EDE63CF7369088D408E30E3B9BFCEC8248F1", "source": "Unaltered top 1102x340 pixels of screenshot 31"},
+    {"path": "screenshots/34-chrome-multiturn-second-crop.png", "sha256": "030221C63ADAB17A192071E85111A71416B11C7F1704B8C2DF74A9EE84CF6B9C", "source": "Unaltered top 1102x340 pixels of screenshot 32"}
+  ],
+  "interpretation": "The two turns were recovered as separate two-message state objects sharing one conversation ID, not as one four-message state. The earlier complete state copy was still mapped at acquisition. The record-level userMessageCount advanced from one to two, consistent with the independently observed DOM order; these objects did not independently supply event timestamps."
+}

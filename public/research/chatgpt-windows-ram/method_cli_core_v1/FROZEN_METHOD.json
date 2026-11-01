@@ -1,0 +1,45 @@
+{
+  "method_version": "cli-core-v1",
+  "frozen_utc": "2026-09-29T04:33:06.111954+00:00",
+  "cohort": "instrumented native Codex app-server stdio, not browser or TUI",
+  "record_cap_bytes": 1048576,
+  "encodings": [
+    "utf-8",
+    "utf-16-le"
+  ],
+  "object_prefix": "{\"type\"",
+  "accepted_types": [
+    "item_completed",
+    "task_complete",
+    "agentMessage"
+  ],
+  "process_selection": "all live inventoried native codex.exe backends; each map analyzed separately",
+  "mapping_scope": "resident user space below 2^47; virtual gaps never bridged",
+  "candidate_rule": "one exact turn-ID binding to one thread and one user/completion variant",
+  "strong_fields": [
+    "thread_id",
+    "turn_id",
+    "user_message_id",
+    "prompt",
+    "response"
+  ],
+  "assistant_id_independently_bound": false,
+  "known_values_supplied": false,
+  "files": [
+    {
+      "path": "bounded_json.py",
+      "bytes": 10964,
+      "sha256": "8f0d7e2e2a23577dd8fcc096b2f4516cdf592489d00c4341c932eee2e6450032"
+    },
+    {
+      "path": "cli_rpc_records.py",
+      "bytes": 11238,
+      "sha256": "81057e66cf47c62fc99fdee77b00db0eff9a2e0b3e1fdbc5f99d61aa4e22e0ee"
+    },
+    {
+      "path": "cli_core_events.py",
+      "bytes": 7873,
+      "sha256": "59f6b95f84fcecebb6acc3d10ac6dd19111be732ac23b4eaf94f2c1f657d94b1"
+    }
+  ]
+}

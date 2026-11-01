@@ -1,0 +1,39 @@
+{
+  "method": "same-image independent MemProcFS reads of every recovered record occurrence",
+  "pid": 4528,
+  "record_count": 2,
+  "occurrences": [
+    {
+      "virtual": 2741831060496,
+      "record_sha256": "b72160db81583441c35f130db16177ecab1495d569511ab29a9ddb3fd4acbedd",
+      "raw_byte_length": 624,
+      "translations": [
+        {
+          "virtual": 2741831060496,
+          "volatility_physical": 215956496,
+          "memprocfs_physical": 215956496,
+          "match": true
+        }
+      ],
+      "memprocfs_sha256": "b72160db81583441c35f130db16177ecab1495d569511ab29a9ddb3fd4acbedd",
+      "bytes_match": true
+    },
+    {
+      "virtual": 2741821470665,
+      "record_sha256": "b794428e17150ce784efc0c7332663ec3ca4bf71654a1989ed21fd7198efece2",
+      "raw_byte_length": 535,
+      "translations": [
+        {
+          "virtual": 2741821470665,
+          "volatility_physical": 6137653193,
+          "memprocfs_physical": 6137653193,
+          "match": true
+        }
+      ],
+      "memprocfs_sha256": "b794428e17150ce784efc0c7332663ec3ca4bf71654a1989ed21fd7198efece2",
+      "bytes_match": true
+    }
+  ],
+  "all_record_bytes_and_translations_match": true,
+  "exclusive_physical_page_ownership_claimed": false
+}

@@ -1,0 +1,76 @@
+{
+  "trial_id": "chrome-reload-008",
+  "condition": "One completed synthetic anonymous Chrome turn, then Page.reload on the same tab before RAM acquisition",
+  "scope": "One baseline-reset, loopback DevTools-controlled boundary trial; not a recovery-rate estimate",
+  "page_control": {
+    "submitted_utc": "2026-10-01T11:04:59.2222418Z",
+    "completed_turn_observed_before_reload": true,
+    "two_dom_message_ids_recorded_before_reload": true,
+    "same_devtools_target_throughout": true,
+    "reload_requested_utc": "2026-10-01T11:05:47.4230172Z",
+    "conversation_url_before_reload": "an anonymous /uc/<UUID> URL; exact value retained privately",
+    "new_chat_url_and_zero_submitted_dom_pairs_after_reload": true,
+    "new_chat_url_and_zero_submitted_dom_pairs_after_acquisition": true
+  },
+  "acquisition": {
+    "tool": "WinPmem 1.0-rc2, direct gzip stream",
+    "started_utc": "2026-10-01T11:06:34.4347553Z",
+    "ended_utc": "2026-10-01T11:07:50.4492281Z",
+    "guest_archive_bytes": 3485157875,
+    "archive_sha256": "25EF9018EE1C3A0B58A2CB39784EF81A2E852DD49C4E32ADAD9DA07D06538415",
+    "host_copy_method": "VMware Tools guest-file copy; no firewall rule changed",
+    "host_copy_hash_matches_guest": true,
+    "full_gzip_stream_verified": true,
+    "raw_logical_bytes": 7147094016,
+    "raw_sha256": "65CB33AE3290EC59277AF083EF0C5D985073DA51B8435B915DA2E82CABE081BB",
+    "volatility_windows_info_system_time_utc": "2026-10-01T11:06:35Z",
+    "private_archive_retained": true,
+    "derived_raw_currently_retained": false,
+    "derived_raw_regenerable_from_verified_archive": true
+  },
+  "blind_process_scoped_analysis": {
+    "ground_truth_supplied": false,
+    "frozen_method": "FROZEN_CHROME_STATE_V1.json; all three source SHA-256 values rechecked before parsing",
+    "process_selection": "active chrome.exe processes from image-derived windows.pslist, with exact --type=renderer in windows.cmdline",
+    "active_chrome_processes": 10,
+    "active_renderers": [3640, 4576, 5988],
+    "active_chrome_processes_without_command_line": 0,
+    "state_signatures_by_renderer": {"3640": 0, "4576": 0, "5988": 0},
+    "complete_records_by_renderer": {"3640": 0, "4576": 0, "5988": 0},
+    "joined_candidates": 0,
+    "sealed_output_sha256_before_scoring": "E7EB34D1142F902B7186147234E5AA056D9940A8F46D51646FDDC79F7BBD4A59",
+    "sealed_before_scoring_utc": "2026-10-01T11:28:45.2365126Z"
+  },
+  "post_capture_page_score": {
+    "ground_truth_supplied_to_score_only": true,
+    "same_target": true,
+    "pre_reload_completed_dom_pair": true,
+    "post_reload_new_chat_without_submitted_dom_pair": true,
+    "target_conversation_candidates": 0,
+    "target_reconstructed_5_of_5": false
+  },
+  "separate_posthoc_exact_byte_diagnostic": {
+    "ground_truth_supplied": true,
+    "physical_occurrences": {
+      "conversation_id_utf8": 209, "conversation_id_utf16le": 11,
+      "prompt_utf8": 8, "prompt_utf16le": 31,
+      "response_utf8": 1, "response_utf16le": 1
+    },
+    "active_renderer_mapped_occurrences": {
+      "3640": {"conversation_id_utf8": 71, "conversation_id_utf16le": 5, "prompt_utf8": 1, "prompt_utf16le": 5, "response_utf8": 1, "response_utf16le": 1},
+      "4576": {"conversation_id_utf8": 0, "conversation_id_utf16le": 0, "prompt_utf8": 0, "prompt_utf16le": 0, "response_utf8": 0, "response_utf16le": 0},
+      "5988": {"conversation_id_utf8": 1, "conversation_id_utf16le": 0, "prompt_utf8": 0, "prompt_utf16le": 0, "response_utf8": 0, "response_utf16le": 0}
+    },
+    "memprocfs_first_hit_checks": 7,
+    "memprocfs_bytes_and_translations_match": true,
+    "exact_page_observation_string_found_within_8kib_of_two_utf8_hits": false,
+    "interpretation": "Exact old text remained in active renderer mappings, but the known-value scan is separate from the zero-candidate blind parser. The page controller also handled these values; absence of the full observation string near two UTF-8 hits does not establish their exclusive origin."
+  },
+  "screenshots": [
+    {"path": "screenshots/37-chrome-reload-before-full.png", "sha256": "A33B04E7B4751F3D6A7E71657B041197B8F164EBFCAC131A368677788A82D718", "source": "Actual completed page before reload"},
+    {"path": "screenshots/38-chrome-reload-after-full.png", "sha256": "57C4E8ECD604A78ED75730B34CD2926CA11F43B59DE52AAEF20874E9896605DE", "source": "Actual empty new-chat page after same-tab reload, before acquisition"},
+    {"path": "screenshots/39-chrome-reload-before-crop.png", "sha256": "2C7589C525D2431030B7DAF3A1B957E0C0AC0F517B910F7D4CED04D44B89C041", "source": "Unaltered 750x340-pixel crop of screenshot 37"},
+    {"path": "screenshots/40-chrome-reload-after-crop.png", "sha256": "080FC3FC22A484ED39E314EDC4145B06E8FF1BAA0D17B8DE812399946684B350", "source": "Unaltered 750x260-pixel crop of screenshot 38"}
+  ],
+  "interpretation": "This anonymous session's reload returned the same tab to new chat. The frozen completed-state grammar did not reconstruct the earlier turn from any active renderer, although exact prompt and answer bytes survived there. It does not demonstrate erasure or apply automatically to signed-in sessions."
+}

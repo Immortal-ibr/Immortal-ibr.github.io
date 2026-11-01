@@ -1,0 +1,17 @@
+{
+  "trial_id": "cli-api-heldout-001-active",
+  "cohort": "instrumented native app-server stdio; development",
+  "thread_id": "01a0eb72-84d6-7861-82cd-6dc13d89137d",
+  "turn_id": "01a0eb74-759b-7711-9962-91a21e213040",
+  "prompt": "For the synthetic label cedar-vector-914, write exactly one sentence about a fictional observatory. Include the result of 389 + 527 and invent a three-word name that does not appear in this prompt. Do not use tools, commands, files, or web search.",
+  "response": "At the fictional observatory, Cedar watches the stars beside the brass telescope, where 389 + 527 = 916 and the night is called Silver Lantern Drift.",
+  "model_input_message_id": "msg_01a0eb74-7e7e-7192-9898-83a486676e21",
+  "agent_message_id": "msg_05275151cdbd3cc6016abb40a337d487d1bf40a184f0da9a11",
+  "agent_id_independently_bound": true,
+  "api_user_item_id_recovered": false,
+  "five_linked_fields_match_observation": true,
+  "model_input_id_independently_ground_truth_scored": false,
+  "timestamp_warning": "Model-input creation time is NOT a human submission timestamp",
+  "account_identity_claimed": false,
+  "presentation_only": "Selected recovered fields"
+}

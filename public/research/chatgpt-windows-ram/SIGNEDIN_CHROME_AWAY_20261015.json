@@ -1,0 +1,153 @@
+{
+  "trial_id": "signedin_chrome_away_20261015_001",
+  "cohort": "ordinary signed-in Chrome UI, paper-lighthouse tab showing about:blank",
+  "relation_to_visible_turn": {
+    "visible_trial": "signedin_chrome_visible_20261015_001",
+    "same_running_chrome_parent_pid": 4148,
+    "same_parent_create_time_utc": "2026-10-13T23:46:11Z",
+    "not_reset_based": true,
+    "rough_gap_between_acquisitions": "9 hours 25 minutes",
+    "navigation_time_instrumented": false,
+    "note": "The delayed image cannot isolate navigation from elapsed time or unobserved account activity. The user navigated the lone visible tab; no DevTools target ID was collected."
+  },
+  "screen_ground_truth": {
+    "about_blank_observed_before_acquisition": true,
+    "about_blank_observed_after_acquisition": true,
+    "original_screenshot_saved_utc": "2026-10-15T08:23:01.559Z",
+    "original_screenshot_sha256_private": "A30552465DDE4323EDD9B945C553E96B219209AE800DBDF6A01F24E7343E6F1E",
+    "known_turn_values_from": "the separately recorded earlier visible-turn screenshot; never supplied to the structural parsers"
+  },
+  "acquisition": {
+    "method": "WinPmem direct gzip in guest; private pinned-TLS copy; full host decompression and digest check",
+    "started_utc": "2026-10-15T08:23:12.0239602Z",
+    "ended_utc": "2026-10-15T08:24:04.7761443Z",
+    "duration_seconds": 52.7521841,
+    "archive_bytes": 4421366483,
+    "archive_sha256": "9215CC22C2E459BFCEA4BD98658D58C457DC7C2D0D62EA30FDA9F48D684DB7B5",
+    "gzip_read_to_eof": true,
+    "raw_logical_bytes": 7147094016,
+    "raw_sha256_from_host_decompression": "C33E0997DDE88A7875A1E0F4C2B734856DE4BE5887116D458DC6742F16E271CF",
+    "guest_raw_digest_available": false,
+    "volatility_version": "3 2.28.2",
+    "volatility_system_time_utc": "2026-10-15T08:23:14Z"
+  },
+  "process_selection": {
+    "rule": "active chrome.exe in windows.pslist and exact --type=renderer in windows.cmdline",
+    "active_chrome_processes": 10,
+    "active_renderer_pids": [
+      1896,
+      5904,
+      6520,
+      6980
+    ],
+    "chrome_network_service_pid": 5340,
+    "previously_prompt_bearing_renderer_pid": 8204,
+    "previous_renderer_exit_time_utc": "2026-10-15T08:23:49Z",
+    "previous_renderer_exit_during_acquisition": true,
+    "note": "WinPmem is not an atomic, single-instant snapshot. The exit timestamp falls within its 52.8-second read interval."
+  },
+  "structural_scans": {
+    "known_conversation_prompt_or_answer_supplied": false,
+    "chrome_state_parser_sha256": "699066609C86267B8F8302D64749D56BA993C6BB985B11A90551E9617384F052",
+    "chrome_turn_joiner_sha256": "005AFB18D715CFCC90D9F5E17531D91769345B46136DCD767B9035553CAC4F61",
+    "stream_item_parser_sha256": "8F0D7E2E2A23577DD8FCC096B2F4516CDF592489D00C4341C932EEE2E6450032",
+    "signedin_envelope_parser_sha256": "23B6952126DFF2149650BAD2DD26E306D1FDF8F223EA2FEE653F86E91592F7B2",
+    "sse_parser_sha256": "727767911AC19137431AF5233001AAD427EEF1B932CFBF1DF625D808BD6511D4",
+    "active_renderer_state_objects": {
+      "1896": 0,
+      "5904": 0,
+      "6520": 0,
+      "6980": 0
+    },
+    "active_renderer_joined_turns": {
+      "1896": 0,
+      "5904": 0,
+      "6520": 0,
+      "6980": 0
+    },
+    "active_renderer_complete_stream_items": {
+      "1896": 0,
+      "5904": 0,
+      "6520": 0,
+      "6980": 0
+    },
+    "active_renderer_complete_signedin_envelopes": {
+      "1896": 0,
+      "5904": 0,
+      "6520": 0,
+      "6980": 0
+    },
+    "active_renderer_complete_sse_events": {
+      "1896": 0,
+      "5904": 0,
+      "6520": 0,
+      "6980": 0
+    },
+    "network_service_complete_sse_events": 0,
+    "expanded_scope": "The same unchanged four grammars also found zero signatures and zero complete records in the other six active Chrome process maps and the exited PID 8204 map. This exploratory expansion followed the first post-seal known-value pass, but the grammars themselves still received no known values.",
+    "selected_private_output_sha256": {
+      "pslist": "17B5302DFD6CB52B086969A471443BE4C9266C0CA0B97044FCF124B848C0AA05",
+      "cmdline": "1575C31177FB41A6D4275D550C59E99B9F48129BC59E0CB5D7EBEA184AAF5FF4",
+      "joined_pid_6520": "76B60E08B800360C8261F95A97D86D8921A8CD7249242444E44C7A2DE39E56A6",
+      "envelope_pid_6520": "9F9F36CC5116273E8842A4864AD3605936EB576B60398D89AD5209041C7DB09F",
+      "envelope_browser_parent_pid_4148": "FED17A5EEE4124B8DD46B1061C56B1468BC9A3CDE60FDE7ACE61EAEA4D621958",
+      "envelope_exited_pid_8204": "B9CF4F87F0546DCDE8B0249FEBDA8D58E9BCAAC18F3B7D307131F8F2A76806D1"
+    }
+  },
+  "bash_volatility_replay": {
+    "environment": "Kali WSL Bash, Volatility 3 2.28.2, indexed gzip, host-cached Windows symbols",
+    "plugins": [
+      "windows.pslist",
+      "windows.cmdline",
+      "windows.memmap --pid 6520"
+    ],
+    "pslist_rows_identical_to_windows_run": true,
+    "cmdline_rows_identical_to_windows_run": true,
+    "pid_6520_memmap_rows_identical_to_windows_run": true,
+    "ground_truth_supplied": false
+  },
+  "post_seal_known_value_check": {
+    "ground_truth_supplied": true,
+    "purpose": "exact-byte residue and mapping diagnostic only; not blind conversation recovery",
+    "flat_physical_exact_occurrences": {
+      "conversation_id_utf8": 134,
+      "conversation_id_utf16le": 51,
+      "prompt_utf8": 12,
+      "prompt_utf16le": 22,
+      "response_utf8": 7,
+      "response_utf16le": 0
+    },
+    "selected_row_contained_mapped_occurrences": {
+      "active_renderer_6520": {
+        "conversation_id_utf8": 2,
+        "conversation_id_utf16le": 1,
+        "prompt_utf8": 0,
+        "prompt_utf16le": 0,
+        "response_utf8": 0,
+        "response_utf16le": 0
+      },
+      "active_renderers_1896_5904_6980": "zero for all six tested encodings",
+      "browser_parent_4148": {
+        "conversation_id_utf8": 78,
+        "conversation_id_utf16le": 46,
+        "prompt_utf8": 6,
+        "prompt_utf16le": 10,
+        "response_utf8": 2,
+        "response_utf16le": 0
+      },
+      "exited_renderer_8204": {
+        "conversation_id_utf8": 26,
+        "conversation_id_utf16le": 3,
+        "prompt_utf8": 2,
+        "prompt_utf16le": 5,
+        "response_utf8": 3,
+        "response_utf16le": 0
+      },
+      "utility_2320_conversation_id_utf8": 6,
+      "gpu_7516_conversation_id_utf8": 1
+    },
+    "mapped_count_warning": "Map rows are counted independently; adjacent virtual pages may contain an uncounted split value, and shared physical pages may appear in more than one map. Do not sum mapped counts to infer unique copies.",
+    "private_output_sha256": "24F35FB28A175945CE073A03F623A50FEF1F2887E71C9A8B85124B6863E0AB78"
+  },
+  "conclusion": "The tested structural grammars recovered no linked turn from the after-navigation image, including an exploratory scan of the exited old renderer. Exact prompt and response bytes still existed in physical RAM and mapped copies appeared in the browser parent and exited renderer. Because this was a delayed, non-reset image spanning process exit, it does not establish that navigation alone caused the change or that the old turn was erased."
+}

@@ -1,0 +1,17 @@
+{
+  "trial_id": "trial_iab_away_003",
+  "classification": "signed-in in-app browser navigated-away exploratory trial; frozen method, no VM reset",
+  "client": "Codex in-app browser showing chatgpt.com in Chat mode",
+  "clean_vm_reset": false,
+  "ground_truth_recorded_after_capture": true,
+  "prompt": "Synthetic abandoned-state pilot 1445f807-c56d-465d-b994-ebf2e01ffe67. Return only Mercury, Venus, Earth in that order, separated by vertical bars.",
+  "actual_response": "Mercury|Venus|Earth",
+  "submission_utc_interval": ["2026-09-16T17:52:14.850Z", "2026-09-16T17:52:15.070Z"],
+  "response_complete_observed_utc": "2026-09-16T17:52:20.485Z",
+  "navigate_away_utc_interval": ["2026-09-16T17:52:28.686Z", "2026-09-16T17:52:29.402Z"],
+  "destination_after_navigation": "https://example.com/",
+  "conversation_id_from_url": "6aaad73e-465c-83ea-a51b-6a1604c639ba",
+  "user_message_id_from_DOM": "0264ab62-85cd-4c46-b2b6-4ebb1bdfd4b7",
+  "assistant_message_id_from_DOM": "b10506c0-757e-4fb8-977a-b472dac359b1",
+  "id_observation": "Read-only DOM inspection after RAM acquisition and browser Back navigation. The exact prompt, answer, final URL ID, and DOM message IDs were not printed in Codex output before capture; browser-control runtime could still have held copies."
+}

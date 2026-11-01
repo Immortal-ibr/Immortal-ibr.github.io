@@ -1,0 +1,90 @@
+{
+  "method": "development: observed CLI core events, not public RPC packets",
+  "ground_truth_supplied": false,
+  "scope": "selected resident user-space mappings",
+  "record_byte_cap": 1048576,
+  "user_space_rows": 22121,
+  "skipped_kernel_rows": 125888,
+  "stats": {
+    "object_prefix_hits": 341,
+    "format_rejected_hits": 191,
+    "invalid_json_or_encoding_hits": 149,
+    "gap_or_end_truncated_hits": 1
+  },
+  "unique_complete_core_records": 2,
+  "records": [
+    {
+      "record_sha256": "97ac5e6f94b8ab37c2c325036fe56c0cb005d8ca4a5ae0a1fc14e898665d5493",
+      "encoding": "utf-8",
+      "raw_byte_length": 344,
+      "payload": {
+        "type": "task_complete",
+        "turn_id": "01a0eb9a-5b8d-7161-9054-97832028d225",
+        "last_agent_message": "At the fictional museum Copper River Hall, visitors admire the three-word exhibit name \u201cLanterns Beneath Winter\u201d and learn that 615 + 278 = 893.",
+        "started_at": 1790659156,
+        "completed_at": 1790659160,
+        "duration_ms": 3571,
+        "time_to_first_token_ms": 2404
+      },
+      "source_virtual_addresses": [
+        2279816247042
+      ],
+      "source_spans": [
+        [
+          {
+            "virtual": 2279816247042,
+            "physical": 5406934786,
+            "size": 344
+          }
+        ]
+      ]
+    },
+    {
+      "record_sha256": "8483731e027ff4e7861ec3ded8fa3c6290d48d833f895559345c2b491aa4c519",
+      "encoding": "utf-8",
+      "raw_byte_length": 321,
+      "payload": {
+        "type": "agentMessage",
+        "id": "msg_0d12e843ef5af2fd016abb4a55c57487d19188359f96bc51b4",
+        "text": "At the fictional museum Copper River Hall, visitors admire the three-word exhibit name \u201cLanterns Beneath Winter\u201d and learn that 615 + 278 = 893.",
+        "phase": "final_answer",
+        "memoryCitation": null,
+        "delivery": null,
+        "questions": null
+      },
+      "source_virtual_addresses": [
+        2279816303009,
+        2279822768943
+      ],
+      "source_spans": [
+        [
+          {
+            "virtual": 2279816303009,
+            "physical": 2412290465,
+            "size": 321
+          }
+        ],
+        [
+          {
+            "virtual": 2279822768943,
+            "physical": 2722646831,
+            "size": 321
+          }
+        ]
+      ]
+    }
+  ],
+  "join": {
+    "rule": "same process; exact turn ID; one thread binding, user variant and task-complete variant",
+    "candidate_count": 0,
+    "candidates": [],
+    "incomplete_or_ambiguous": [],
+    "unbound_agent_object_count": 1,
+    "semantic_rejections": {}
+  },
+  "executed_method_sha256": {
+    "bounded_json.py": "8f0d7e2e2a23577dd8fcc096b2f4516cdf592489d00c4341c932eee2e6450032",
+    "cli_rpc_records.py": "81057e66cf47c62fc99fdee77b00db0eff9a2e0b3e1fdbc5f99d61aa4e22e0ee",
+    "cli_core_events.py": "59f6b95f84fcecebb6acc3d10ac6dd19111be732ac23b4eaf94f2c1f657d94b1"
+  }
+}

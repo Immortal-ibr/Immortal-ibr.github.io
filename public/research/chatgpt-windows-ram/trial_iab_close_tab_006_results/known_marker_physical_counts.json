@@ -1,0 +1,19 @@
+{
+  "trial_id": "trial_iab_close_tab_006",
+  "method": "ground-truth-assisted exact-value counts across physical RAM",
+  "ground_truth_supplied": true,
+  "scanned_bytes": 18253611008,
+  "counts": {
+    "prompt_ascii": 248,
+    "prompt_utf16le": 114,
+    "response_ascii": 2771,
+    "response_utf16le": 412,
+    "conversation_id_ascii": 2606,
+    "conversation_id_utf16le": 262,
+    "user_message_id_ascii": 24,
+    "user_message_id_utf16le": 0,
+    "assistant_message_id_ascii": 20,
+    "assistant_message_id_utf16le": 0
+  },
+  "limitations": "No process provenance or bounded join; investigator/browser-control copies and prior trials may contribute. The requested response text also appears in the prompt."
+}

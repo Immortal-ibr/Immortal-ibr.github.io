@@ -1,0 +1,68 @@
+{
+  "trial_id": "chrome-draft-nosubmit-007",
+  "condition": "Synthetic text typed into a fresh anonymous Chrome composer but never submitted",
+  "scope": "One baseline-reset, loopback DevTools-controlled browser capture; a control of the completed-state grammar, not a false-positive-rate estimate",
+  "page_control": {
+    "drafted_utc": "2026-10-01T10:27:22.0172370Z",
+    "submission_attempted": false,
+    "send_button_enabled": true,
+    "new_chat_url_before_and_after_acquisition": true,
+    "draft_exact_and_unchanged_before_and_after_acquisition": true,
+    "submitted_message_elements_before_and_after_acquisition": 0,
+    "page_screenshot_before_acquisition": "screenshots/35-chrome-unsent-draft-full.png"
+  },
+  "acquisition": {
+    "tool": "WinPmem 1.0-rc2, direct gzip stream",
+    "started_utc": "2026-10-01T10:29:24.2076242Z",
+    "ended_utc": "2026-10-01T10:30:35.5491306Z",
+    "guest_archive_bytes": 3457495312,
+    "archive_sha256": "AD8262848639902DDE916EB5761CFBD30D13AD7592D8161386D6BC1086632F9D",
+    "host_copy_method": "VMware Tools guest-file copy; no firewall rule changed",
+    "host_copy_hash_matches_guest": true,
+    "full_gzip_stream_verified": true,
+    "raw_logical_bytes": 7147094016,
+    "raw_sha256": "BB53B3932C39995CD050BC32BFB723024BDCE21D4E3BDF4BE760ED3C48C081C4",
+    "volatility_windows_info_system_time_utc": "2026-10-01T10:29:25Z",
+    "private_archive_retained": true,
+    "derived_raw_currently_retained": false,
+    "derived_raw_regenerable_from_verified_archive": true
+  },
+  "blind_process_scoped_analysis": {
+    "ground_truth_supplied": false,
+    "frozen_method": "FROZEN_CHROME_STATE_V1.json; all three source SHA-256 values rechecked before parsing",
+    "process_selection": "active chrome.exe processes from image-derived windows.pslist, with exact --type=renderer in windows.cmdline",
+    "active_chrome_processes": 9,
+    "active_renderers": [1412, 1516, 8008],
+    "active_chrome_processes_without_command_line": 0,
+    "state_signatures_by_renderer": {"1412": 0, "1516": 0, "8008": 0},
+    "complete_records_by_renderer": {"1412": 0, "1516": 0, "8008": 0},
+    "joined_candidates": 0,
+    "sealed_output_sha256_before_known_text_scan": "0B53FF19D2BCE0154C8C54A45FBF7D2D4B5EB82FF0F53775CB247802092A399E",
+    "sealed_before_known_text_scan_utc": "2026-10-01T10:53:42.3518002Z"
+  },
+  "later_full_physical_state_scan": {
+    "method": "Unchanged bounded Chrome-state grammar over the verified flat physical image, with no known turn values",
+    "record_byte_cap": 1048576,
+    "state_object_signature_hits": 0,
+    "complete_state_objects": 0,
+    "private_output_sha256": "DA4B2A41C81A12D3906E932B11ABF40A8DFD961A8A50736AE41CC1B01BCD472D",
+    "scope": "Retrospective format-specific physical scan, not a new capture or proof that the draft was absent"
+  },
+  "separate_posthoc_exact_byte_diagnostic": {
+    "ground_truth_supplied": true,
+    "physical_occurrences": {"prompt_utf8": 17, "prompt_utf16le": 37},
+    "active_renderer_mapped_occurrences": {
+      "1412": {"prompt_utf8": 3, "prompt_utf16le": 9},
+      "1516": {"prompt_utf8": 0, "prompt_utf16le": 0},
+      "8008": {"prompt_utf8": 0, "prompt_utf16le": 0}
+    },
+    "memprocfs_first_hit_checks": 2,
+    "memprocfs_bytes_and_translations_match": true,
+    "interpretation": "The independently observed draft text survived, but an exact-byte hit is not a submitted message. The CDP control and its saved observations may themselves contribute copies; physical counts cannot establish application origin or a general persistence rate."
+  },
+  "screenshots": [
+    {"path": "screenshots/35-chrome-unsent-draft-full.png", "sha256": "D90C8ED3FE2B869F946361B2F967AFC3DF2C0ECA917632C1862516C6594AC586", "source": "Actual anonymous Chrome page before acquisition; synthetic text still in the composer"},
+    {"path": "screenshots/36-chrome-unsent-draft-crop.png", "sha256": "AC33B6030E94345D60A2EF1ECF41B00ECFB00DE753FB891E6ABEE0C96D2FDF1D", "source": "Unaltered 800x250-pixel crop of screenshot 35"}
+  ],
+  "interpretation": "In this capture, the frozen completed-turn grammar found no candidate while exact draft bytes remained in RAM. The evidence does not imply that every unsent draft has this result or that observed copies are independent of the instrumented controller."
+}

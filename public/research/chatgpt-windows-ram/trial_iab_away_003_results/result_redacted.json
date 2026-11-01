@@ -1,0 +1,50 @@
+{
+  "trial_id": "trial_iab_away_003",
+  "condition": "completed response, then navigate away before full-RAM acquisition",
+  "validation_status": "fresh image with unchanged frozen scripts, but same VM without reset; exploratory, not independent validation",
+  "image_sha256": "E15D63627D6610B3D873330BB367BE152D1EA174FA50C23DCCFC3403DDA218B9",
+  "capture_start_utc": "2026-09-16T17:52:35.8257002Z",
+  "capture_end_utc": "2026-09-16T17:52:50.5812999Z",
+  "frozen_method_sha256": {
+    "trial_iab_visible_002/parse_stream_items.py": "3EF5F07D1860F197636D2A62FA0EA73E7067F7CAB52E76C387A3371A62E22476",
+    "trial_iab_visible_002/reconstruct_turns.py": "B3C46C7820D018A6CB05D215F732CC1546960C4B8ABA485F405303506006721F"
+  },
+  "active_renderer_processes_scanned": 7,
+  "active_renderer_signature_hits": 18,
+  "active_renderer_complete_records": 0,
+  "active_renderer_candidate_turns": 0,
+  "frozen_method_field_score": {
+    "conversation_id": "absent",
+    "prompt": "absent",
+    "response": "absent",
+    "user_message_id": "absent",
+    "assistant_message_id": "absent",
+    "timestamps": "absent",
+    "joined_turn": "absent"
+  },
+  "former_renderer_pid_8336_in_psscan": false,
+  "exploratory_full_physical_scan": {
+    "stream_item_syntax_hits": 230,
+    "complete_records": 0,
+    "record_like_fragments": 15,
+    "record_like_fragments_with_previous_visible_pilot_id": 15,
+    "record_like_fragments_with_current_away_trial_id": 0,
+    "code_or_log_like_fragments": 206,
+    "unclassified_fragments": 9
+  },
+  "known_string_baseline_counts": {
+    "prompt_uuid_ascii": 122,
+    "prompt_uuid_utf16le": 0,
+    "prompt_exact_ascii": 114,
+    "prompt_exact_utf16le": 0,
+    "response_exact_ascii": 154,
+    "response_exact_utf16le": 0,
+    "conversation_id_ascii": 949,
+    "conversation_id_utf16le": 58,
+    "user_message_id_ascii": 15,
+    "user_message_id_utf16le": 0,
+    "assistant_message_id_ascii": 12,
+    "assistant_message_id_utf16le": 0
+  },
+  "interpretation": "The frozen active-renderer method yielded no bounded turn after navigation. The exited earlier renderer was not found by psscan. A separate raw physical scan found incomplete syntax fragments, including residue from the prior visible pilot, but no complete attributable turn. The ground-truth-assisted string baseline found the away-trial prompt, answer, and IDs somewhere in RAM, without process provenance. This does not show erasure or make the sequential trial independent."
+}

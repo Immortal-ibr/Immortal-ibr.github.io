@@ -1,0 +1,19 @@
+{
+  "trial_id": "trial_iab_two_chats_004",
+  "status": "post-hoc development scan, not frozen and not needed by v2 reconstruction",
+  "signature": "{\"action\":\"next\",\"messages\":",
+  "known_values_supplied_to_parser": false,
+  "pid_13364": {
+    "signature_hits": 0,
+    "complete_records": 0
+  },
+  "pid_13552": {
+    "signature_hits": 1,
+    "complete_records": 1,
+    "raw_record_sha256": "2b89eb311d8c5d4067d8d2f93ff7f02d72d2861b911e056d0e5be08a6f3e6913",
+    "post_hoc_prompt_exact_match": true,
+    "post_hoc_user_message_id_exact_match": true,
+    "request_has_conversation_id": false
+  },
+  "interpretation": "A complete outgoing next-request JSON for chat B survived in its renderer. The frozen stream parser already found both chats' user messages in v.message events, so v2 reconstruction does not use this request scan."
+}

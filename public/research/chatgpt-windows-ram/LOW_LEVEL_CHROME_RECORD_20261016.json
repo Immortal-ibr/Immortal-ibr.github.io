@@ -1,0 +1,52 @@
+{
+  "trial_id": "chrome-visible-screenonly-010",
+  "purpose": "Byte-level presentation of one previously accepted Chrome state-object occurrence, including its physical-page context; this is not a new parser result",
+  "source_image": {
+    "format": "WinPmem gzip-compressed sparse-padded raw physical memory",
+    "archive_sha256": "8A7132940A72A669425E3DA7ECFD886272DF2A38FB774A19E0AB12C456FA628E",
+    "decompressed_raw_sha256": "47077528F00555AC7A31D9922381E4ACAA939DECDC85E3433BF0F9F53D447890",
+    "public_ledger": "CHROME_VISIBLE_SCREEN_ONLY_20261001.json",
+    "full_image_public": false
+  },
+  "process_mapping": {
+    "selected_renderer_pid": 1872,
+    "memmap_row_virtual_decimal": 107253969510400,
+    "memmap_row_virtual_hex": "0x618c02c0e000",
+    "memmap_row_physical_decimal": 2613698560,
+    "memmap_row_physical_hex": "0x9bc9e000",
+    "memmap_row_size_bytes": 4096,
+    "record_virtual_decimal": 107253969511692,
+    "record_virtual_hex": "0x618c02c0e50c",
+    "displacement_hex": "0x50c",
+    "record_physical_decimal": 2613699852,
+    "record_physical_hex": "0x9bc9e50c",
+    "record_contained_within_this_page": true
+  },
+  "extracted_physical_page": {
+    "private_file": "D:/Research-Private/low-level-20261017/chrome-screenonly-pid1872-page-0x9bc9e000.bin",
+    "length_bytes": 4096,
+    "sha256": "3F2611573D95DA535F0C7852DD0616329AED5323178AC51D94F051DE8B1AD4BE",
+    "extraction": "stream the retained gzip archive to decompressed physical offset 0x9bc9e000, then read 4096 bytes",
+    "record_offset_within_page_hex": "0x50c",
+    "record_slice_length_bytes": 558,
+    "record_slice_sha256": "6C5D1EBBAC3ABB825C97F227773EDBCE020BB37058CCC541C61D2E363D1F5C3C",
+    "full_page_public": false
+  },
+  "accepted_record": {
+    "encoding": "UTF-8",
+    "length_bytes": 558,
+    "length_hex": "0x22e",
+    "sha256": "6C5D1EBBAC3ABB825C97F227773EDBCE020BB37058CCC541C61D2E363D1F5C3C",
+    "complete_occurrences_in_renderer": 2,
+    "unique_complete_records_in_renderer": 1,
+    "public_exact_source_bytes": "evidence/chrome-visible-010-state-record.txt",
+    "note": "The exact published 558-byte record and the annotated full-RAM figure support the field and physical-offset interpretation. Figure provenance is recorded separately in LOW_LEVEL_FULL_RAM_FIGURES_20261027.json.",
+    "article_figure": "screenshots/64-chrome-state-record-full-ram-annotated.png"
+  },
+  "integrity": {
+    "record_sha256_matches_private_parser_output": true,
+    "full_archive_and_decompressed_image_hashes_verified_in_original_trial": true,
+    "public_carve_was_extracted_from_the_retained_archive_at_the_mapped_physical_offset": true,
+    "physical_page_record_slice_matches_accepted_record_sha256": true
+  }
+}

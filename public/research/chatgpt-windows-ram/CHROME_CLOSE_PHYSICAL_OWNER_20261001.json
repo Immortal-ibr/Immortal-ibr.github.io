@@ -1,0 +1,48 @@
+{
+  "trial_id": "chrome-anonymous-cdp-close-004",
+  "question": "Which processes, if any, still mapped the seven post-hoc physical hits of an answer-only phrase after the Chrome tab closed?",
+  "method": {
+    "ground_truth_supplied": true,
+    "source_of_known_phrase": "Actual completed-answer screenshot before tab closure; phrase absent from the submitted prompt",
+    "archive_sha256": "86CA335B3D18199888EE5354A451939B9CADD60FC83095BB58C465E4739B9CD5",
+    "raw_sha256": "EE1C9A16BC1E3BD71EF35EF8B909219075564B2C262F00F77008CA490A9C4A56",
+    "image_access": "Volatility 3 2.8.0 read the hash-verified gzip through an indexed random-access reader; no expanded raw image was retained",
+    "indexed_reader_source": "scripts/ram-research/vol_indexed_gzip.py",
+    "indexed_reader_sha256": "22B35379D98FF74028745540D7D0AB5790AB21BBBAB36CCEC6002792D1CDD9D4",
+    "exact_offset_plugin_source": "scripts/ram-research/vol_plugins/physmatches.py",
+    "exact_offset_plugin_sha256": "9A9DC31A6D7BBE6009D1D0C588DD17B96C7200EEE1E57CC66DC111A3155FCEF7",
+    "scope": "The seven physical offsets from the earlier verified phrase locator were compared with user-virtual physical mappings of every image-derived windows.pslist entry. The test does not look for new values or reconstruct a turn."
+  },
+  "coverage": {
+    "pslist_entries": 151,
+    "process_layers_created": 151,
+    "entries_with_user_mapping_rows": 129,
+    "of_those_without_exit_time": 128,
+    "of_those_with_exit_time": 1,
+    "user_mapping_rows_scanned": 587670,
+    "only_two_exact_offset_mapping_rows_found": true,
+    "positive_control": "A separate one-PID test matched an ordinary user mapping in the standard windows.memmap output for PID 1084."
+  },
+  "result": {
+    "physical_phrase_hits": 7,
+    "previously_proved_probe_textTail_copies": 2,
+    "hits_now_mapped_to_vmtoolsd_user_space": 2,
+    "vmtoolsd_pid": 3372,
+    "vmtoolsd_status": "No ExitTime in pslist",
+    "vmtoolsd_physical_page": 3139510272,
+    "vmtoolsd_physical_hit_offsets": [3139511785, 3139512628],
+    "vmtoolsd_virtual_hit_addresses": [140719567402473, 140719567403316],
+    "vmtoolsd_page_chatgpt_said_label_before_first_hit_bytes": 144,
+    "vmtoolsd_page_parsed_as_complete_probe_textTail_json": false,
+    "standard_windows_memmap_pid3372_confirmed_both_translations": true,
+    "vad_file": "\\Program Files\\VMware\\VMware Tools\\plugins\\common\\vix.dll",
+    "vad_protection": "PAGE_EXECUTE_WRITECOPY",
+    "acquisition_powershell_pid": 1084,
+    "acquisition_powershell_parent_pid": 3372,
+    "other_physical_hits_without_user_mapping_in_this_enumeration": 3,
+    "hits_mapped_to_any_active_chrome_process": 0
+  },
+  "private_exact_offset_output_sha256": "06A71046A88F510B0A92EC2189BEBB7555DF35CD6D6207947B085E802F3F7CB3",
+  "private_standard_pid3372_map_sha256": "FE607E9D5ACDB5654DDAD6179507DFF5B1883E8B0F1F6E7610F86D335A399F6B",
+  "interpretation": "Two of the five previously unassigned physical hits are reachable in the VMware guest-tools process rather than Chrome; their virtual addresses fall within a vix.dll VAD. This does not establish how the bytes entered that page or exclusive ownership. The three remaining physical hits had no user mapping among the enumerated processes. Neither these hits nor the two already identified probe JSON copies constitute a recovered Chrome turn."
+}

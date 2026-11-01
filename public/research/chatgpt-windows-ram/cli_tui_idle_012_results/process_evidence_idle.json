@@ -1,0 +1,23 @@
+{
+  "trial_id": "cli_tui_idle_012",
+  "method": "image-derived Volatility pslist, psscan, and cmdline lookup for prior CLI PIDs",
+  "processes": [
+    {
+      "pid": 3916,
+      "sources": {
+        "pslist": [],
+        "psscan": [],
+        "cmdline": []
+      }
+    },
+    {
+      "pid": 12820,
+      "sources": {
+        "pslist": [],
+        "psscan": [],
+        "cmdline": []
+      }
+    }
+  ],
+  "limitations": "A missing or exited process object is not proof that its content was erased from physical RAM."
+}

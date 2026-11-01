@@ -1,0 +1,27 @@
+{
+  "trial_id": "pilot_iab_001",
+  "result_class": "inconclusive attribution pilot",
+  "image_acquired": true,
+  "image_sha256": "D0F8CED8518E2871E891CBEC519A216A35073526295F1F37D6753C9CBBFEFC94",
+  "decompressed_bytes": 18253611008,
+  "known_marker_scan_only": {
+    "prompt_marker_ascii_hits": 368,
+    "prompt_marker_utf16le_hits": 13,
+    "response_ascii_hits": 302,
+    "response_utf16le_hits": 0,
+    "conversation_id_ascii_hits": 555,
+    "conversation_id_utf16le_hits": 75,
+    "user_message_id_ascii_hits": 140,
+    "assistant_message_id_ascii_hits": 141
+  },
+  "pilot_prompt_context_classification": {
+    "dom_capture_copy": 22,
+    "ground_truth_copy": 97,
+    "codex_tool_or_transcript": 111,
+    "unclassified": 137,
+    "record_like_unattributed": 1
+  },
+  "manual_review": "The sole record_like_unattributed sample was another Codex tool JSON-RPC record. Sampled unclassified hits included tool output, accessibility text, the prompt command, and the ground-truth patch. No web-process provenance or bounded ChatGPT turn record was established.",
+  "field_scores": "Not scored: the exploratory scanner was given the known markers and cannot reconstruct or attribute a turn blindly.",
+  "interpretation": "Presence of strings in full RAM is not evidence of an abandoned ChatGPT web turn because the investigator ran within the same VM and produced many copies before capture. This does not show the artifacts were erased either."
+}

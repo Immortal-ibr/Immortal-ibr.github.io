@@ -1,0 +1,52 @@
+{
+  "trial_id": "trial_iab_visible_005",
+  "condition": "one completed synthetic response still visible in signed-in in-app browser",
+  "validation_status": "fresh image with frozen v2 method, but same VM without reset and same investigator environment",
+  "image_sha256": "CCBAD4C2962B44E9FCAF4E7432BA77F28198BC76224D9D89FAFCD45078FB693E",
+  "frozen_v2_method_sha256": {
+    "trial_iab_visible_002/parse_stream_items.py": "3EF5F07D1860F197636D2A62FA0EA73E7067F7CAB52E76C387A3371A62E22476",
+    "method_v2/reconstruct_turns.py": "82D4A348D8A2FB558F0A3376D8FA31C955092ABF25B7140099E5FB3DD7A004A7"
+  },
+  "active_renderer_processes_scanned": 4,
+  "active_renderer_complete_records": 20,
+  "unique_candidate_turns": 1,
+  "candidate_scores": [
+    {
+      "pids": [
+        10408
+      ],
+      "turn_id": "a130f67c-eb72-48e7-8025-88b06d1bad33",
+      "field_exact_match": {
+        "conversation_id": true,
+        "prompt": true,
+        "response": true,
+        "user_message_id": true,
+        "assistant_message_id": true
+      },
+      "complete_exact_match": true,
+      "user_create_time_utc_from_ram": "2026-09-16T19:04:02.286000Z",
+      "assistant_create_time_utc_from_ram": "2026-09-16T19:04:28.907825Z",
+      "user_time_in_submit_window": true,
+      "assistant_start_before_completion_observed": true,
+      "ambiguous_user_ancestors": false,
+      "support": {
+        "user_input_record_sha256": "0e74613ff06b433718d39ca121e28c4ff6dcc4ded481fe724e4a15c7f387cd4d",
+        "assistant_start_record_sha256": "37d3809fb3ca949147edb33a3e55226bb69c19bd934814e6e99a6cec14803d26",
+        "response_patch_record_sha256": [
+          "378ffe3e269f51b86169966acee1bc8981b85e07fcbbea81ddccf9a1ab163e7d"
+        ],
+        "assistant_marker_record_sha256": [
+          "5b42468c0e16d55cf780edb4fed117e7e1b64d9dd8564f3fc4d6bad5100814b0",
+          "8100026de5eb2b6bdf5a15bef25303324e65b4340601838526dba7014c9fdd1d",
+          "9416d1f49527d26f434aa37bf3944b03401d47d228373585e36a235b35207378"
+        ],
+        "completion_record_sha256": [
+          "1d75382f747cb532a21abb65fc1f7fde292ae4d4217b54779e5dd74ad64b0b68"
+        ],
+        "user_stream_item_id": "1eabf009-1a2f-4269-83fd-71ce47731cce",
+        "assistant_stream_item_id": "c5151644-8234-4361-99f0-e4e113f39a31"
+      }
+    }
+  ],
+  "complete_exact_candidate_count": 1
+}

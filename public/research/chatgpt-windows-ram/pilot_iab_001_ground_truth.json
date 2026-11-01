@@ -1,0 +1,17 @@
+{
+  "trial_id": "pilot_iab_001",
+  "classification": "signed-in in-app browser feasibility pilot; not a Chrome trial or held-out validation",
+  "client": "Codex in-app browser showing chatgpt.com in Chat mode",
+  "clean_vm_reset": false,
+  "prompt": "Synthetic forensic pilot 142ed00e-0fb5-4557-a684-cdb527c037b8. In one sentence, name the third planet from the Sun and its natural satellite.",
+  "actual_response": "Earth is the third planet from the Sun, and its natural satellite is the Moon.",
+  "submission_utc_interval": ["2026-09-16T16:53:13.250Z", "2026-09-16T16:53:14.202Z"],
+  "response_complete_observed_utc": "2026-09-16T16:53:22.884Z",
+  "navigate_away_utc_interval": ["2026-09-16T16:54:09.283Z", "2026-09-16T16:54:10.435Z"],
+  "destination_after_navigation": "https://example.com/",
+  "conversation_id_from_url": "6aaac975-a214-83ea-93ba-0b02f0acb35d",
+  "provisional_web_conversation_id_seen_during_submission": "WEB:81f9bd0d-1a63-431a-8f75-d5c8de82e423",
+  "user_message_id_from_DOM": "a1ff7827-ca1a-4b0f-a321-80a8132fe49f",
+  "assistant_message_id_from_DOM": "3088c259-07e1-4422-89c4-258b45068e9e",
+  "id_observation": "Read-only inspection of visible DOM data-message-id and data-message-author-role attributes after completion; held out from any memory parser."
+}

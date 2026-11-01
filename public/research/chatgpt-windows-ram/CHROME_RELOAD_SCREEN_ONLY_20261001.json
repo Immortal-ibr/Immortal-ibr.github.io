@@ -1,0 +1,80 @@
+{
+  "trial_id": "chrome-reload-screenonly-009",
+  "condition": "A completed synthetic anonymous Chrome turn, followed by same-tab reload, with answer observed only as screenshot pixels before RAM acquisition",
+  "scope": "One baseline-reset, loopback DevTools-controlled observer-effect check; no pre-acquisition DOM answer-text or message-ID extraction",
+  "page_control": {
+    "submitted_utc": "2026-10-01T11:39:04.3020604Z",
+    "submission_mode": "submit_quiet; prompt draft verified, Enter dispatched, answer text not returned",
+    "same_devtools_target_throughout": true,
+    "pre_reload_anonymous_conversation_url_recorded_privately": true,
+    "pre_reload_uuid_message_element_count": 2,
+    "pre_reload_finished_answer_visible_in_actual_screenshot": true,
+    "reload_requested_utc": "2026-10-01T11:39:52.618106Z",
+    "new_chat_url_and_zero_uuid_message_elements_after_reload": true,
+    "new_chat_url_and_zero_uuid_message_elements_after_acquisition": true,
+    "pre_acquisition_controller_json_contained_answer_sentence": false,
+    "independent_dom_message_ids_recorded": false
+  },
+  "acquisition": {
+    "tool": "WinPmem 1.0-rc2, direct gzip stream",
+    "started_utc": "2026-10-01T11:40:22.5071071Z",
+    "ended_utc": "2026-10-01T11:41:36.8889519Z",
+    "guest_archive_bytes": 3457968135,
+    "archive_sha256": "1E74FEC15EC28E4B14A4BCDF53E5E73C930ACD20BBB963557F932953ABB3DCBA",
+    "host_copy_method": "VMware Tools guest-file copy; no firewall rule changed",
+    "host_copy_hash_matches_guest": true,
+    "full_gzip_stream_verified": true,
+    "raw_logical_bytes": 7147094016,
+    "raw_sha256": "1F227AC9AA3F3AFD690A58F87D5D11EDF460459403D1864538826127398214E7",
+    "volatility_windows_info_system_time_utc": "2026-10-01T11:40:23Z",
+    "private_archive_retained": true,
+    "derived_raw_removed_after_hash_reverification": true,
+    "derived_raw_regenerable_from_archive": true
+  },
+  "blind_process_scoped_analysis": {
+    "ground_truth_supplied": false,
+    "frozen_method": "FROZEN_CHROME_STATE_V1.json; all three source SHA-256 values rechecked before parsing",
+    "process_selection": "active chrome.exe processes from image-derived windows.pslist, with exact --type=renderer in windows.cmdline",
+    "active_chrome_processes": 9,
+    "active_renderers": [3204, 9776, 10028],
+    "active_chrome_processes_without_command_line": 0,
+    "state_signatures_by_renderer": {"3204": 0, "9776": 0, "10028": 0},
+    "complete_records_by_renderer": {"3204": 0, "9776": 0, "10028": 0},
+    "joined_candidates": 0,
+    "sealed_output_sha256_before_screenshot_transcription": "A993CA71465A8F82B6811152FDAB38A943577EEA616033149969E12CFA7B465B",
+    "sealed_before_screenshot_transcription_utc": "2026-10-01T12:05:37.6632597Z"
+  },
+  "post_seal_screenshot_score": {
+    "screenshot_sha256_checked": true,
+    "same_target": true,
+    "pre_reload_two_message_elements": true,
+    "post_reload_empty_new_chat": true,
+    "answer_sentence_not_in_prompt_or_controller_json": true,
+    "target_conversation_candidates": 0,
+    "independent_message_ids_or_full_response_scored": false
+  },
+  "separate_posthoc_exact_byte_diagnostic": {
+    "ground_truth_supplied": true,
+    "answer_value_is_one_complete_sentence_transcribed_from_screenshot_not_the_full_two-line_response": true,
+    "physical_occurrences": {
+      "conversation_id_utf8": 204, "conversation_id_utf16le": 26,
+      "prompt_utf8": 6, "prompt_utf16le": 16,
+      "answer_sentence_utf8": 4, "answer_sentence_utf16le": 0
+    },
+    "active_renderer_mapped_occurrences": {
+      "3204": {"conversation_id_utf8": 0, "conversation_id_utf16le": 0, "prompt_utf8": 0, "prompt_utf16le": 0, "answer_sentence_utf8": 0},
+      "9776": {"conversation_id_utf8": 1, "conversation_id_utf16le": 0, "prompt_utf8": 0, "prompt_utf16le": 0, "answer_sentence_utf8": 0},
+      "10028": {"conversation_id_utf8": 78, "conversation_id_utf16le": 14, "prompt_utf8": 0, "prompt_utf16le": 1, "answer_sentence_utf8": 1}
+    },
+    "memprocfs_first_hit_checks": 5,
+    "memprocfs_bytes_and_translations_match": true,
+    "interpretation": "The answer-only sentence survived in an active renderer map without a text-bearing page-observation record. This is still a known-value diagnostic, not a blind C/P/R/U/A reconstruction or proof of the exact V8 object that held the bytes."
+  },
+  "screenshots": [
+    {"path": "screenshots/41-chrome-screenonly-reload-before-full.png", "sha256": "942F144EFEB4C3820C8E5B98FA888CF64A1215D9F9820F43277FFC6F82C0DACA", "source": "Actual completed page before reload; answer not returned as controller text"},
+    {"path": "screenshots/42-chrome-screenonly-reload-after-full.png", "sha256": "C656B5C38E5EA19B924FF5E3F566ADEC38FD2356A7BC98C0AE1FDEA3180B93FD", "original_sha256": "F5151E2ACC505E6DE4C8DAAB44F27D2D3690F2AA4789519E88087D8855C27F82", "source": "Actual empty new-chat page after reload, before acquisition"},
+    {"path": "screenshots/43-chrome-screenonly-reload-before-crop.png", "sha256": "31C05C771A4CFD9ACD6C4A98AFD26A4C57DEE643F93BF9628774FBCC2515489C", "source": "Unaltered 750x240-pixel crop of screenshot 41"},
+    {"path": "screenshots/44-chrome-screenonly-reload-after-crop.png", "sha256": "BDC8CAE8FD708C93E97C3446DE1AE47FC40EFD89DF17B997AA690E1B9FA9738D", "source": "Unaltered 750x260-pixel crop of screenshot 42"}
+  ],
+  "interpretation": "The screen-only answer observation reduces the specific page-text observer artifact present in the earlier reload capture: exact old answer bytes remained in one active renderer, while the unchanged completed-state grammar still found no linked turn. One capture does not establish a persistence rate or the behavior of signed-in reloads."
+}

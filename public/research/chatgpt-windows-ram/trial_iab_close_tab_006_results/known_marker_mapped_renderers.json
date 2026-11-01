@@ -1,0 +1,80 @@
+{
+  "trial_id": "trial_iab_close_tab_006",
+  "method": "ground-truth-assisted per-row exact ASCII scan of active renderer user-space mappings",
+  "ground_truth_supplied": true,
+  "limitations": "Not blind reconstruction; strings split across rows can be missed; a mapped page is not exclusive process ownership; no bounded turn or IDs are joined.",
+  "processes": [
+    {
+      "pid": 4300,
+      "user_space_rows_scanned": 18297,
+      "known_value_hit_counts": {
+        "prompt": 0,
+        "response": 0,
+        "conversation_id": 0,
+        "user_message_id": 0,
+        "assistant_message_id": 0
+      },
+      "physical_4k_pages_with_hit": {
+        "prompt": 0,
+        "response": 0,
+        "conversation_id": 0,
+        "user_message_id": 0,
+        "assistant_message_id": 0
+      }
+    },
+    {
+      "pid": 7296,
+      "user_space_rows_scanned": 7179,
+      "known_value_hit_counts": {
+        "prompt": 0,
+        "response": 0,
+        "conversation_id": 0,
+        "user_message_id": 0,
+        "assistant_message_id": 0
+      },
+      "physical_4k_pages_with_hit": {
+        "prompt": 0,
+        "response": 0,
+        "conversation_id": 0,
+        "user_message_id": 0,
+        "assistant_message_id": 0
+      }
+    },
+    {
+      "pid": 9880,
+      "user_space_rows_scanned": 138619,
+      "known_value_hit_counts": {
+        "prompt": 0,
+        "response": 61,
+        "conversation_id": 65,
+        "user_message_id": 0,
+        "assistant_message_id": 0
+      },
+      "physical_4k_pages_with_hit": {
+        "prompt": 0,
+        "response": 47,
+        "conversation_id": 41,
+        "user_message_id": 0,
+        "assistant_message_id": 0
+      }
+    },
+    {
+      "pid": 11856,
+      "user_space_rows_scanned": 48162,
+      "known_value_hit_counts": {
+        "prompt": 0,
+        "response": 10,
+        "conversation_id": 18,
+        "user_message_id": 0,
+        "assistant_message_id": 0
+      },
+      "physical_4k_pages_with_hit": {
+        "prompt": 0,
+        "response": 9,
+        "conversation_id": 17,
+        "user_message_id": 0,
+        "assistant_message_id": 0
+      }
+    }
+  ]
+}

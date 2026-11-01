@@ -1,0 +1,11 @@
+{
+  "frozen_at_utc": "2026-09-16T17:41:53Z",
+  "development_image": "trial_iab_visible_002/private/memory.raw",
+  "development_image_sha256": "C91CF60D657A178BC51DAC63A4C8C37D4D12C6ABE4F817E241C657A9137DB765",
+  "method_files": {
+    "trial_iab_visible_002/parse_stream_items.py": "3EF5F07D1860F197636D2A62FA0EA73E7067F7CAB52E76C387A3371A62E22476",
+    "trial_iab_visible_002/reconstruct_turns.py": "B3C46C7820D018A6CB05D215F732CC1546960C4B8ABA485F405303506006721F"
+  },
+  "scope": "Parse bounded stream-item JSON from mapped user-space RAM and join user/assistant messages and response patches by conversation ID, turn ID, and parent-stream ancestry.",
+  "validation_status": "Frozen after one development pilot; applied unchanged to a fresh navigated-away image with zero complete records across seven active renderers. The VM was not reset, so this is exploratory rather than independent validation."
+}

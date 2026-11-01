@@ -1,0 +1,34 @@
+{
+  "trial_id": "cli_tui_resume_013",
+  "normal_session_jsonl_present": true,
+  "session_ids": [
+    "01a0ad4f-c8d3-72d1-bc50-a328b7a7cc20"
+  ],
+  "local_session_jsonl_bytes": 76113,
+  "local_session_jsonl_sha256": "16CDAEC2E0B09C543DB6282701451DD2BAAAD7F3D7F53DA989AE0C17226D98AE",
+  "jsonl_lines": 15,
+  "event_types": {
+    "session_meta": 1,
+    "event_msg": 5,
+    "response_item": 6,
+    "world_state": 1,
+    "turn_context": 1,
+    "token_usage_record": 1
+  },
+  "exact_value_hits_by_event_and_role": {
+    "prompt": {
+      "response_item:user": 1,
+      "event_msg:None": 1
+    },
+    "response": {
+      "event_msg:None": 2,
+      "response_item:assistant": 1
+    },
+    "marker": {
+      "response_item:user": 1,
+      "event_msg:None": 1
+    }
+  },
+  "source": "local Codex session JSONL on disk; separate from RAM evidence",
+  "private_transcript_copied": false
+}

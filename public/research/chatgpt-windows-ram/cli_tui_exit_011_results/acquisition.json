@@ -1,0 +1,17 @@
+﻿{
+    "trial_id":  "cli_tui_exit_011",
+    "start_utc":  "2026-09-17T03:25:29.4805522Z",
+    "end_utc":  "2026-09-17T03:25:42.6663526Z",
+    "tool":  "C:\\Users\\Win10\\Desktop\\BOR-native-private\\tools\\go-winpmem_amd64_1.0-rc2_signed.exe",
+    "tool_sha256":  "86691BB4AF2C17DD9EC4834C04A99AD51E04F780A07D1B05BC382A5D1892E0C4",
+    "command":  "acquire private/memory.raw (default sparse raw output; no compression)",
+    "elevated":  true,
+    "image":  "C:\\Users\\Win10\\Desktop\\cheater_ram_research_2026-09-16\\cli_tui_exit_011\\private\\memory.raw",
+    "image_exists":  true,
+    "image_bytes":  18253611008,
+    "image_sha256":  "BEA8BA3CC1C352C4A85B5681D5E47A10A2219EA7A8BF2A548CEC4FF6EFD0D88C",
+    "free_before_bytes":  25544044544,
+    "free_after_bytes":  8362819584,
+    "exit_code":  0,
+    "error":  null
+}

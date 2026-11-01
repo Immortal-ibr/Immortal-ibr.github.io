@@ -1,0 +1,14 @@
+﻿{
+    "trial_id":  "cli_probe_007_resume",
+    "kind":  "resume of previously exited native-Windows Codex CLI session; local-file probe only",
+    "session_id":  "01a0abb5-4ed4-7a50-9e09-39be5a8d24b0",
+    "prompt":  "Synthetic Codex CLI resume probe 654b63b2-5365-4c7a-a4d5-74fcf671ba6b. Reply with exactly: silver compass. Do not use tools.",
+    "start_utc":  "2026-09-16T19:50:10.9401445Z",
+    "end_utc":  "2026-09-16T19:50:26.0745992Z",
+    "exit_code":  0,
+    "session_file_bytes_before":  77569,
+    "session_file_sha256_before":  "AB93E9E1A79D2764F0725D2C3BAC0D8F6145E67D8C61F9429260D3CC6D9C90B5",
+    "session_file_bytes_after":  83496,
+    "session_file_sha256_after":  "D6EF2DAC12BA0CBC44AB755941EA75D7FB7A38FAA858D37A694E73BFE8D61E88",
+    "command":  "codex exec resume --json --skip-git-repo-check \u003csessionId\u003e - \u003c private/resume_prompt.txt"
+}

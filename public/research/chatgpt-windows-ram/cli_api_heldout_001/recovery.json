@@ -1,0 +1,122 @@
+{
+  "method": "development: observed CLI core events, not public RPC packets",
+  "ground_truth_supplied": false,
+  "scope": "selected resident user-space mappings",
+  "record_byte_cap": 1048576,
+  "user_space_rows": 21441,
+  "skipped_kernel_rows": 113949,
+  "stats": {
+    "object_prefix_hits": 579,
+    "format_rejected_hits": 424,
+    "invalid_json_or_encoding_hits": 152,
+    "gap_or_end_truncated_hits": 3
+  },
+  "unique_complete_core_records": 2,
+  "records": [
+    {
+      "record_sha256": "a4f5150839e5dca5daa54f4eae366c42a4b1d7e9ee19f31c313e5642bfdfeec9",
+      "encoding": "utf-8",
+      "raw_byte_length": 345,
+      "payload": {
+        "type": "task_complete",
+        "turn_id": "01a0eb74-759b-7711-9962-91a21e213040",
+        "last_agent_message": "At the fictional observatory, Cedar watches the stars beside the brass telescope, where 389 + 527 = 916 and the night is called Silver Lantern Drift.",
+        "started_at": 1790656673,
+        "completed_at": 1790656680,
+        "duration_ms": 7069,
+        "time_to_first_token_ms": 3856
+      },
+      "source_virtual_addresses": [
+        2741780037714,
+        2741843729826,
+        2741843736098
+      ],
+      "source_spans": [
+        [
+          {
+            "virtual": 2741780037714,
+            "physical": 5892014162,
+            "size": 345
+          }
+        ],
+        [
+          {
+            "virtual": 2741843729826,
+            "physical": 2347761058,
+            "size": 345
+          }
+        ],
+        [
+          {
+            "virtual": 2741843736098,
+            "physical": 2186286626,
+            "size": 345
+          }
+        ]
+      ]
+    },
+    {
+      "record_sha256": "f591ff3b1edf00a043d478257c9160821f9bf2a66536ad52d3bcf4d0549870ed",
+      "encoding": "utf-8",
+      "raw_byte_length": 322,
+      "payload": {
+        "type": "agentMessage",
+        "id": "msg_05275151cdbd3cc6016abb40a337d487d1bf40a184f0da9a11",
+        "text": "At the fictional observatory, Cedar watches the stars beside the brass telescope, where 389 + 527 = 916 and the night is called Silver Lantern Drift.",
+        "phase": "final_answer",
+        "memoryCitation": null,
+        "delivery": null,
+        "questions": null
+      },
+      "source_virtual_addresses": [
+        2741831060644,
+        2741833853753,
+        2741838131201,
+        2741842336160
+      ],
+      "source_spans": [
+        [
+          {
+            "virtual": 2741831060644,
+            "physical": 215956644,
+            "size": 322
+          }
+        ],
+        [
+          {
+            "virtual": 2741833853753,
+            "physical": 2384587577,
+            "size": 322
+          }
+        ],
+        [
+          {
+            "virtual": 2741838131201,
+            "physical": 1773092865,
+            "size": 322
+          }
+        ],
+        [
+          {
+            "virtual": 2741842336160,
+            "physical": 3165002144,
+            "size": 322
+          }
+        ]
+      ]
+    }
+  ],
+  "join": {
+    "rule": "same process; exact turn ID; one thread binding, user variant and task-complete variant",
+    "candidate_count": 0,
+    "candidates": [],
+    "incomplete_or_ambiguous": [],
+    "unbound_agent_object_count": 1,
+    "semantic_rejections": {}
+  },
+  "executed_method_sha256": {
+    "bounded_json.py": "8f0d7e2e2a23577dd8fcc096b2f4516cdf592489d00c4341c932eee2e6450032",
+    "cli_rpc_records.py": "81057e66cf47c62fc99fdee77b00db0eff9a2e0b3e1fdbc5f99d61aa4e22e0ee",
+    "cli_core_events.py": "59f6b95f84fcecebb6acc3d10ac6dd19111be732ac23b4eaf94f2c1f657d94b1"
+  }
+}

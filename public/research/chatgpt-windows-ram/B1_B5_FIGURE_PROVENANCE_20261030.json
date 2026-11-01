@@ -1,0 +1,84 @@
+{
+  "purpose": "Source and transformation record for the client-open baseline and B5 submission-side figures published in the article",
+  "client_open_snapshot": {
+    "file": "Research-Snapshot2.vmem with matching .vmsn metadata",
+    "bytes": 6073352192,
+    "sha256": "35DE658C84B2BE483228D56DC4DEC87211AC6BFD8FD16E3D2F3D560A6BFF2534",
+    "role": "pretest client-open VMware snapshot, not B1 WinPmem RAM"
+  },
+  "b5_raw_image": {
+    "bytes": 7147094016,
+    "sha256": "47077528F00555AC7A31D9922381E4ACAA939DECDC85E3433BF0F9F53D447890"
+  },
+  "b5_submission_side_record": {
+    "mapped_process": "chrome.exe PID 9520, storage.mojom.StorageService",
+    "virtual_page": "0x2DCC0016C000",
+    "physical_page": "0x261E6000",
+    "displacement": "0x690",
+    "record_start_virtual": "0x2DCC0016C690",
+    "record_start_physical": "0x261E6690",
+    "bytes": 1140,
+    "encoding": "UTF-16LE",
+    "sha256": "C5AFD3304DE8D819C90DB7611B244AAA9C33697C58846D8BD0243A02603F82DE",
+    "public_exact_record": "evidence/chrome-visible-010-submission-side-record-utf16le.bin",
+    "interpretation": "client-side submission record, not an independently captured wire HTTP request"
+  },
+  "published_figures": {
+    "screenshots/80-baseline-direct-volatility-renderer.png": {
+      "source": "baseline-vol-snapshot2-raw_000.png",
+      "source_sha256": "464EA2A74A9CCFB1D5582A32BA56CEA99D6916AA596BC4905F4EFBD04428C728",
+      "data_source": "Research-Snapshot2.vmem and matching .vmsn",
+      "method": "Direct Volatility 3 windows.pslist and windows.cmdline --pid 2912 on the saved VMware memory. Cropped terminal screenshot with one boxed arrow label; terminal text is unchanged.",
+      "sha256": "9EDD1E6CA5B0F1769112FE20CC56F7C7B70411EE2F0A28DD28115650C26572B6"
+    },
+    "screenshots/81-b5-direct-service-and-map.png": {
+      "source": "b5-direct-service-map-raw.png",
+      "source_sha256": "54ABEC0F88E7A940DD9F339238518113C9B91BEF817E85E6F7A90172A66B830C",
+      "data_source": "complete decompressed B5 WinPmem image",
+      "method": "Direct Volatility 3 windows.cmdline --pid 9520 and windows.memmap --pid 9520 with a simple post-discovery page-row filter. Cropped terminal screenshot with two boxed arrow labels; terminal text is unchanged.",
+      "sha256": "FF7AECA8CDC155C3B73FAEE9EE9430743478F061D89ABF7A62350DA49C7E3D16"
+    },
+    "screenshots/85-b5-parser-direct.png": {
+      "source": "b5-vscode-wsl-original.png",
+      "source_sha256": "6597867D16647291E4BEE76183DF9A6E4730E893D8509AAC577386D78706877D",
+      "data_source": "complete decompressed B5 WinPmem image and original renderer PID 1872 windows.memmap JSON",
+      "method": "Reran the unchanged Chrome state parser and joiner on the complete image in the Kali WSL terminal in VS Code. Cropped the actual terminal screenshot to omit the pointer, then added thin result outlines and boxed arrow labels; terminal output was not changed.",
+      "parser_sha256": "699066609C86267B8F8302D64749D56BA993C6BB985B11A90551E9617384F052",
+      "replay_json_sha256": "9322C2CDB3C92D34C79C356BF38BA3D9331687A8C3172BF0276B397EB7CCBB75",
+      "replay_json_matches_original_byte_for_byte": true,
+      "sha256": "7C7458C38866E976163B68918956FE46A4CAE0366A8E22097CB85767E5F5CC90"
+    },
+    "screenshots/76-b5-submission-structure-full-ram.png": {
+      "source": "b5-submission-start-hxd-source.png",
+      "source_sha256": "31DF7698B41270A54031F38574A18768E230D8DCD95986A1022E6DD5B100A912",
+      "method": "crop/enlarge original HxD pixels from complete decompressed B5 RAM; add byte outlines and boxed arrow labels",
+      "highlighted": [
+        "0x261E66AE-0x261E66AF: UTF-16LE slash starting action path value",
+        "0x261E6762-0x261E6765: UTF-16LE empty messages array",
+        "0x261E687A: operationId key begins"
+      ],
+      "sha256": "0CB16834348B1428450A09E30487D2439B1D8DAEEBD9762A2785AB437667A9A1"
+    },
+    "screenshots/77-b5-prompt-owner-full-ram.png": {
+      "source": "b5-submission-prompt-hxd-source.png",
+      "source_sha256": "62F7345DCF8213D9744F042A28EFC81B84B16774B52B9BBF8583C8D9E4EA6AE6",
+      "method": "crop/enlarge original HxD pixels from complete decompressed B5 RAM; add byte outlines and boxed arrow labels",
+      "highlighted": [
+        "0x261E6900: prompt text continues in UTF-16LE",
+        "0x261E6AC4: anonymous owner value begins"
+      ],
+      "sha256": "6546BE20647479CC81164274EF00E781C523D21922B53C94CEE5858FB62EEE1C"
+    },
+    "screenshots/79-b5-direct-raw-byte-views.png": {
+      "source": "b5-xxd-raw.png",
+      "source_sha256": "8759CB1465C59FEF59D79D1B53A24A1B8945969A97ED36EA60D564CD7877D5E5",
+      "sha256": "CA5419D3B21F65E8701B04D82CA2A4436DBDFD3B0C28C06CE5B3D3D9F5FCF872",
+      "method": "cropped actual Kali xxd terminal output reading two physical offsets directly from the complete hash-verified B5 raw image; no output glyphs changed",
+      "read_offsets": [
+        "0x261E6690",
+        "0x9BC9E500"
+      ]
+    }
+  },
+  "privacy": "Screenshots omit application title bars and full host paths. The full RAM image and source screenshots remain private."
+}

@@ -1,0 +1,36 @@
+{
+  "trial_id": "edge_anonymous_cdp_away_004",
+  "raw_sha256": "1DE75F7306FF80A7BE0D72697FEE1BD7E0374F781A6B733CF5165DA94653FECE",
+  "raw_logical_bytes": 7147094016,
+  "method": "Post-hoc exact-value byte diagnostic using the separately observed synthetic turn; not blind reconstruction",
+  "encodings": ["UTF-8", "UTF-16LE"],
+  "full_physical_image_occurrences": {
+    "conversation_id": {"utf8": 101, "utf16le": 27},
+    "prompt_marker": {"utf8": 31, "utf16le": 61},
+    "answer_name": {"utf8": 8, "utf16le": 0},
+    "user_message_id": {"utf8": 18, "utf16le": 0},
+    "assistant_message_id": {"utf8": 4, "utf16le": 0}
+  },
+  "mapped_process_scope": "All eight active msedge.exe processes in the target browser's PID 2840 process tree, identified from image-derived pslist and cmdline. Counts are occurrences in resident user mappings; aliased pages may be counted more than once.",
+  "mapped_process_occurrences_combined_encodings": [
+    {"pid": 2840, "role": "browser parent", "conversation_id": 45, "prompt_marker": 10, "answer_name": 0, "user_message_id": 1, "assistant_message_id": 0},
+    {"pid": 1552, "role": "NetworkService utility", "conversation_id": 4, "prompt_marker": 0, "answer_name": 2, "user_message_id": 0, "assistant_message_id": 0},
+    {"pid": 1476, "role": "StorageService utility", "conversation_id": 2, "prompt_marker": 3, "answer_name": 0, "user_message_id": 0, "assistant_message_id": 0},
+    {"pid": 7596, "role": "SearchIndexer utility", "conversation_id": 4, "prompt_marker": 0, "answer_name": 0, "user_message_id": 0, "assistant_message_id": 0},
+    {"pid": 10620, "role": "renderer", "conversation_id": 0, "prompt_marker": 0, "answer_name": 0, "user_message_id": 0, "assistant_message_id": 0},
+    {"pid": 6724, "role": "renderer", "conversation_id": 0, "prompt_marker": 0, "answer_name": 0, "user_message_id": 0, "assistant_message_id": 0},
+    {"pid": 9124, "role": "GPU process", "conversation_id": 0, "prompt_marker": 0, "answer_name": 0, "user_message_id": 0, "assistant_message_id": 0},
+    {"pid": 4308, "role": "crashpad handler", "conversation_id": 0, "prompt_marker": 0, "answer_name": 0, "user_message_id": 0, "assistant_message_id": 0}
+  ],
+  "memprocfs_first_mapped_hits_checked": 11,
+  "memprocfs_first_mapped_hits_bytes_and_translations_match": true,
+  "process_object_check": {
+    "plugin": "windows.psscan",
+    "exited_browser_child_pid": 11068,
+    "exit_time_utc": "2026-10-01T00:29:02Z",
+    "navigation_requested_utc": "2026-10-01T00:29:02.1236144Z",
+    "command_line_available": false,
+    "interpretation": "The exit time coincides with navigation to the second, but the unavailable command line prevents assigning this process a renderer role."
+  },
+  "interpretation": "Exact fragments remained after navigation, but no target active renderer yielded a structural candidate. Full-image hits can also include observer or file-cache copies; neither byte counts nor process mappings alone prove a recoverable joined turn or physical-memory erasure."
+}

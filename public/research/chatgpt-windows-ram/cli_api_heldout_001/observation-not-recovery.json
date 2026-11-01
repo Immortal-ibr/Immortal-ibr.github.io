@@ -1,0 +1,11 @@
+{
+  "trial_id": "cli-api-heldout-001-active",
+  "cohort": "instrumented native app-server stdio; held-out",
+  "thread_id": "01a0eb72-84d6-7861-82cd-6dc13d89137d",
+  "turn_id": "01a0eb74-759b-7711-9962-91a21e213040",
+  "user_message_id": "01a0eb74-7e7e-7192-9898-83b50f5014b7",
+  "prompt": "For the synthetic label cedar-vector-914, write exactly one sentence about a fictional observatory. Include the result of 389 + 527 and invent a three-word name that does not appear in this prompt. Do not use tools, commands, files, or web search.",
+  "response": "At the fictional observatory, Cedar watches the stars beside the brass telescope, where 389 + 527 = 916 and the night is called Silver Lantern Drift.",
+  "assistant_id_independently_bound": false,
+  "presentation_only": "HOST OBSERVATION ONLY: these five fields were NOT linked by the RAM parser"
+}

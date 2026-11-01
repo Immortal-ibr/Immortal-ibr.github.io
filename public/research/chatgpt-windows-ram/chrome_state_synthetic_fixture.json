@@ -1,0 +1,53 @@
+{
+  "ground_truth_supplied": false,
+  "unique_complete_records": 2,
+  "note": "Only the two synthetic, complete state objects are retained here. This replays the join, not the RAM scan or process selection.",
+  "records": [
+    {
+      "sha256": "f994b849d08f3b842dadc16df426fd69082e9c0e35be23a931a16d0ea90576f6",
+      "encoding": "utf-8",
+      "byte_length": 699,
+      "virtual_addresses": [1357213276428, 2538347960248, 2538348871708],
+      "state": {
+        "backendConversationId": "6abc9f11-5918-83ea-aeb4-e125ebcb6333",
+        "messages": [
+          {
+            "content": "For the synthetic label amber-harbor-294, write exactly one sentence about a fictional observatory. Include the result of 246 + 357 and invent a three-word name that does not appear in this prompt. Do not use tools, commands, files, or web search.",
+            "id": "ee74267a-292f-4a34-b83a-a347ae3dc8bb",
+            "role": "user"
+          },
+          {
+            "content": "The fictional observatory **Silver Meadow Lantern** records distant galaxies from its mountain dome, where its logbook notes that 246 + 357 = 603.",
+            "id": "b9d04f91-1f8e-4271-b6e7-96f84eeac4cd",
+            "role": "assistant"
+          }
+        ],
+        "parentMessageId": "b9d04f91-1f8e-4271-b6e7-96f84eeac4cd",
+        "userMessageCount": 1
+      }
+    },
+    {
+      "sha256": "b44214f6663993d8beb5473615f414425c6909ef2d45f5aeae4c28ff7c46785a",
+      "encoding": "utf-8",
+      "byte_length": 691,
+      "virtual_addresses": [2559817806820, 86569364419084],
+      "state": {
+        "backendConversationId": "6abcac2e-69a8-83ea-8f62-105367d59333",
+        "messages": [
+          {
+            "content": "For the synthetic label cobalt-orbit-517, write exactly one sentence about a fictional lighthouse museum. Include the result of 19 * 23 and invent a two-word name that does not appear in this prompt. Do not use tools, commands, files, or web search.",
+            "id": "1e6f9b28-0080-4e47-9d71-f3886d611b95",
+            "role": "user"
+          },
+          {
+            "content": "At the fictional lighthouse museum, **Marrow Gleam** preserves 437 nautical relics beneath a lantern that still sweeps the midnight sea.",
+            "id": "0b29b1a8-ab90-49c0-bc04-7065348999a5",
+            "role": "assistant"
+          }
+        ],
+        "parentMessageId": "0b29b1a8-ab90-49c0-bc04-7065348999a5",
+        "userMessageCount": 1
+      }
+    }
+  ]
+}

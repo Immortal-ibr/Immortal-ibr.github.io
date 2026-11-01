@@ -1,0 +1,119 @@
+{
+  "trial_id": "signedin_chrome_visible_20261015_001",
+  "cohort": "ordinary signed-in Chrome UI, completed synthetic turn visible",
+  "relation_to_control": "same running Chrome parent process and profile as signedin_chrome_nosubmit_20261014_001; the synthetic turn was submitted after that control, but unrelated account activity between captures was not independently excluded; not a reset-based independent repetition",
+  "client": {
+    "browser": "Google Chrome 155.0.8059.40",
+    "guest": "Windows 10 Pro 19045, x64",
+    "other_client_open": "Edge remained open; all process selection below was restricted to chrome.exe"
+  },
+  "screen_ground_truth": {
+    "observed_finished_before_acquisition": true,
+    "observed_finished_after_acquisition": true,
+    "conversation_id_from_url": "6ad00833-3730-83ea-a2d5-5bb59dd34a37",
+    "prompt": "For a RAM-recovery test, explain in one sentence why a paper lighthouse cannot guide a ship. End with the words amber orbit 73.",
+    "response": "A paper lighthouse cannot guide a ship because it produces no real navigational light and cannot withstand maritime conditions, amber orbit 73",
+    "user_and_assistant_message_ids_independently_observed_from_page": false,
+    "public_screenshot": "screenshots/47-signedin-chrome-visible-crop.png",
+    "screenshot_original_sha256_private": "37A094E0C5FB5A60ACA4B137AD554B9D5F59D2B67503D29A22CB1B4B6B8D11C9",
+    "screenshot_public_crop_sha256": "2FE304F975C7C4655F365717122E0CD21889E81A0D4D5DD7884304A9E557F214",
+    "screenshot_original_saved_utc": "2026-10-14T23:03:31Z",
+    "screenshot_timing_note": "The completed turn was visually checked before acquisition; the retained, unobstructed original screenshot was saved afterward. It is not a RAM-derived image."
+  },
+  "acquisition": {
+    "method": "WinPmem direct gzip in guest, copied to private host with size/SHA-256 verification",
+    "started_utc": "2026-10-14T22:56:39.6462580Z",
+    "ended_utc": "2026-10-14T22:58:03.2112789Z",
+    "duration_seconds": 83.5650209,
+    "archive_bytes": 4082799983,
+    "archive_sha256": "D85C051647E21FB160BE1D9C809B87693914745CCD4B928248F8F82ED1E7C190",
+    "gzip_read_to_eof": true,
+    "raw_logical_bytes": 7147094016,
+    "raw_sha256_from_host_decompression": "A4B4D4FBFF04C2C7AD33ECD3E522D770435DFFF7283380EBE05CA1C7AA602A0E",
+    "guest_raw_digest_available": false,
+    "volatility": "3 2.28.2",
+    "volatility_system_time_utc": "2026-10-14T22:56:43Z"
+  },
+  "blind_analysis": {
+    "ground_truth_supplied_to_parsers": false,
+    "selection_rule": "active chrome.exe in windows.pslist with exact --type=renderer in windows.cmdline",
+    "active_chrome_processes": 10,
+    "active_renderer_pids": [5580, 5904, 6520, 8204],
+    "network_service_pid": 5340,
+    "frozen_chrome_state_parser_sha256": "699066609C86267B8F8302D64749D56BA993C6BB985B11A90551E9617384F052",
+    "frozen_chrome_turn_joiner_sha256": "005AFB18D715CFCC90D9F5E17531D91769345B46136DCD767B9035553CAC4F61",
+    "state_objects_by_renderer": {"5580": 0, "5904": 0, "6520": 0, "8204": 0},
+    "joined_turns_by_renderer": {"5580": 0, "5904": 0, "6520": 0, "8204": 0},
+    "stream_item_complete_records_by_renderer": {"5580": 0, "5904": 0, "6520": 0, "8204": 0},
+    "bounded_signedin_envelope_parser_sha256": "23B6952126DFF2149650BAD2DD26E306D1FDF8F223EA2FEE653F86E91592F7B2",
+    "bounded_signedin_envelope_complete_records_by_renderer": {"5580": 0, "5904": 0, "6520": 0, "8204": 1},
+    "accepted_envelope": {
+      "pid": 8204,
+      "kind": "message-event",
+      "encoding": "utf-8",
+      "raw_bytes": 740,
+      "record_sha256": "f460581f8290dad2cd0131de7a6828377829a6ce487b5c75a32c085b2a734a6c",
+      "role": "user",
+      "message_status": "finished_successfully",
+      "conversation_id_matches_page": true,
+      "prompt_matches_page": true,
+      "user_message_id_from_record": "7c9020a0-0e1f-485c-abf7-dd208adc2a80",
+      "assistant_response_in_this_envelope": false
+    },
+    "mapped_sse_complete_events_by_pid": {"5580": 0, "5904": 0, "6520": 0, "8204": 0, "5340": 0},
+    "flat_physical_state_signatures": 0,
+    "flat_physical_sse_prefixes": 129,
+    "flat_physical_sse_complete_events": 0,
+    "flat_physical_scope": "no process attribution or virtual adjacency inferred",
+    "selected_private_output_sha256": {
+      "state_pid_8204": "7CC39359D5552AD28D695BDAEAFA31E4FDFCB9887493DD112AC3486E931912B7",
+      "join_pid_8204": "358CD3E61B27042863929C47F28BEEC2163B9806CB0AB551F03CA6E85BFD817A",
+      "envelope_pid_8204": "BFE7C2EACC8B191FFA74860D430A280605082EC79F31645F9B78C16EA50AE73F",
+      "flat_physical_state": "CAE40CFA805EF153D7DB95806D5C89DDFF77490CA7F96334D678EDF4586C7E0A",
+      "flat_physical_sse": "5432A8836359FA479BE7CAAEB5D6F894E0BB7B5D7B78EAC0A1A9CE4F443A1BC2"
+    }
+  },
+  "bash_volatility_replay": {
+    "environment": "Kali WSL, Volatility 3 2.28.2, host-cached Windows symbols",
+    "plugins_rerun": ["windows.info", "windows.pslist", "windows.cmdline", "windows.memmap --pid 8204"],
+    "selected_renderer_pids_match_windows_run": true,
+    "envelope_count_match_windows_run": true,
+    "envelope_record_sha256_match_windows_run": true,
+    "envelope_source_virtual_address_match_windows_run": true,
+    "ground_truth_supplied_to_replay": false
+  },
+  "post_seal_known_value_check": {
+    "ground_truth_supplied": true,
+    "purpose": "byte retention and mapping diagnostic only, not blind reconstruction",
+    "flat_physical_exact_occurrences": {
+      "conversation_id_utf8": 286,
+      "conversation_id_utf16le": 11,
+      "prompt_utf8": 25,
+      "prompt_utf16le": 49,
+      "response_utf8": 62,
+      "response_utf16le": 0
+    },
+    "active_renderer_response_utf8_occurrences": {"5580": 50, "5904": 0, "6520": 0, "8204": 11},
+    "two_first_response_hit_contexts": {
+      "response_utf8_byte_length": 142,
+      "pid_5580_immediately_preceding_hex": "8e01",
+      "pid_5580_preceding_bytes_as_unsigned_varint": 142,
+      "pid_8204_immediately_preceding_hex": "8e000000",
+      "pid_8204_preceding_bytes_as_uint32le": 142,
+      "interpretation": "Post-hoc byte context is consistent with length-coded text copies; neither inspected span is an accepted assistant-message envelope or independently supplies an assistant ID. The other occurrences were not classified this way."
+    },
+    "active_renderer_conversation_id_utf8_occurrences": {"5580": 0, "5904": 0, "6520": 2, "8204": 153},
+    "active_renderer_prompt_utf8_occurrences": {"5580": 0, "5904": 0, "6520": 2, "8204": 8},
+    "mapped_counts_may_alias_physical_pages": true
+  },
+  "independent_map_checks": {
+    "tool": "MemProcFS 5.14.9",
+    "deterministic_samples_requested": 160,
+    "samples_matching_volatility_bytes_and_translation": 157,
+    "read_or_translation_errors": 3,
+    "completed_sample_mismatches": 0,
+    "post_hoc_first_exact_value_hits_verified": 7,
+    "post_hoc_first_exact_value_hit_mismatches": 0
+  },
+  "conclusion": "One bounded user-message record links conversation ID, exact prompt and a RAM-derived user ID. The exact response survives in mapped renderer pages, but neither frozen state-object, stream-item nor tested SSE grammar accepts a linked assistant record. This image does not support a blind C/P/R/U/A turn reconstruction, and zero accepted turns does not mean the answer was absent."
+}

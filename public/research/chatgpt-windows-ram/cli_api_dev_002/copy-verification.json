@@ -1,0 +1,12 @@
+{
+  "verified_utc": "2026-09-29T04:00:39.979217+00:00",
+  "trial_id": "cli-api-dev-002-active",
+  "archive_sha256": "61a23a77ed1413fb04f6b1e6907b3111b7f515af088c0bb6ddc5af4dfee9faef",
+  "archive_bytes": 2954316302,
+  "raw_sha256": "4ee5604f16c2a9c21ad2ac7365a39fb3a910706da748794efb0b4d45924ab164",
+  "raw_logical_bytes": 7147094016,
+  "copy_verified": true,
+  "decompressed_digest_verified": true,
+  "elapsed_seconds": 23.608999999938533,
+  "archive_deleted": false
+}

@@ -1,0 +1,18 @@
+{
+  "sealed_before_scoring_utc": "2026-09-29T05:30:49.362070+00:00",
+  "recovered_output_sha256": "ca61798ec42a90ccc027a484e87640ef328b52da5b6a7c0dd653aed74add0b20",
+  "raw_sha256": "abb1837710b3ac735f5cdb714a34d0b6553cf10027935938f4c1d9b86a722b6e",
+  "trial_id": "cli-api-heldout-002b-active",
+  "cohort": "instrumented native app-server stdio; held-out",
+  "method_scope": "tagged model input + terminal RPC, NOT core-v1's C/T/U/P/R test",
+  "native_pid": 9144,
+  "backend_present_before_acquisition": true,
+  "response_complete_observed_utc": "2026-09-29T05:19:20.507455+00:00",
+  "acquisition_started_utc": "2026-09-29T05:19:23.1894378+00:00",
+  "acquisition_ended_utc": "2026-09-29T05:19:52.6600930+00:00",
+  "response_to_acquisition_seconds": 2.681982,
+  "candidate_count": 0,
+  "candidate_scores": [],
+  "account_identity_claimed": false,
+  "frozen_method_manifest_sha256": "fcf87c21728592f2f54a5c2a63bcc5f6c2e072b9f231fc9b24245426f4d002e3"
+}

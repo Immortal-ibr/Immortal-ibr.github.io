@@ -1,0 +1,16 @@
+{
+  "trial_id": "trial_iab_visible_005",
+  "condition": "one completed synthetic response still visible in signed-in in-app browser",
+  "ground_truth_written_after_capture": true,
+  "ground_truth_outside_guest": false,
+  "clean_vm_reset": false,
+  "prompt": "Synthetic fresh-visible RAM trial 7f9615ae-d63c-455d-9f37-25350718a045. Reply with exactly: jade comet",
+  "actual_response": "jade comet",
+  "conversation_id_from_url": "6aaae822-26bc-83e9-885a-3aa62ece49ee",
+  "user_message_id_from_DOM": "f3d5744a-2cc5-4f22-a87e-02af54ef48b4",
+  "assistant_message_id_from_DOM": "4e4f5bd2-4fd8-5d47-a5c8-e60519629b2f",
+  "submit_start_utc": "2026-09-16T19:04:02.160Z",
+  "submit_end_utc": "2026-09-16T19:04:02.416Z",
+  "completion_observed_utc": "2026-09-16T19:04:44.884Z",
+  "ground_truth_source": "post-capture browser URL and read-only DOM data-message-id, author-role, and innerText"
+}

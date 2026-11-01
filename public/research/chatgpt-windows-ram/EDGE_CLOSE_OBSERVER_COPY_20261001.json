@@ -1,0 +1,50 @@
+{
+  "trial_id": "edge-anonymous-cdp-close-005",
+  "question": "What is the provenance of the one exact full-answer UTF-8 hit reported in physical RAM after the Edge tab closed?",
+  "method": {
+    "ground_truth_supplied": true,
+    "known_value_source": "Actual synthetic pre-close page screenshot and privately retained page observation; used only after the blind close-tab result was sealed",
+    "location_script_sha256": "5BB16DDB8A13BE620916718F4D24BEE946A98AB7100B8643FA902F13413E641E",
+    "current_probe_source_sha256": "63C2C345F5EE009126A322FC4BFEDDAF3CA607A36ED8A13C6048E4F9068372F0",
+    "probe_field_source": "The observe mode of probe_chrome_cdp.ps1 constructs an object with url, user, assistant, textTail and dataConversation from the live page.",
+    "context_bytes_published": false,
+    "unfiltered_output_retained_private": true
+  },
+  "image_reverified": {
+    "archive_sha256": "6FF40C6BA02E9E75ACF7AB25C904E6354FEC2C2FD890371339A51B1239117315",
+    "raw_sha256": "652ADC161F64148D78A57542C539CC270CE4A0282807A97D1B9BD6B65452A694",
+    "raw_bytes": 7147094016
+  },
+  "known_value": {
+    "utf8_sha256": "9ED78A16D0F19B406A43A240A0908739EA0B208E39D693310AA3628634EAE0F8",
+    "utf8_physical_hits": 1,
+    "utf16le_physical_hits": 0
+  },
+  "sole_utf8_hit": {
+    "physical_offset": 4752298820,
+    "page_number": 1160229,
+    "offset_in_page": 836,
+    "inside_strictly_parsed_textTail_json_string": true,
+    "exact_answer_in_decoded_textTail": true,
+    "enclosing_object_has_probe_url_user_assistant_textTail_shape": true,
+    "enclosing_url_is_chatgpt": true,
+    "nearest_textTail_key_bytes_before_hit": 385,
+    "nearest_chatgpt_said_label_bytes_before_hit": 17,
+    "active_edge_user_map_hits_for_full_answer": 0
+  },
+  "later_exact_offset_process_map": {
+    "ground_truth_supplied": true,
+    "method": "The hash-verified gzip was read through the indexed Volatility 3 reader; the physmatches plugin checked this one exact physical offset against user-space mappings from all image-derived pslist entries.",
+    "process_entries": 152,
+    "process_layers_created": 152,
+    "entries_with_user_mapping_rows": 130,
+    "of_those_without_exit_time": 130,
+    "user_mapping_rows_scanned": 605416,
+    "exact_hit_user_mapping_rows": 0,
+    "indexed_reader_sha256": "22B35379D98FF74028745540D7D0AB5790AB21BBBAB36CCEC6002792D1CDD9D4",
+    "exact_offset_plugin_sha256": "9A9DC31A6D7BBE6009D1D0C588DD17B96C7200EEE1E57CC66DC111A3155FCEF7",
+    "private_output_sha256": "D9163D874ACF3F2987F4D52821F2DFB8C7A95473603F039C99E0B2102A306482"
+  },
+  "private_output_sha256": "219E7824DE835811C56E6275D85703E221470C0FC8E2EBE77DDE85A2CAD1B9EA",
+  "interpretation": "The sole exact full-answer physical hit sits inside the page-observation probe's serialized textTail field. It had no user-space mapping among the 130 enumerated entries with readable user rows at acquisition. It is an investigator-created copy, not independent evidence that Edge retained the answer after tab closure. The negative bounded-record results stand. This does not rule out partial answer text, a different encoding or representation, or physically scattered application objects elsewhere in the image."
+}

@@ -1,0 +1,63 @@
+{
+  "trial_id": "trial_iab_away_003",
+  "start_utc": "2026-09-16T17:56:32.544895Z",
+  "selection": "all active ChatGPT.exe processes with --type=renderer in image-derived pslist/cmdline",
+  "ground_truth_supplied": false,
+  "frozen_method_sha256": {
+    "trial_iab_visible_002/parse_stream_items.py": "3EF5F07D1860F197636D2A62FA0EA73E7067F7CAB52E76C387A3371A62E22476",
+    "trial_iab_visible_002/reconstruct_turns.py": "B3C46C7820D018A6CB05D215F732CC1546960C4B8ABA485F405303506006721F"
+  },
+  "image_sha256": "E15D63627D6610B3D873330BB367BE152D1EA174FA50C23DCCFC3403DDA218B9",
+  "processes": [
+    {
+      "pid": 7608,
+      "memmap_rows": 17448,
+      "signature_hits": 0,
+      "unique_complete_records": 0,
+      "candidate_turns": 0
+    },
+    {
+      "pid": 9052,
+      "memmap_rows": 23468,
+      "signature_hits": 10,
+      "unique_complete_records": 0,
+      "candidate_turns": 0
+    },
+    {
+      "pid": 9880,
+      "memmap_rows": 172521,
+      "signature_hits": 8,
+      "unique_complete_records": 0,
+      "candidate_turns": 0
+    },
+    {
+      "pid": 11300,
+      "memmap_rows": 67034,
+      "signature_hits": 0,
+      "unique_complete_records": 0,
+      "candidate_turns": 0
+    },
+    {
+      "pid": 11740,
+      "memmap_rows": 13987,
+      "signature_hits": 0,
+      "unique_complete_records": 0,
+      "candidate_turns": 0
+    },
+    {
+      "pid": 11856,
+      "memmap_rows": 58902,
+      "signature_hits": 0,
+      "unique_complete_records": 0,
+      "candidate_turns": 0
+    },
+    {
+      "pid": 13196,
+      "memmap_rows": 7207,
+      "signature_hits": 0,
+      "unique_complete_records": 0,
+      "candidate_turns": 0
+    }
+  ],
+  "end_utc": "2026-09-16T18:07:26.124751Z"
+}

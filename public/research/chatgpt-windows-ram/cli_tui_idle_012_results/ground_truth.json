@@ -1,0 +1,15 @@
+{
+  "trial_id": "cli_tui_idle_012",
+  "condition": "No Codex CLI process running; same VM idle after previous TUI exited; no new CLI prompt",
+  "prior_prompt": "Synthetic memory trial bcf8408b-dab8-48f4-a89d-3af77217b11c. In one ASCII sentence, explain how a sonnet differs from a haiku. Do not use tools or repeat the identifier.",
+  "prior_actual_response": "A sonnet typically has 14 lines with a set rhyme scheme, while a haiku has three lines traditionally arranged in a 5-7-5 syllable pattern.",
+  "prior_marker": "bcf8408b-dab8-48f4-a89d-3af77217b11c",
+  "prompt": "Synthetic memory trial bcf8408b-dab8-48f4-a89d-3af77217b11c. In one ASCII sentence, explain how a sonnet differs from a haiku. Do not use tools or repeat the identifier.",
+  "actual_response": "A sonnet typically has 14 lines with a set rhyme scheme, while a haiku has three lines traditionally arranged in a 5-7-5 syllable pattern.",
+  "marker": "bcf8408b-dab8-48f4-a89d-3af77217b11c",
+  "prior_native_cli_pid": 3916,
+  "prior_node_launcher_pid": 12820,
+  "capture_launcher_utc": "2026-09-17T03:31:58.0860681Z",
+  "source": "known values from earlier CLI turn for post-hoc persistence/contamination comparison; not a clean no-use control",
+  "clean_vm_reset": false
+}

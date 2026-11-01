@@ -1,0 +1,47 @@
+{
+  "method_version": "cli-model-input-v1",
+  "frozen_utc": "2026-09-29T05:08:23.963366+00:00",
+  "cohort": "instrumented native Codex app-server stdio, not browser or TUI",
+  "record_cap_bytes": 1048576,
+  "encodings": [
+    "utf-8",
+    "utf-16-le"
+  ],
+  "object_prefix": "public-RPC first keys plus compact {\"type\"",
+  "accepted_types": [
+    "message with role=user and aligned user.text metadata",
+    "turn/completed with final_answer agent item"
+  ],
+  "process_selection": "all live inventoried native codex.exe backends; each map analyzed separately",
+  "mapping_scope": "resident user space below 2^47; virtual gaps never bridged",
+  "candidate_rule": "one exact turn ID, one tagged input, final agent variant and thread binding",
+  "strong_fields": [
+    "thread_id",
+    "turn_id",
+    "prompt",
+    "response",
+    "agent_message_id"
+  ],
+  "assistant_id_independently_bound": true,
+  "known_values_supplied": false,
+  "files": [
+    {
+      "path": "bounded_json.py",
+      "bytes": 10964,
+      "sha256": "8f0d7e2e2a23577dd8fcc096b2f4516cdf592489d00c4341c932eee2e6450032"
+    },
+    {
+      "path": "cli_rpc_records.py",
+      "bytes": 11238,
+      "sha256": "81057e66cf47c62fc99fdee77b00db0eff9a2e0b3e1fdbc5f99d61aa4e22e0ee"
+    },
+    {
+      "path": "cli_model_turns.py",
+      "bytes": 6798,
+      "sha256": "74fddfa06300b6ac1ae20d413418b6daabc0039bd967638adcd2b5abaac9a930"
+    }
+  ],
+  "api_user_item_id_recovered": false,
+  "identifier_boundary": "model_input_message_id is never renamed as an API user-item ID",
+  "timestamp_boundary": "model-input creation metadata is not a human submission timestamp"
+}

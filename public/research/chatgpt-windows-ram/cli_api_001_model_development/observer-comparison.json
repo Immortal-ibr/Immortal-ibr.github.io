@@ -1,0 +1,9 @@
+{
+  "scope": "Opaque guest transport relay, not native backend attribution",
+  "stats": {
+    "object_prefix_hits": 12,
+    "format_rejected_hits": 12
+  },
+  "unique_complete_records": 0,
+  "linked_candidates": 0
+}

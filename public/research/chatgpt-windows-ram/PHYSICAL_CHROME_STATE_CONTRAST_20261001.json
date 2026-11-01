@@ -1,0 +1,69 @@
+{
+  "question": "Does the bounded Chrome state signature distinguish visible, closed, and reloaded turns in hash-verified flat physical images, without relying on known conversation values?",
+  "method": {
+    "ground_truth_supplied_to_scan": false,
+    "scanner": "The unchanged bounded chrome_state_records.scan grammar was applied to one synthetic identity mapping over the fully verified, decompressed physical image in host RAM.",
+    "scanner_source_sha256": "699066609C86267B8F8302D64749D56BA993C6BB985B11A90551E9617384F052",
+    "physical_adapter_source_sha256": "2FFE6126BFDA750D84AA63AD242AF6C18D0E0DFF4ECBF07BAD52E16DC9DA9882",
+    "read_semantics": "A signature or object must occupy physically contiguous bytes; this adapter cannot reassemble a record across nonadjacent physical pages, assign a process, or recover a V8 reference graph.",
+    "raw_disk_expansion_written": false,
+    "unfiltered_outputs_retained_private": true
+  },
+  "closed_only_image": {
+    "trial_id": "chrome-anonymous-cdp-close-004",
+    "archive_sha256": "86CA335B3D18199888EE5354A451939B9CADD60FC83095BB58C465E4739B9CD5",
+    "raw_sha256": "EE1C9A16BC1E3BD71EF35EF8B909219075564B2C262F00F77008CA490A9C4A56",
+    "raw_bytes": 7147094016,
+    "archive_and_full_decompression_verified_before_scan": true,
+    "signature_hits": 0,
+    "complete_record_occurrences": 0,
+    "unique_complete_records": 0,
+    "private_output_sha256": "4248EC724C290A120E1242C661E0A7CB50B35D174F7DD7B72BFCB5F639D14F67"
+  },
+  "two_tab_image_after_first_tab_closed": {
+    "trial_id": "chrome-two-tabs-close-one-005",
+    "archive_sha256": "C5754CF8D02B1213749CC3FA43D8331567FB9CAC736121DB6C448CA53FBE25D0",
+    "raw_sha256": "8295427AFA9CEDCA261A2FE3C7EA0525BE84925F96D34BA2E8E8A410CA7F0A64",
+    "raw_bytes": 7147094016,
+    "archive_and_full_decompression_verified_before_scan": true,
+    "signature_hits": 3,
+    "complete_record_occurrences": 2,
+    "unique_complete_records": 1,
+    "complete_record_sha256": "1F4FE3F7EE03FB05401E2490B78AA3B9E206EE281AE3D06789481F47C804DFFF",
+    "complete_record_encoding": "utf-8",
+    "complete_record_bytes": 578,
+    "post_scan_prompt_comparison": {
+      "exact_prompt_of_second_still_open_tab": true,
+      "prompt_of_first_closed_tab_present_in_that_record": false,
+      "scope": "Only the prompt was independently compared in this physical scan; the process-mapped trial was scored separately."
+    },
+    "private_output_sha256": "04B6B28405A048B2C80F761629CA2D23134DFE863E5B1352DA28E5ECF295DBB5"
+  },
+  "screen_only_same_tab_reload_image": {
+    "trial_id": "chrome-reload-screenonly-009",
+    "archive_sha256": "1E74FEC15EC28E4B14A4BCDF53E5E73C930ACD20BBB963557F932953ABB3DCBA",
+    "raw_sha256": "1F227AC9AA3F3AFD690A58F87D5D11EDF460459403D1864538826127398214E7",
+    "raw_bytes": 7147094016,
+    "archive_and_full_decompression_verified_before_scan": true,
+    "signature_hits": 0,
+    "complete_record_occurrences": 0,
+    "unique_complete_records": 0,
+    "private_output_sha256": "54BB8387AB92009593D5B934DA1D1FFC9898FF40E65DD8373A1322A17353BAE7",
+    "separate_existing_result": "An answer-only sentence had been found post-hoc in an active renderer in this image; that loose text is not a bounded state object."
+  },
+  "screen_only_visible_control_image": {
+    "trial_id": "chrome-visible-screenonly-010",
+    "archive_sha256": "8A7132940A72A669425E3DA7ECFD886272DF2A38FB774A19E0AB12C456FA628E",
+    "raw_sha256": "47077528F00555AC7A31D9922381E4ACAA939DECDC85E3433BF0F9F53D447890",
+    "raw_bytes": 7147094016,
+    "archive_and_full_decompression_verified_before_scan": true,
+    "signature_hits": 2,
+    "complete_record_occurrences": 2,
+    "unique_complete_records": 1,
+    "complete_record_sha256": "6C5D1EBBAC3ABB825C97F227773EDBCE020BB37058CCC541C61D2E363D1F5C3C",
+    "complete_record_bytes": 558,
+    "same_record_sha256_and_occurrence_count_as_renderer_pid_1872_mapped_output": true,
+    "private_output_sha256": "B5FA3C400E7BD605C9FEC5E921A52605DFE55A3784E870272CA0DC08FE20312B"
+  },
+  "interpretation": "Two visible-turn images produced complete bounded objects: the still-open tab in the two-tab image and the separate screen-only visible control. The closed-only and screen-only reload images produced zero structural signatures, even though separately tested loose bytes survived. The flat scan does not show that all old text was erased, exclude a physically fragmented object, or assign process ownership without the separate mapped analysis."
+}

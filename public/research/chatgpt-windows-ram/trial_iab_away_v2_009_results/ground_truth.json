@@ -1,0 +1,18 @@
+{
+  "trial_id": "trial_iab_away_v2_009",
+  "condition": "one completed synthetic response; same in-app browser tab navigated to Example Domain before RAM capture and remained open",
+  "ground_truth_written_after_capture": true,
+  "ground_truth_outside_guest": false,
+  "clean_vm_reset": false,
+  "prompt": "Synthetic RAM navigation trial 5bcea676-9871-4b55-90b4-3466b7944809. In one sentence, describe how a lighthouse differs from a buoy. Do not repeat the trial identifier.",
+  "actual_response": "A lighthouse is a fixed structure that shines a powerful light to guide ships, while a buoy is a floating marker used to indicate channels, hazards, or specific locations on the water.",
+  "conversation_id_from_url": "6aaaf8b5-c3ec-83ea-bea2-fe65d01e284b",
+  "user_message_id_from_DOM": "7c1a51b8-7757-4796-b2a4-0bfc08eec54c",
+  "assistant_message_id_from_DOM": "f7bbc8ad-8fc5-502c-85d5-1f48b1bfef0f",
+  "submit_start_utc": "2026-09-16T20:14:45.864Z",
+  "submit_end_utc": "2026-09-16T20:14:46.157Z",
+  "completion_observed_utc": "2026-09-16T20:15:45.751Z",
+  "navigate_away_start_utc": "2026-09-16T20:15:50.796Z",
+  "navigate_away_end_utc": "2026-09-16T20:15:50.913Z",
+  "ground_truth_source": "post-capture browser URL and read-only DOM data-message-id, author-role, and innerText after returning through tab history"
+}

@@ -1,0 +1,88 @@
+{
+  "trial_id": "edge-anonymous-cdp-close-005",
+  "condition": "A completed synthetic anonymous turn in ordinary Edge, followed by closing its ChatGPT tab while retaining an about:blank tab and the browser process",
+  "scope": "One instrumented trial from the restored Research VM baseline; not a retention-rate estimate",
+  "control": {
+    "method": "Loopback DevTools target list and close endpoint",
+    "completed_response_observed_before_close": true,
+    "chatgpt_targets_before_close": 1,
+    "neutral_about_blank_target_created": true,
+    "close_requested_utc": "2026-10-01T05:53:16.8967903Z",
+    "chatgpt_targets_after_close": 0,
+    "neutral_targets_after_close": 1,
+    "browser_still_running_at_preflight": true
+  },
+  "acquisition": {
+    "tool": "WinPmem 1.0-rc2, direct gzip stream",
+    "started_utc": "2026-10-01T05:53:50.9204349Z",
+    "ended_utc": "2026-10-01T05:55:10.9118017Z",
+    "elapsed_seconds": 79.9913668,
+    "seconds_from_close_request_to_acquisition_start": 34.0236446,
+    "guest_archive_bytes": 3320446112,
+    "archive_sha256": "6FF40C6BA02E9E75ACF7AB25C904E6354FEC2C2FD890371339A51B1239117315",
+    "host_copy_hash_matches_guest": true,
+    "full_gzip_stream_verified": true,
+    "decompressed_logical_bytes": 7147094016,
+    "decompressed_sha256": "652ADC161F64148D78A57542C539CC270CE4A0282807A97D1B9BD6B65452A694",
+    "independent_guest_raw_digest_available": false
+  },
+  "blind_process_scoped_analysis": {
+    "ground_truth_supplied": false,
+    "active_msedge_processes": 9,
+    "renderer_selection": "Active msedge.exe plus exact --type=renderer in image-derived windows.pslist and windows.cmdline",
+    "active_renderer_pids": [2596, 9876],
+    "renderer_resident_user_rows": {"2596": 9161, "9876": 7194},
+    "chrome_state_v1_complete_records": {"2596": 0, "9876": 0},
+    "chrome_state_v1_joined_turns": 0,
+    "network_service_selection": "Active msedge.exe plus exact network.mojom.NetworkService utility subtype",
+    "network_service_pid": 10988,
+    "network_service_complete_sse_events": 0,
+    "network_service_joined_turns": 0,
+    "all_process_map_samples_checked_with_memprocfs": 288,
+    "all_sampled_virtual_to_physical_translations_and_bytes_match": true
+  },
+  "post_hoc_exact_value_diagnostic": {
+    "ground_truth_supplied": true,
+    "encodings": ["UTF-8", "UTF-16LE"],
+    "full_physical_image_occurrences": {
+      "conversation_id": {"utf8": 47, "utf16le": 39},
+      "full_prompt": {"utf8": 11, "utf16le": 35},
+      "full_response": {"utf8": 1, "utf16le": 0}
+    },
+    "mapped_process_occurrences_combined_encodings": [
+      {"pid": 2716, "role": "browser parent", "conversation_id": 35, "full_prompt": 6, "full_response": 0},
+      {"pid": 11088, "role": "StorageService", "conversation_id": 3, "full_prompt": 3, "full_response": 0},
+      {"pid": 10988, "role": "NetworkService", "conversation_id": 4, "full_prompt": 0, "full_response": 0},
+      {"pid": 6412, "role": "SearchIndexer", "conversation_id": 6, "full_prompt": 0, "full_response": 0},
+      {"pid": 2596, "role": "renderer", "conversation_id": 0, "full_prompt": 0, "full_response": 0},
+      {"pid": 9876, "role": "renderer", "conversation_id": 0, "full_prompt": 0, "full_response": 0},
+      {"pid": 2392, "role": "crashpad", "conversation_id": 0, "full_prompt": 0, "full_response": 0},
+      {"pid": 7580, "role": "GPU", "conversation_id": 0, "full_prompt": 0, "full_response": 0},
+      {"pid": 8772, "role": "browser child, type unavailable", "conversation_id": 0, "full_prompt": 0, "full_response": 0}
+    ],
+    "first_mapped_hits_checked_with_memprocfs": 8,
+    "all_first_hit_translations_and_bytes_match": true,
+    "warning": "Mapped counts can alias. A later bounded context check located the lone exact full-response physical hit inside the page-observation probe's serialized textTail field; see EDGE_CLOSE_OBSERVER_COPY_20261001.json. This diagnostic cannot reconstruct a conversation."
+  },
+  "later_observer_copy_check": "EDGE_CLOSE_OBSERVER_COPY_20261001.json",
+  "physical_sse_control": {
+    "scope": "unattributed physical image",
+    "data_prefix_hits": 33,
+    "complete_sse_events": 0,
+    "joined_turns": 0
+  },
+  "later_full_physical_state_scan": {
+    "method": "Unchanged bounded Chrome-state grammar over the verified flat physical image, without a known prompt, answer or ID",
+    "record_byte_cap": 1048576,
+    "state_object_signature_hits": 0,
+    "complete_state_objects": 0,
+    "private_output_sha256": "CA5639707498D75002451920AEEF4C456A417430C1A2B968571304813B6BB706",
+    "scope": "Exploratory format-specific physical scan, not process attribution or a claim that all conversation bytes were erased"
+  },
+  "screenshot": {
+    "path": "screenshots/23-edge-before-tab-close.png",
+    "sha256": "9EEAA22A52D0B101BBE9398245B0C05DAD28DF532A93A5A5C321909B3464086E",
+    "source": "Actual anonymous Edge page before tab closure; not extracted from RAM"
+  },
+  "interpretation": "The unchanged active-renderer and NetworkService grammars could not reconstruct this turn after tab closure. Exact ID and prompt bytes remained; the sole exact full-answer physical hit was later shown to be inside the investigator's page-observation textTail JSON, not independent Edge application evidence. This neither establishes secure erasure nor a recoverable linked conversation."
+}

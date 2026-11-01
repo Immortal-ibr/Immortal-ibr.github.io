@@ -1,0 +1,23 @@
+{
+  "recovered_payload": {
+    "type": "message",
+    "id": "msg_01a0eb74-7e7e-7192-9898-83a486676e21",
+    "role": "user",
+    "content": [
+      {
+        "type": "input_text",
+        "text": "For the synthetic label cedar-vector-914, write exactly one sentence about a fictional observatory. Include the result of 389 + 527 and invent a three-word name that does not appear in this prompt. Do not use tools, commands, files, or web search."
+      }
+    ],
+    "internal_chat_message_metadata_passthrough": {
+      "turn_id": "01a0eb74-759b-7711-9962-91a21e213040",
+      "create_time": 1790656675.4543948,
+      "content_item_kinds": [
+        "user.text"
+      ]
+    }
+  },
+  "presentation_only": "Fields selected from reviewed recovery.json, not an independent recovery or a new experiment",
+  "source_data": "cli_api_001_model_development/recovery.json",
+  "source_sha256": "90e0e04b36e98fb4c17b217bf4784ed260f129d3810cd5457165838469cca09a"
+}

@@ -1,0 +1,38 @@
+{
+  "scope": "Ordinary Edge in the signed-in Windows 10 Research VM; manually submitted synthetic prompt",
+  "state": "The user prompt and an assistant toolbar were visible, but no assistant response text rendered. The Copy action reported failure.",
+  "capture": "VMware running-state snapshot signedin-edge-empty-20261001; not a WinPmem image",
+  "vmem_sha256": "CE10E8044B4D0B7FD4624CE162C74345CD36076394D780F8B4E09B5E23759E8E",
+  "vmem_bytes": 6073352192,
+  "vmem_file_created_utc": "2026-10-01T03:31:13.8284095Z",
+  "vmem_file_last_write_utc": "2026-10-01T03:36:42.8205061Z",
+  "selected_active_renderer_pids": [3940, 4404, 7308],
+  "selection": "All active msedge.exe --type=renderer processes from image-derived Volatility pslist and cmdline, not PID age",
+  "bounded_stream_item_signatures": 0,
+  "bounded_state_object_signatures": 0,
+  "accepted_turns": 0,
+  "memprocfs_virtual_physical_sample_matches": "95/96; one translation unavailable, zero disagreements",
+  "memprocfs_physical_read_failures": 0,
+  "posthoc_capture_check": {
+    "known_synthetic_prompt_from_independent_ui_observation": true,
+    "prompt_counts_in_pid_3940_utf8_utf16le": [0, 0],
+    "prompt_counts_in_pid_4404_utf8_utf16le": [0, 0],
+    "prompt_counts_in_pid_7308_utf8_utf16le": [14, 2],
+    "values_supplied_to_structural_parsers": false,
+    "counts_may_include_aliased_pages": true
+  },
+  "posthoc_network_sse_check": {
+    "role": "Retrospective application of the later-frozen SSE grammar to this earlier failed-response state; not a prospective control.",
+    "selection": "Unique active msedge.exe NetworkService selected from this image's pslist and cmdline",
+    "network_service_pid": 4432,
+    "resident_user_memmap_rows": 76871,
+    "complete_sse_events": 0,
+    "joined_turns": 0,
+    "memprocfs_volatility_sample_matches": "32/32",
+    "memprocfs_physical_read_failures": 0,
+    "known_prompt_or_answer_supplied_to_parser": false,
+    "private_parser_output_sha256": "B71A6AC2643DB9D65BA5880BBF872BD576B1060D171ABB024161BEFD8A8854F9"
+  },
+  "interpretation": "This is a captured failed-response state, not a completed-turn validation. The prompt is present in a renderer, but none of the three retrospectively tested structural grammars yields a turn; the result does not establish absence of other formats or physical erasure.",
+  "raw_memory_public": false
+}

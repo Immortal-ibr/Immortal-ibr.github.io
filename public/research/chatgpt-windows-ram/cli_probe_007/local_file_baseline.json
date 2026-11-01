@@ -1,0 +1,24 @@
+{
+  "trial_id": "cli_probe_007",
+  "kind": "native-Windows Codex CLI local-file behavior probe; no RAM capture",
+  "cli_version": "codex-cli 0.153.0",
+  "start_utc": "2026-09-16T19:32:58.4148258Z",
+  "end_utc": "2026-09-16T19:33:12.5818473Z",
+  "cli_exit_code": 0,
+  "session_id": "01a0abb5-4ed4-7a50-9e09-39be5a8d24b0",
+  "actual_response": "copper meadow",
+  "expected_response_exact": true,
+  "json_event_types": [
+    "thread.started",
+    "turn.started",
+    "item.completed",
+    "turn.completed"
+  ],
+  "local_session_file_present": true,
+  "local_session_file_bytes": 77569,
+  "local_session_file_sha256": "AB93E9E1A79D2764F0725D2C3BAC0D8F6145E67D8C61F9429260D3CC6D9C90B5",
+  "local_session_file_contains_exact_prompt": true,
+  "local_session_file_contains_exact_answer": true,
+  "local_session_file_private": true,
+  "limitations": "This is a local-file observation only. No RAM image was acquired, and the CLI session file was not copied or published."
+}

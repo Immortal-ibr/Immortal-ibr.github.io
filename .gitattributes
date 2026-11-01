@@ -8,3 +8,6 @@
 *.webp binary
 *.mp4 binary
 *.ico binary
+
+# Keep frozen research methods and evidence manifests byte-exact.
+public/research/chatgpt-windows-ram/** -text whitespace=cr-at-eol

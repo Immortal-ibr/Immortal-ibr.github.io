@@ -1,0 +1,18 @@
+{
+  "sealed_before_scoring_utc": "2026-09-29T04:49:44.211428+00:00",
+  "recovered_output_sha256": "8242c68b37fcb04184372a4b3b1971c53ecfa581f58f98b0927ee5944d3bec5e",
+  "raw_sha256": "d31fe50f4ac1d6ee41eb86795513b1ddeeb04e057e18083c86246c46a3a5976b",
+  "trial_id": "cli-api-heldout-001-active",
+  "cohort": "instrumented native app-server stdio; held-out",
+  "native_pid": 4528,
+  "backend_present_before_acquisition": true,
+  "response_complete_observed_utc": "2026-09-29T04:38:00.300528+00:00",
+  "acquisition_started_utc": "2026-09-29T04:38:02.4642788+00:00",
+  "acquisition_ended_utc": "2026-09-29T04:38:31.5517605+00:00",
+  "response_to_acquisition_seconds": 2.16375,
+  "candidate_count": 0,
+  "candidate_scores": [],
+  "account_identity_claimed": false,
+  "scope": "five linked fields; standalone assistant ID is not independently thread/turn bound",
+  "frozen_method_manifest_sha256": "30ee4c8921d537b249c17365e725bd7d34d2b321a9b1fa19ccb096aa47c8a82e"
+}

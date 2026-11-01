@@ -1,0 +1,13 @@
+{
+  "frozen_at_utc": "2026-10-01T04:52:39.4739713Z",
+  "development_trial": "signedin_edge_teapot_visible_001 VMware saved-memory state",
+  "development_vmem_sha256": "3760D1B856E7F9850FBF83C74F26DA88B091A1E16760C814BAF614F8748AAD1C",
+  "method_files": {
+    "bounded_json.py": "8F0D7E2E2A23577DD8FCC096B2F4516CDF592489D00C4341C932EEE2E6450032",
+    "sse_event_records.py": "727767911AC19137431AF5233001AAD427EEF1B932CFBF1DF625D808BD6511D4",
+    "signedin_sse_turns.py": "74F1E13C557B007062CFADAE0D5FD05B94E82F620EA211A94B781110136E4989"
+  },
+  "selection": "image-derived msedge.exe process with the exact network.mojom.NetworkService utility subtype",
+  "ground_truth_supplied_to_method": false,
+  "state": "development grammar frozen before applying it to the later direct WinPmem image of the same turn; the later image is not an independent new prompt"
+}

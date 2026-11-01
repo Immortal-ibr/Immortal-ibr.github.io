@@ -1,0 +1,66 @@
+{
+  "trial_id": "chrome-visible-screenonly-010",
+  "condition": "Fresh anonymous Chrome turn captured while the completed response remained visible; the page controller did not return answer text",
+  "scope": "One baseline-reset, instrumented Chrome trial; DevTools sent the prompt, counted message elements and captured PNG pixels",
+  "page_control": {
+    "submitted_utc": "2026-10-01T12:18:19.2399280Z",
+    "submission_mode": "submit_quiet; Enter dispatched; no answer text returned",
+    "same_devtools_target_before_and_after_acquisition": true,
+    "anonymous_conversation_url_recorded_privately": true,
+    "uuid_message_element_count_before_acquisition": 2,
+    "uuid_message_element_count_after_acquisition": 2,
+    "finished_answer_visible_in_actual_preacquisition_png": true,
+    "preacquisition_controller_json_contained_answer_text": false,
+    "independent_dom_message_ids_recorded": false
+  },
+  "acquisition": {
+    "tool": "WinPmem 1.0-rc2, direct gzip stream",
+    "started_utc": "2026-10-01T12:19:19.4621775Z",
+    "ended_utc": "2026-10-01T12:20:36.6697282Z",
+    "guest_archive_bytes": 3398466393,
+    "archive_sha256": "8A7132940A72A669425E3DA7ECFD886272DF2A38FB774A19E0AB12C456FA628E",
+    "host_copy_method": "VMware Tools guest-file copy; no firewall rule changed",
+    "host_copy_hash_matches_guest": true,
+    "full_gzip_stream_verified": true,
+    "raw_logical_bytes": 7147094016,
+    "raw_sha256": "47077528F00555AC7A31D9922381E4ACAA939DECDC85E3433BF0F9F53D447890",
+    "volatility_windows_info_system_time_utc": "2026-10-01T12:19:20Z",
+    "private_archive_retained": true,
+    "derived_raw_removed_after_hash_reverification": true,
+    "derived_raw_regenerable_from_archive": true
+  },
+  "blind_process_scoped_analysis": {
+    "ground_truth_supplied": false,
+    "frozen_method": "FROZEN_CHROME_STATE_V1.json; all three source SHA-256 values rechecked before parsing",
+    "process_selection": "active chrome.exe processes from image-derived windows.pslist, with exact --type=renderer in windows.cmdline",
+    "active_chrome_processes": 8,
+    "active_renderers": [1872, 5172, 7648],
+    "active_chrome_processes_without_command_line": 0,
+    "state_signatures_by_renderer": {"1872": 2, "5172": 0, "7648": 0},
+    "complete_record_occurrences_by_renderer": {"1872": 2, "5172": 0, "7648": 0},
+    "unique_complete_records": 1,
+    "accepted_record_byte_length": 558,
+    "joined_candidates": 1,
+    "internal_user_assistant_parent_link_valid": true,
+    "sealed_output_sha256_before_screenshot_transcription": "A3F1F3E1AF03AB6F211E24A30DC1B6A4AF55856CBC4FAC0FAA17350C137F2532",
+    "sealed_before_screenshot_transcription_utc": "2026-10-01T12:45:30.3675039Z"
+  },
+  "post_seal_screenshot_score": {
+    "same_target_and_two_message_elements_across_acquisition": true,
+    "actual_png_sha256_checked": true,
+    "answer_text_absent_from_preacquisition_controller_json": true,
+    "conversation_id_prompt_and_full_rendered_response_exact": "3/3",
+    "independent_dom_message_ids_scored": false,
+    "target_conversation_candidates": 1
+  },
+  "independent_record_crosscheck": {
+    "tool": "MemProcFS 5.14.9",
+    "record_occurrences_matching_bytes_and_virtual_to_physical_translations": "2/2",
+    "exclusive_physical_page_ownership_claimed": false
+  },
+  "screenshots": [
+    {"path": "screenshots/45-chrome-visible-screenonly-full.png", "sha256": "25DC4D4AA124D62E483FDB1831D5BFF94C535A4880EEE73B06CCE4266193394D", "source": "Actual completed anonymous Chrome page before RAM acquisition"},
+    {"path": "screenshots/46-chrome-visible-screenonly-crop.png", "sha256": "D1F70268BD3669192BF679E5BA5434DC600E5298B25480E22EEED79EF31F9F71", "source": "Unaltered 760x240-pixel crop of screenshot 45"}
+  ],
+  "interpretation": "A finished visible turn yielded one internally linked Chrome state object under a no-answer-text controller. The independent screenshot verifies C/P/R, not the two RAM-extracted message IDs. This is one trial, not a recovery-rate estimate or an untouched-browser condition."
+}

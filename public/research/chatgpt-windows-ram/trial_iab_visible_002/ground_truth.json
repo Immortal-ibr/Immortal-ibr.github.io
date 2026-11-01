@@ -1,0 +1,16 @@
+{
+  "trial_id": "trial_iab_visible_002",
+  "classification": "signed-in in-app browser visible-response pilot; not an independent Chrome or held-out trial",
+  "client": "Codex in-app browser showing chatgpt.com in Chat mode",
+  "clean_vm_reset": false,
+  "ground_truth_recorded_after_capture": true,
+  "prompt": "Synthetic visible-memory pilot 05750869-48e3-4a8e-a87a-341e1ec90ee7. Give the exact words red, green, and blue in that order, separated by commas.",
+  "actual_response": "red, green, blue",
+  "submission_utc_interval": ["2026-09-16T17:25:20.316Z", "2026-09-16T17:25:20.539Z"],
+  "response_complete_observed_utc": "2026-09-16T17:25:38.283Z",
+  "conversation_id_from_url": "6aaad0c0-6fd0-83ea-87f4-56ad75469c84",
+  "provisional_web_conversation_id_seen_before_capture": "WEB:3ea9b67c-0e52-4563-b591-9ad240777c17",
+  "user_message_id_from_DOM": "e935c005-28c3-4acc-9c24-4c3e7cad80ab",
+  "assistant_message_id_from_DOM": "b31d410f-a2dd-473e-bdba-d24b450dfdf2",
+  "id_observation": "Read-only DOM inspection after the capture completed. The provisional WEB ID was inadvertently printed in a structural browser-control output before capture; the exact prompt and response were not printed in Codex output until after capture. The browser-control runtime may itself have held copies."
+}

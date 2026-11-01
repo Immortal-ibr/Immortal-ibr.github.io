@@ -1,0 +1,25 @@
+{
+  "method": "bounded stream item parsing; parent-stream ancestry; user input, assistant start, response patch, marker, completion",
+  "ground_truth_supplied": false,
+  "groups": [
+    {
+      "conversation_id": "6aaae15f-9efc-83ea-a646-d1b355fba1b6",
+      "turn_id": "bb22f704-6249-44f2-9b96-b97b26cb219e",
+      "complete_records": 20,
+      "user_inputs": 0,
+      "assistant_message_starts": 4,
+      "patch_records": 1,
+      "completion_events": 1
+    },
+    {
+      "conversation_id": "6aaae1a3-0228-83ea-bf61-2f2c89eb8912",
+      "turn_id": "64d944c5-3af8-4f8b-ae37-b2275cd3428c",
+      "complete_records": 20,
+      "user_inputs": 0,
+      "assistant_message_starts": 4,
+      "patch_records": 1,
+      "completion_events": 1
+    }
+  ],
+  "candidate_turns": []
+}

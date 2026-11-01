@@ -1,0 +1,16 @@
+{
+  "trial_id": "trial_iab_close_tab_006",
+  "condition": "one completed synthetic response; its in-app browser tab closed before RAM capture while a separate control tab stayed open",
+  "ground_truth_written_after_capture": true,
+  "ground_truth_outside_guest": false,
+  "clean_vm_reset": false,
+  "prompt": "Synthetic close-tab RAM trial 25fe3ff7-a4c9-45eb-ac06-2b9f41b65f8d. Reply with exactly: amber lantern",
+  "actual_response": "amber lantern",
+  "conversation_id_from_url": "6aaaeb6f-ff30-83e9-8e90-0cfd129bec7e",
+  "user_message_id_from_DOM": "1fda4da1-2ec2-49d5-964f-5f08f666b628",
+  "assistant_message_id_from_DOM": "89cc29a0-f3a0-5172-be1b-63b0242ed330",
+  "submit_start_utc": "2026-09-16T19:18:07.998Z",
+  "submit_end_utc": "2026-09-16T19:18:08.269Z",
+  "completion_observed_utc": "2026-09-16T19:19:03.308Z",
+  "ground_truth_source": "post-capture browser URL and read-only DOM data-message-id, author-role, and innerText; saved conversation reopened only after capture"
+}

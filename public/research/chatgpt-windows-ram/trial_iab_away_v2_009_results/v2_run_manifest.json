@@ -1,0 +1,77 @@
+{
+  "trial_id": "trial_iab_away_v2_009",
+  "start_utc": "2026-09-16T20:18:43.343942Z",
+  "selection": "all active ChatGPT.exe processes with --type=renderer in image-derived pslist/cmdline",
+  "ground_truth_supplied": false,
+  "frozen_method_sha256": {
+    "trial_iab_visible_002/parse_stream_items.py": "3EF5F07D1860F197636D2A62FA0EA73E7067F7CAB52E76C387A3371A62E22476",
+    "method_v2/reconstruct_turns.py": "82D4A348D8A2FB558F0A3376D8FA31C955092ABF25B7140099E5FB3DD7A004A7"
+  },
+  "image_sha256": "74A29D937D9798A9ADE7A75AF416D4D92BF2D282B7C22F5278CFDF7ABC237EA2",
+  "processes": [
+    {
+      "pid": 4300,
+      "memmap_rows": 17728,
+      "signature_hits": 0,
+      "unique_complete_records": 0,
+      "candidate_turns": 0
+    },
+    {
+      "pid": 5324,
+      "memmap_rows": 18096,
+      "signature_hits": 0,
+      "unique_complete_records": 0,
+      "candidate_turns": 0
+    },
+    {
+      "pid": 6140,
+      "memmap_rows": 15009,
+      "signature_hits": 0,
+      "unique_complete_records": 0,
+      "candidate_turns": 0
+    },
+    {
+      "pid": 8428,
+      "memmap_rows": 7207,
+      "signature_hits": 0,
+      "unique_complete_records": 0,
+      "candidate_turns": 0
+    },
+    {
+      "pid": 9052,
+      "memmap_rows": 19443,
+      "signature_hits": 0,
+      "unique_complete_records": 0,
+      "candidate_turns": 0
+    },
+    {
+      "pid": 9880,
+      "memmap_rows": 196965,
+      "signature_hits": 34,
+      "unique_complete_records": 0,
+      "candidate_turns": 0
+    },
+    {
+      "pid": 11300,
+      "memmap_rows": 53451,
+      "signature_hits": 0,
+      "unique_complete_records": 0,
+      "candidate_turns": 0
+    },
+    {
+      "pid": 11740,
+      "memmap_rows": 11132,
+      "signature_hits": 0,
+      "unique_complete_records": 0,
+      "candidate_turns": 0
+    },
+    {
+      "pid": 11856,
+      "memmap_rows": 47386,
+      "signature_hits": 0,
+      "unique_complete_records": 0,
+      "candidate_turns": 0
+    }
+  ],
+  "end_utc": "2026-09-16T20:29:51.023469Z"
+}

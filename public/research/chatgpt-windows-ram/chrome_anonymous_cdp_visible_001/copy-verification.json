@@ -1,0 +1,12 @@
+{
+  "verified_utc": "2026-09-30T05:53:15.700019+00:00",
+  "trial_id": "chrome_anonymous_cdp_visible_001",
+  "archive_sha256": "455cc0d72c099f39d39687747b766ce7413b6faba19617c5f63c6c6720422db8",
+  "archive_bytes": 1715707470,
+  "raw_sha256": "c399b8958a251063939bce8a59a6842fd70b86bfd3daa425b1effb4c6438e0e6",
+  "raw_logical_bytes": 7147094016,
+  "copy_verified": true,
+  "decompressed_digest_verified": true,
+  "elapsed_seconds": 18.625,
+  "archive_deleted": false
+}

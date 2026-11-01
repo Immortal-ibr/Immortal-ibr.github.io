@@ -1,0 +1,37 @@
+{
+  "trial_id": "chrome_anonymous_cdp_away_003",
+  "raw_sha256": "62A632705A3D411F1075D19BEEB5975A0143A072BCAB6A198C42E0C844AB6CB3",
+  "raw_logical_bytes": 7147094016,
+  "method": "Post-hoc exact-value byte diagnostic using the separately observed synthetic lighthouse turn; not blind reconstruction",
+  "prompt_marker_definition": "The exact 32-byte UTF-8 phrase containing the synthetic label, not the full prompt",
+  "encodings": ["UTF-8", "UTF-16LE"],
+  "full_physical_image_occurrences": {
+    "conversation_id": {"utf8": 89, "utf16le": 14},
+    "prompt_marker": {"utf8": 14, "utf16le": 7},
+    "answer_name": {"utf8": 0, "utf16le": 0},
+    "user_message_id": {"utf8": 11, "utf16le": 0},
+    "assistant_message_id": {"utf8": 0, "utf16le": 0}
+  },
+  "mapped_process_scope": "All nine active chrome.exe processes in the navigated lighthouse profile's PID 3392 browser tree, identified from image-derived pslist and cmdline. The separate still-open older profile's process tree was excluded. Mapped occurrence counts can duplicate aliased physical pages.",
+  "mapped_process_occurrences_combined_encodings": [
+    {"pid": 3392, "role": "browser parent", "conversation_id": 42, "prompt_marker": 0, "answer_name": 0, "user_message_id": 2, "assistant_message_id": 0},
+    {"pid": 4476, "role": "StorageService utility", "conversation_id": 0, "prompt_marker": 5, "answer_name": 0, "user_message_id": 0, "assistant_message_id": 0},
+    {"pid": 2960, "role": "NetworkService utility", "conversation_id": 0, "prompt_marker": 0, "answer_name": 0, "user_message_id": 0, "assistant_message_id": 0},
+    {"pid": 1564, "role": "OnDeviceModelService utility", "conversation_id": 0, "prompt_marker": 0, "answer_name": 0, "user_message_id": 0, "assistant_message_id": 0},
+    {"pid": 7032, "role": "renderer", "conversation_id": 0, "prompt_marker": 0, "answer_name": 0, "user_message_id": 0, "assistant_message_id": 0},
+    {"pid": 4324, "role": "renderer", "conversation_id": 0, "prompt_marker": 0, "answer_name": 0, "user_message_id": 0, "assistant_message_id": 0},
+    {"pid": 6280, "role": "renderer", "conversation_id": 0, "prompt_marker": 0, "answer_name": 0, "user_message_id": 0, "assistant_message_id": 0},
+    {"pid": 6812, "role": "GPU process", "conversation_id": 0, "prompt_marker": 0, "answer_name": 0, "user_message_id": 0, "assistant_message_id": 0},
+    {"pid": 1944, "role": "crashpad handler", "conversation_id": 0, "prompt_marker": 0, "answer_name": 0, "user_message_id": 0, "assistant_message_id": 0}
+  ],
+  "memprocfs_first_mapped_hits_checked": 4,
+  "memprocfs_first_mapped_hits_bytes_and_translations_match": true,
+  "process_object_check": {
+    "prior_visible_renderer_pid": 5076,
+    "post_navigation_pslist_rows": 0,
+    "post_navigation_psscan_rows": 0,
+    "current_navigated_profile_renderer_pid": 6280,
+    "interpretation": "No process object for the old renderer was returned by either plugin; this is not a physical-page erasure test."
+  },
+  "interpretation": "The older separate profile still yielded its own complete turn under the frozen parser, but the navigated lighthouse profile did not. Exact lighthouse fragments persisted outside its renderers; neither the invented answer name nor assistant message ID appeared in this image under the two tested encodings. One image does not establish a deletion or recovery rate."
+}

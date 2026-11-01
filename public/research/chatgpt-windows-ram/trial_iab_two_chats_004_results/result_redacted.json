@@ -1,0 +1,25 @@
+{
+  "trial_id": "trial_iab_two_chats_004",
+  "status": "sequential same-VM exploratory test; not independent validation",
+  "image_sha256": "8BE3FCA651B37248E0161C7ECD52790B049565E98016F478982AA6DB34D2B2EE",
+  "frozen_method_sha256": {
+    "trial_iab_visible_002/parse_stream_items.py": "3EF5F07D1860F197636D2A62FA0EA73E7067F7CAB52E76C387A3371A62E22476",
+    "trial_iab_visible_002/reconstruct_turns.py": "B3C46C7820D018A6CB05D215F732CC1546960C4B8ABA485F405303506006721F"
+  },
+  "active_renderer_processes_scanned": 8,
+  "unique_candidate_turns": 0,
+  "chat_scores": [
+    {
+      "chat_label": "A",
+      "complete_exact_candidates": [],
+      "same_conversation_partial_candidates": []
+    },
+    {
+      "chat_label": "B",
+      "complete_exact_candidates": [],
+      "same_conversation_partial_candidates": []
+    }
+  ],
+  "cross_joins": [],
+  "unmatched_candidate_count": 0
+}

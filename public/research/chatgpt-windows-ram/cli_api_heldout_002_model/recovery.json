@@ -1,0 +1,65 @@
+{
+  "method": "observed tagged model input + terminal RPC; separate from core-v1",
+  "ground_truth_supplied": false,
+  "record_byte_cap": 1048576,
+  "scope": "selected resident user-space mappings; not a native object graph",
+  "user_space_rows": 22121,
+  "skipped_kernel_rows": 125888,
+  "stats": {
+    "object_prefix_hits": 798,
+    "format_rejected_hits": 342,
+    "invalid_json_or_encoding_hits": 437,
+    "gap_or_end_truncated_hits": 19
+  },
+  "other_user_role_records_excluded": 1,
+  "unique_complete_records": 1,
+  "records": [
+    {
+      "record_sha256": "ef047e6411c2d8e2da3b62988476d9d1490d246389f1e0881a0abdb03efa582d",
+      "encoding": "utf-8",
+      "raw_byte_length": 529,
+      "payload": {
+        "type": "message",
+        "id": "msg_01a0eb9a-602e-72c2-83ce-a028af21c117",
+        "role": "user",
+        "content": [
+          {
+            "type": "input_text",
+            "text": "For the synthetic label copper-river-385, write exactly one sentence about a fictional museum. Include the result of 615 + 278 and invent a three-word name that does not appear in this prompt. Do not use tools, commands, files, or web search."
+          }
+        ],
+        "internal_chat_message_metadata_passthrough": {
+          "turn_id": "01a0eb9a-5b8d-7161-9054-97832028d225",
+          "create_time": 1790659158.062368,
+          "content_item_kinds": [
+            "user.text"
+          ]
+        }
+      },
+      "source_virtual_addresses": [
+        2279793535241
+      ],
+      "source_spans": [
+        [
+          {
+            "virtual": 2279793535241,
+            "physical": 2131212553,
+            "size": 529
+          }
+        ]
+      ]
+    }
+  ],
+  "join": {
+    "rule": "same process; exact turn ID; one user.text input, final agent variant and thread binding",
+    "candidate_count": 0,
+    "candidates": [],
+    "incomplete_or_ambiguous": [],
+    "semantic_rejections": {}
+  },
+  "executed_method_sha256": {
+    "bounded_json.py": "8f0d7e2e2a23577dd8fcc096b2f4516cdf592489d00c4341c932eee2e6450032",
+    "cli_rpc_records.py": "81057e66cf47c62fc99fdee77b00db0eff9a2e0b3e1fdbc5f99d61aa4e22e0ee",
+    "cli_model_turns.py": "74fddfa06300b6ac1ae20d413418b6daabc0039bd967638adcd2b5abaac9a930"
+  }
+}

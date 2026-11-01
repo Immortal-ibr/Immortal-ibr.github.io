@@ -1,0 +1,15 @@
+﻿{
+    "trial_id":  "cli-api-heldout-002b-active",
+    "acquisition_method":  "WinPmem sparse raw",
+    "started_utc":  "2026-09-29T05:19:23.1894378+00:00",
+    "ended_utc":  "2026-09-29T05:19:52.6600930+00:00",
+    "elapsed_seconds":  29.4706552,
+    "exit_code":  0,
+    "tool_sha256":  "86691BB4AF2C17DD9EC4834C04A99AD51E04F780A07D1B05BC382A5D1892E0C4",
+    "windows_caption":  "Microsoft Windows 10 Pro",
+    "windows_build":  "19045",
+    "cim_usable_physical_bytes":  6072356864,
+    "raw_logical_bytes":  7147094016,
+    "raw_sha256":  "ABB1837710B3AC735F5CDB714A34D0B6553CF10027935938F4C1D9B86A722B6E",
+    "status":  "captured_unvalidated"
+}

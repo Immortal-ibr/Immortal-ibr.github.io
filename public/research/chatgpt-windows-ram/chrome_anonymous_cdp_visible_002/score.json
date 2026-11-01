@@ -1,0 +1,17 @@
+{
+  "method": "post-capture scoring only; no ground truth supplied to RAM parser or joiner",
+  "conversation_id": "6abcac2e-69a8-83ea-8f62-105367d59333",
+  "submitted_utc": "2026-09-30T06:29:11.5525712Z",
+  "observed_utc": "2026-09-30T06:29:34.6772858Z",
+  "total_ram_candidates": 2,
+  "fields": {
+    "conversation_id": true,
+    "user_message_id": true,
+    "assistant_message_id": true,
+    "prompt_exact": true,
+    "response_rendered_text": true
+  },
+  "matched_fields": 5,
+  "all_five_match": true,
+  "markdown_note": "Only literal ** markers are removed to compare with this trial's rendered DOM text"
+}

@@ -1,7 +1,8 @@
 ---
 title: "Official Cheater CATF 2026 DFIR Writeup"
 published: 2026-09-12
-description: "A full reconstruction of an anonymous ChatGPT chat from a Windows memory image: this is a writeup for my DFIR challenge in CAT CTF"
+updated: 2026-10-30
+description: "The full investigation of my CATF 2026 DFIR challenge: Discord, Chrome History, and an anonymous ChatGPT turn recovered from Windows memory."
 tags: [DFIR, Memory Forensics, Browser Forensics, Windows, Volatility, Discord, ChatGPT]
 category: CTF Author
 image: /covers/post-cheater.jpg
@@ -12,16 +13,16 @@ draft: false
 
 Hello everyone,
 
-This time I am writing more of a methodology than a writeup. I wanted to make a
-simple and fun challenge after I was inspired by a research paper, so I present
-**Cheater**, my DFIR challenge for CATF 2026.
+Cheater grew out of a question I was researching: can I connect a ChatGPT prompt and answer from an acquired Windows RAM image, instead of finding their words separately? I turned one anonymous-browser case into this DFIR challenge for CATF 2026. This writeup follows the evidence a player receives, from the competing Discord lead through Chrome History and the renderer to the flag.
+
+The [browser reconstruction research](/posts/chatgpt-windows-ram-case-study/) shows how I selected processes, framed complete records, and tested the links between messages. After CATF, I tested what happened when the [browser tab changed or closed](/posts/chatgpt-browser-state-changes/) and then tried the same question with the [native Codex CLI](/posts/codex-cli-windows-ram/). Those later captures are separate from this challenge image.
 
 Description:
 
 > A university receives an unusually good assignment from a student whose
 > earlier work was always incomplete. The student denies getting unauthorized
-> help, so the laptop is confiscated. 
-> 
+> help, so the laptop is confiscated.
+>
 > Can we tell whether he is lying?
 
 
@@ -1606,49 +1607,25 @@ conversation UUID, but it cannot tell us the prompt or answer. For that we must
 parse the renderer state.
 
 
-## The research that inspired this challenge and why its tool rejects our file
+## Why the heap-snapshot tool rejects our file
 
-One inspiration for Cheater was Jihun Joun's paper,
-[“Forensic analysis from generative AI web application memory: A ChatGPT case study”](https://www.sciencedirect.com/science/article/abs/pii/S2666281726001320),
-published in *Forensic Science International: Digital Investigation*. Its core
-idea is important: browser memory should be treated as structured application
-state, and conversation objects can remain recoverable even when they are no
-longer visible in the active interface.
-
-The accompanying [ChatGPT V8 Heap Forensics tool](https://github.com/jihunjoun/ChatGPT-V8-Heap-Forensics)
-does this properly for Chrome DevTools `.heapsnapshot` files. A heap snapshot is
-not an arbitrary slice of process memory. It is a UTF-8 JSON document with a
-schema in `snapshot.meta`, flattened `nodes` and `edges` arrays, and a string
-table. The tool rebuilds the directed object graph, finds candidate objects with
-properties such as `id`, `parentId`, `children`, and `message`, and then follows
-the path `message → content → parts → elements`.
-
-I tried the tool against renderer 6612 because “Chrome V8 memory” sounds like the
-right input. It failed immediately:
+Jihun Joun's [ChatGPT V8 heap-forensics tool](https://github.com/jihunjoun/ChatGPT-V8-Heap-Forensics) sounded like a reasonable lead, so I tried it on renderer 6612. It failed immediately:
 
 ```text
 $ python heap_forensics.py pid.6612.dmp
 Error: 'utf-8' codec can't decode byte 0xa0 in position 6: invalid start byte
 ```
 
-That is an expected and useful failure. Our Volatility file is sparse raw
-virtual-memory pages from a process. It has no heap-snapshot JSON envelope, node
-table, edge table, or string table. The program is not broken, we just violated its
-input contract.
+The tool expects a DevTools `.heapsnapshot`: a JSON document with `snapshot.meta`, `nodes`, `edges`, and `strings` from which it rebuilds a V8 object graph. Our Volatility dump is raw process pages. It has none of that graph metadata. The error tells us we supplied the wrong evidence format, not that the tool is broken.
 
 ![renderer-comparison](/writeups/cheater/screenshots/04-heapsnapshot-input-mismatch.png)
 
-this would have been possible if for example we managed to acquire a DevTools heap snapshot. An offline full-RAM investigation cannot manufacture graph metadata that
-was never captured.
-
-The paper still gives us the right methodological instinct: recover
-relationships, not isolated words. With this evidence, however, those
-relationships must come from self-describing records that survived inside the
-raw renderer pages: Erlang ETF, JSON, URL-encoded form data, HTML attributes, and
-application telemetry.
+For this image, the relationships have to come from the records that survived in the renderer: JSON, URL-encoded form data, HTML attributes, and telemetry. The [research method](/posts/chatgpt-windows-ram-case-study/#from-physical-pages-to-a-candidate-turn) also starts with mapped process pages and bounded records, but its parsers target the formats observed in those later experiments. I still have to establish this challenge's own record boundaries and ID links.
 
 
 ## Reconstructing the anonymous ChatGPT turn
+
+The research's [ordinary Chrome trial](/posts/chatgpt-windows-ram-case-study/#trial-b2-find-the-record-before-writing-a-parser) began with a complete state object and used its message IDs to join the turn. In this challenge, the first reliable ID comes from a different place: Chrome History. The anonymous renderer left several representations of the same action, so I use that History ID to connect them instead of treating the research parser as a universal ChatGPT decoder.
 
 The History database has already handed us the best lead in the renderer:
 
@@ -1928,6 +1905,12 @@ The lesson is not merely “AI text stays in RAM.” Modern desktop applications
 carry parallel representations of one action: Discord had drafts and sent
 Gateway events, ChatGPT had composer, submission, terminal, stream, telemetry,
 and navigation state. Windows gave each record a route back to physical memory.
+
+This challenge shows that method on one deliberately constructed case. The
+[browser reconstruction study](/posts/chatgpt-windows-ram-case-study/) develops
+the record and join tests. The [state-change trials](/posts/chatgpt-browser-state-changes/)
+show what survived closing, reloading, and leaving a tab. The [native CLI trials](/posts/codex-cli-windows-ram/)
+test another client architecture. Those controlled follow-ups happened after CATF.
 
 Now what I wanted to show here is: When a specialized tool accepts your evidence format, use it. When it fails,
 read the format it expected and the format you actually captured. That gap is

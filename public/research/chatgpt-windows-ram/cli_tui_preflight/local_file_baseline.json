@@ -1,0 +1,24 @@
+{
+  "trial_id": "cli_tui_preflight",
+  "session_id": "01a0abcb-192c-7600-a212-4ea56a6672f6",
+  "normal_session_jsonl_present": true,
+  "local_session_jsonl_bytes": 75629,
+  "local_session_jsonl_sha256": "8BFF0FAAED89E7F1C8040E546F189C770C034B45F984478B4CBA754523F33277",
+  "jsonl_lines": 15,
+  "event_types": {
+    "session_meta": 1,
+    "event_msg": 5,
+    "response_item": 6,
+    "world_state": 1,
+    "turn_context": 1,
+    "token_usage_record": 1
+  },
+  "synthetic_phrase": "cobalt river",
+  "phrase_hits_by_event_and_role": {
+    "response_item:user": 1,
+    "event_msg:None": 3,
+    "response_item:assistant": 1
+  },
+  "finding": "The exited preflight TUI left a local session JSONL with a user response_item and assistant response_item containing the synthetic phrase. The phrase was also in the user instruction; this is a local-file check, not RAM evidence.",
+  "private_transcript_copied": false
+}

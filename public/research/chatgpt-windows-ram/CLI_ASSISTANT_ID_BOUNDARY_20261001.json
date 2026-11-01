@@ -1,0 +1,50 @@
+{
+  "question": "Can the fresh native CLI RAM capture independently bind the final assistant item ID to the four-field request/core turn?",
+  "trial_id": "cli-requestcore-fresh-004",
+  "host_observation_for_scoring_only": {
+    "source": "Private app-server event log kept on the host; not supplied to any RAM parser",
+    "completed_agent_item_notifications": 1,
+    "notification_contains_thread_id": true,
+    "notification_contains_turn_id": true,
+    "notification_contains_agent_message_id": true,
+    "notification_contains_final_answer_text": true,
+    "notification_phase": "final_answer",
+    "ids_and_text_published": false
+  },
+  "acquisition": {
+    "archive_sha256": "5A7512015E13DBA0BD44ECE43FDE8D0B1297B9AC4E00083B02DD5D6CD4724DD3",
+    "decompressed_sha256": "48917B19097EAB465B761E3FD6D27B495A047E050E4D5DAC8EDEF6FD21FAC0BD",
+    "decompressed_bytes": 7147094016,
+    "archive_and_full_decompression_verified_for_each_scan": true,
+    "raw_disk_expansion_written": false
+  },
+  "structural_rpc_scan": {
+    "record_grammar": "Bounded cli_rpc_records.scan framing and strict JSON validation; accepts item/completed with params and thread-result responses",
+    "record_grammar_sha256": "81057E66CF47C62FC99FDEE77B00DB0EFF9A2E0B3E1FDBC5F99D61AA4E22E0EE",
+    "in_memory_archive_adapter_sha256": "A6041B3668C76D0C5614B766F5D68489DE611FC4D57A718C7011D960A92F7880",
+    "known_prompt_answer_ids_or_offsets_supplied": false,
+    "record_byte_cap": 1048576,
+    "native_process": {
+      "pid": 5968,
+      "resident_user_rows": 21402,
+      "object_prefix_hits": 169,
+      "accepted_rpc_records": 0,
+      "private_output_sha256": "CF406BDD61119B70D396EB0CFE281DE30766EE464300D5DE4C94927B18B884D7"
+    },
+    "guest_relay_process": {
+      "pid": 5708,
+      "resident_user_rows": 21043,
+      "object_prefix_hits": 8,
+      "accepted_rpc_records": 0,
+      "private_output_sha256": "02F969E4F7BFC3E21DFF7843B457848ED6E7F57396535CB8CFEEC9594EE654E2"
+    },
+    "flat_physical_image": {
+      "object_prefix_hits": 2875,
+      "accepted_rpc_records": 1,
+      "accepted_record_kind": "A result object containing the observed thread ID but a zero-length turns array",
+      "accepted_record_binds_agent_message_id": false,
+      "private_output_sha256": "6D0CBD42E4B371D77EF24996A22AF2C51D2257BC0B4B16D6081D78DDF247C7A6"
+    }
+  },
+  "interpretation": "The host observed an assistant item ID, but the tested RAM grammars did not recover a complete item/completed notification or another record binding that ID to this turn. The earlier request/core four-field match remains valid; importing the host-only ID would not be a RAM reconstruction. A zero under these bounded serializations is not proof that no differently represented item ID exists in the image."
+}

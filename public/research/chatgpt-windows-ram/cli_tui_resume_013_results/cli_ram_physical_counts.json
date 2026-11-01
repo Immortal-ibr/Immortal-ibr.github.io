@@ -1,0 +1,15 @@
+{
+  "trial_id": "cli_tui_resume_013",
+  "method": "post-capture ground-truth-assisted exact-value counts across physical RAM",
+  "ground_truth_supplied": true,
+  "scanned_bytes": 18253611008,
+  "counts": {
+    "prompt_utf8": 162,
+    "prompt_utf16le": 1,
+    "response_utf8": 115,
+    "response_utf16le": 0,
+    "marker_utf8": 1135,
+    "marker_utf16le": 379
+  },
+  "limitations": "No process provenance or linked-turn reconstruction; investigator PTY, local files, and the captured TUI may contribute."
+}

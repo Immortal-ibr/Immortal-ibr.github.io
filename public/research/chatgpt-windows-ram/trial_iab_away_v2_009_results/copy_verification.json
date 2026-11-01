@@ -1,0 +1,56 @@
+{
+  "trial_id": "trial_iab_away_v2_009",
+  "files": [
+    {
+      "file": "acquire.ps1",
+      "sha256": "F5515568E38823477B76C095E9512F5A7A68A084BDB7678B3C6ED394BFE4B15E",
+      "bytes": 1922
+    },
+    {
+      "file": "acquisition_stdout.txt",
+      "sha256": "5F21068A2E3CED330A892D30EBE445A0E9709E40E501830D8C0277DFA43056AE",
+      "bytes": 2772
+    },
+    {
+      "file": "acquisition.json",
+      "sha256": "C4CFAD4544BCCFF7892748B0D38C5BCC4070E82FF6D92CA50A7AF93B0936C686",
+      "bytes": 856
+    },
+    {
+      "file": "ground_truth.json",
+      "sha256": "6D1C2168E8EA161F91CCBC5FC179A9D71F7EB928888081574092287FAC6B8ADC",
+      "bytes": 1322
+    },
+    {
+      "file": "v2_run_manifest.json",
+      "sha256": "CAA64B7DEBA004AB74E98EF84AAF363DDEE50B5C7CDFE0A5F69208D50F0ABCD3",
+      "bytes": 2063
+    },
+    {
+      "file": "result_v2_redacted.json",
+      "sha256": "575DD41251F8231EBD755B48BC20D1A289F7AD34099EDC3E7B68FE1CF207B61B",
+      "bytes": 842
+    },
+    {
+      "file": "known_marker_mapped_renderers.py",
+      "sha256": "40E9912241DE18905D9E1833136405CF6F83409624C3395035733AED70EC6A2A",
+      "bytes": 3016
+    },
+    {
+      "file": "known_marker_mapped_renderers.json",
+      "sha256": "BFC770E04179B497B9267DF3EB50F58CFDB958487BD7A2D449702E2E76FC02ED",
+      "bytes": 4478
+    },
+    {
+      "file": "known_marker_physical_counts.py",
+      "sha256": "CAD2143507016D5772EE1373D307F5E55038801679DBDF53329071964D683098",
+      "bytes": 2058
+    },
+    {
+      "file": "known_marker_physical_counts.json",
+      "sha256": "4512E89710A78FB60243976CFEEF7A8123DC41254FCD537FA53ECE0B6003C8A4",
+      "bytes": 724
+    }
+  ],
+  "all_hashes_match": true
+}

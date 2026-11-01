@@ -1,0 +1,54 @@
+{
+  "verified_utc": "2026-09-29T03:06:15.694192+00:00",
+  "scope": "Fresh joins of retained synthetic records; no RAM extraction",
+  "method_sha256": "82D4A348D8A2FB558F0A3376D8FA31C955092ABF25B7140099E5FB3DD7A004A7",
+  "frozen_manifest_method_sha256": "82D4A348D8A2FB558F0A3376D8FA31C955092ABF25B7140099E5FB3DD7A004A7",
+  "method_matches_frozen_manifest": true,
+  "frozen_files": [
+    {
+      "file": "trial_iab_visible_002/parse_stream_items.py",
+      "expected_sha256": "3EF5F07D1860F197636D2A62FA0EA73E7067F7CAB52E76C387A3371A62E22476",
+      "actual_sha256": "3EF5F07D1860F197636D2A62FA0EA73E7067F7CAB52E76C387A3371A62E22476",
+      "matches": true
+    },
+    {
+      "file": "method_v2/reconstruct_turns.py",
+      "expected_sha256": "82D4A348D8A2FB558F0A3376D8FA31C955092ABF25B7140099E5FB3DD7A004A7",
+      "actual_sha256": "82D4A348D8A2FB558F0A3376D8FA31C955092ABF25B7140099E5FB3DD7A004A7",
+      "matches": true
+    },
+    {
+      "file": "run_frozen_v2.py",
+      "expected_sha256": "61279694825FD079DA81E417526CDA0ED1E2CEFF7C39FEF998F9404763D2A58D",
+      "actual_sha256": "61279694825FD079DA81E417526CDA0ED1E2CEFF7C39FEF998F9404763D2A58D",
+      "matches": true
+    }
+  ],
+  "cases": [
+    {
+      "case": "two_chats",
+      "fresh_joiner_executed": true,
+      "expected_candidates": 2,
+      "replay_candidates": 2,
+      "exact_json_match": true,
+      "exact_bytes_match": false,
+      "equal_after_crlf_to_lf": true,
+      "fixture_sha256": "F55926F0833235CB27EC624B26FAE53E0AA083428B8CB44C5F6F9E53DD647BAA",
+      "saved_result_sha256": "2ADE57F0B9634050E2C86450CF7B5878702DC3F0373192782634E9131300AD3D",
+      "replay_sha256": "17F99F87F601895A6E726E220BE901AAB5622491645D49D586AF6131F00417BA"
+    },
+    {
+      "case": "visible",
+      "fresh_joiner_executed": true,
+      "expected_candidates": 1,
+      "replay_candidates": 1,
+      "exact_json_match": true,
+      "exact_bytes_match": false,
+      "equal_after_crlf_to_lf": true,
+      "fixture_sha256": "99FEC0C7FC55CA71128E6D44764BAF3A4548265CDF85CECC50EA0DFB84D68635",
+      "saved_result_sha256": "8E534DB5D81736BE37BCBF1C5311966C727524FCFCD49F986B26588C9C13006B",
+      "replay_sha256": "308E29EEC38E85FA2586F8011A6D62F3DA3DCC8E630FA9F2C2E8DDB9485F7392"
+    }
+  ],
+  "all_checks_pass": true
+}

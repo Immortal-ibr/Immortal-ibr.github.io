@@ -1,0 +1,11 @@
+﻿{
+    "trial_id":  "cli_ephemeral_probe",
+    "kind":  "native-Windows Codex CLI ephemeral local-file control; no RAM capture",
+    "prompt":  "Synthetic native-Windows Codex CLI ephemeral probe fa407453-4038-4209-a720-d12b43d2e541. Reply with exactly: golden harbor. Do not use tools.",
+    "started_utc":  "2026-09-16T20:04:38.9622873Z",
+    "ended_utc":  "2026-09-16T20:04:51.0960928Z",
+    "cli_version":  "codex-cli 0.153.0",
+    "command":  "codex exec --ephemeral --json --skip-git-repo-check --sandbox read-only --cd \u003ctrialDir\u003e - \u003c private/synthetic_prompt.txt",
+    "exit_code":  0,
+    "investigator_stdout_log_private":  "C:\\Users\\Win10\\Desktop\\cheater_ram_research_2026-09-16\\cli_ephemeral_probe\\private\\codex_exec.jsonl"
+}

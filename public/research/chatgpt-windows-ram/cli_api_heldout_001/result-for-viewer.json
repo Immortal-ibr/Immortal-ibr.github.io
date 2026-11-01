@@ -1,0 +1,31 @@
+{
+  "candidate_count": 0,
+  "accepted_user_item_count": 0,
+  "accepted_record_types": [
+    "task_complete",
+    "agentMessage"
+  ],
+  "surviving_records": [
+    {
+      "type": "task_complete",
+      "turn_id": "01a0eb74-759b-7711-9962-91a21e213040",
+      "last_agent_message": "At the fictional observatory, Cedar watches the stars beside the brass telescope, where 389 + 527 = 916 and the night is called Silver Lantern Drift.",
+      "started_at": 1790656673,
+      "completed_at": 1790656680,
+      "duration_ms": 7069,
+      "time_to_first_token_ms": 3856
+    },
+    {
+      "type": "agentMessage",
+      "id": "msg_05275151cdbd3cc6016abb40a337d487d1bf40a184f0da9a11",
+      "text": "At the fictional observatory, Cedar watches the stars beside the brass telescope, where 389 + 527 = 916 and the night is called Silver Lantern Drift.",
+      "phase": "final_answer",
+      "memoryCitation": null,
+      "delivery": null,
+      "questions": null
+    }
+  ],
+  "presentation_only": "Fields selected from reviewed recovery.json, not an independent recovery or a new experiment",
+  "source_data": "cli_api_heldout_001/recovery.json",
+  "source_sha256": "8242c68b37fcb04184372a4b3b1971c53ecfa581f58f98b0927ee5944d3bec5e"
+}

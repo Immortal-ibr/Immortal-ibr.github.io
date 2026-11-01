@@ -1,0 +1,166 @@
+{
+  "trial_id": "signedin_edge_teapot_visible_001",
+  "purpose": "One completed signed-in Edge turn through the ordinary UI, recovered from a saved VMware network stream and rechecked in a later direct WinPmem acquisition.",
+  "ground_truth": {
+    "source": "Private guest-screen capture after the saved-memory state and before the direct acquisition; public synthetic-only crop is screenshots/22-signedin-edge-teapot-visible.png",
+    "supplied_to_structural_parsers": false,
+    "full_prompt_and_response_visible": true,
+    "conversation_url_observed": true,
+    "signed_in_account_details_published": false
+  },
+  "saved_vmware_memory": {
+    "vmem_sha256": "3760D1B856E7F9850FBF83C74F26DA88B091A1E16760C814BAF614F8748AAD1C",
+    "vmem_bytes": 6073352192,
+    "image_selected_edge_renderer_pids": [3164, 5844, 7300, 7888, 7932],
+    "matching_renderer_pid": 5844,
+    "older_stream_item_signatures_all_renderers": 0,
+    "older_chrome_state_signatures_all_renderers": 0,
+    "development_structural_envelope_scan": {
+      "request_envelope_complete_occurrences": 5,
+      "message_event_complete_occurrences": 16,
+      "unique_complete_envelopes": 11,
+      "request_contains_exact_visible_prompt_and_conversation_id": true,
+      "accepted_event_contains_exact_visible_response": false,
+      "full_turn_reconstructed": false
+    },
+    "network_service_sse_reconstruction": {
+      "selection": "Unique active msedge.exe with exact network.mojom.NetworkService utility subtype in image-derived command lines",
+      "pid": 2936,
+      "complete_sse_events": 15,
+      "verified_contiguous_stream_bytes": 6161,
+      "verified_contiguous_stream_count": 1,
+      "structure": [
+        "input_message carries conversation ID, user ID and complete prompt",
+        "system message parent ID equals user ID",
+        "assistant message parent ID equals system ID",
+        "three assistant message markers carry that assistant ID and conversation ID",
+        "four content patches append 15, 57, 47 and 36 characters",
+        "final batch marks finished_successfully and end_turn true",
+        "message_stream_complete carries the same conversation ID"
+      ],
+      "joined_candidate_count": 1,
+      "exact_visible_conversation_prompt_response_match": "3/3",
+      "response_characters": 155,
+      "user_and_assistant_ids_recovered_and_internally_joined": true,
+      "user_and_assistant_ids_independently_observed_from_live_dom": false,
+      "recovered_output_sha256_before_ground_truth_read": "A5793BA22AA03DBDE699D21E125F8EA133B0DF99524D18B22FC6548FCB70AC4F",
+      "published_vmware_wrapper_reproduced_candidate_fields_and_stream_digest": true,
+      "experimental_role": "development result; grammar was written while studying this saved-memory state"
+    },
+    "memprocfs_volatility_page_samples": "160/160 matched across all five renderer maps; 32/32 matched in NetworkService",
+    "network_sse_record_occurrences_reread_by_memprocfs": "15/15 exact byte hashes and mapped physical translations matched"
+  },
+  "direct_winpmem_memory": {
+    "acquisition_started_utc": "2026-10-01T04:02:56.8191940Z",
+    "acquisition_ended_utc": "2026-10-01T04:04:07.2846700Z",
+    "acquisition_tool_sha256": "86691BB4AF2C17DD9EC4834C04A99AD51E04F780A07D1B05BC382A5D1892E0C4",
+    "compressed_bytes": 4033242254,
+    "compressed_sha256": "1603864BE59AAC54EBA5B05165DF753851ED73BAF30CD69535A72A9A29394219",
+    "host_copy_matches_guest_archive_sha256": true,
+    "gzip_stream_read_to_eof": true,
+    "raw_logical_bytes": 7147094016,
+    "raw_sha256_from_host_decompression": "B9D67039E00974090F52D5D930E8DBA92412CC9EF32AC4218451CD76DF97FC0A",
+    "independent_guest_raw_sha256_available": false,
+    "image_selected_active_edge_renderer_pids": [3164, 5844, 7300, 7932],
+    "active_edge_pids_without_command_line": 0,
+    "matching_renderer_pid": 5844,
+    "older_stream_item_signatures_all_renderers": 0,
+    "older_chrome_state_signatures_all_renderers": 0,
+    "development_structural_envelope_scan": {
+      "request_envelope_signatures": 0,
+      "message_event_complete_occurrences": 12,
+      "unique_complete_message_events": 8,
+      "accepted_event_contains_exact_visible_response": false,
+      "full_turn_reconstructed": false
+    },
+    "frozen_network_sse_method": {
+      "network_service_pid_selected_from_direct_image": 2936,
+      "network_service_complete_sse_events": 0,
+      "active_renderer_5844_complete_sse_events": 6,
+      "other_three_active_renderer_complete_sse_events": 0,
+      "joined_candidate_count": 0,
+      "method_frozen_before_direct_sse_scan": true,
+      "same_synthetic_turn_as_saved_memory": true,
+      "interpretation": "A later timepoint of the same turn, not a prospective new-prompt validation."
+    },
+    "all_active_edge_process_sse_check": {
+      "selection": "Every msedge.exe row in image-derived windows.pslist with null ExitTime; roles checked against windows.cmdline",
+      "active_process_count": 11,
+      "pids_by_role": {
+        "browser": [3496],
+        "crashpad_handler": [6156],
+        "network_service": [2936],
+        "gpu_process": [4808],
+        "storage_service": [4932],
+        "renderers": [3164, 5844, 7300, 7932],
+        "search_indexer": [4956],
+        "wallet_service": [7512]
+      },
+      "complete_sse_events_by_pid": {
+        "2936": 0,
+        "3164": 0,
+        "3496": 0,
+        "4808": 0,
+        "4932": 0,
+        "4956": 0,
+        "5844": 6,
+        "6156": 0,
+        "7300": 0,
+        "7512": 0,
+        "7932": 0
+      },
+      "browser_parent_pid_3496_incomplete_data_signature_hits": 1,
+      "complete_sse_events_total": 6,
+      "joined_candidate_count_across_all_individual_process_maps": 0,
+      "additional_nonrenderer_memprocfs_volatility_page_samples": "48/48 matched across browser, crashpad, GPU, StorageService, SearchIndexer and wallet maps",
+      "method": "Same frozen complete-event scanner and turn joiner, with no known conversation values supplied",
+      "scope": "Resident user mappings of each active Edge process; no cross-process stitching or whole-physical-image turn recovery claimed"
+    },
+    "unattributed_physical_identity_scan": {
+      "raw_sha256_verified_before_scan": true,
+      "signature_hits": 54,
+      "complete_event_occurrences": 5,
+      "unique_complete_records": 5,
+      "contiguous_physical_segments": 3,
+      "joined_candidate_count": 0,
+      "private_output_sha256": "5DDD4359094636E45D3173F934D0F13684B8C5DBED47D6B9A641444C0D3AB5D7",
+      "contrast_with_renderer_map": "The renderer had six complete events; its additional assistant-context event crossed virtually adjacent but physically nonadjacent page spans and was not framed by the flat physical scan.",
+      "scope": "Exploratory full-image physical-byte scan with identity mapping, without process attribution; not another independent memory capture"
+    },
+    "memprocfs_volatility_page_samples_pid_5844": "32/32 matched",
+    "memprocfs_record_occurrences_pid_5844": "12/12 exact bytes and physical translations matched",
+    "memprocfs_volatility_page_samples_network_service_pid_2936": "32/32 matched"
+  },
+  "posthoc_same_virtual_address_comparison": {
+    "question": "Were the 15 complete NetworkService events from saved VMware memory still present at those exact process virtual addresses in the later direct image?",
+    "scope": "Same signed-in turn, same Edge NetworkService PID 2936 and matching process creation metadata; two timepoints, not an independent new-prompt trial.",
+    "reference": "The 15 bounded event hashes, lengths and virtual/physical spans from the saved VMware image; no prompt or answer supplied to the comparison.",
+    "later_source": "The hash-verified direct WinPmem raw image and PID 2936 windows.memmap from that image.",
+    "earlier_complete_event_occurrences": 15,
+    "later_exact_virtual_ranges_fully_resident": 15,
+    "later_exact_record_hashes_unchanged": 0,
+    "later_exact_ranges_with_same_physical_spans": 9,
+    "later_exact_ranges_without_identical_physical_span_lists": 6,
+    "independent_memprocfs_later_bytes_and_translations_matching_volatility": "15/15",
+    "private_detail_sha256": "F2683FBBF2FE16124773EC14137504879790E286A6E76B0918E6023BEDCBD06F",
+    "reproduction_script": "scripts/ram-research/compare_same_va_records.py",
+    "reproduction_script_sha256": "40F4E77B342554984FE555862C90A34C5B024931B6FE062E2A12190DAD260BF2",
+    "interpretation": "The later zero-event result was not caused solely by those virtual addresses becoming unmapped. Their bytes changed; nine ranges even retained the same physical mapping. This comparison cannot assign a precise overwrite or reuse mechanism or claim that all copies of the earlier stream were erased."
+  },
+  "posthoc_known_value_diagnostic_on_direct_image": {
+    "ground_truth_supplied": true,
+    "not_a_reconstruction": true,
+    "exact_full_prompt_in_pid_5844_resident_user_maps": {"utf8": 8, "utf16le": 1},
+    "exact_full_response_in_pid_5844_resident_user_maps": {"utf8": 0, "utf16le": 3},
+    "exact_conversation_id_in_pid_5844_resident_user_maps": {"utf8": 226, "utf16le": 1},
+    "other_three_active_renderer_maps": "Zero exact full-value matches in both encodings",
+    "counting_note": "Mapped occurrences may alias physical pages; none of these counts joins a user message to an assistant response."
+  },
+  "privacy": {
+    "full_memory_images": "retained privately",
+    "unfiltered_signed_in_message_records": "retained privately",
+    "private_screen_original": "retained privately",
+    "public_screenshot": "synthetic prompt and response only; deterministic crop, not AI-generated"
+  },
+  "frozen_method": "FROZEN_SIGNEDIN_SSE_V1.json"
+}

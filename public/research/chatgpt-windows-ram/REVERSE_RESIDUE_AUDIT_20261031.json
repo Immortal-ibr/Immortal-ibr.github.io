@@ -1,0 +1,69 @@
+{
+  "purpose": "Retrospective reverse search after blind turn reconstruction failed. Known synthetic answer values were supplied only after capture and after the original parser outputs were sealed.",
+  "method": {
+    "post_capture_value_and_process_map_audit": "reverse_known_value_audit.py",
+    "post_capture_value_and_process_map_audit_sha256": "53559AACC30D9AA7AD4ED84F53AD11B966CAC33EA3B705CA988286448B097F4E",
+    "independent_bounded_envelope_grammar": "method_signedin_envelopes_v1/browser_json_envelopes.py",
+    "independent_bounded_envelope_grammar_sha256": "23B6952126DFF2149650BAD2DD26E306D1FDF8F223EA2FEE653F86E91592F7B2",
+    "scope": "Exact UTF-8 and UTF-16LE values in complete WinPmem images, process user mappings from Volatility memmap, exact 64-byte context matches to saved investigator observation files, and a separate blind scan for three other bounded JSON envelope signatures. A known-value hit or observation-file match is not a blind conversation reconstruction."
+  },
+  "b11_closed_chrome_tab": {
+    "source_ledger": "CHROME_CLOSE_TAB_20261001.json",
+    "archive_sha256": "86CA335B3D18199888EE5354A451939B9CADD60FC83095BB58C465E4739B9CD5",
+    "verified_raw_sha256": "EE1C9A16BC1E3BD71EF35EF8B909219075564B2C262F00F77008CA490A9C4A56",
+    "active_chrome_process_maps_rechecked": 10,
+    "full_answer_exact_hits": {"utf8_physical": 0, "utf16le_physical": 0},
+    "first_answer_sentence_exact_hits": {"utf8_physical": 4, "utf16le_physical": 0, "active_chrome_user_maps": 0},
+    "second_answer_sentence_exact_hits": {"utf8_physical": 0, "utf16le_physical": 0},
+    "answer_only_phrase_exact_hits": {"utf8_physical": 7, "utf16le_physical": 0, "active_chrome_user_maps": 0},
+    "alternative_bounded_envelope_signatures_across_all_active_chrome_processes": 0,
+    "alternative_complete_envelopes": 0,
+    "private_fragment_audit_output_sha256": "029324FB90F4F4EC3CE59B07B5DE4F27960E9B884C060604B42191A72D5D65A0",
+    "prior_provenance_checks": ["CHROME_CLOSE_PHRASE_PROVENANCE_20261001.json", "CHROME_CLOSE_PHYSICAL_OWNER_20261001.json"],
+    "interpretation": "The complete answer was absent under the two exact encodings tested. Shorter text survived outside active Chrome user mappings. This does not distinguish overwritten or unmapped application pages from a different surviving serialization or fragmented text."
+  },
+  "b12_reloaded_chrome_tab": {
+    "source_ledger": "CHROME_RELOAD_20261001.json",
+    "source_of_this_section": "Original post-capture renderer maps and bounded context diagnostic. No new scan of the complete B12 image was performed for this retrospective audit.",
+    "private_original_posthoc_diagnostic_sha256": "D2DEA54E32444979BB2D21D1493F09281AB5999E572281335927E824740D8F8D",
+    "private_original_context_diagnostic_sha256": "5EB61005C7B4491799B3FA395E88F8C87BB2A3CE521E3FDFD39ABFB1BD596F7B",
+    "blind_state_objects": 0,
+    "post_capture_reverse_pivot": "Known pre-reload URL ID, prompt and answer were checked against image-derived renderer maps after the blind result was sealed.",
+    "renderer_with_old_conversation_id_prompt_and_full_answer": 3640,
+    "full_answer_mapped_encodings": ["UTF-8", "UTF-16LE"],
+    "bounded_context_check": "Available mapped bytes up to 8 KiB on either side of the first UTF-8 prompt and answer hits did not contain textTail, user, assistant, or the full saved page-observation string.",
+    "boundary": "The values occupied separate locations and no accepted record connected them through message IDs. This is mapped residue, not a reconstructed turn."
+  },
+  "b13_screen_only_reloaded_chrome_tab": {
+    "source_ledger": "CHROME_RELOAD_SCREEN_ONLY_20261001.json",
+    "source_of_this_section": "Original post-seal exact-value diagnostic and MemProcFS checks. No new scan of the complete B13 image was performed for this retrospective audit.",
+    "private_original_posthoc_diagnostic_sha256": "7D815D69268834EB69DB061BB2150185F653043143847C2A7148B85F5CA48644",
+    "blind_state_objects": 0,
+    "post_capture_reverse_pivot": "An answer-only sentence was transcribed from the saved pre-reload screenshot after the parser output was sealed, then checked against the acquired renderer maps.",
+    "renderer_with_answer_sentence_prompt_and_conversation_id": 10028,
+    "answer_sentence_mapped_encoding": "UTF-8",
+    "prompt_mapped_encoding": "UTF-16LE",
+    "sentence_prompt_and_id_in_distinct_physical_locations": true,
+    "independent_page_message_ids_recorded": false,
+    "boundary": "The answer sentence is not a full response, and process co-location does not establish an application-record join."
+  },
+  "b14_one_of_two_chrome_tabs_closed": {
+    "source_ledger": "CHROME_TWO_TABS_CLOSE_ONE_20261001.json",
+    "archive_sha256": "C5754CF8D02B1213749CC3FA43D8331567FB9CAC736121DB6C448CA53FBE25D0",
+    "verified_raw_sha256": "8295427AFA9CEDCA261A2FE3C7EA0525BE84925F96D34BA2E8E8A410CA7F0A64",
+    "active_chrome_process_maps_rechecked": 9,
+    "closed_tab_full_answer_exact_utf8_physical_hits": 6,
+    "closed_tab_full_answer_exact_utf16le_physical_hits": 0,
+    "hits_in_browser_parent_observation_text_tail": 2,
+    "other_physical_hits_with_exact_64_byte_context_match_to_saved_observer_json": 4,
+    "of_those_four_in_saved_dom_input_inspection": 2,
+    "of_those_four_in_saved_page_observation": 2,
+    "closed_tab_full_answer_hits_in_active_renderer_user_maps": 0,
+    "alternative_bounded_envelope_signatures_across_all_active_chrome_processes": 0,
+    "alternative_complete_envelopes": 0,
+    "still_open_second_tab_joined_by_original_state_parser": true,
+    "still_open_second_tab_independent_fields_matched": "5/5",
+    "private_known_value_audit_output_sha256": "B32C0ED5929A4E8E21C22B42194352DACA49B1B9A44BD3E2807270AB6EE68AFF",
+    "interpretation": "All six exact full-answer physical hits have investigator-observation context. Four unowned physical hits match saved observation JSON around the answer byte for byte, and the two parent-mapped hits were already traced to its textTail. The open chat's bounded turn remains a positive control. These copies do not independently reconstruct the closed tab, and other encodings or record forms are outside this exact-value audit."
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "trial_id": "cli_tui_active_010",
+  "copied_files": [
+    {
+      "name": "acquire.ps1",
+      "bytes": 1963,
+      "sha256": "B465FC6130447396864D60CB2D9FA13FC39C29AC92C519122BE2DF3E0212DC40"
+    },
+    {
+      "name": "acquisition.json",
+      "bytes": 850,
+      "sha256": "EE8BBC3D5F3DAFB3669DA9D4157B80A36D2C7E32B9CDEAFE86FE9AF2AE916FCD"
+    },
+    {
+      "name": "acquisition_stdout.txt",
+      "bytes": 2766,
+      "sha256": "B2E140D837B06D85D7C721CFEFBBA8CFE561E4E8C5893688DFEDC97E7BA15D02"
+    },
+    {
+      "name": "ground_truth.json",
+      "bytes": 800,
+      "sha256": "5B3271EFEF6BF27A1BE68D43F41EF2028EA72CE77CC6A73E0262069B1F8A009C"
+    },
+    {
+      "name": "process_evidence.json",
+      "bytes": 672,
+      "sha256": "24988FFA55A176A79460B050520DA0821B7F73FA09771E2DED174970EDAB7F74"
+    },
+    {
+      "name": "cli_ram_known_scan.json",
+      "bytes": 2265,
+      "sha256": "DBE552ECC471E644969E097081AEB2A3D22DDE58E528EC5D9AE45B13F40B3EF5"
+    },
+    {
+      "name": "cli_ram_physical_counts.json",
+      "bytes": 518,
+      "sha256": "9240B415DB05DFEB762925FE1F93ADB84A599AF4B80EA4C2C7A55511BD8EF4CB"
+    },
+    {
+      "name": "local_file_baseline.json",
+      "bytes": 909,
+      "sha256": "241C4B6F6ED5D83D9DD2605EF4BA5F344188DC599405C8FF4CFDEFA5FA6EC548"
+    }
+  ],
+  "all_sha256_match": true,
+  "private_image_copied": false
+}

@@ -1,0 +1,16 @@
+{
+  "method": "native response.create request + task_complete turn join",
+  "experimental_role": "post-hoc development on the museum image; hash-frozen before retrospective checks on the earlier retained CLI images, not a prospective held-out experiment",
+  "frozen_at_utc": "2026-10-01T01:51:00Z",
+  "ground_truth_supplied_to_parser": false,
+  "record_byte_cap": 1048576,
+  "source_sha256": {
+    "bounded_json.py": "8F0D7E2E2A23577DD8FCC096B2F4516CDF592489D00C4341C932EEE2E6450032",
+    "cli_rpc_records.py": "81057E66CF47C62FC99FDEE77B00DB0EFF9A2E0B3E1FDBC5F99D61AA4E22E0EE",
+    "cli_core_events.py": "59F6B95F84FCECEBB6ACC3D10AC6DD19111BE732AC23B4EAF94F2C1F657D94B1",
+    "cli_model_turns.py": "74FDDFA06300B6AC1AE20D413418B6DAABC0039BD967638ADCD2B5ABAAC9A930",
+    "cli_request_core_turns.py": "A84DBA708F10B93146A94C7791B1D87CBDC03BF1C9E12392BD3FB167767F57FF"
+  },
+  "join_rule": "In one native process, select a complete response.create object whose client_metadata supplies thread_id and turn_id, require exactly one input item tagged user.text for that turn, and join to one task_complete with the same turn_id. Conflicting thread, input, or completion variants remain ambiguous.",
+  "identifier_boundary": "The recovered input ID is a model-input message ID, not the app-server user-item ID. task_complete does not independently bind an assistant-message ID."
+}

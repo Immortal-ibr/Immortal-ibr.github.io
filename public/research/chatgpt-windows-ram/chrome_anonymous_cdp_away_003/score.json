@@ -1,0 +1,39 @@
+{
+  "trial_id": "chrome_anonymous_cdp_away_003",
+  "method": "unchanged frozen Chrome state-object parser and joiner; ground truth checked afterward",
+  "navigation_requested_utc": "2026-09-30T07:34:37.0325838Z",
+  "post_navigation_target": "https://example.com/",
+  "target_list_observed_title": "Example Domain",
+  "capture_started_utc": "2026-09-30T07:36:47.4096856Z",
+  "selected_renderer_count": 6,
+  "profile_attribution": {
+    "basis": "renderer PPID in image-derived pslist joined to browser command line --user-data-dir",
+    "older_browser_pid": 4120,
+    "navigated_browser_pid": 3392,
+    "visible_lighthouse_renderer_pid": 5076,
+    "navigated_profile_renderer_pid": 6280
+  },
+  "per_renderer": [
+    {"pid": 672, "signature_hits": 0, "complete_occurrences": 0, "unique_records": 0},
+    {"pid": 3400, "signature_hits": 3, "complete_occurrences": 2, "unique_records": 1, "conversation": "older observatory profile"},
+    {"pid": 4324, "signature_hits": 0, "complete_occurrences": 0, "unique_records": 0},
+    {"pid": 6280, "signature_hits": 0, "complete_occurrences": 0, "unique_records": 0, "conversation": "navigated profile's active renderer"},
+    {"pid": 6652, "signature_hits": 0, "complete_occurrences": 0, "unique_records": 0},
+    {"pid": 7032, "signature_hits": 0, "complete_occurrences": 0, "unique_records": 0}
+  ],
+  "candidate_turns_total": 1,
+  "older_observatory_conversation_recovered": true,
+  "navigated_lighthouse_conversation_recovered": false,
+  "post_hoc_known_value_diagnostic": {
+    "scope": "resident user-space mappings of all six active renderers",
+    "values": ["lighthouse conversation ID", "synthetic prompt marker", "invented answer name"],
+    "encodings": ["UTF-8", "UTF-16LE"],
+    "total_hits": 0,
+    "used_for_reconstruction": false
+  },
+  "memprocfs": {
+    "older_record_occurrences_matching_bytes_and_translation": "2/2",
+    "navigated_renderer_page_samples_matching_bytes_and_translation": "32/32"
+  },
+  "interpretation": "No lighthouse turn was reconstructed from these active renderer mappings; this does not establish erasure from physical memory."
+}

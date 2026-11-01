@@ -1,0 +1,10 @@
+{
+  "trial_id": "chrome_anonymous_cdp_away_003",
+  "archive_bytes": 3288929244,
+  "archive_sha256": "91D939277DDE330FBC8C2278B6C617EC4F891F248C1E2BAB87483DF66769B2C2",
+  "raw_logical_bytes": 7147094016,
+  "decompressed_raw_sha256": "62A632705A3D411F1075D19BEEB5975A0143A072BCAB6A198C42E0C844AB6CB3",
+  "copy_verified": true,
+  "decompressed_digest_verified": true,
+  "raw_image_public": false
+}

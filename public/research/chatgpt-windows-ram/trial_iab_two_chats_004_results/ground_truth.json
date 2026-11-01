@@ -1,0 +1,33 @@
+{
+  "trial_id": "trial_iab_two_chats_004",
+  "condition": "two completed synthetic conversations in separate signed-in in-app browser tabs; both tabs open at acquisition",
+  "ground_truth_written_after_capture": true,
+  "ground_truth_outside_guest": false,
+  "clean_vm_reset": false,
+  "chats": [
+    {
+      "label": "A",
+      "prompt": "Synthetic two-chat RAM pilot 31e96fee-454c-4748-8a8e-5e245f48db22. Reply with exactly: copper violet",
+      "response": "copper violet",
+      "conversation_id": "6aaae15f-9efc-83ea-a646-d1b355fba1b6",
+      "user_message_id": "dddb37f9-e8a4-4ddf-8a7b-4ab2df8a2ea8",
+      "assistant_message_id": "18f80d86-e69d-55b1-b8be-d8a34795bc27",
+      "send_start_utc": "2026-09-16T18:35:11.537Z",
+      "send_end_utc": "2026-09-16T18:35:11.819Z",
+      "completion_observed_utc": "2026-09-16T18:35:55.113Z",
+      "ground_truth_source": "post-capture browser URL and read-only DOM data-message-id, author-role, and innerText"
+    },
+    {
+      "label": "B",
+      "prompt": "Synthetic two-chat RAM pilot b2d074cb-d2c9-4ae6-b285-824f1dbd7606. Reply with exactly: walnut orbit",
+      "response": "walnut orbit",
+      "conversation_id": "6aaae1a3-0228-83ea-bf61-2f2c89eb8912",
+      "user_message_id": "142506f7-6a90-432b-86cc-957df12cef12",
+      "assistant_message_id": "7a9f9308-d04a-5257-9d14-e4e152550ae1",
+      "send_start_utc": "2026-09-16T18:36:19.002Z",
+      "send_end_utc": "2026-09-16T18:36:19.297Z",
+      "completion_observed_utc": "2026-09-16T18:37:07.200Z",
+      "ground_truth_source": "post-capture browser URL and read-only DOM data-message-id, author-role, and innerText"
+    }
+  ]
+}

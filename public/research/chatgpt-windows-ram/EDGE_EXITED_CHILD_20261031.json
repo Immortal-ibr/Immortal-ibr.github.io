@@ -1,0 +1,74 @@
+{
+  "trial_id": "edge_anonymous_cdp_away_004",
+  "purpose": "Check whether the Edge child found by psscan after B9 navigation still has a usable process address space",
+  "image": {
+    "archive_sha256": "536EF0A2B56F99E284405015DECE5018EE3104B897CB503376216E37515675C9",
+    "decompressed_bytes": 7147094016,
+    "decompressed_sha256": "1DE75F7306FF80A7BE0D72697FEE1BD7E0374F781A6B733CF5165DA94653FECE",
+    "archive_and_decompressed_hashes_reverified": true
+  },
+  "tool": "Volatility 3 Framework 2.8.0",
+  "exited_child": {
+    "pid": 11068,
+    "parent_pid": 2840,
+    "image_name": "msedge.exe",
+    "created_utc": "2026-10-01T00:27:42Z",
+    "exited_utc": "2026-10-01T00:29:02Z",
+    "navigation_requested_utc": "2026-10-01T00:29:02.1236144Z",
+    "psscan_eprocess_physical_offset": "0x13aa0c080",
+    "command_line_available": false,
+    "windows_memmap_pid_rows": 0,
+    "windows_dlllist_physical_offset_rows": 0,
+    "saved_directory_table_base": "0x1260f3000",
+    "peb_virtual_address": "0x5e49dec000",
+    "peb_translates_through_saved_directory_table_base": false,
+    "image_base_virtual_address": "0x7ff7481e0000",
+    "image_base_translates_through_saved_directory_table_base": false,
+    "saved_dtb_target_page": {
+      "sha256": "5FD2782FAD897B7BB3C493FAFADE918A7E0814A2D67E8DEE49474035821B117C",
+      "lower_256_entries_with_present_bit": 40,
+      "lower_256_present_entries_with_frame_inside_raw_image": 0,
+      "upper_256_entries_with_present_bit": 50,
+      "upper_256_present_entries_with_frame_inside_raw_image": 0
+    }
+  },
+  "active_browser_parent_control": {
+    "pid": 2840,
+    "saved_directory_table_base": "0xb26ce000",
+    "peb_translates": true,
+    "image_base_translates": true,
+    "lower_256_entries_with_present_bit": 12,
+    "lower_256_present_entries_with_frame_inside_raw_image": 12,
+    "upper_256_entries_with_present_bit": 51,
+    "upper_256_present_entries_with_frame_inside_raw_image": 51
+  },
+  "additional_exited_child_checks": {
+    "windows_handles_at_scanned_eprocess_physical_offset": {
+      "command_plugin": "windows.handles --offset 0x13aa0c080",
+      "rows": 0,
+      "private_output_sha256": "A3CBE01DAD52836A7AC8EFC91954CF64867F4DEE8A6F046C4BB0838D11F48589"
+    },
+    "vad_tree_from_scanned_eprocess": {
+      "root": "0x0",
+      "traversed_vads": 0,
+      "method": "A small Volatility plugin selected PID 11068 through psscan and called get_vad_root on the saved EPROCESS.",
+      "public_probe": "method_psscan_vad/psscanvad.py",
+      "probe_sha256": "626EAC69022A5B8211E6E47C08B3ED0F12BF8354B05B4D81CC3B4A1330942A00",
+      "private_output_sha256": "563ED6185B43E2FB55B3834CD86AC0544B824914AC98DE366FF5EBA6BFA2C977"
+    },
+    "windows_thrdscan": {
+      "scanned_thread_rows": 1389,
+      "rows_with_pid_11068": 0,
+      "private_output_sha256": "875EA3223D699A89359500BF682131C513A7456F338FE8E5DDA46227A88F08DF"
+    }
+  },
+  "method": "psscan identified the exited EPROCESS. windows.memmap by PID enumerated pslist and returned no row. A separate process-layer probe called add_process_layer on the scanned EPROCESS, tested its recorded PEB and image-base addresses, and read the 4 KiB page at its saved DirectoryTableBase from the verified raw image. The same checks on the active Edge browser parent were a positive control.",
+  "private_output_sha256": {
+    "psscan_exited_child": "F24F85903CFF01521BB9E1AD08B03584407A4A8E16C1C8EFA3445FC22497A662",
+    "standard_memmap_exited_child": "A3CBE01DAD52836A7AC8EFC91954CF64867F4DEE8A6F046C4BB0838D11F48589",
+    "dlllist_exited_child": "A3CBE01DAD52836A7AC8EFC91954CF64867F4DEE8A6F046C4BB0838D11F48589",
+    "scanned_eprocess_probe": "70CDB1060D72D71906D644DFC7E6BCC8BC19D5A70310D58B712529F323E25A89",
+    "active_parent_probe": "852AFC5D0636B9E31B914FD0AE17D613AF0BD57FAE7806883910F51CC65E5D2F"
+  },
+  "interpretation": "The process object survives, but the saved page tables, VAD root, handles, and thread scan did not recover a usable old-process user map or command line. Its exit time cannot identify its Chromium role. Physical byte hits elsewhere in the image cannot be assigned to this child from the surviving process object. This is not evidence that its former pages were erased."
+}

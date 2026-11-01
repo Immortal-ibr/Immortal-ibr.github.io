@@ -1,0 +1,31 @@
+{
+  "trial_id": "edge-anonymous-cdp-close-005",
+  "question": "Did a complete bounded SSE data event survive as contiguous bytes anywhere in the physical image after the ChatGPT tab closed?",
+  "method": {
+    "ground_truth_supplied_to_scan": false,
+    "scanner": "The unchanged bounded sse_event_records.scan grammar read one synthetic identity row across the fully verified physical stream in host RAM.",
+    "sse_parser_source_sha256": "727767911AC19137431AF5233001AAD427EEF1B932CFBF1DF625D808BD6511D4",
+    "physical_adapter_source_sha256": "3D205F868702B8F9DA8526CD944DD2D9AF328D633147846C8F49731942C75D1D",
+    "process_attribution": false,
+    "virtual_adjacency_established": false,
+    "synthetic_adapter_positive_control": "A separate synthetic test accepted a complete JSON data event. It is not a real-capture positive control.",
+    "raw_disk_expansion_written": false,
+    "unfiltered_output_retained_private": true
+  },
+  "acquisition_reverified": {
+    "archive_sha256": "6FF40C6BA02E9E75ACF7AB25C904E6354FEC2C2FD890371339A51B1239117315",
+    "raw_sha256": "652ADC161F64148D78A57542C539CC270CE4A0282807A97D1B9BD6B65452A694",
+    "raw_bytes": 7147094016,
+    "archive_and_full_decompression_verified_before_scan": true
+  },
+  "flat_physical_scan": {
+    "data_prefix_signatures": 33,
+    "invalid_encoding": 6,
+    "invalid_or_non_object_event": 26,
+    "truncated_or_cap_limited": 1,
+    "complete_event_occurrences": 0,
+    "unique_complete_records": 0,
+    "private_output_sha256": "D83A7D92C40C2B285579FE5D0499841A600BCBAEB1691133AAE5FB11DB510253"
+  },
+  "interpretation": "Thirty-three data-prefix bytes are not thirty-three events. This physical scan recovered no complete framed JSON SSE event in the close-tab image. It cannot rule out an event split across nonadjacent physical pages or another response representation. The one exact full-answer physical hit was later classified as an investigator page-observation copy in EDGE_CLOSE_OBSERVER_COPY_20261001.json, not an independent Edge event."
+}

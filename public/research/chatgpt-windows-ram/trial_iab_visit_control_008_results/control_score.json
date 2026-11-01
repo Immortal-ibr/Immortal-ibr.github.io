@@ -1,0 +1,13 @@
+{
+  "trial_id": "trial_iab_visit_control_008",
+  "condition": "signed-in ChatGPT new-chat home visited without submitting a prompt; tab remained open during RAM capture",
+  "expected_new_turns": 0,
+  "ground_truth_supplied_to_frozen_method": false,
+  "active_renderer_processes_scanned": 5,
+  "stream_item_signature_hits": 39,
+  "complete_bounded_records": 0,
+  "candidate_turns": 0,
+  "false_joins_observed_in_this_control": 0,
+  "clean_vm_reset": false,
+  "limitation": "A signed-in account and previously used VM cannot serve as an independent no-visit control or a general false-positive-rate estimate."
+}

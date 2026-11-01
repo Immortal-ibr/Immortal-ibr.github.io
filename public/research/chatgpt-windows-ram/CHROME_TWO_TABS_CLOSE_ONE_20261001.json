@@ -1,0 +1,100 @@
+{
+  "trial_id": "chrome-two-tabs-close-one-005",
+  "condition": "Two completed synthetic anonymous conversations in separate tabs of one fresh Chrome profile; close only the first tab and leave the second answer visible",
+  "scope": "One baseline-reset, loopback DevTools-controlled contrast in one memory image; not a retention-rate estimate or a secure-erasure test",
+  "control": {
+    "completed_first_and_second_responses_observed_before_close": true,
+    "chatgpt_page_targets_before_close": 2,
+    "exact_first_target_close_status": "ok",
+    "chatgpt_page_targets_after_close": 1,
+    "surviving_target_was_the_second_conversation": true,
+    "second_response_observed_again_after_close_and_after_acquisition": true,
+    "close_requested_utc": "2026-10-01T07:18:24.4125131Z",
+    "browser_still_running_at_acquisition": true
+  },
+  "acquisition": {
+    "tool": "WinPmem 1.0-rc2, direct gzip stream",
+    "started_utc": "2026-10-01T07:18:57.2251604Z",
+    "ended_utc": "2026-10-01T07:20:12.7044813Z",
+    "seconds_from_close_request_to_acquisition_start": 32.8126473,
+    "guest_archive_bytes": 3456628517,
+    "archive_sha256": "C5754CF8D02B1213749CC3FA43D8331567FB9CAC736121DB6C448CA53FBE25D0",
+    "host_copy_hash_matches_guest": true,
+    "full_gzip_stream_verified": true,
+    "decompressed_logical_bytes": 7147094016,
+    "decompressed_sha256": "8295427AFA9CEDCA261A2FE3C7EA0525BE84925F96D34BA2E8E8A410CA7F0A64",
+    "independent_guest_raw_digest_available": false,
+    "host_raw_rehashed_after_analysis": true,
+    "private_archive_retained": true,
+    "derived_raw_currently_retained": false,
+    "derived_raw_regenerable_from_reverified_archive": true
+  },
+  "blind_process_scoped_analysis": {
+    "ground_truth_supplied": false,
+    "process_selection": "Active chrome.exe in image-derived windows.pslist, roles from windows.cmdline; all three exact --type=renderer processes and six other active Chrome processes were mapped",
+    "active_chrome_processes": 9,
+    "active_renderer_pids": [1356, 5496, 11116],
+    "psscan_current_parent_exited_children_between_close_and_capture": 0,
+    "psscan_caveat": "Pool scanning did not identify an exited child of the current Chrome parent in that 32.8-second interval. It does not map a DevTools page target to a renderer or prove that no stale pages survived.",
+    "frozen_chrome_state_v1_structural_signatures_by_renderer": {"1356": 3, "5496": 0, "11116": 0},
+    "frozen_chrome_state_v1_complete_occurrences_by_renderer": {"1356": 2, "5496": 0, "11116": 0},
+    "frozen_chrome_state_v1_unique_records_by_renderer": {"1356": 1, "5496": 0, "11116": 0},
+    "frozen_chrome_state_v1_joined_turns": 1,
+    "joined_turn_matches_surviving_tab": true,
+    "joined_turn_matches_closed_tab": false,
+    "chrome_state_complete_records_in_six_non_renderer_chrome_processes": 0,
+    "separate_signedin_sse_grammar_complete_events_across_all_nine_chrome_processes": 0,
+    "independent_memprocfs_record_occurrences_checked": 2,
+    "all_record_occurrence_bytes_and_translations_match": true,
+    "independent_memprocfs_samples_attempted_across_all_nine_chrome_processes": 288,
+    "samples_with_matching_virtual_to_physical_translation_and_bytes": 261,
+    "samples_with_memprocfs_read_or_translation_error": 27,
+    "samples_with_conflicting_translation_or_bytes": 0
+  },
+  "post_capture_score": {
+    "ground_truth_supplied_to_score_only": true,
+    "surviving_turn_exact_fields_matched": 5,
+    "surviving_turn_exact_fields_possible": 5,
+    "fields": ["conversation ID", "user message ID", "assistant message ID", "full prompt", "rendered response"],
+    "closed_turn_joined_candidates": 0
+  },
+  "post_hoc_exact_value_diagnostic": {
+    "ground_truth_supplied": true,
+    "encodings": ["UTF-8", "UTF-16LE"],
+    "closed_turn_full_physical_image_occurrences": {
+      "conversation_id": {"utf8": 54, "utf16le": 4},
+      "full_prompt": {"utf8": 7, "utf16le": 7},
+      "full_rendered_response": {"utf8": 6, "utf16le": 0}
+    },
+    "closed_turn_combined_encodings_in_active_process_user_maps": [
+      {"pid": 9576, "role": "browser parent", "conversation_id": 33, "full_prompt": 2, "full_rendered_response": 2},
+      {"pid": 4480, "role": "NetworkService", "conversation_id": 1, "full_prompt": 0, "full_rendered_response": 0},
+      {"pid": 8800, "role": "StorageService", "conversation_id": 2, "full_prompt": 0, "full_rendered_response": 0},
+      {"pid": 11116, "role": "renderer", "conversation_id": 5, "full_prompt": 0, "full_rendered_response": 0},
+      {"pid": 1356, "role": "renderer of surviving turn", "conversation_id": 0, "full_prompt": 0, "full_rendered_response": 0},
+      {"pid": 5496, "role": "renderer", "conversation_id": 0, "full_prompt": 0, "full_rendered_response": 0},
+      {"pid": 6108, "role": "crashpad", "conversation_id": 0, "full_prompt": 0, "full_rendered_response": 0},
+      {"pid": 6476, "role": "OnDeviceModelService", "conversation_id": 0, "full_prompt": 0, "full_rendered_response": 0},
+      {"pid": 9996, "role": "GPU", "conversation_id": 0, "full_prompt": 0, "full_rendered_response": 0}
+    ],
+    "surviving_turn_full_physical_image_occurrences": {
+      "conversation_id": {"utf8": 178, "utf16le": 17},
+      "full_prompt": {"utf8": 21, "utf16le": 44},
+      "full_rendered_response": {"utf8": 20, "utf16le": 3}
+    },
+    "closed_turn_first_mapped_hits_checked_with_memprocfs": 7,
+    "surviving_turn_first_mapped_hits_checked_with_memprocfs": 15,
+    "all_first_hit_translations_and_bytes_match": true,
+    "browser_parent_full_prompt_hits_inside_exact_escaped_observation": 2,
+    "browser_parent_full_response_hits_inside_exact_escaped_observation": 2,
+    "all_four_hits_and_full_observation_string_checked_with_memprocfs": true,
+    "instrumentation_caveat": "Both mapped prompt/response pairs in the browser parent sit inside the exact JSON-escaped textTail string returned by the loopback page-observation probe, with its user and assistant fields and ChatGPT said separator nearby. This is observer residue, not an independently linked ChatGPT turn. Other physical hits are not attributed by this check, and no erasure claim follows."
+  },
+  "screenshots": [
+    {"path": "screenshots/25-chrome-two-tabs-first-before-close.png", "sha256": "4DF8CC133DEE2DF322EC6557CA43E29FBD5AC65BE17767166B05FD7874421CCC", "source": "Actual first anonymous Chrome tab before its close; not extracted from RAM"},
+    {"path": "screenshots/26-chrome-two-tabs-second-remains.png", "sha256": "5F4C2446379F8ADF34EFB6900ED513391544E0BC5CBF9835CFE18CF9F2D0E2D2", "source": "Actual second anonymous Chrome tab before the first tab closed; re-observed still visible afterward"},
+    {"path": "screenshots/27-chrome-two-tabs-first-crop.png", "sha256": "ABE157065243ACD58EE58BB3518A1065D13FDEB3B559D82BCEB53DE1ED10E683", "source": "Unaltered pixel crop of first actual page capture", "crop": {"left": 0, "top": 0, "width": 1102, "height": 340}},
+    {"path": "screenshots/28-chrome-two-tabs-second-crop.png", "sha256": "CAD03AA79A1B0512F98985F2AB36341C272486A28666E2D8BC7BBF01AEA71A0B", "source": "Unaltered pixel crop of second actual page capture", "crop": {"left": 0, "top": 0, "width": 1102, "height": 340}}
+  ],
+  "interpretation": "Within the same Chrome browser and the same acquired image, the frozen state grammar reconstructed the still-open conversation and not the closed one. Closed-turn full text existed as loose physical and parent-process copies, with a concrete controller-copy caveat; this does not establish that the ChatGPT application retained a linked closed turn or that the data was erased."
+}

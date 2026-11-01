@@ -1,0 +1,15 @@
+﻿{
+    "trial_id":  "cli-api-dev-002-active",
+    "acquisition_method":  "WinPmem sparse raw",
+    "started_utc":  "2026-09-29T03:52:37.1213617+00:00",
+    "ended_utc":  "2026-09-29T03:53:06.4596714+00:00",
+    "elapsed_seconds":  29.3383097,
+    "exit_code":  0,
+    "tool_sha256":  "86691BB4AF2C17DD9EC4834C04A99AD51E04F780A07D1B05BC382A5D1892E0C4",
+    "windows_caption":  "Microsoft Windows 10 Pro",
+    "windows_build":  "19045",
+    "cim_usable_physical_bytes":  6072356864,
+    "raw_logical_bytes":  7147094016,
+    "raw_sha256":  "4EE5604F16C2A9C21AD2AC7365A39FB3A910706DA748794EFB0B4D45924AB164",
+    "status":  "captured_unvalidated"
+}

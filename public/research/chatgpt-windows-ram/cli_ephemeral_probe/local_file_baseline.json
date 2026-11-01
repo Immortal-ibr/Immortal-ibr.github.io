@@ -1,0 +1,13 @@
+{
+  "trial_id": "cli_ephemeral_probe",
+  "cli_version": "codex-cli 0.153.0",
+  "start_utc": "2026-09-16T20:04:38.9622873Z",
+  "end_utc": "2026-09-16T20:04:51.0960928Z",
+  "exit_code": 0,
+  "session_id": "01a0abd2-4a41-74f0-bae7-99c48bfeeaf6",
+  "actual_response": "golden harbor",
+  "expected_response_exact": true,
+  "normal_codex_session_jsonl_file_count": 0,
+  "investigator_stdout_log_exists": true,
+  "limitations": "Only the normal Codex session JSONL path was checked. The investigator-created stdout log persists privately; this is not a claim that no copy exists anywhere on disk or in RAM."
+}

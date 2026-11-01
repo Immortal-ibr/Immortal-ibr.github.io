@@ -1,0 +1,20 @@
+{
+  "trial_id": "trial_iab_visible_002",
+  "start_utc": "2026-09-16T17:25:46.6283871Z",
+  "end_utc": "2026-09-16T17:25:59.4432062Z",
+  "tool": "C:\\Users\\Win10\\Desktop\\BOR-native-private\\tools\\go-winpmem_amd64_1.0-rc2_signed.exe",
+  "tool_sha256": "86691BB4AF2C17DD9EC4834C04A99AD51E04F780A07D1B05BC382A5D1892E0C4",
+  "command": "acquire memory.raw (default sparse raw output; no compression)",
+  "elevated": true,
+  "image": "C:\\Users\\Win10\\Desktop\\cheater_ram_research_2026-09-16\\trial_iab_visible_002\\memory.raw",
+  "image_exists": true,
+  "image_bytes": 18253611008,
+  "image_sha256": "C91CF60D657A178BC51DAC63A4C8C37D4D12C6ABE4F817E241C657A9137DB765",
+  "free_before_bytes": 25977507840,
+  "free_after_bytes": 8798580736,
+  "exit_code": 0,
+  "error": null,
+  "post_capture_move": "C:\\Users\\Win10\\Desktop\\cheater_ram_research_2026-09-16\\trial_iab_visible_002\\private\\memory.raw",
+  "move_reason": "Separated the image and private process/record extracts for user-managed deletion; SHA-256 unchanged",
+  "image_currently_present": false
+}

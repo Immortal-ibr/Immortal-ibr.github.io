@@ -1,0 +1,17 @@
+﻿{
+    "trial_id":  "trial_iab_close_tab_006",
+    "start_utc":  "2026-09-16T19:19:08.2414148Z",
+    "end_utc":  "2026-09-16T19:19:21.2384411Z",
+    "tool":  "C:\\Users\\Win10\\Desktop\\BOR-native-private\\tools\\go-winpmem_amd64_1.0-rc2_signed.exe",
+    "tool_sha256":  "86691BB4AF2C17DD9EC4834C04A99AD51E04F780A07D1B05BC382A5D1892E0C4",
+    "command":  "acquire private/memory.raw (default sparse raw output; no compression)",
+    "elevated":  true,
+    "image":  "C:\\Users\\Win10\\Desktop\\cheater_ram_research_2026-09-16\\trial_iab_close_tab_006\\private\\memory.raw",
+    "image_exists":  true,
+    "image_bytes":  18253611008,
+    "image_sha256":  "7D184DEF5736170A3835E9ADFF5325184AE26535F30D346B8CE6A498413A542A",
+    "free_before_bytes":  25933996032,
+    "free_after_bytes":  8754696192,
+    "exit_code":  0,
+    "error":  null
+}

@@ -1,0 +1,12 @@
+{
+  "verified_utc": "2026-09-29T04:45:49.680126+00:00",
+  "trial_id": "cli-api-heldout-001-active",
+  "archive_sha256": "c104069505c3b97bad7febbaa28cd46a10e219371616ca232a7fab360b7aac97",
+  "archive_bytes": 2970908793,
+  "raw_sha256": "d31fe50f4ac1d6ee41eb86795513b1ddeeb04e057e18083c86246c46a3a5976b",
+  "raw_logical_bytes": 7147094016,
+  "copy_verified": true,
+  "decompressed_digest_verified": true,
+  "elapsed_seconds": 24.218999999808148,
+  "archive_deleted": false
+}

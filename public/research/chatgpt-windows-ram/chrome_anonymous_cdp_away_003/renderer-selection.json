@@ -1,0 +1,7 @@
+{
+  "process_name": "chrome.exe",
+  "selection_rule": "active in windows.pslist and exact --type=renderer argument in windows.cmdline",
+  "selected_pids": [672, 3400, 4324, 6280, 6652, 7032],
+  "active_browser_pids_without_cmdline": 0,
+  "ground_truth_supplied_to_selection": false
+}

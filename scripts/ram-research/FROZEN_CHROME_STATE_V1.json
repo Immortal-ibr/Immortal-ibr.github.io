@@ -1,0 +1,13 @@
+{
+  "frozen_at_utc": "2026-09-30T06:14:24Z",
+  "development_trial": "chrome_anonymous_cdp_visible_001",
+  "development_image_sha256": "C399B8958A251063939BCE8A59A6842FD70B86BFD3DAA425B1EFFB4C6438E0E6",
+  "method_files": {
+    "bounded_json.py": "8F0D7E2E2A23577DD8FCC096B2F4516CDF592489D00C4341C932EEE2E6450032",
+    "chrome_state_records.py": "699066609C86267B8F8302D64749D56BA993C6BB985B11A90551E9617384F052",
+    "chrome_state_turns.py": "005AFB18D715CFCC90D9F5E17531D91769345B46136DCD767B9035553CAC4F61"
+  },
+  "selection": "all active chrome.exe processes with --type=renderer from image-derived pslist/cmdline",
+  "ground_truth_supplied_to_method": false,
+  "state": "development frozen before a fresh Chrome turn; no fresh score yet"
+}

@@ -1,0 +1,21 @@
+{
+  "trial": "cli-requestcore-fresh-004",
+  "view": "reviewed selection from the private RAM recovery and host score",
+  "native_process": "codex.exe app-server --listen stdio:// (PID 5968)",
+  "complete_records": [
+    { "type": "response.create", "bytes": 16084 },
+    { "type": "task_complete", "bytes": 303 }
+  ],
+  "joined_candidates": 1,
+  "recovered_prompt": "For a RAM-recovery validation, answer in one sentence why a brass hourglass cannot detect earthquakes. End with the exact words cobalt fern 94.",
+  "recovered_response": "A brass hourglass measures elapsed time, not ground motion, so it cannot detect earthquakes; cobalt fern 94",
+  "independent_host_score": {
+    "thread_id": "exact",
+    "turn_id": "exact",
+    "prompt": "exact",
+    "response": "exact"
+  },
+  "relay_candidates": 0,
+  "memprocfs_accepted_records": "2/2",
+  "assistant_message_id_independently_bound": false
+}

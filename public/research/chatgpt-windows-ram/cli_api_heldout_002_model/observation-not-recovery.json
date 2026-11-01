@@ -1,0 +1,14 @@
+{
+  "trial_id": "cli-api-heldout-002b-active",
+  "cohort": "instrumented native app-server stdio; held-out",
+  "thread_id": "01a0eb99-f3ed-76f2-b713-533ce6747e60",
+  "turn_id": "01a0eb9a-5b8d-7161-9054-97832028d225",
+  "prompt": "For the synthetic label copper-river-385, write exactly one sentence about a fictional museum. Include the result of 615 + 278 and invent a three-word name that does not appear in this prompt. Do not use tools, commands, files, or web search.",
+  "response": "At the fictional museum Copper River Hall, visitors admire the three-word exhibit name \u201cLanterns Beneath Winter\u201d and learn that 615 + 278 = 893.",
+  "agent_message_id": "msg_0d12e843ef5af2fd016abb4a55c57487d19188359f96bc51b4",
+  "five_linked_fields_match_observation": null,
+  "model_input_id_independently_ground_truth_scored": false,
+  "timestamp_warning": "Model-input creation time is NOT a human submission timestamp",
+  "account_identity_claimed": false,
+  "presentation_only": "HOST OBSERVATION ONLY: these five fields were NOT linked by the RAM parser"
+}

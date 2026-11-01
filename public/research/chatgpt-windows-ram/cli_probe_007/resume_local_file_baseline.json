@@ -1,0 +1,16 @@
+{
+  "trial_id": "cli_probe_007_resume",
+  "session_id_reused": true,
+  "actual_response": "silver compass",
+  "expected_response_exact": true,
+  "session_file_bytes_before": 77569,
+  "session_file_bytes_after": 83496,
+  "session_file_sha256_before": "AB93E9E1A79D2764F0725D2C3BAC0D8F6145E67D8C61F9429260D3CC6D9C90B5",
+  "session_file_sha256_after": "D6EF2DAC12BA0CBC44AB755941EA75D7FB7A38FAA858D37A694E73BFE8D61E88",
+  "session_file_contains_first_prompt_after_resume": true,
+  "session_file_contains_first_answer_after_resume": true,
+  "session_file_contains_resumed_prompt": true,
+  "session_file_contains_resumed_answer": true,
+  "local_session_file_private": true,
+  "limitations": "The CLI process had exited between turns. This checks persisted local-file behavior, not RAM after exit or resumed-process memory."
+}

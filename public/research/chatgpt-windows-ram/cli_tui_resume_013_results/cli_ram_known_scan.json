@@ -1,0 +1,71 @@
+{
+  "trial_id": "cli_tui_resume_013",
+  "start_utc": "2026-09-17T03:41:38.158782Z",
+  "method": "post-capture ground-truth-assisted exact-value count in image-derived active native codex.exe and node.exe launcher user-space mappings",
+  "ground_truth_supplied": true,
+  "selected_pids": [
+    8608,
+    12848
+  ],
+  "process_tag": "cli_tui_resume_013",
+  "processes": [
+    {
+      "pid": 8608,
+      "user_space_rows_scanned": 8733,
+      "known_value_hit_counts": {
+        "prompt_utf8": 0,
+        "prompt_utf16le": 0,
+        "response_utf8": 0,
+        "response_utf16le": 0,
+        "marker_utf8": 0,
+        "marker_utf16le": 0,
+        "prompt_prefix_48_utf8": 0,
+        "prompt_prefix_48_utf16le": 0,
+        "response_prefix_48_utf8": 0,
+        "response_prefix_48_utf16le": 0
+      },
+      "physical_4k_pages_with_hit": {
+        "prompt_utf8": 0,
+        "prompt_utf16le": 0,
+        "response_utf8": 0,
+        "response_utf16le": 0,
+        "marker_utf8": 0,
+        "marker_utf16le": 0,
+        "prompt_prefix_48_utf8": 0,
+        "prompt_prefix_48_utf16le": 0,
+        "response_prefix_48_utf8": 0,
+        "response_prefix_48_utf16le": 0
+      }
+    },
+    {
+      "pid": 12848,
+      "user_space_rows_scanned": 32787,
+      "known_value_hit_counts": {
+        "prompt_utf8": 15,
+        "prompt_utf16le": 0,
+        "response_utf8": 11,
+        "response_utf16le": 0,
+        "marker_utf8": 23,
+        "marker_utf16le": 0,
+        "prompt_prefix_48_utf8": 15,
+        "prompt_prefix_48_utf16le": 0,
+        "response_prefix_48_utf8": 12,
+        "response_prefix_48_utf16le": 0
+      },
+      "physical_4k_pages_with_hit": {
+        "prompt_utf8": 9,
+        "prompt_utf16le": 0,
+        "response_utf8": 9,
+        "response_utf16le": 0,
+        "marker_utf8": 17,
+        "marker_utf16le": 0,
+        "prompt_prefix_48_utf8": 9,
+        "prompt_prefix_48_utf16le": 0,
+        "response_prefix_48_utf8": 9,
+        "response_prefix_48_utf16le": 0
+      }
+    }
+  ],
+  "limitations": "An exact hit is content presence in a mapped page, not a linked conversation or proof of exclusive process ownership; split, compressed, or transformed values can be missed.",
+  "end_utc": "2026-09-17T03:43:55.185318Z"
+}

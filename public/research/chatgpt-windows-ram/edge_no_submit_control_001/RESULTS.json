@@ -1,0 +1,59 @@
+{
+  "trial_id": "edge-no-submit-control-001",
+  "state": "Signed-in Edge on an empty ChatGPT new-chat page; no experimental submission",
+  "cohort": "ordinary interactive Edge browser",
+  "repetitions_in_this_state": 1,
+  "acquisition": {
+    "started_utc": "2026-09-30T03:11:06.6747533Z",
+    "ended_utc": "2026-09-30T03:11:31.6007938Z",
+    "elapsed_seconds": 24.9260405,
+    "method": "WinPmem sparse raw",
+    "exit_code": 0,
+    "raw_logical_bytes": 7147094016,
+    "raw_sha256": "b671b8f6b532d4359e9ed686ea54b7512bbbf827e2969b9da55c2b61965f2613",
+    "private_archive_bytes": 2201736219,
+    "private_archive_sha256": "2777c8acd2c86b3cf9a28ce2371e0c409ad2b6d0e04fbf7db75f27807f2ff02d",
+    "archive_and_decompressed_raw_verified": true,
+    "full_image_published": false
+  },
+  "image_derived_process_selection": {
+    "tools": ["Volatility 3 windows.pslist", "Volatility 3 windows.cmdline"],
+    "rule": "All active msedge.exe processes with an exact --type=renderer command-line argument",
+    "active_edge_processes": 9,
+    "active_edge_processes_missing_command_line": 0,
+    "renderer_pids": [7200, 9500, 10256],
+    "renderer_session_id": 1,
+    "known_prompt_answer_ids_or_offsets_supplied": false
+  },
+  "renderers": [
+    {"pid": 7200, "resident_user_map_rows": 61458, "frozen_v2_signature_hits": 0, "frozen_v2_complete_records": 0, "frozen_v2_joined_turns": 0, "development_utf8_utf16_signature_hits": 0, "memprocfs_samples_matching": 32},
+    {"pid": 9500, "resident_user_map_rows": 7396, "frozen_v2_signature_hits": 0, "frozen_v2_complete_records": 0, "frozen_v2_joined_turns": 0, "development_utf8_utf16_signature_hits": 0, "memprocfs_samples_matching": 32},
+    {"pid": 10256, "resident_user_map_rows": 35636, "frozen_v2_signature_hits": 0, "frozen_v2_complete_records": 0, "frozen_v2_joined_turns": 0, "development_utf8_utf16_signature_hits": 0, "memprocfs_samples_matching": 32}
+  ],
+  "posthoc_chrome_state_control": {
+    "role": "Retrospective negative check on this existing no-submit image; the Chrome state-object method was frozen later, not before this control capture.",
+    "frozen_method": "FROZEN_CHROME_STATE_V1.json",
+    "image_derived_renderer_pids": [7200, 9500, 10256],
+    "signature_hits_by_pid": {"7200": 0, "9500": 0, "10256": 0},
+    "complete_records_by_pid": {"7200": 0, "9500": 0, "10256": 0},
+    "candidate_turns_all_three": 0,
+    "archive_and_raw_sha256_verified_before_scanning": true,
+    "private_scan_backend": "gzip expanded in host RAM; no additional raw file written",
+    "backend_positive_check": "The same backend returned 19 signatures, 16 complete occurrences and the same five record hashes as the previously saved raw-file result on Chrome visible-response PID 5076.",
+    "ground_truth_values_supplied_to_parser": false
+  },
+  "later_full_physical_state_scan": {
+    "method": "Unchanged bounded Chrome-state grammar over the verified flat physical image, with no known turn values",
+    "record_byte_cap": 1048576,
+    "state_object_signature_hits": 0,
+    "complete_state_objects": 0,
+    "private_output_sha256": "47780AB7DF43E1D7DF2C1C3C887ECAB20AD84D51ACC624C851A3A3C5B829CFE3",
+    "scope": "Retrospective format-specific control check, not a new capture or a false-positive-rate estimate"
+  },
+  "memprocfs_crosscheck": {
+    "samples": 96,
+    "physical_translations_and_bytes_matching_volatility": 96,
+    "unknown_target_command_lines": 0
+  },
+  "interpretation": "Neither the stream-item nor the later state-object grammar found an accepted turn in the three selected resident Edge renderer maps. This single control cannot establish a false-positive rate or absence of unrelated account data."
+}

@@ -1,0 +1,84 @@
+{
+  "trial_id": "chrome-anonymous-cdp-close-004",
+  "condition": "A completed synthetic anonymous turn in ordinary Chrome, followed by closing its ChatGPT tab while keeping blank tabs and Chrome running",
+  "scope": "One instrumented capture after restoring the Research VM baseline; not a retention-rate estimate or a claim about secure erasure",
+  "control": {
+    "method": "Loopback DevTools page observation and target-list verification",
+    "completed_response_observed_before_close": true,
+    "first_close_helper_attempt": "Failed before closing the ChatGPT target; a subsequent page observation confirmed the completed turn remained visible. The helper's multi-target enumeration was corrected before the scored close.",
+    "scored_close_status": "ok",
+    "chatgpt_targets_after_scored_close": 0,
+    "blank_targets_after_scored_close": 2,
+    "close_requested_utc": "2026-10-01T06:28:24.2511540Z",
+    "browser_still_running_at_acquisition": true
+  },
+  "acquisition": {
+    "tool": "WinPmem 1.0-rc2, direct gzip stream",
+    "started_utc": "2026-10-01T06:28:47.4538626Z",
+    "ended_utc": "2026-10-01T06:30:01.8702710Z",
+    "seconds_from_verified_close_request_to_acquisition_start": 23.2027086,
+    "guest_archive_bytes": 3475551158,
+    "archive_sha256": "86CA335B3D18199888EE5354A451939B9CADD60FC83095BB58C465E4739B9CD5",
+    "host_copy_hash_matches_guest": true,
+    "full_gzip_stream_verified": true,
+    "decompressed_logical_bytes": 7147094016,
+    "decompressed_sha256": "EE1C9A16BC1E3BD71EF35EF8B909219075564B2C262F00F77008CA490A9C4A56",
+    "independent_guest_raw_digest_available": false
+  },
+  "blind_process_scoped_analysis": {
+    "ground_truth_supplied": false,
+    "process_selection": "Active chrome.exe in image-derived windows.pslist, role from windows.cmdline; all four exact --type=renderer processes were mapped",
+    "active_chrome_processes": 10,
+    "active_renderer_pids": [5688, 6664, 7892, 8540],
+    "renderer_resident_user_rows": {"5688": 11053, "6664": 6430, "7892": 6764, "8540": 5473},
+    "frozen_chrome_state_v1_complete_records": {"5688": 0, "6664": 0, "7892": 0, "8540": 0},
+    "frozen_chrome_state_v1_joined_turns": 0,
+    "separate_signedin_sse_grammar_complete_events_across_all_chrome_processes": 0,
+    "sse_signature_observation": "One browser-parent data: prefix failed strict encoding; the other nine Chrome process maps had zero signatures",
+    "independent_memprocfs_samples_attempted_across_all_chrome_processes": 320,
+    "samples_with_matching_virtual_to_physical_translation_and_bytes": 309,
+    "samples_with_memprocfs_read_or_translation_error": 11,
+    "samples_with_conflicting_translation_or_bytes": 0
+  },
+  "post_hoc_exact_value_diagnostic": {
+    "ground_truth_supplied": true,
+    "encodings": ["UTF-8", "UTF-16LE"],
+    "full_physical_image_occurrences": {
+      "conversation_id": {"utf8": 64, "utf16le": 9},
+      "full_prompt": {"utf8": 9, "utf16le": 26},
+      "full_rendered_response": {"utf8": 0, "utf16le": 0},
+      "answer_exclusive_phrase": {"utf8": 7, "utf16le": 0}
+    },
+    "mapped_process_occurrences_combined_encodings": [
+      {"pid": 9680, "role": "browser parent", "conversation_id": 40, "full_prompt": 0, "answer_exclusive_phrase": 0},
+      {"pid": 4972, "role": "StorageService", "conversation_id": 0, "full_prompt": 4, "answer_exclusive_phrase": 0},
+      {"pid": 9372, "role": "NetworkService", "conversation_id": 5, "full_prompt": 0, "answer_exclusive_phrase": 0},
+      {"pid": 5688, "role": "renderer", "conversation_id": 4, "full_prompt": 0, "answer_exclusive_phrase": 0},
+      {"pid": 6664, "role": "renderer", "conversation_id": 0, "full_prompt": 0, "answer_exclusive_phrase": 0},
+      {"pid": 7892, "role": "renderer", "conversation_id": 0, "full_prompt": 0, "answer_exclusive_phrase": 0},
+      {"pid": 8540, "role": "renderer", "conversation_id": 0, "full_prompt": 0, "answer_exclusive_phrase": 0},
+      {"pid": 4480, "role": "crashpad", "conversation_id": 0, "full_prompt": 0, "answer_exclusive_phrase": 0},
+      {"pid": 10568, "role": "GPU", "conversation_id": 0, "full_prompt": 0, "answer_exclusive_phrase": 0},
+      {"pid": 11228, "role": "OnDeviceModelService", "conversation_id": 0, "full_prompt": 0, "answer_exclusive_phrase": 0}
+    ],
+    "first_mapped_hits_checked_with_memprocfs": 6,
+    "all_first_hit_translations_and_bytes_match": true,
+    "warning": "None of the seven answer-phrase hits was mapped by an active Chrome process. A later bounded context check proved that two are serialized probe textTail copies; a further exact-offset mapping check found two in vmtoolsd.exe user space and three without a process user mapping. The known-value diagnostic cannot reconstruct a linked turn, and zero exact full-response hits do not rule out differently formatted answer bytes."
+  },
+  "later_answer_phrase_provenance": "CHROME_CLOSE_PHRASE_PROVENANCE_20261001.json",
+  "later_exact_offset_mapping": "CHROME_CLOSE_PHYSICAL_OWNER_20261001.json",
+  "later_full_physical_state_scan": {
+    "method": "Unchanged bounded Chrome-state grammar over the verified flat physical image, without a known prompt, answer or ID",
+    "record_byte_cap": 1048576,
+    "state_object_signature_hits": 0,
+    "complete_state_objects": 0,
+    "private_output_sha256": "8378BD9A46CE75D26FDB422898651FD5536A42BE39E56F0C2646F8CDC45F5ADB",
+    "scope": "Exploratory format-specific physical scan, not process attribution or a claim that all conversation bytes were erased"
+  },
+  "screenshot": {
+    "path": "screenshots/24-chrome-before-tab-close.png",
+    "sha256": "0838C966E700A133A9409D21A8CD52ACC302932A87ADA78470FECFBB40592955",
+    "source": "Actual anonymous Chrome page before tab closure; not extracted from RAM"
+  },
+  "interpretation": "The frozen renderer grammar reconstructed no turn after the verified Chrome tab close. The ID and prompt had mapped copies outside the active renderers, while the answer-exclusive phrase appeared in none of the ten active Chrome user maps. Two of its seven physical hits were later identified inside the investigator's page-observation textTail, two others mapped to VMware guest-tools user space, and three had no process user mapping. None is a linked conversation or proof that Chrome retained the answer."
+}

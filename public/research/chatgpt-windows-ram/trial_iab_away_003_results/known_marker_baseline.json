@@ -1,0 +1,20 @@
+{
+  "trial_id": "trial_iab_away_003",
+  "method": "ground-truth-assisted exact-string scan of full physical RAM; not blind or process-attributed",
+  "scanned_bytes": 18253611008,
+  "counts": {
+    "prompt_uuid_ascii": 122,
+    "prompt_uuid_utf16le": 0,
+    "prompt_exact_ascii": 114,
+    "prompt_exact_utf16le": 0,
+    "response_exact_ascii": 154,
+    "response_exact_utf16le": 0,
+    "conversation_id_ascii": 949,
+    "conversation_id_utf16le": 58,
+    "user_message_id_ascii": 15,
+    "user_message_id_utf16le": 0,
+    "assistant_message_id_ascii": 12,
+    "assistant_message_id_utf16le": 0
+  },
+  "interpretation": "Byte presence can come from the browser, browser-control runtime, Codex transcript/log copies, or other processes; counts do not identify a bounded linked turn."
+}

@@ -1,0 +1,330 @@
+{
+  "study_date": "2026-09-29",
+  "scope": "Separate instrumented native app-server stdio follow-up; not browser or TUI validation",
+  "complete_acquisitions": 3,
+  "evaluated_method_image_pairs": 5,
+  "controls_or_primary_matrix_completed": false,
+  "environment": {
+    "windows": "Windows 10 Pro 22H2, 19045 UBR 4894",
+    "vmware": "17.5.2 build 23775571",
+    "configured_ram_bytes": 6073352192,
+    "vcpus": 4,
+    "native_cli": "0.158.0-alpha.2.1",
+    "volatility": "3 Framework 2.8.0, Bash in Kali WSL",
+    "memprocfs": "5.14.9.199",
+    "acquisition_tool_sha256": "86691bb4af2c17dd9ec4834c04a99ad51e04f780a07d1b05bc382a5d1892e0c4"
+  },
+  "separation": {
+    "reset_before_each_capture": true,
+    "reset_point": "ram-tools-ready-20260929-v1, UID 3",
+    "account_history_reset": false,
+    "observation_and_scoring_logs": "host only",
+    "intended_request_enters_guest": true,
+    "native_session_behavior_disabled": false,
+    "guest_relay": "Opaque 16 KiB stdio/network buffers; separately analyzed observer effect",
+    "transport": "Private VMware NAT, TLS 1.2, pinned ephemeral certificate; no firewall change",
+    "first_party_credentials_exported": false,
+    "account_identity_claimed": false
+  },
+  "freezes": [
+    {
+      "folder": "method_cli_core_v1",
+      "manifest_sha256": "30ee4c8921d537b249c17365e725bd7d34d2b321a9b1fa19ccb096aa47c8a82e",
+      "method_version": "cli-core-v1",
+      "frozen_utc": "2026-09-29T04:33:06.111954+00:00",
+      "cohort": "instrumented native Codex app-server stdio, not browser or TUI",
+      "record_cap_bytes": 1048576,
+      "encodings": [
+        "utf-8",
+        "utf-16-le"
+      ],
+      "object_prefix": "{\"type\"",
+      "accepted_types": [
+        "item_completed",
+        "task_complete",
+        "agentMessage"
+      ],
+      "process_selection": "all live inventoried native codex.exe backends; each map analyzed separately",
+      "mapping_scope": "resident user space below 2^47; virtual gaps never bridged",
+      "candidate_rule": "one exact turn-ID binding to one thread and one user/completion variant",
+      "strong_fields": [
+        "thread_id",
+        "turn_id",
+        "user_message_id",
+        "prompt",
+        "response"
+      ],
+      "assistant_id_independently_bound": false,
+      "known_values_supplied": false,
+      "files": [
+        {
+          "path": "bounded_json.py",
+          "bytes": 10964,
+          "sha256": "8f0d7e2e2a23577dd8fcc096b2f4516cdf592489d00c4341c932eee2e6450032"
+        },
+        {
+          "path": "cli_rpc_records.py",
+          "bytes": 11238,
+          "sha256": "81057e66cf47c62fc99fdee77b00db0eff9a2e0b3e1fdbc5f99d61aa4e22e0ee"
+        },
+        {
+          "path": "cli_core_events.py",
+          "bytes": 7873,
+          "sha256": "59f6b95f84fcecebb6acc3d10ac6dd19111be732ac23b4eaf94f2c1f657d94b1"
+        }
+      ]
+    },
+    {
+      "folder": "method_cli_model_input_v1",
+      "manifest_sha256": "fcf87c21728592f2f54a5c2a63bcc5f6c2e072b9f231fc9b24245426f4d002e3",
+      "method_version": "cli-model-input-v1",
+      "frozen_utc": "2026-09-29T05:08:23.963366+00:00",
+      "cohort": "instrumented native Codex app-server stdio, not browser or TUI",
+      "record_cap_bytes": 1048576,
+      "encodings": [
+        "utf-8",
+        "utf-16-le"
+      ],
+      "object_prefix": "public-RPC first keys plus compact {\"type\"",
+      "accepted_types": [
+        "message with role=user and aligned user.text metadata",
+        "turn/completed with final_answer agent item"
+      ],
+      "process_selection": "all live inventoried native codex.exe backends; each map analyzed separately",
+      "mapping_scope": "resident user space below 2^47; virtual gaps never bridged",
+      "candidate_rule": "one exact turn ID, one tagged input, final agent variant and thread binding",
+      "strong_fields": [
+        "thread_id",
+        "turn_id",
+        "prompt",
+        "response",
+        "agent_message_id"
+      ],
+      "assistant_id_independently_bound": true,
+      "known_values_supplied": false,
+      "files": [
+        {
+          "path": "bounded_json.py",
+          "bytes": 10964,
+          "sha256": "8f0d7e2e2a23577dd8fcc096b2f4516cdf592489d00c4341c932eee2e6450032"
+        },
+        {
+          "path": "cli_rpc_records.py",
+          "bytes": 11238,
+          "sha256": "81057e66cf47c62fc99fdee77b00db0eff9a2e0b3e1fdbc5f99d61aa4e22e0ee"
+        },
+        {
+          "path": "cli_model_turns.py",
+          "bytes": 6798,
+          "sha256": "74fddfa06300b6ac1ae20d413418b6daabc0039bd967638adcd2b5abaac9a930"
+        }
+      ],
+      "api_user_item_id_recovered": false,
+      "identifier_boundary": "model_input_message_id is never renamed as an API user-item ID",
+      "timestamp_boundary": "model-input creation metadata is not a human submission timestamp"
+    }
+  ],
+  "captures": [
+    {
+      "key": "lighthouse",
+      "trial_id": "cli-api-dev-002-active",
+      "acquisition_start_utc": "2026-09-29T03:52:37.1213617+00:00",
+      "acquisition_end_utc": "2026-09-29T03:53:06.4596714+00:00",
+      "acquisition_seconds": 29.3383097,
+      "acquisition_exit_code": 0,
+      "raw_logical_bytes": 7147094016,
+      "raw_sha256": "4ee5604f16c2a9c21ad2ac7365a39fb3a910706da748794efb0b4d45924ab164",
+      "archive_bytes": 2954316302,
+      "archive_sha256": "61a23a77ed1413fb04f6b1e6907b3111b7f515af088c0bb6ddc5af4dfee9faef",
+      "full_copy_and_decompression_verified": true,
+      "full_image_disposition": "Raw image AND verified archive retained privately outside OneDrive; not published",
+      "evaluations": [
+        {
+          "bundle": "cli_api_dev_002",
+          "method": "core-v1",
+          "role": "development",
+          "score_file": "cli_api_dev_002/score.json",
+          "recovered_output_sha256": "0a253707f46e9c66281d6fc6e1618292f31c0fb0ef20833cc28b53ecbf32e405",
+          "candidate_count": 1,
+          "scored_field_set": [
+            "thread",
+            "turn",
+            "api_user_item",
+            "prompt",
+            "response"
+          ],
+          "exact_candidate_scores": [
+            {
+              "exact_strong_field_matches": {
+                "thread_id": true,
+                "turn_id": true,
+                "user_message_id": true,
+                "prompt": true,
+                "response": true
+              },
+              "all_five_match": true,
+              "agent_id_independently_bound": false,
+              "observed_agent_id_among_unbound_text_matches": true,
+              "task_start_matches_api": true,
+              "task_end_matches_api": true
+            }
+          ],
+          "source_records": 3,
+          "source_occurrences_crosschecked": 4,
+          "all_record_bytes_and_translations_match": true,
+          "response_to_acquisition_seconds": 71.95618
+        }
+      ]
+    },
+    {
+      "key": "observatory",
+      "trial_id": "cli-api-heldout-001-active",
+      "acquisition_start_utc": "2026-09-29T04:38:02.4642788+00:00",
+      "acquisition_end_utc": "2026-09-29T04:38:31.5517605+00:00",
+      "acquisition_seconds": 29.087481699999998,
+      "acquisition_exit_code": 0,
+      "raw_logical_bytes": 7147094016,
+      "raw_sha256": "d31fe50f4ac1d6ee41eb86795513b1ddeeb04e057e18083c86246c46a3a5976b",
+      "archive_bytes": 2970908793,
+      "archive_sha256": "c104069505c3b97bad7febbaa28cd46a10e219371616ca232a7fab360b7aac97",
+      "full_copy_and_decompression_verified": true,
+      "full_image_disposition": "Raw image AND verified archive retained privately outside OneDrive; not published",
+      "evaluations": [
+        {
+          "bundle": "cli_api_heldout_001",
+          "method": "core-v1",
+          "role": "fresh frozen-method test",
+          "score_file": "cli_api_heldout_001/score.json",
+          "recovered_output_sha256": "8242c68b37fcb04184372a4b3b1971c53ecfa581f58f98b0927ee5944d3bec5e",
+          "candidate_count": 0,
+          "scored_field_set": [
+            "thread",
+            "turn",
+            "api_user_item",
+            "prompt",
+            "response"
+          ],
+          "exact_candidate_scores": [],
+          "source_records": 2,
+          "source_occurrences_crosschecked": 7,
+          "all_record_bytes_and_translations_match": true,
+          "response_to_acquisition_seconds": 2.16375
+        },
+        {
+          "bundle": "cli_api_001_model_development",
+          "method": "model-input-v1",
+          "role": "post-score development on the SAME image",
+          "score_file": "cli_api_001_model_development/score.json",
+          "recovered_output_sha256": "90e0e04b36e98fb4c17b217bf4784ed260f129d3810cd5457165838469cca09a",
+          "candidate_count": 1,
+          "scored_field_set": [
+            "thread",
+            "turn",
+            "prompt",
+            "response",
+            "assistant_item"
+          ],
+          "exact_candidate_scores": [
+            {
+              "exact_field_matches": {
+                "thread_id": true,
+                "turn_id": true,
+                "prompt": true,
+                "response": true,
+                "agent_message_id": true
+              },
+              "all_five_match": true,
+              "agent_id_independently_bound": true,
+              "api_user_item_id_recovered": false,
+              "model_input_id_equals_observed_api_user_item_id": false,
+              "model_input_id_independently_ground_truth_scored": false
+            }
+          ],
+          "source_records": 2,
+          "source_occurrences_crosschecked": 2,
+          "all_record_bytes_and_translations_match": true,
+          "response_to_acquisition_seconds": 2.16375
+        }
+      ]
+    },
+    {
+      "key": "museum",
+      "trial_id": "cli-api-heldout-002b-active",
+      "post_score_partial_evidence": {
+        "fields_linked": [
+          "turn",
+          "prompt",
+          "response"
+        ],
+        "thread_binding_recovered": false,
+        "assistant_id_independently_bound": false,
+        "source_record_sha256": [
+          "97ac5e6f94b8ab37c2c325036fe56c0cb005d8ca4a5ae0a1fc14e898665d5493",
+          "ef047e6411c2d8e2da3b62988476d9d1490d246389f1e0881a0abdb03efa582d"
+        ],
+        "scope": "Manual cross-representation comparison AFTER scoring; neither frozen zero result changes"
+      },
+      "acquisition_start_utc": "2026-09-29T05:19:23.1894378+00:00",
+      "acquisition_end_utc": "2026-09-29T05:19:52.6600930+00:00",
+      "acquisition_seconds": 29.4706552,
+      "acquisition_exit_code": 0,
+      "raw_logical_bytes": 7147094016,
+      "raw_sha256": "abb1837710b3ac735f5cdb714a34d0b6553cf10027935938f4c1d9b86a722b6e",
+      "archive_bytes": 2938200095,
+      "archive_sha256": "9bed6c6e71af29195da31919c20272466b792039e31dcc500b8f20b4eb1da666",
+      "full_copy_and_decompression_verified": true,
+      "full_image_disposition": "Raw image AND verified archive retained privately outside OneDrive; not published",
+      "evaluations": [
+        {
+          "bundle": "cli_api_heldout_002_core",
+          "method": "core-v1",
+          "role": "fresh frozen-method test",
+          "score_file": "cli_api_heldout_002_core/score.json",
+          "recovered_output_sha256": "5fffa80f82d771a67139edbe2fbc13a8d5fa85ec0fb7d39935d53fdbec444988",
+          "candidate_count": 0,
+          "scored_field_set": [
+            "thread",
+            "turn",
+            "api_user_item",
+            "prompt",
+            "response"
+          ],
+          "exact_candidate_scores": [],
+          "source_records": 2,
+          "source_occurrences_crosschecked": 3,
+          "all_record_bytes_and_translations_match": true,
+          "response_to_acquisition_seconds": 2.681982
+        },
+        {
+          "bundle": "cli_api_heldout_002_model",
+          "method": "model-input-v1",
+          "role": "fresh frozen-method test",
+          "score_file": "cli_api_heldout_002_model/score.json",
+          "recovered_output_sha256": "ca61798ec42a90ccc027a484e87640ef328b52da5b6a7c0dd653aed74add0b20",
+          "candidate_count": 0,
+          "scored_field_set": [
+            "thread",
+            "turn",
+            "prompt",
+            "response",
+            "assistant_item"
+          ],
+          "exact_candidate_scores": [],
+          "source_records": 1,
+          "source_occurrences_crosschecked": 1,
+          "all_record_bytes_and_translations_match": true,
+          "response_to_acquisition_seconds": 2.681982
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Core-v1 failed both fresh tests; model-input-v1 failed its one fresh test",
+    "The observatory model result is development on the failed core image, not a held-out success",
+    "No model-input message ID is equated with an API user-item ID",
+    "Model-input create_time is not a human submission timestamp",
+    "No causal acquisition-delay conclusion, recovery-rate estimate, or exclusive page ownership claim",
+    "Public source-byte fixtures replay framing/joining on artificial maps, not whole-image extraction",
+    "Listener preflights are not captures; ordinary Chrome/Edge/app/TUI matrix remains unexecuted"
+  ]
+}

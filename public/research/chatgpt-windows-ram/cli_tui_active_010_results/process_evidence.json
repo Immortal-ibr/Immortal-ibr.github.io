@@ -1,0 +1,25 @@
+{
+  "trial_id": "cli_tui_active_010",
+  "source": "image-derived Volatility 3 windows.pslist and windows.cmdline",
+  "processes": [
+    {
+      "pid": 3916,
+      "ppid": 12820,
+      "image_file_name": "codex.exe",
+      "create_time": "2026-09-17T03:01:01Z",
+      "exit_time": null,
+      "trial_path_in_command_line": true,
+      "role": "native Codex CLI"
+    },
+    {
+      "pid": 12820,
+      "ppid": 9104,
+      "image_file_name": "node.exe",
+      "create_time": "2026-09-17T03:01:01Z",
+      "exit_time": null,
+      "trial_path_in_command_line": true,
+      "role": "Node launcher"
+    }
+  ],
+  "cli_tui_running_after_analysis": true
+}

@@ -1,0 +1,53 @@
+{
+  "trial_id": "cli-requestcore-fresh-004",
+  "experimental_role": "prospective fresh single-turn check after the request/core parser was hash-frozen",
+  "frozen_method": "FROZEN_CLI_REQUEST_CORE_V1.json",
+  "method_frozen_at_utc": "2026-10-01T01:51:00Z",
+  "host_observed_turn_completed_at_utc": "2026-10-01T08:07:44.339245Z",
+  "capture_started_at_utc": "2026-10-01T08:08:21.0454815Z",
+  "capture_ended_at_utc": "2026-10-01T08:09:39.2788455Z",
+  "seconds_from_completion_to_capture_start": 36.7062365,
+  "acquisition": {
+    "method": "WinPmem direct gzip stream",
+    "archive_bytes": 3313942269,
+    "archive_sha256": "5A7512015E13DBA0BD44ECE43FDE8D0B1297B9AC4E00083B02DD5D6CD4724DD3",
+    "raw_logical_bytes": 7147094016,
+    "raw_sha256": "48917B19097EAB465B761E3FD6D27B495A047E050E4D5DAC8EDEF6FD21FAC0BD",
+    "host_copy_matches_guest_archive_sha256": true,
+    "gzip_read_to_eof_and_raw_sha256_verified": true,
+    "independent_guest_raw_sha256_available": false
+  },
+  "selection": {
+    "source": "Volatility windows.pslist and windows.cmdline on this image; selected before scoring",
+    "native_pid": 5968,
+    "native_command": "codex.exe app-server --listen stdio://",
+    "relay_pid": 5708,
+    "relay_command_role": "PowerShell stdio relay",
+    "native_user_space_memmap_rows": 21402,
+    "native_kernel_rows_excluded": 78764
+  },
+  "blind_parser_result": {
+    "native_unique_complete_records": 2,
+    "native_record_types": ["response.create", "task_complete"],
+    "native_record_occurrences": 2,
+    "request_input_roles_and_tags": {
+      "developer": 3,
+      "user_with_environment_context_tag": 1,
+      "user_with_user_text_tag": 1
+    },
+    "native_candidate_turns": 1,
+    "relay_unique_complete_records": 0,
+    "relay_candidate_turns": 0,
+    "recovered_output_sha256_sealed_before_host_scoring": "2CFD772BFA9FD51D39DF7BB5A543EE9A71D50DDD49087EDDB577B5E3D22C1986"
+  },
+  "independent_checks": {
+    "host_observation_exact_matches": ["thread ID", "turn ID", "prompt", "response"],
+    "host_observation_field_score": "4/4",
+    "memprocfs_accepted_record_bytes_and_translations": "2/2",
+    "model_input_message_id_independently_scored": false,
+    "assistant_message_id_independently_bound": false
+  },
+  "interpretation": "The unchanged request/core grammar recovered one linked turn from a new capture made after its freeze. This is a same-VM, same-client-build prospective check, not an independent cross-platform validation. The relay supplied no complete candidate.",
+  "raw_ram_and_unfiltered_request_public": false,
+  "account_identity_claimed": false
+}
